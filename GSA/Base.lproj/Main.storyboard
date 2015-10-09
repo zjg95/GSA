@@ -40,7 +40,7 @@
             </objects>
             <point key="canvasLocation" x="1004.5" y="-331.5"/>
         </scene>
-        <!--Employee Table View Controller-->
+        <!--Employees-->
         <scene sceneID="fpV-Dv-F4D">
             <objects>
                 <tableViewController id="A2Y-2x-EdN" customClass="EmployeeTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,7 +75,7 @@
                             <outlet property="delegate" destination="A2Y-2x-EdN" id="Jmb-VI-XBr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Yyo-1Y-kmd">
+                    <navigationItem key="navigationItem" title="Employees" id="Yyo-1Y-kmd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nZ9-0E-GFJ">
                             <connections>
                                 <segue destination="7Oj-by-o8H" kind="presentation" identifier="newEmployeeSegue" id="ktp-R4-jli"/>
@@ -168,7 +168,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="dYR-Fp-Fcf" userLabel="Navigation Item">
+                    <navigationItem key="navigationItem" title="Employee Details" id="dYR-Fp-Fcf" userLabel="Navigation Item">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WDF-qb-rKp"/>
                     </navigationItem>
                     <connections>
