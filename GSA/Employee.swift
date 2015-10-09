@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 // --------
 // Employee
@@ -18,20 +19,48 @@ class Employee {
     // data members
     // ------------
     
-    var firstName: String = ""
-    var lastName: String = ""
+    private var _firstName: String = ""
+    private var _lastName: String = ""
+    
+    // ---------
+    // accessors
+    // ---------
+    
+    var firstName : String {
+        get {
+            return _firstName
+        }
+        set (newName) {
+            _firstName = newName
+        }
+    }
+    
+    var lastName : String {
+        get {
+            return _lastName
+        }
+        set (newName) {
+            _lastName = newName
+        }
+    }
+    
+    var fullName : String {
+        get {
+            return _firstName + " " + _lastName
+        }
+    }
     
     // -----------
     // constructor
     // -----------
     
     init (firstName: String) {
-        self.firstName = firstName
+        _firstName = firstName
     }
     
     convenience init (firstName: String, lastName: String) {
         self.init(firstName: firstName)
-        self.lastName = lastName
+        _lastName = lastName
     }
     
 }

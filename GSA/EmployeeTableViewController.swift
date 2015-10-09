@@ -11,8 +11,8 @@ import UIKit
 class EmployeeTableViewController: UITableViewController {
     
     var employeeList : [Employee] = [
-        Employee(firstName: "Juan"),
-        Employee(firstName: "Gus", lastName : "Ortiz")
+        Employee(firstName: "Juan", lastName: "Rivas"),
+        Employee(firstName: "Gus", lastName: "Ortiz")
     ]
 
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class EmployeeTableViewController: UITableViewController {
 
         // Configure the cell...
         let e = employeeList[indexPath.item]
-        cell.textLabel?.text = e.firstName + " " + e.lastName
+        cell.textLabel?.text = e.fullName
 
         return cell
     }

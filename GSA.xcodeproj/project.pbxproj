@@ -506,6 +506,7 @@
 				8E9339191BC78BD400BDA5A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E93391A1BC78BD400BDA5A7 /* Build configuration list for PBXNativeTarget "GSATests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +515,7 @@
 				8E93391C1BC78BD400BDA5A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E93391D1BC78BD400BDA5A7 /* Build configuration list for PBXNativeTarget "GSAUITests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +524,7 @@
 				8E93391F1BC78BD400BDA5A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
