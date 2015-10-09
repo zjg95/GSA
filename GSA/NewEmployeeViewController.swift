@@ -34,6 +34,12 @@ class NewEmployeeViewController: UIViewController {
     // methods
     // -------
     
+    func extractContent() {
+        let firstName: String = firstNameField.text!
+        let lastName: String = lastNameField.text!
+        employee = Employee(firstName: firstName, lastName: lastName)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,9 +58,7 @@ class NewEmployeeViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if doneButton == (sender as? UIBarButtonItem) {
-            let firstName: String = firstNameField.text!
-            let lastName: String = lastNameField.text!
-            employee = Employee(firstName: firstName, lastName: lastName)
+            extractContent()
         }
     }
 
