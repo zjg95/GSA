@@ -60,7 +60,7 @@
                                             <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -112,13 +112,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGm-Ow-AJa">
                                 <rect key="frame" x="51" y="107" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZA-aH-fzT">
                                 <rect key="frame" x="42" y="176" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -162,14 +162,18 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;employee name&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Q5-T9-Tjl">
                                 <rect key="frame" x="20" y="104" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Employee Details" id="dYR-Fp-Fcf" userLabel="Navigation Item">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WDF-qb-rKp"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WDF-qb-rKp">
+                            <connections>
+                                <segue destination="gm3-SV-2no" kind="show" identifier="editEmployeeSegue" id="fEc-s2-n4p"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="0Q5-T9-Tjl" id="SrK-YF-7nb"/>
@@ -178,6 +182,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgA-ty-NZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2198.5" y="-318.5"/>
+        </scene>
+        <!--Edit Employee-->
+        <scene sceneID="N7c-ee-Lgm">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d9i-h7-buc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Esv-lp-BgP" userLabel="Exit" sceneMemberID="exit"/>
+                <viewController id="gm3-SV-2no" customClass="EditEmployeeViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xmL-LC-9HU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ho5-0g-nog"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tow-MY-pr3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICr-GX-0LN" userLabel="First Name Field">
+                                <rect key="frame" x="132" y="113" width="223" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H9j-PX-OFR" userLabel="Last Name Field">
+                                <rect key="frame" x="132" y="182" width="223" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBG-hh-P0t">
+                                <rect key="frame" x="51" y="116" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQD-xU-UrM">
+                                <rect key="frame" x="42" y="185" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bff-vc-xpS">
+                                <rect key="frame" x="118" y="304" width="139" height="30"/>
+                                <state key="normal" title="Delete Employee">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButton:" destination="gm3-SV-2no" eventType="touchUpInside" id="KYN-55-g2W"/>
+                                    <segue destination="Esv-lp-BgP" kind="unwind" unwindAction="deleteEmployeeFromTable:" id="Lhm-Bg-NuS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Edit Employee" id="DQD-l3-zku">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2AF-qr-y76">
+                            <connections>
+                                <segue destination="Esv-lp-BgP" kind="unwind" unwindAction="unwindToEmployeeDetails:" id="ONX-Em-UaA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="2AF-qr-y76" id="vfj-98-XFU"/>
+                        <outlet property="firstNameField" destination="ICr-GX-0LN" id="ArI-K0-DgF"/>
+                        <outlet property="lastNameField" destination="H9j-PX-OFR" id="rxA-4f-HAC"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2723.5" y="-318.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZuU-aP-KOs">

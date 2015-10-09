@@ -10,10 +10,17 @@ import UIKit
 
 class EmployeeTableViewController: UITableViewController {
     
-    var employeeList : [Employee] = [
-        Employee(firstName: "Juan", lastName: "Rivas"),
+    // ------------
+    // data members
+    // ------------
+    
+    var employeeList: [Employee] = [
         Employee(firstName: "Gus", lastName: "Ortiz")
     ]
+    
+    // -------
+    // methods
+    // -------
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,8 +102,9 @@ class EmployeeTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier == "employeeDetailsSegue") {
             if let destination = segue.destinationViewController as? EmployeeDetailsViewController {
-                let index : Int = self.tableView!.indexPathForSelectedRow!.row
-                destination.employee = self.employeeList[index]
+                let index = self.tableView!.indexPathForSelectedRow
+                destination.employee = self.employeeList[index!.row]
+                destination.index = index
             }
         }
     }
@@ -106,6 +114,13 @@ class EmployeeTableViewController: UITableViewController {
             let newIndexPath = NSIndexPath(forRow: employeeList.count, inSection: 0)
             employeeList.append(employee)
             tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
+    }
+    
+    @IBAction func deleteEmployeeFromTable(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditEmployeeViewController, index = sourceViewController.index {
+            employeeList.removeAtIndex(index.row)
+            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
         }
     }
 

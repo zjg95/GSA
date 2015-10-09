@@ -19,6 +19,7 @@
 		8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339261BC7A45D00BDA5A7 /* Employee.swift */; settings = {ASSET_TAGS = (); }; };
+		8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEmployeeViewController.swift; sourceTree = "<group>"; };
 		8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
 		8E9339261BC7A45D00BDA5A7 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEmployeeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
 				8E9338F11BC78BD400BDA5A7 /* ViewController.swift */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
+				8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */,
 				8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */,
 				8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */,
 				8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */,
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */,
 				8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */,
 				8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */,
 				8E9339211BC78EAB00BDA5A7 /* EmployeeTableViewController.swift in Sources */,

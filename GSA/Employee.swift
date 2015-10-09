@@ -25,7 +25,7 @@ class Employee {
     // accessors
     // ---------
     
-    var firstName : String {
+    var firstName: String {
         get {
             return _firstName
         }
@@ -34,7 +34,7 @@ class Employee {
         }
     }
     
-    var lastName : String {
+    var lastName: String {
         get {
             return _lastName
         }
@@ -43,7 +43,7 @@ class Employee {
         }
     }
     
-    var fullName : String {
+    var fullName: String {
         get {
             return _firstName + " " + _lastName
         }
@@ -53,11 +53,11 @@ class Employee {
     // constructor
     // -----------
     
-    init (firstName: String) {
+    init(firstName: String) {
         _firstName = firstName
     }
     
-    convenience init (firstName: String, lastName: String) {
+    convenience init(firstName: String, lastName: String) {
         self.init(firstName: firstName)
         _lastName = lastName
     }

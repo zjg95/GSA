@@ -10,15 +10,32 @@ import UIKit
 
 class EmployeeDetailsViewController: UIViewController {
     
-    var employee : Employee!
+    // ------------
+    // data members
+    // ------------
+    
+    var employee: Employee!
+    var index: NSIndexPath!
+    
+    // -----------------
+    // reference outlets
+    // -----------------
 
     @IBOutlet weak var nameLabel: UILabel!
+    
+    // -------
+    // methods
+    // -------
+    
+    func populateData() {
+        nameLabel.text = employee.fullName
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        nameLabel.text = employee.fullName
+        populateData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,14 +44,24 @@ class EmployeeDetailsViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "editEmployeeSegue") {
+            if let destination = segue.destinationViewController as? EditEmployeeViewController {
+                destination.employee = employee
+                destination.index = index
+            }
+        }
     }
-    */
+    
+    @IBAction func unwindToEmployeeDetails(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditEmployeeViewController {
+            populateData()
+        }
+    }
 
 }
