@@ -16,7 +16,7 @@
 		8E9339081BC78BD400BDA5A7 /* GSATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339071BC78BD400BDA5A7 /* GSATests.swift */; };
 		8E9339131BC78BD400BDA5A7 /* GSAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339121BC78BD400BDA5A7 /* GSAUITests.swift */; };
 		8E9339211BC78EAB00BDA5A7 /* EmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8E9339231BC79AF300BDA5A7 /* EditEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339221BC79AF300BDA5A7 /* EditEmployeeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339261BC7A45D00BDA5A7 /* Employee.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -54,7 +54,7 @@
 		8E9339121BC78BD400BDA5A7 /* GSAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSAUITests.swift; sourceTree = "<group>"; };
 		8E9339141BC78BD400BDA5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewController.swift; sourceTree = "<group>"; };
-		8E9339221BC79AF300BDA5A7 /* EditEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEmployeeViewController.swift; sourceTree = "<group>"; };
+		8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEmployeeViewController.swift; sourceTree = "<group>"; };
 		8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
 		8E9339261BC7A45D00BDA5A7 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,7 +111,7 @@
 				8E9338F11BC78BD400BDA5A7 /* ViewController.swift */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
 				8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */,
-				8E9339221BC79AF300BDA5A7 /* EditEmployeeViewController.swift */,
+				8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */,
 				8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */,
 				8E9339261BC7A45D00BDA5A7 /* Employee.swift */,
 				8E9338F91BC78BD400BDA5A7 /* Assets.xcassets */,
@@ -274,7 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */,
-				8E9339231BC79AF300BDA5A7 /* EditEmployeeViewController.swift in Sources */,
+				8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */,
 				8E9339211BC78EAB00BDA5A7 /* EmployeeTableViewController.swift in Sources */,
 				8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */,
 				8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */,

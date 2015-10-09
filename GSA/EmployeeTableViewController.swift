@@ -102,7 +102,7 @@ class EmployeeTableViewController: UITableViewController {
     }
     
     @IBAction func unwindToEmployeeList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditEmployeeViewController, employee = sourceViewController.employee {
+        if let sourceViewController = sender.sourceViewController as? NewEmployeeViewController, employee = sourceViewController.employee {
             let newIndexPath = NSIndexPath(forRow: employeeList.count, inSection: 0)
             employeeList.append(employee)
             tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)

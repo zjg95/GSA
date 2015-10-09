@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="1635" y="-318"/>
         </scene>
-        <!--Title-->
+        <!--New Employee-->
         <scene sceneID="oZA-sN-M4T">
             <objects>
-                <viewController id="2M6-rL-mMN" customClass="EditEmployeeViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2M6-rL-mMN" customClass="NewEmployeeViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dmc-f1-J71"/>
                         <viewControllerLayoutGuide type="bottom" id="ail-L0-5T1"/>
@@ -98,10 +98,38 @@
                     <view key="view" contentMode="scaleToFill" id="QtU-yk-5xY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3J-Zg-txb">
+                                <rect key="frame" x="132" y="104" width="223" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iOy-jQ-Rbq">
+                                <rect key="frame" x="132" y="173" width="223" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGm-Ow-AJa">
+                                <rect key="frame" x="51" y="107" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZA-aH-fzT">
+                                <rect key="frame" x="42" y="176" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="c9w-3T-CWi" userLabel="Navigation Item">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="L7x-Xj-p51"/>
+                    <navigationItem key="navigationItem" title="New Employee" id="c9w-3T-CWi" userLabel="Navigation Item">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="L7x-Xj-p51">
+                            <connections>
+                                <action selector="cancelButton:" destination="2M6-rL-mMN" id="B4H-bJ-9ms"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="pkf-Z4-l7F">
                             <connections>
                                 <segue destination="lfV-Yk-1Na" kind="unwind" unwindAction="unwindToEmployeeList:" id="ofe-hC-gt6"/>
@@ -109,8 +137,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="L7x-Xj-p51" id="J2w-Ju-huh"/>
                         <outlet property="doneButton" destination="pkf-Z4-l7F" id="PjG-Nq-WjS"/>
+                        <outlet property="firstNameField" destination="i3J-Zg-txb" id="svI-EW-W1H"/>
+                        <outlet property="lastNameField" destination="iOy-jQ-Rbq" id="feD-LR-Ked"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8K-NN-aA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
