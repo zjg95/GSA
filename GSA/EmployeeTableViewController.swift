@@ -58,6 +58,11 @@ class EmployeeTableViewController: UITableViewController {
 
         return cell
     }
+    
+    func editCell(employee: Employee, index: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(index)
+        cell?.textLabel?.text = employee.fullName
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -105,6 +110,7 @@ class EmployeeTableViewController: UITableViewController {
                 let index = self.tableView!.indexPathForSelectedRow
                 destination.employee = self.employeeList[index!.row]
                 destination.index = index
+                destination.delegate = self
             }
         }
     }

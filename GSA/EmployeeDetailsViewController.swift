@@ -16,6 +16,7 @@ class EmployeeDetailsViewController: UIViewController {
     
     var employee: Employee!
     var index: NSIndexPath!
+    var delegate: EmployeeTableViewController!
     
     // -----------------
     // reference outlets
@@ -61,6 +62,7 @@ class EmployeeDetailsViewController: UIViewController {
     @IBAction func unwindToEmployeeDetails(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EditEmployeeViewController {
             populateData()
+            delegate.editCell(employee, index: index)
         }
     }
 
