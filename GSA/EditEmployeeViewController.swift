@@ -104,7 +104,6 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
         checkNameEdit()
-        navigationItem.title = textField.text
     }
     
     // This method is called when the user touches the Return key on the
