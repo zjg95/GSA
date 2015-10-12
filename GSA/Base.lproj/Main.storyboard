@@ -224,7 +224,6 @@
                                 </state>
                                 <connections>
                                     <action selector="deleteButton:" destination="gm3-SV-2no" eventType="touchUpInside" id="KYN-55-g2W"/>
-                                    <segue destination="Esv-lp-BgP" kind="unwind" unwindAction="deleteEmployeeFromTable:" id="Lhm-Bg-NuS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -242,6 +241,7 @@
                         <outlet property="doneButton" destination="2AF-qr-y76" id="vfj-98-XFU"/>
                         <outlet property="firstNameField" destination="ICr-GX-0LN" id="ArI-K0-DgF"/>
                         <outlet property="lastNameField" destination="H9j-PX-OFR" id="rxA-4f-HAC"/>
+                        <segue destination="Esv-lp-BgP" kind="unwind" identifier="deleteEmployeeFromTableSegue" unwindAction="deleteEmployeeFromTable:" id="gq5-hh-4Dp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9i-h7-buc" userLabel="First Responder" sceneMemberID="firstResponder"/>

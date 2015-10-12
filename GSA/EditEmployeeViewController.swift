@@ -16,6 +16,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
     
     var employee: Employee!
     var index: NSIndexPath!
+    var alertController:UIAlertController? = nil
     
     // -----------------
     // reference outlets
@@ -28,6 +29,19 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lastNameField: UITextField!
     
     @IBAction func deleteButton(sender: AnyObject) {
+        self.alertController = UIAlertController(title: "Confirm Delete", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
+        })
+        let delete = UIAlertAction (title: "Delete", style: .Destructive ) { alertAction in
+            
+            self.performSegueWithIdentifier("deleteEmployeeFromTableSegue", sender: self)
+        }
+        
+        self.alertController!.addAction(cancel)
+        self.alertController!.addAction(delete)
+        
+        presentViewController(self.alertController!, animated: true, completion: nil)
     }
     
     // -------
@@ -106,6 +120,4 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return true
     }
-
-
 }
