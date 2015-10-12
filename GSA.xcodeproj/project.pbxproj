@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		495814041BCC3ED1001E1862 /* ShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		495814081BCC4316001E1862 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814071BCC4316001E1862 /* Shift.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9338F01BC78BD400BDA5A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */; };
 		8E9338F21BC78BD400BDA5A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9338F11BC78BD400BDA5A7 /* ViewController.swift */; };
 		8E9338F51BC78BD400BDA5A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E9338F31BC78BD400BDA5A7 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewController.swift; sourceTree = "<group>"; };
+		495814071BCC4316001E1862 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shift.swift; path = ../Shift.swift; sourceTree = "<group>"; };
 		8E9338EC1BC78BD400BDA5A7 /* GSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E9338F11BC78BD400BDA5A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,11 +116,13 @@
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
 				8E9338F11BC78BD400BDA5A7 /* ViewController.swift */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
+				495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */,
 				8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */,
 				8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */,
 				8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */,
 				8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */,
 				8E9339261BC7A45D00BDA5A7 /* Employee.swift */,
+				495814071BCC4316001E1862 /* Shift.swift */,
 				8E9338F91BC78BD400BDA5A7 /* Assets.xcassets */,
 				8E9338FB1BC78BD400BDA5A7 /* LaunchScreen.storyboard */,
 				8E9338FE1BC78BD400BDA5A7 /* Info.plist */,
@@ -276,9 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495814041BCC3ED1001E1862 /* ShiftTableViewController.swift in Sources */,
 				8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */,
 				8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */,
 				8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */,
+				495814081BCC4316001E1862 /* Shift.swift in Sources */,
 				8E9339211BC78EAB00BDA5A7 /* EmployeeTableViewController.swift in Sources */,
 				8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */,
 				8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */,
