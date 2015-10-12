@@ -53,11 +53,11 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4bq-8j-QYD" id="wSF-tB-TVR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OfY-si-wIG">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -186,8 +186,6 @@
         <!--Edit Employee-->
         <scene sceneID="N7c-ee-Lgm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d9i-h7-buc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Esv-lp-BgP" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController id="gm3-SV-2no" customClass="EditEmployeeViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xmL-LC-9HU"/>
@@ -246,6 +244,8 @@
                         <outlet property="lastNameField" destination="H9j-PX-OFR" id="rxA-4f-HAC"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d9i-h7-buc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Esv-lp-BgP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2723.5" y="-318.5"/>
         </scene>
