@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		495814041BCC3ED1001E1862 /* ShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		495814081BCC4316001E1862 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814071BCC4316001E1862 /* Shift.swift */; settings = {ASSET_TAGS = (); }; };
+		8E595B0E1BCC67B200F4AB86 /* ShiftDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E595B0D1BCC67B200F4AB86 /* ShiftDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9338F01BC78BD400BDA5A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */; };
 		8E9338F21BC78BD400BDA5A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9338F11BC78BD400BDA5A7 /* ViewController.swift */; };
 		8E9338F51BC78BD400BDA5A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E9338F31BC78BD400BDA5A7 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewController.swift; sourceTree = "<group>"; };
 		495814071BCC4316001E1862 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shift.swift; path = ../Shift.swift; sourceTree = "<group>"; };
+		8E595B0D1BCC67B200F4AB86 /* ShiftDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDetailsViewController.swift; sourceTree = "<group>"; };
 		8E9338EC1BC78BD400BDA5A7 /* GSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E9338F11BC78BD400BDA5A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
 				8E9338F11BC78BD400BDA5A7 /* ViewController.swift */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
+				8E595B0D1BCC67B200F4AB86 /* ShiftDetailsViewController.swift */,
 				495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */,
 				8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */,
 				8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */,
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E595B0E1BCC67B200F4AB86 /* ShiftDetailsViewController.swift in Sources */,
 				495814041BCC3ED1001E1862 /* ShiftTableViewController.swift in Sources */,
 				8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */,
 				8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */,

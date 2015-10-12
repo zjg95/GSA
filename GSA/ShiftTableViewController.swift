@@ -9,9 +9,11 @@
 import UIKit
 
 class ShiftTableViewController: UITableViewController {
+    
     // ------------
     // data members
     // ------------
+    
     var sectionDay: [String] = [
         "Sunday",
         "Monday",
@@ -67,5 +69,21 @@ class ShiftTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionDay[section]
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if (segue.identifier == "shiftDetailsSegue") {
+            if let destination = segue.destinationViewController as? ShiftDetailsViewController {
+                let index = self.tableView!.indexPathForSelectedRow
+                destination.shift = self.shiftCells[index!.section][index!.row]
+//                destination.index = index
+//                destination.delegate = self
+            }
+        }
     }
 }
