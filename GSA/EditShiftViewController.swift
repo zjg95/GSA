@@ -12,6 +12,9 @@ class EditShiftViewController: UIViewController {
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBAction func deleteShiftButton(sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
