@@ -9,11 +9,40 @@
 import UIKit
 
 class EditShiftViewController: UIViewController {
+    
+    // ------------
+    // data members
+    // ------------
+    
+    var index: NSIndexPath!
+    var shift: Shift!
+    var alertController:UIAlertController?
+    
+    // -----------------
+    // reference outlets
+    // -----------------
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBAction func deleteShiftButton(sender: AnyObject) {
+        self.alertController = UIAlertController(title: "Confirm Delete", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
+        })
+        let delete = UIAlertAction (title: "Delete", style: .Destructive ) { alertAction in
+            
+            self.performSegueWithIdentifier("deleteShiftFromTableSegue", sender: self)
+        }
+        
+        self.alertController!.addAction(cancel)
+        self.alertController!.addAction(delete)
+        
+        presentViewController(self.alertController!, animated: true, completion: nil)
     }
+    
+    // -------
+    // methods
+    // -------
     
     override func viewDidLoad() {
         super.viewDidLoad()

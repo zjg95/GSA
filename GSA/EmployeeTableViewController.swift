@@ -15,7 +15,7 @@ class EmployeeTableViewController: UITableViewController {
     // ------------
     
     var employeeList: [Employee] = [
-        Employee(firstName: "Gus", lastName: "Ortiz")
+        Employee(firstName: "Jon", lastName: "Snow")
     ]
     
     // -------
@@ -119,7 +119,7 @@ class EmployeeTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func unwindToEmployeeList(sender: UIStoryboardSegue) {
+    @IBAction func addEmployeeToTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? NewEmployeeViewController, employee = sourceViewController.employee {
             let newIndexPath = NSIndexPath(forRow: employeeList.count, inSection: 0)
             employeeList.append(employee)

@@ -28,7 +28,7 @@ class EmployeeDetailsViewController: UIViewController {
     // methods
     // -------
     
-    func populateData() {
+    func populateContent() {
         nameLabel.text = employee.fullName
     }
     
@@ -36,7 +36,7 @@ class EmployeeDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        populateData()
+        populateContent()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,9 +59,9 @@ class EmployeeDetailsViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToEmployeeDetails(sender: UIStoryboardSegue) {
+    @IBAction func updateEmployeeDetails(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EditEmployeeViewController {
-            populateData()
+            populateContent()
             delegate.editCell(employee, index: index)
         }
     }

@@ -25,10 +25,16 @@ class ShiftTableViewController: UITableViewController {
     ]
     
     var shiftCells: [[Shift]] = [
-        [Shift(timeStart: 8, timeEnd: 9, day: 1)],
-        [Shift(timeStart: 10, timeEnd: 11, day: 2),
-         Shift(timeStart: 11, timeEnd: 12, day: 2)],
-        [Shift(timeStart: 8, timeEnd: 10, day: 3)]
+        [
+            Shift(timeStart: 9, timeEnd: 17, day: 1)
+        ],
+        [
+            Shift(timeStart: 7, timeEnd: 11, day: 2),
+            Shift(timeStart: 9, timeEnd: 12, day: 2)
+        ],
+        [
+            Shift(timeStart: 7, timeEnd: 11, day: 3)
+        ]
     ]
     
     // -------
@@ -73,6 +79,11 @@ class ShiftTableViewController: UITableViewController {
         return sectionDay[section]
     }
     
+    func editCell(shift: Shift, index: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(index)
+        cell?.textLabel?.text = shift.timeAMPM
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -83,18 +94,25 @@ class ShiftTableViewController: UITableViewController {
             if let destination = segue.destinationViewController as? ShiftDetailsViewController {
                 let index = self.tableView!.indexPathForSelectedRow
                 destination.shift = self.shiftCells[index!.section][index!.row]
-//                destination.index = index
-//                destination.delegate = self
+                destination.index = index
+                destination.delegate = self
             }
         }
     }
     
-    @IBAction func addShiftToList(sender: UIStoryboardSegue) {
+    @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
             print("new shift added")
-//            let newIndexPath = NSIndexPath(forRow: employeeList.count, inSection: 0)
-//            employeeList.append(employee)
-//            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            // add shift to data array
+            // add shift to table
+        }
+    }
+    
+    @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditShiftViewController, index = sourceViewController.index {
+            print("shift deleted")
+            // delete shift from data array
+            // delete shift from table
         }
     }
 }

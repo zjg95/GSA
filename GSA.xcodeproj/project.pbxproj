@@ -96,6 +96,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E38A1881BCCCF2F00B4DE14 /* Shift */ = {
+			isa = PBXGroup;
+			children = (
+				8E7539151BCC8BF800EFE714 /* EditShiftViewController.swift */,
+				8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */,
+				8E595B0D1BCC67B200F4AB86 /* ShiftDetailsViewController.swift */,
+				495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */,
+				495814071BCC4316001E1862 /* Shift.swift */,
+			);
+			name = Shift;
+			sourceTree = "<group>";
+		};
+		8E38A1891BCCCF3C00B4DE14 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */,
+				8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */,
+				8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */,
+				8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */,
+				8E9339261BC7A45D00BDA5A7 /* Employee.swift */,
+			);
+			name = Employee;
+			sourceTree = "<group>";
+		};
 		8E9338E31BC78BD400BDA5A7 = {
 			isa = PBXGroup;
 			children = (
@@ -122,16 +146,8 @@
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
 				8E9338F11BC78BD400BDA5A7 /* ViewController.swift */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
-				8E7539151BCC8BF800EFE714 /* EditShiftViewController.swift */,
-				8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */,
-				8E595B0D1BCC67B200F4AB86 /* ShiftDetailsViewController.swift */,
-				495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */,
-				8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */,
-				8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */,
-				8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */,
-				8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */,
-				8E9339261BC7A45D00BDA5A7 /* Employee.swift */,
-				495814071BCC4316001E1862 /* Shift.swift */,
+				8E38A1881BCCCF2F00B4DE14 /* Shift */,
+				8E38A1891BCCCF3C00B4DE14 /* Employee */,
 				8E9338F91BC78BD400BDA5A7 /* Assets.xcassets */,
 				8E9338FB1BC78BD400BDA5A7 /* LaunchScreen.storyboard */,
 				8E9338FE1BC78BD400BDA5A7 /* Info.plist */,
