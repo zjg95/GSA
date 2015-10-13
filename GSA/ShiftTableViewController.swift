@@ -88,4 +88,13 @@ class ShiftTableViewController: UITableViewController {
             }
         }
     }
+    
+    @IBAction func addShiftToList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
+            print("new shift added")
+//            let newIndexPath = NSIndexPath(forRow: employeeList.count, inSection: 0)
+//            employeeList.append(employee)
+//            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
+    }
 }

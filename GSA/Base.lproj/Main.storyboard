@@ -198,13 +198,18 @@
                                 <action selector="cancelButton:" destination="6Qv-pd-jl1" id="yK6-tT-GNH"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="BJX-Fd-AN1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="BJX-Fd-AN1">
+                            <connections>
+                                <segue destination="rN7-wW-iC7" kind="unwind" unwindAction="addShiftToList:" id="Fn5-TM-3Dh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="saveButton" destination="BJX-Fd-AN1" id="Di9-e3-ShD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZ6-UX-hFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rN7-wW-iC7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2080.5" y="1322.5"/>
         </scene>
