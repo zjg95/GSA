@@ -113,6 +113,12 @@ class ShiftTableViewController: UITableViewController {
             print("shift deleted")
             // delete shift from data array
             // delete shift from table
+            shiftCells[index.section].removeAtIndex(index.row)
+            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
+            if tableView.numberOfRowsInSection(index.section) == 0 {
+                // delete empty section, the following line causes a crash
+                //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
+            }
         }
     }
 }
