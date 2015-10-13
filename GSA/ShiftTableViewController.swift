@@ -34,6 +34,14 @@ class ShiftTableViewController: UITableViewController {
         ],
         [
             Shift(timeStart: 7, timeEnd: 11, day: 3)
+        ],
+        [
+        ],
+        [
+        ],
+        [
+        ],
+        [
         ]
     ]
     
@@ -59,7 +67,7 @@ class ShiftTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return shiftCells.count
+        return 7
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,6 +113,9 @@ class ShiftTableViewController: UITableViewController {
             print("new shift added")
             // add shift to data array
             // add shift to table
+            let newIndexPath = NSIndexPath(forRow: shiftCells[shift.day - 1].count, inSection: shift.day - 1)
+            shiftCells[shift.day - 1].append(shift)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
         }
     }
     

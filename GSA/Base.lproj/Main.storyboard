@@ -169,7 +169,7 @@
                                 </date>
                             </datePicker>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RN3-so-p3O">
-                                <rect key="frame" x="0.0" y="134" width="375" height="69"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="146"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-KT-Ent">
                                 <rect key="frame" x="166" y="81" width="42" height="21"/>
@@ -205,7 +205,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dayPicker" destination="RN3-so-p3O" id="jzJ-Oq-hBz"/>
+                        <outlet property="endPicker" destination="m7p-FF-w26" id="dCO-EC-gqa"/>
                         <outlet property="saveButton" destination="BJX-Fd-AN1" id="Di9-e3-ShD"/>
+                        <outlet property="startPicker" destination="E1e-Rx-sEa" id="L4W-r7-wb7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZ6-UX-hFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -282,7 +285,7 @@
                                 </date>
                             </datePicker>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDq-hL-yBL">
-                                <rect key="frame" x="0.0" y="135" width="375" height="69"/>
+                                <rect key="frame" x="0.0" y="111" width="375" height="146"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHy-6s-iWp">
                                 <rect key="frame" x="166" y="82" width="42" height="21"/>
@@ -328,6 +331,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dayPicker" destination="KDq-hL-yBL" id="PlY-wl-TJo"/>
                         <outlet property="saveButton" destination="6Bg-bi-Nuz" id="o2g-x0-tFd"/>
                         <segue destination="cLg-a9-bTG" kind="unwind" identifier="deleteShiftFromTableSegue" unwindAction="deleteShiftFromTable:" id="SVG-Vj-LDE"/>
                     </connections>

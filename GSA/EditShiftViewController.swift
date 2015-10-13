@@ -8,20 +8,34 @@
 
 import UIKit
 
-class EditShiftViewController: UIViewController {
+class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // ------------
     // data members
     // ------------
     
     var index: NSIndexPath!
+    
     var shift: Shift!
-    var alertController:UIAlertController?
+    
+    var alertController: UIAlertController?
+    
+    let pickerData: [String] = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ]
     
     // -----------------
     // reference outlets
     // -----------------
 
+    @IBOutlet weak var dayPicker: UIPickerView!
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBAction func deleteShiftButton(sender: AnyObject) {
@@ -44,10 +58,23 @@ class EditShiftViewController: UIViewController {
     // methods
     // -------
     
+    func populateContent() {
+        dayPicker.selectRow(shift.day - 1, inComponent: 0, animated: false)
+    }
+    
+    func extractContent() {
+        shift.day = 1 + dayPicker.selectedRowInComponent(0)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        dayPicker.dataSource = self
+        dayPicker.delegate = self
+        
+        populateContent()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,15 +82,35 @@ class EditShiftViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: Data Sources
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    //MARK: Delegates
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //        myLabel.text = pickerData[row]
+    }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if saveButton == sender as? UIBarButtonItem {
+            extractContent()
+        }
     }
-    */
 
 }
