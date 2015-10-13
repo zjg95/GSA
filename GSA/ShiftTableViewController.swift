@@ -62,8 +62,10 @@ class ShiftTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let shift: Shift = shiftCells[indexPath.section][indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("shiftCell", forIndexPath: indexPath)
-        cell.textLabel!.text = String(shiftCells[indexPath.section][indexPath.row].timeAMPM)
+        cell.textLabel!.text = String(shift.timeAMPM)
+        cell.detailTextLabel?.text = String(shift.duration)
         return cell
     }
 

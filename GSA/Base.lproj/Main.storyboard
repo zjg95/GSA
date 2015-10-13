@@ -90,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="1602.5" y="-331.5"/>
         </scene>
-        <!--Shift Table View Controller-->
+        <!--Shifts-->
         <scene sceneID="yfa-T0-ssW">
             <objects>
                 <tableViewController id="YVS-ru-Pd7" customClass="ShiftTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,12 +99,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shiftCell" id="YBw-hA-3Cg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shiftCell" textLabel="QlU-3h-t73" detailTextLabel="fPf-O4-GY6" style="IBUITableViewCellStyleValue1" id="YBw-hA-3Cg">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" tableViewCell="YBw-hA-3Cg" id="V7H-bF-xrT">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QlU-3h-t73">
+                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fPf-O4-GY6">
+                                            <rect key="frame" x="318" y="12" width="42" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="Sce-5M-M8j" kind="show" identifier="shiftDetailsSegue" id="PTe-fp-9G3"/>
@@ -116,10 +132,81 @@
                             <outlet property="delegate" destination="YVS-ru-Pd7" id="qNl-6N-3yu"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Shifts" id="R0T-zw-mcY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AVV-g6-a7W">
+                            <connections>
+                                <segue destination="KYi-ya-gFn" kind="presentation" id="4K1-wy-Ov6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XwP-cL-7Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1602.5" y="480.5"/>
+        </scene>
+        <!--New Shift-->
+        <scene sceneID="nIl-P0-92m">
+            <objects>
+                <viewController title="New Shift" id="6Qv-pd-jl1" customClass="NewShiftViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jHm-Gd-ypP"/>
+                        <viewControllerLayoutGuide type="bottom" id="WIR-Xf-eBg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FcR-tn-Qhu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="E1e-Rx-sEa">
+                                <rect key="frame" x="0.0" y="293" width="375" height="92"/>
+                                <date key="date" timeIntervalSinceReferenceDate="466391000.52249599">
+                                    <!--2015-10-13 01:03:20 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="m7p-FF-w26">
+                                <rect key="frame" x="0.0" y="447" width="375" height="92"/>
+                                <date key="date" timeIntervalSinceReferenceDate="466391000.52249599">
+                                    <!--2015-10-13 01:03:20 +0000-->
+                                </date>
+                            </datePicker>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RN3-so-p3O">
+                                <rect key="frame" x="0.0" y="134" width="375" height="69"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-KT-Ent">
+                                <rect key="frame" x="166" y="81" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSU-mX-Hr5">
+                                <rect key="frame" x="153" y="264" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIM-5E-Lev">
+                                <rect key="frame" x="166" y="418" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Shift" id="dlx-fE-1HL">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Py5-uo-hop">
+                            <connections>
+                                <action selector="cancelButton:" destination="6Qv-pd-jl1" id="yK6-tT-GNH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="BJX-Fd-AN1"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="BJX-Fd-AN1" id="Di9-e3-ShD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZ6-UX-hFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2080.5" y="1322.5"/>
         </scene>
         <!--Shift Details-->
         <scene sceneID="3fv-Ug-SP7">
@@ -133,25 +220,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;shift&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w98-Wn-EA0">
-                                <rect key="frame" x="20" y="134" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;hours&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8An-3B-ssd">
                                 <rect key="frame" x="20" y="183" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;day&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quk-mb-8yM">
+                                <rect key="frame" x="20" y="97" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;shift&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w98-Wn-EA0">
+                                <rect key="frame" x="20" y="141" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Shift Details" id="Y02-jQ-M4f">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="4qM-cj-G6o"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="4qM-cj-G6o">
+                            <connections>
+                                <segue destination="Hps-kr-cUg" kind="show" id="E3v-fy-NRk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dayLabel" destination="quk-mb-8yM" id="0IZ-zb-fOX"/>
                         <outlet property="hoursLabel" destination="8An-3B-ssd" id="yfZ-9x-0dh"/>
                         <outlet property="shiftLabel" destination="w98-Wn-EA0" id="Dvq-lY-1xU"/>
                     </connections>
@@ -159,6 +257,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKF-ET-DKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2123.5" y="480.5"/>
+        </scene>
+        <!--Edit Shift-->
+        <scene sceneID="Cf2-3i-GgB">
+            <objects>
+                <viewController title="Edit Shift" id="Hps-kr-cUg" customClass="EditShiftViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PcA-O2-9q3"/>
+                        <viewControllerLayoutGuide type="bottom" id="dLB-i5-PAi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ChT-1o-mXz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wqw-TE-zVf">
+                                <rect key="frame" x="0.0" y="294" width="375" height="92"/>
+                                <date key="date" timeIntervalSinceReferenceDate="466391000.52249599">
+                                    <!--2015-10-13 01:03:20 +0000-->
+                                </date>
+                            </datePicker>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDq-hL-yBL">
+                                <rect key="frame" x="0.0" y="135" width="375" height="69"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHy-6s-iWp">
+                                <rect key="frame" x="166" y="82" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJs-QY-UJE">
+                                <rect key="frame" x="153" y="265" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auz-oz-SMg">
+                                <rect key="frame" x="166" y="419" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="Sb2-Fm-pR9">
+                                <rect key="frame" x="0.0" y="448" width="375" height="92"/>
+                                <date key="date" timeIntervalSinceReferenceDate="466391000.52249599">
+                                    <!--2015-10-13 01:03:20 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Shift" id="MEh-uz-TDD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6Bg-bi-Nuz"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="6Bg-bi-Nuz" id="o2g-x0-tFd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lG4-XR-DoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2665.5" y="480.5"/>
         </scene>
         <!--New Employee-->
         <scene sceneID="oZA-sN-M4T">
@@ -203,7 +360,7 @@
                                 <action selector="cancelButton:" destination="2M6-rL-mMN" id="B4H-bJ-9ms"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="pkf-Z4-l7F">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="pkf-Z4-l7F">
                             <connections>
                                 <segue destination="lfV-Yk-1Na" kind="unwind" unwindAction="unwindToEmployeeList:" id="ofe-hC-gt6"/>
                             </connections>
@@ -304,7 +461,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit Employee" id="DQD-l3-zku">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2AF-qr-y76">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2AF-qr-y76">
                             <connections>
                                 <segue destination="Esv-lp-BgP" kind="unwind" unwindAction="unwindToEmployeeDetails:" id="ONX-Em-UaA"/>
                             </connections>
@@ -358,6 +515,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fya-S8-pGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2184.5" y="-1154.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4BA-iG-xZJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KYi-ya-gFn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FP1-Xj-jkg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6Qv-pd-jl1" kind="relationship" relationship="rootViewController" id="KCj-2B-4aM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RyA-yt-QBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1602.5" y="1322.5"/>
         </scene>
     </scenes>
 </document>

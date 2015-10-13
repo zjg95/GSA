@@ -1,5 +1,5 @@
 //
-//  ShiftDetailsViewController.swift
+//  EditShiftViewController.swift
 //  GSA
 //
 //  Created by Zach Goodman on 10/12/15.
@@ -8,34 +8,14 @@
 
 import UIKit
 
-class ShiftDetailsViewController: UIViewController {
-    
-    // ------------
-    // data members
-    // ------------
-    
-    var shift: Shift!
-    
-    // -----------------
-    // reference outlets
-    // -----------------
-    
-    @IBOutlet weak var dayLabel: UILabel!
-    
-    @IBOutlet weak var shiftLabel: UILabel!
-    
-    @IBOutlet weak var hoursLabel: UILabel!
-    
-    // -------
-    // methods
-    // -------
+class EditShiftViewController: UIViewController {
+
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        populateContent()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,12 +23,7 @@ class ShiftDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func populateContent() {
-        dayLabel.text   = String(shift.day)
-        shiftLabel.text = shift.timeAMPM
-        hoursLabel.text = "Hours: " + String(shift.duration)
-    }
-    
+
     /*
     // MARK: - Navigation
 

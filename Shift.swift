@@ -74,6 +74,13 @@ class Shift {
             _day = day
         }
     }
+    
+    var duration: Int {
+        get {
+            return _timeEnd - _timeStart
+        }
+    }
+    
     // -----------
     // constructor
     // -----------
