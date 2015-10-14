@@ -55,7 +55,7 @@ class ShiftDetailsViewController: UIViewController {
     }
     
     func populateContent() {
-        dayLabel.text   = pickerData[shift.day - 1]
+        dayLabel.text   = pickerData[shift.day]
         shiftLabel.text = shift.timeAMPM
         hoursLabel.text = "Hours: " + String(shift.duration)
     }

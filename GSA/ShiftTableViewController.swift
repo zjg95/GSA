@@ -26,14 +26,14 @@ class ShiftTableViewController: UITableViewController {
     
     var shiftCells: [[Shift]] = [
         [
-            Shift(timeStart: 9, timeEnd: 17, day: 1)
+            Shift(timeStart: 9, timeEnd: 17, day: 0)
         ],
         [
-            Shift(timeStart: 7, timeEnd: 11, day: 2),
-            Shift(timeStart: 9, timeEnd: 12, day: 2)
+            Shift(timeStart: 7, timeEnd: 11, day: 1),
+            Shift(timeStart: 9, timeEnd: 12, day: 1)
         ],
         [
-            Shift(timeStart: 7, timeEnd: 11, day: 3)
+            Shift(timeStart: 7, timeEnd: 11, day: 2)
         ],
         [
         ],
@@ -88,8 +88,38 @@ class ShiftTableViewController: UITableViewController {
     }
     
     func editCell(shift: Shift, index: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(index)
-        cell?.textLabel?.text = shift.timeAMPM
+        let day = shift.day
+        if day != index.section {
+            // shift was moved to another day
+            deleteShift(index)
+            addShift(shift)
+        }
+        else {
+            // shift time has changed
+            let cell = tableView.cellForRowAtIndexPath(index)
+            cell?.textLabel?.text = shift.timeAMPM
+        }
+    }
+    
+    func addShift(shift: Shift) {
+        print("new shift added")
+        // add shift to data array
+        // add shift to table
+        let newIndexPath = NSIndexPath(forRow: shiftCells[shift.day].count, inSection: shift.day)
+        shiftCells[shift.day].append(shift)
+        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+    }
+    
+    func deleteShift(index: NSIndexPath) {
+        print("shift deleted")
+        // delete shift from data array
+        // delete shift from table
+        shiftCells[index.section].removeAtIndex(index.row)
+        tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
+        if tableView.numberOfRowsInSection(index.section) == 0 {
+            // delete empty section, the following line causes a crash
+            //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
+        }
     }
     
     // MARK: - Navigation
@@ -110,26 +140,13 @@ class ShiftTableViewController: UITableViewController {
     
     @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
-            print("new shift added")
-            // add shift to data array
-            // add shift to table
-            let newIndexPath = NSIndexPath(forRow: shiftCells[shift.day - 1].count, inSection: shift.day - 1)
-            shiftCells[shift.day - 1].append(shift)
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            addShift(shift)
         }
     }
     
     @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EditShiftViewController, index = sourceViewController.index {
-            print("shift deleted")
-            // delete shift from data array
-            // delete shift from table
-            shiftCells[index.section].removeAtIndex(index.row)
-            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
-            if tableView.numberOfRowsInSection(index.section) == 0 {
-                // delete empty section, the following line causes a crash
-                //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
-            }
+            deleteShift(index)
         }
     }
 }

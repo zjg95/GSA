@@ -61,7 +61,7 @@ class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPicke
     // -------
     
     func populateContent() {
-        dayPicker.selectRow(shift.day - 1, inComponent: 0, animated: false)
+        dayPicker.selectRow(shift.day, inComponent: 0, animated: false)
         
         // Sets Start Time for Picker
         var calendar:NSCalendar = NSCalendar.currentCalendar()
@@ -81,9 +81,8 @@ class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     func extractContent() {
-        shift.day = 1 + dayPicker.selectedRowInComponent(0)
-        
         // Get start time from date picker
+        shift.day = dayPicker.selectedRowInComponent(0)
         var calendar = NSCalendar.currentCalendar()
         var date = startPicker.date
         var components = calendar.components([.Hour], fromDate: date)
