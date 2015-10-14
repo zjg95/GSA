@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		495814041BCC3ED1001E1862 /* ShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		495814081BCC4316001E1862 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814071BCC4316001E1862 /* Shift.swift */; settings = {ASSET_TAGS = (); }; };
+		6370D6891BCEE5DC004E78AB /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		6370D68B1BCEEA2D004E78AB /* ScheduleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D68A1BCEEA2D004E78AB /* ScheduleDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E595B0E1BCC67B200F4AB86 /* ShiftDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E595B0D1BCC67B200F4AB86 /* ShiftDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E7539141BCC8BD600EFE714 /* NewShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E7539161BCC8BF800EFE714 /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7539151BCC8BF800EFE714 /* EditShiftViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewController.swift; sourceTree = "<group>"; };
 		495814071BCC4316001E1862 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shift.swift; path = ../Shift.swift; sourceTree = "<group>"; };
+		6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		6370D68A1BCEEA2D004E78AB /* ScheduleDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailsViewController.swift; sourceTree = "<group>"; };
 		8E595B0D1BCC67B200F4AB86 /* ShiftDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDetailsViewController.swift; sourceTree = "<group>"; };
 		8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewShiftViewController.swift; sourceTree = "<group>"; };
 		8E7539151BCC8BF800EFE714 /* EditShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditShiftViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6370D6871BCEE48A004E78AB /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */,
+				6370D68A1BCEEA2D004E78AB /* ScheduleDetailsViewController.swift */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 		8E38A1881BCCCF2F00B4DE14 /* Shift */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +161,7 @@
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
 				8E38A1881BCCCF2F00B4DE14 /* Shift */,
 				8E38A1891BCCCF3C00B4DE14 /* Employee */,
+				6370D6871BCEE48A004E78AB /* Schedule */,
 				8E9338F91BC78BD400BDA5A7 /* Assets.xcassets */,
 				8E9338FB1BC78BD400BDA5A7 /* LaunchScreen.storyboard */,
 				8E9338FE1BC78BD400BDA5A7 /* Info.plist */,
@@ -311,11 +325,13 @@
 				495814041BCC3ED1001E1862 /* ShiftTableViewController.swift in Sources */,
 				8E7539141BCC8BD600EFE714 /* NewShiftViewController.swift in Sources */,
 				8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */,
+				6370D6891BCEE5DC004E78AB /* ScheduleTableViewController.swift in Sources */,
 				8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */,
 				8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */,
 				495814081BCC4316001E1862 /* Shift.swift in Sources */,
 				8E9339211BC78EAB00BDA5A7 /* EmployeeTableViewController.swift in Sources */,
 				8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */,
+				6370D68B1BCEEA2D004E78AB /* ScheduleDetailsViewController.swift in Sources */,
 				8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */,
 				8E9338F21BC78BD400BDA5A7 /* ViewController.swift in Sources */,
 				8E9338F01BC78BD400BDA5A7 /* AppDelegate.swift in Sources */,
