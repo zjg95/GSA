@@ -16,16 +16,6 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     var shift: Shift!
     
-    let pickerData: [String] = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-    ]
-    
     // -----------------
     // reference outlets
     // -----------------
@@ -85,13 +75,13 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        return days.count
     }
     
     //MARK: Delegates
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
+        return days[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

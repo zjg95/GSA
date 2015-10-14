@@ -66,7 +66,7 @@ class ShiftDetailsViewController: UIViewController {
     }
     
     @IBAction func updateShiftDetails(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditShiftViewController {
+        if let _ = sender.sourceViewController as? EditShiftViewController {
             populateContent()
             delegate.editCell(shift, index: index)
         }
