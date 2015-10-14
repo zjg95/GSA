@@ -22,6 +22,8 @@ class Shift {
     private var _day: Int = 0
     private var _position: String = ""
     
+    var _employee: Employee?
+    
     // ---------
     // accessors
     // ---------
@@ -80,6 +82,7 @@ class Shift {
             return _timeEnd - _timeStart
         }
     }
+    
     
     // -----------
     // constructor

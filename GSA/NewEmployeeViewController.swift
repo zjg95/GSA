@@ -80,7 +80,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate {
         // Disable the Save button if the text field is empty.
         let text = firstNameField.text ?? ""
         let text2 = lastNameField.text ?? ""
-        doneButton.enabled = (!text.isEmpty) || (!text2.isEmpty)
+        doneButton.enabled = ((!text.isEmpty) || (!text2.isEmpty))
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
