@@ -45,9 +45,9 @@ class ScheduleDetailsViewController: UIViewController {
     
     func populateContent() {
         if let employee = shift._employee{
-            employeeLabel.text = employee.fullName
+            employeeLabel.text = "Asignee: " + employee.fullName
         } else {
-            employeeLabel.text = "Available"
+            employeeLabel.text = "Asignee: Available"
         }
     }
     
