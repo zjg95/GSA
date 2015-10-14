@@ -14,36 +14,7 @@ class ShiftTableViewController: UITableViewController {
     // data members
     // ------------
     
-    var sectionDay: [String] = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-    ]
-    
-    var shiftCells: [[Shift]] = [
-        [
-            Shift(timeStart: 9, timeEnd: 17, day: 0)
-        ],
-        [
-            Shift(timeStart: 7, timeEnd: 11, day: 1),
-            Shift(timeStart: 9, timeEnd: 12, day: 1)
-        ],
-        [
-            Shift(timeStart: 7, timeEnd: 11, day: 2)
-        ],
-        [
-        ],
-        [
-        ],
-        [
-        ],
-        [
-        ]
-    ]
+    var shiftCells: [[Shift]] = [[Shift]](count: days.count, repeatedValue: [])
     
     // -------
     // methods
@@ -56,6 +27,7 @@ class ShiftTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        shiftCells[0].append(Shift(timeStart: 9, timeEnd: 17, day: 0))
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,7 +56,7 @@ class ShiftTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionDay[section]
+        return days[section]
     }
     
     func editCell(shift: Shift, index: NSIndexPath) {
