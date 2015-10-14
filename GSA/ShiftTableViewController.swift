@@ -90,11 +90,35 @@ class ShiftTableViewController: UITableViewController {
     func editCell(shift: Shift, index: NSIndexPath) {
         let day = shift.day - 1
         if day != index.section {
-            print("moved to another day")
+            // shift was moved to another day
+            deleteShift(index)
+            addShift(shift)
         }
         else {
+            // shift time has changed
             let cell = tableView.cellForRowAtIndexPath(index)
             cell?.textLabel?.text = shift.timeAMPM
+        }
+    }
+    
+    func addShift(shift: Shift) {
+        print("new shift added")
+        // add shift to data array
+        // add shift to table
+        let newIndexPath = NSIndexPath(forRow: shiftCells[shift.day - 1].count, inSection: shift.day - 1)
+        shiftCells[shift.day - 1].append(shift)
+        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+    }
+    
+    func deleteShift(index: NSIndexPath) {
+        print("shift deleted")
+        // delete shift from data array
+        // delete shift from table
+        shiftCells[index.section].removeAtIndex(index.row)
+        tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
+        if tableView.numberOfRowsInSection(index.section) == 0 {
+            // delete empty section, the following line causes a crash
+            //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
         }
     }
     
@@ -114,30 +138,9 @@ class ShiftTableViewController: UITableViewController {
         }
     }
     
-    func addShift(shift: Shift) {
-        print("new shift added")
-        // add shift to data array
-        // add shift to table
-        let newIndexPath = NSIndexPath(forRow: shiftCells[shift.day - 1].count, inSection: shift.day - 1)
-        shiftCells[shift.day - 1].append(shift)
-        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-    }
-    
     @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
             addShift(shift)
-        }
-    }
-    
-    func deleteShift(index: NSIndexPath) {
-        print("shift deleted")
-        // delete shift from data array
-        // delete shift from table
-        shiftCells[index.section].removeAtIndex(index.row)
-        tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
-        if tableView.numberOfRowsInSection(index.section) == 0 {
-            // delete empty section, the following line causes a crash
-            //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
         }
     }
     
