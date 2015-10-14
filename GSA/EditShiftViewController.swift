@@ -82,8 +82,6 @@ class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     func extractContent() {
         shift.day = 1 + dayPicker.selectedRowInComponent(0)
-        shift.dayString =
-        
         
         // Get start time from date picker
         var calendar = NSCalendar.currentCalendar()
