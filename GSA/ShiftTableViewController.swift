@@ -26,14 +26,14 @@ class ShiftTableViewController: UITableViewController {
     
     var shiftCells: [[Shift]] = [
         [
-            Shift(timeStart: 9, timeEnd: 17, day: 1)
+            Shift(timeStart: 9, timeEnd: 17, day: 0)
         ],
         [
-            Shift(timeStart: 7, timeEnd: 11, day: 2),
-            Shift(timeStart: 9, timeEnd: 12, day: 2)
+            Shift(timeStart: 7, timeEnd: 11, day: 1),
+            Shift(timeStart: 9, timeEnd: 12, day: 1)
         ],
         [
-            Shift(timeStart: 7, timeEnd: 11, day: 3)
+            Shift(timeStart: 7, timeEnd: 11, day: 2)
         ],
         [
         ],
@@ -88,7 +88,7 @@ class ShiftTableViewController: UITableViewController {
     }
     
     func editCell(shift: Shift, index: NSIndexPath) {
-        let day = shift.day - 1
+        let day = shift.day
         if day != index.section {
             // shift was moved to another day
             deleteShift(index)
@@ -105,8 +105,8 @@ class ShiftTableViewController: UITableViewController {
         print("new shift added")
         // add shift to data array
         // add shift to table
-        let newIndexPath = NSIndexPath(forRow: shiftCells[shift.day - 1].count, inSection: shift.day - 1)
-        shiftCells[shift.day - 1].append(shift)
+        let newIndexPath = NSIndexPath(forRow: shiftCells[shift.day].count, inSection: shift.day)
+        shiftCells[shift.day].append(shift)
         tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
     }
     

@@ -59,11 +59,11 @@ class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPicke
     // -------
     
     func populateContent() {
-        dayPicker.selectRow(shift.day - 1, inComponent: 0, animated: false)
+        dayPicker.selectRow(shift.day, inComponent: 0, animated: false)
     }
     
     func extractContent() {
-        shift.day = 1 + dayPicker.selectedRowInComponent(0)
+        shift.day = dayPicker.selectedRowInComponent(0)
     }
     
     override func viewDidLoad() {
