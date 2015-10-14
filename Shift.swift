@@ -19,7 +19,7 @@ class Shift {
     
     private var _timeStart: Int = 0
     private var _timeEnd: Int = 0
-    private var _day: Int = 0
+    private var _day: String = ""
     private var _position: String = ""
     
     // ---------
@@ -66,7 +66,7 @@ class Shift {
         }
     }
     
-    var day: Int{
+    var day: String{
         get {
             return _day
         }
@@ -85,7 +85,7 @@ class Shift {
     // constructor
     // -----------
     
-    init(timeStart: Int, timeEnd: Int, day: Int) {
+    init(timeStart: Int, timeEnd: Int, day: String) {
         _timeStart = timeStart
         _timeEnd = timeEnd
         _day = day

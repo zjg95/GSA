@@ -51,7 +51,7 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         let endHour = components.hour
         
-        shift = Shift(timeStart: startHour, timeEnd: endHour, day: 1 + day)
+        shift = Shift(timeStart: startHour, timeEnd: endHour, day: days[day])
     }
     
     override func viewDidLoad() {
