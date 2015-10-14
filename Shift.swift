@@ -21,6 +21,8 @@ class Shift {
     private var _timeEnd: Int = 0
     private var _day: Int = 0
     private var _position: String = ""
+//    private var employees: [Employee]
+    private var _dayString: String = ""
     
     // ---------
     // accessors
@@ -75,11 +77,21 @@ class Shift {
         }
     }
     
+    var dayString: String {
+        get {
+            return dayString
+        }
+        set (dayString) {
+            _dayString = dayString
+        }
+    }
+    
     var duration: Int {
         get {
             return _timeEnd - _timeStart
         }
     }
+    
     
     // -----------
     // constructor
@@ -89,6 +101,7 @@ class Shift {
         _timeStart = timeStart
         _timeEnd = timeEnd
         _day = day
+        _dayString = ""
     }
     
 //    convenience init(timeStart: Int, timeEnd: Int) {

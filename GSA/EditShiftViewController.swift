@@ -78,25 +78,29 @@ class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPicke
         components.hour = shift.timeEnd
         components.minute = 0
         endPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
-        
     }
     
     func extractContent() {
         shift.day = 1 + dayPicker.selectedRowInComponent(0)
+        shift.dayString =
+        
+        
+        // Get start time from date picker
         var calendar = NSCalendar.currentCalendar()
         var date = startPicker.date
         var components = calendar.components([.Hour], fromDate: date)
-        
         let startHour = components.hour
         
+        // Get end tiem from date picker
         calendar = NSCalendar.currentCalendar()
         date = endPicker.date
         components = calendar.components([.Hour], fromDate: date)
-        
         let endHour = components.hour
         
+        // Set shifts new times
         shift.timeStart = startHour
         shift.timeEnd = endHour
+        
     }
     
     override func viewDidLoad() {
