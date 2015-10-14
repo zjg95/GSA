@@ -14,9 +14,7 @@ class EmployeeTableViewController: UITableViewController {
     // data members
     // ------------
     
-    var employeeList: [Employee] = [
-        Employee(firstName: "Jon", lastName: "Snow")
-    ]
+    var staff: Staff!
     
     // -------
     // methods
@@ -50,14 +48,14 @@ class EmployeeTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return employeeList.count
+        return staff.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
         // Configure the cell...
-        let e = employeeList[indexPath.item]
+        let e = staff[indexPath.item]
         cell.textLabel?.text = e.fullName
 
         return cell
@@ -112,7 +110,7 @@ class EmployeeTableViewController: UITableViewController {
         if (segue.identifier == "employeeDetailsSegue") {
             if let destination = segue.destinationViewController as? EmployeeDetailsViewController {
                 let index = self.tableView!.indexPathForSelectedRow
-                destination.employee = self.employeeList[index!.row]
+                destination.employee = staff[index!.row]
                 destination.index = index
                 destination.delegate = self
             }
@@ -121,15 +119,15 @@ class EmployeeTableViewController: UITableViewController {
     
     @IBAction func addEmployeeToTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? NewEmployeeViewController, employee = sourceViewController.employee {
-            let newIndexPath = NSIndexPath(forRow: employeeList.count, inSection: 0)
-            employeeList.append(employee)
+            let newIndexPath = NSIndexPath(forRow: staff.count, inSection: 0)
+            staff.append(employee)
             tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
         }
     }
     
     @IBAction func deleteEmployeeFromTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EditEmployeeViewController, index = sourceViewController.index {
-            employeeList.removeAtIndex(index.row)
+            staff.removeAtIndex(index.row)
             tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
         }
     }
@@ -193,7 +191,7 @@ class EmployeeTableViewController: UITableViewController {
                 center.y = locationInView.y
                 My.cellSnapshot!.center = center
                 if ((indexPath != nil) && (indexPath != Path.initialIndexPath)) {
-                    swap(&employeeList[indexPath!.row], &employeeList[Path.initialIndexPath!.row])
+                    swap(&staff[indexPath!.row], &staff[Path.initialIndexPath!.row])
                     tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
                     Path.initialIndexPath = indexPath
                 }

@@ -27,6 +27,7 @@
 		8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339261BC7A45D00BDA5A7 /* Employee.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9902061BCEEE6100280BA2 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9902051BCEEE6100280BA2 /* Day.swift */; settings = {ASSET_TAGS = (); }; };
+		8E9902081BCEF99C00280BA2 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9902071BCEF99C00280BA2 /* Staff.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
 		8E9339261BC7A45D00BDA5A7 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		8E9902051BCEEE6100280BA2 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		8E9902071BCEF99C00280BA2 /* Staff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
 		8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEmployeeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 				8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */,
 				8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */,
 				8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */,
+				8E9902071BCEF99C00280BA2 /* Staff.swift */,
 				8E9339261BC7A45D00BDA5A7 /* Employee.swift */,
 			);
 			name = Employee;
@@ -329,6 +332,7 @@
 				495814041BCC3ED1001E1862 /* ShiftTableViewController.swift in Sources */,
 				8E7539141BCC8BD600EFE714 /* NewShiftViewController.swift in Sources */,
 				8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */,
+				8E9902081BCEF99C00280BA2 /* Staff.swift in Sources */,
 				6370D6891BCEE5DC004E78AB /* ScheduleTableViewController.swift in Sources */,
 				8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */,
 				8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */,

@@ -28,6 +28,7 @@ class ScheduleTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        shiftCells[0].append(Shift(timeStart: 9, timeEnd: 17, day: 0))
     }
     
     override func didReceiveMemoryWarning() {
