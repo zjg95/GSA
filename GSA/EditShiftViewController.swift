@@ -35,6 +35,8 @@ class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPicke
     // -----------------
 
     @IBOutlet weak var dayPicker: UIPickerView!
+    @IBOutlet weak var startPicker: UIDatePicker!
+    @IBOutlet weak var endPicker: UIDatePicker!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -60,10 +62,41 @@ class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     func populateContent() {
         dayPicker.selectRow(shift.day - 1, inComponent: 0, animated: false)
+        
+        // Sets Start Time for Picker
+        var calendar:NSCalendar = NSCalendar.currentCalendar()
+        var date = startPicker.date
+        var components = calendar.components([.Hour], fromDate: date)
+        components.hour = shift.timeStart
+        components.minute = 0
+        startPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
+     
+        // Sets End Time for Picker
+        calendar = NSCalendar.currentCalendar()
+        date = endPicker.date
+        components = calendar.components([.Hour], fromDate: date)
+        components.hour = shift.timeEnd
+        components.minute = 0
+        endPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
+        
     }
     
     func extractContent() {
         shift.day = 1 + dayPicker.selectedRowInComponent(0)
+        var calendar = NSCalendar.currentCalendar()
+        var date = startPicker.date
+        var components = calendar.components([.Hour], fromDate: date)
+        
+        let startHour = components.hour
+        
+        calendar = NSCalendar.currentCalendar()
+        date = endPicker.date
+        components = calendar.components([.Hour], fromDate: date)
+        
+        let endHour = components.hour
+        
+        shift.timeStart = startHour
+        shift.timeEnd = endHour
     }
     
     override func viewDidLoad() {
