@@ -15,36 +15,7 @@ class ScheduleTableViewController: UITableViewController {
     // data members
     // ------------
     
-    var sectionDay: [String] = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-    ]
-    
-    var shiftCells: [[Shift]] = [
-        [
-            Shift(timeStart: 9, timeEnd: 17, day: 1)
-        ],
-        [
-            Shift(timeStart: 7, timeEnd: 11, day: 2),
-            Shift(timeStart: 9, timeEnd: 12, day: 2)
-        ],
-        [
-            Shift(timeStart: 7, timeEnd: 11, day: 3)
-        ],
-        [
-        ],
-        [
-        ],
-        [
-        ],
-        [
-        ]
-    ]
+    var shiftCells: [[Shift]] = [[Shift]](count: days.count, repeatedValue: [])
     
     // -------
     // methods
@@ -68,7 +39,7 @@ class ScheduleTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 7
+        return days.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,7 +60,7 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionDay[section]
+        return days[section]
     }
     
     func editCell(shift: Shift, index: NSIndexPath) {
