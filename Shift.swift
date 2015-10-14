@@ -62,7 +62,7 @@ class Shift {
             return _timeEnd
         }
         set (newTimeEnd) {
-            _timeStart = newTimeEnd
+            _timeEnd = newTimeEnd
         }
     }
     
