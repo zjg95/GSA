@@ -597,7 +597,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Schedule Details" id="rhI-j2-YdJ">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="zfw-Vj-Cyw"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="zfw-Vj-Cyw">
+                            <connections>
+                                <segue destination="OXO-T9-toO" kind="show" id="jnC-Bd-0KG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="employeeLabel" destination="YHE-Sb-JIP" id="LSz-Jz-sJ2"/>
@@ -606,6 +610,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Mp-iR-xlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2217.5" y="-1953.5"/>
+        </scene>
+        <!--Edit Schedule-->
+        <scene sceneID="CET-TU-0uT">
+            <objects>
+                <viewController id="OXO-T9-toO" customClass="EditScheduleViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hWb-sM-ADY"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Jb-JJ-foS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ySI-fm-NQH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQf-gg-iCf">
+                                <rect key="frame" x="0.0" y="131" width="375" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Schedule" id="1a0-kv-uO8">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Usj-X5-VPN"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="employeePicker" destination="gQf-gg-iCf" id="ugb-JH-2Sn"/>
+                        <outlet property="saveButton" destination="Usj-X5-VPN" id="dKM-0m-7OD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VlS-aj-Zlj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2767.5" y="-1953.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZGL-lM-doJ">
