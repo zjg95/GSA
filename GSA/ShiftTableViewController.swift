@@ -25,24 +25,7 @@ class ShiftTableViewController: UITableViewController {
     ]
     
     var shiftCells: [[Shift]] = [
-        [
-            Shift(timeStart: 9, timeEnd: 17, day: 1)
-        ],
-        [
-            Shift(timeStart: 7, timeEnd: 11, day: 2),
-            Shift(timeStart: 9, timeEnd: 12, day: 2)
-        ],
-        [
-            Shift(timeStart: 7, timeEnd: 11, day: 3)
-        ],
-        [
-        ],
-        [
-        ],
-        [
-        ],
-        [
-        ]
+        [Shift(timeStart: 6, timeEnd: 10, day: 0)]
     ]
     
     // -------
@@ -67,7 +50,7 @@ class ShiftTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 7
+        return shiftCells.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -128,7 +111,8 @@ class ShiftTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
             if tableView.numberOfRowsInSection(index.section) == 0 {
                 // delete empty section, the following line causes a crash
-                //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
+                shiftCells.removeAtIndex(index.section)
+                tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
             }
         }
     }
