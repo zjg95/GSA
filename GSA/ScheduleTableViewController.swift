@@ -79,34 +79,8 @@ class ScheduleTableViewController: UITableViewController {
         if (segue.identifier == "scheduleDetailsSegue") {
             if let destination = segue.destinationViewController as? ScheduleDetailsViewController {
                 let index = self.tableView!.indexPathForSelectedRow
-                destination.shift = self.week[index!.section][index!.row]
-                destination.index = index
-                destination.delegate = self
-            }
-        }
-    }
-    
-    @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
-            print("new shift added")
-            // add shift to data array
-            // add shift to table
-            let newIndexPath = NSIndexPath(forRow: week[shift.day - 1].count, inSection: shift.day - 1)
-            week[shift.day - 1].append(shift)
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-        }
-    }
-    
-    @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditShiftViewController, index = sourceViewController.index {
-            print("shift deleted")
-            // delete shift from data array
-            // delete shift from table
-            week[index.section].removeAtIndex(index.row)
-            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
-            if tableView.numberOfRowsInSection(index.section) == 0 {
-                // delete empty section, the following line causes a crash
-                //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
+                destination.shift = week[index!.section][index!.row]
+                destination.staff = staff
             }
         }
     }

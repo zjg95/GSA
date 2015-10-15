@@ -643,7 +643,7 @@
                     <navigationItem key="navigationItem" title="Schedule Details" id="rhI-j2-YdJ">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="zfw-Vj-Cyw">
                             <connections>
-                                <segue destination="OXO-T9-toO" kind="show" id="jnC-Bd-0KG"/>
+                                <segue destination="OXO-T9-toO" kind="show" identifier="editScheduleSegue" id="jnC-Bd-0KG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

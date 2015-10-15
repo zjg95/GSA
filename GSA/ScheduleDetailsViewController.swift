@@ -19,6 +19,8 @@ class ScheduleDetailsViewController: UIViewController {
     var delegate: ScheduleTableViewController!
     var index: NSIndexPath!
     
+    var staff: Staff!
+    
     // -----------------
     // reference outlets
     // -----------------
@@ -43,7 +45,7 @@ class ScheduleDetailsViewController: UIViewController {
     }
     
     func populateContent() {
-        if let employee = shift._employee{
+        if let employee = shift._employee {
             assigneeLabel.text! = employee.fullName
         } else {
             assigneeLabel.text! = "None"
@@ -56,15 +58,14 @@ class ScheduleDetailsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-//        if (segue.identifier == "editShiftSegue") {
-//            if let destination = segue.destinationViewController as? EditShiftViewController {
-//                destination.shift = shift
-//                destination.index = index
-//            }
-//        }
+        if (segue.identifier == "editScheduleSegue") {
+            if let destination = segue.destinationViewController as? EditScheduleViewController {
+                destination.staff = self.staff
+            }
+        }
     }
     
-    @IBAction func updateShiftDetails(sender: UIStoryboardSegue) {
+    @IBAction func updateSheduleShiftDetails(sender: UIStoryboardSegue) {
 //        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController {
 //            populateContent()
 //            delegate.editCell(shift, index: index)

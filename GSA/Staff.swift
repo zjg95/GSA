@@ -33,6 +33,16 @@ class Staff {
         }
     }
     
+    var employeeNames: [String] {
+        get {
+            var list: [String] = []
+            for employee in employeeList {
+                list.append(employee.fullName)
+            }
+            return list
+        }
+    }
+    
     // copy constructor
     
     convenience init(that: Staff) {

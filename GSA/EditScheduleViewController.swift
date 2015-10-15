@@ -19,12 +19,9 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     var shift: Shift!
     
-    let pickerData: [String] = [
-        "John",
-        "Bob",
-        "Nancy",
-        "Fred"
-    ]
+    var staff: Staff!
+    
+    var pickerData: [String]!
     
     // -----------------
     // reference outlets
@@ -38,44 +35,13 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     // methods
     // -------
     
-//    func populateContent() {
-//        dayPicker.selectRow(shift.day, inComponent: 0, animated: false)
-//        
-//        // Sets Start Time for Picker
-//        var calendar:NSCalendar = NSCalendar.currentCalendar()
-//        var date = startPicker.date
-//        var components = calendar.components([.Hour], fromDate: date)
-//        components.hour = shift.timeStart
-//        components.minute = 0
-//        startPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
-//        
-//        // Sets End Time for Picker
-//        calendar = NSCalendar.currentCalendar()
-//        date = endPicker.date
-//        components = calendar.components([.Hour], fromDate: date)
-//        components.hour = shift.timeEnd
-//        components.minute = 0
-//        endPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
-//        
-//    }
-//
-//    func extractContent() {
-//        shift.day = dayPicker.selectedRowInComponent(0)
-//        var calendar = NSCalendar.currentCalendar()
-//        var date = startPicker.date
-//        var components = calendar.components([.Hour], fromDate: date)
-//        
-//        let startHour = components.hour
-//        
-//        calendar = NSCalendar.currentCalendar()
-//        date = endPicker.date
-//        components = calendar.components([.Hour], fromDate: date)
-//        
-//        let endHour = components.hour
-//        
-//        shift.timeStart = startHour
-//        shift.timeEnd = endHour
-//    }
+    func populateContent() {
+        pickerData = staff.employeeNames
+    }
+
+    func extractContent() {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +51,7 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
         employeePicker.dataSource = self
         employeePicker.delegate = self
         
-        //populateContent()
+        populateContent()
     }
     
     override func didReceiveMemoryWarning() {
