@@ -67,7 +67,12 @@ class ScheduleTableViewController: UITableViewController {
     
     func editCell(shift: Shift, index: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(index)
-        cell?.textLabel?.text = shift.timeAMPM
+        if let employee = shift._employee {
+            cell?.detailTextLabel?.text = employee.fullName
+        }
+        else {
+            cell?.detailTextLabel?.text = "Unassigned"
+        }
     }
     
     // MARK: - Navigation
@@ -79,6 +84,8 @@ class ScheduleTableViewController: UITableViewController {
         if (segue.identifier == "scheduleDetailsSegue") {
             if let destination = segue.destinationViewController as? ScheduleDetailsViewController {
                 let index = self.tableView!.indexPathForSelectedRow
+                destination.delegate = self
+                destination.index = index
                 destination.shift = week[index!.section][index!.row]
                 destination.staff = staff
             }

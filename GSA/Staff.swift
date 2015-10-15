@@ -62,4 +62,15 @@ class Staff {
         employeeList.removeAtIndex(index)
     }
     
+    func employeeIndex(employee: Employee) -> Int {
+        var i: Int = 0
+        for e in employeeList {
+            if e.fullName == employee.fullName {
+                break
+            }
+            ++i
+        }
+        return i
+    }
+    
 }

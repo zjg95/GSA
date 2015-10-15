@@ -21,7 +21,7 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     var staff: Staff!
     
-    var pickerData: [String]!
+    var pickerData: [String] = ["None"]
     
     // -----------------
     // reference outlets
@@ -36,11 +36,22 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     // -------
     
     func populateContent() {
-        pickerData = staff.employeeNames
+        pickerData += staff.employeeNames
+        if let employee = shift._employee {
+            let index = staff.employeeIndex(employee)
+            employeePicker.selectRow(index + 1, inComponent: 0, animated: false)
+        }
     }
 
     func extractContent() {
-        
+        let index: Int = employeePicker.selectedRowInComponent(0)
+        if index > 0 {
+            let employee: Employee! = staff[index - 1]
+            shift._employee = employee
+        }
+        else {
+            shift._employee = nil
+        }
     }
     
     override func viewDidLoad() {
@@ -86,7 +97,7 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if saveButton == sender as? UIBarButtonItem {
-            //extractContent()
+            extractContent()
         }
     }
 }

@@ -61,15 +61,16 @@ class ScheduleDetailsViewController: UIViewController {
         if (segue.identifier == "editScheduleSegue") {
             if let destination = segue.destinationViewController as? EditScheduleViewController {
                 destination.staff = self.staff
+                destination.shift = shift
             }
         }
     }
     
     @IBAction func updateSheduleShiftDetails(sender: UIStoryboardSegue) {
-//        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController {
-//            populateContent()
-//            delegate.editCell(shift, index: index)
-//        }
+        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController {
+            populateContent()
+            delegate.editCell(shift, index: index)
+        }
     }
     
 }
