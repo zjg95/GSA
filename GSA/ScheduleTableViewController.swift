@@ -17,6 +17,8 @@ class ScheduleTableViewController: UITableViewController {
     
     var shiftCells: [[Shift]] = [[Shift]](count: days.count, repeatedValue: [])
     
+    var staff: Staff!
+    
     // -------
     // methods
     // -------

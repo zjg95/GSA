@@ -14,7 +14,7 @@ class ShiftTableViewController: UITableViewController {
     // data members
     // ------------
     
-    var shiftCells: [[Shift]] = [[Shift]](count: days.count, repeatedValue: [])
+    var week: Week = Week()
     
     // -------
     // methods
@@ -27,7 +27,7 @@ class ShiftTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        shiftCells[0].append(Shift(timeStart: 9, timeEnd: 17, day: 0))
+        week[0].append(Shift(timeStart: 9, timeEnd: 17, day: 0))
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,11 +44,11 @@ class ShiftTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return shiftCells[section].count
+        return week[section].count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let shift: Shift = shiftCells[indexPath.section][indexPath.row]
+        let shift: Shift = week[indexPath.section][indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("shiftCell", forIndexPath: indexPath)
         cell.textLabel!.text = String(shift.timeAMPM)
         cell.detailTextLabel?.text = String(shift.duration)
@@ -77,8 +77,8 @@ class ShiftTableViewController: UITableViewController {
         print("new shift added")
         // add shift to data array
         // add shift to table
-        let newIndexPath = NSIndexPath(forRow: shiftCells[shift.day].count, inSection: shift.day)
-        shiftCells[shift.day].append(shift)
+        let newIndexPath = NSIndexPath(forRow: week[shift.day].count, inSection: shift.day)
+        week[shift.day].append(shift)
         tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
     }
     
@@ -86,7 +86,7 @@ class ShiftTableViewController: UITableViewController {
         print("shift deleted")
         // delete shift from data array
         // delete shift from table
-        shiftCells[index.section].removeAtIndex(index.row)
+        week[index.section].removeAtIndex(index.row)
         tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
         if tableView.numberOfRowsInSection(index.section) == 0 {
             // delete empty section, the following line causes a crash
@@ -103,7 +103,7 @@ class ShiftTableViewController: UITableViewController {
         if (segue.identifier == "shiftDetailsSegue") {
             if let destination = segue.destinationViewController as? ShiftDetailsViewController {
                 let index = self.tableView!.indexPathForSelectedRow
-                destination.shift = self.shiftCells[index!.section][index!.row]
+                destination.shift = self.week[index!.section][index!.row]
                 destination.index = index
                 destination.delegate = self
             }

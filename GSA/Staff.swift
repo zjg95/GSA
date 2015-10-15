@@ -33,12 +33,6 @@ class Staff {
         }
     }
     
-    // constructor
-    
-    init() {
-        
-    }
-    
     // copy constructor
     
     convenience init(that: Staff) {

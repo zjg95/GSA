@@ -33,6 +33,11 @@ class ViewController: UIViewController {
                 destination.staff = self.staff
             }
         }
+        if (segue.identifier == "scheduleSegue") {
+            if let destination = segue.destinationViewController as? ScheduleTableViewController {
+                destination.staff = self.staff
+            }
+        }
     }
 
 }
