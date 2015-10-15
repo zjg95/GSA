@@ -23,8 +23,7 @@ class ScheduleDetailsViewController: UIViewController {
     // reference outlets
     // -----------------
     
-    @IBOutlet weak var employeeLabel: UILabel!
-    
+    @IBOutlet weak var assigneeLabel: UILabel!
     
     // -------
     // methods
@@ -45,9 +44,9 @@ class ScheduleDetailsViewController: UIViewController {
     
     func populateContent() {
         if let employee = shift._employee{
-            employeeLabel.text = "Asignee: " + employee.fullName
+            assigneeLabel.text! = employee.fullName
         } else {
-            employeeLabel.text = "Asignee: Available"
+            assigneeLabel.text! = "None"
         }
     }
     

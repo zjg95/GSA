@@ -46,7 +46,7 @@ class ShiftDetailsViewController: UIViewController {
     }
     
     func populateContent() {
-        dayLabel.text   = String(shift.day)
+        dayLabel.text   = days[shift.day]
         shiftLabel.text = shift.timeAMPM
         hoursLabel.text = "Hours: " + String(shift.duration)
     }

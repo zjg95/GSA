@@ -24,12 +24,15 @@ class EmployeeDetailsViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var positionLabel: UILabel!
+    
     // -------
     // methods
     // -------
     
     func populateContent() {
         nameLabel.text = employee.fullName
+        positionLabel.text = employee.position
     }
     
     override func viewDidLoad() {

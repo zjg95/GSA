@@ -28,6 +28,8 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var lastNameField: UITextField!
     
+    @IBOutlet weak var positionField: UITextField!
+    
     @IBAction func deleteButton(sender: AnyObject) {
         self.alertController = UIAlertController(title: "Confirm Delete", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
@@ -51,11 +53,13 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
     func populateData() {
         firstNameField.text = employee.firstName
         lastNameField.text = employee.lastName
+        positionField.text = employee.position
     }
     
     func extractContent() {
         employee.firstName = firstNameField.text!
         employee.lastName = lastNameField.text!
+        employee.position = positionField.text!
     }
     
     override func viewDidLoad() {

@@ -20,6 +20,7 @@ class Employee {
     
     private var _firstName: String = ""
     private var _lastName: String = ""
+    private var _position: String = ""
     
     // ---------
     // accessors
@@ -46,6 +47,15 @@ class Employee {
     var fullName: String {
         get {
             return _firstName + " " + _lastName
+        }
+    }
+    
+    var position: String {
+        get {
+            return _position
+        }
+        set(value) {
+            _position = value
         }
     }
     

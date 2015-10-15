@@ -11,10 +11,13 @@ import UIKit
 class ViewController: UIViewController {
     
     var staff: Staff = Staff()
+    var week: Week = Week()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        week[0].append(Shift(timeStart: 9, timeEnd: 17, day: 0))
+        staff.append(Employee(firstName: "Ned", lastName: "Stark"))
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,9 +36,15 @@ class ViewController: UIViewController {
                 destination.staff = self.staff
             }
         }
+        if (segue.identifier == "shiftSegue") {
+            if let destination = segue.destinationViewController as? ShiftTableViewController {
+                destination.week = self.week
+            }
+        }
         if (segue.identifier == "scheduleSegue") {
             if let destination = segue.destinationViewController as? ScheduleTableViewController {
                 destination.staff = self.staff
+                destination.week = self.week
             }
         }
     }
