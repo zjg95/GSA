@@ -36,6 +36,24 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
     // methods
     // -------
     
+    func populateContent() {
+        // Sets Start Time for Picker
+        var calendar:NSCalendar = NSCalendar.currentCalendar()
+        var date = startPicker.date
+        var components = calendar.components([.Hour], fromDate: date)
+        components.hour = 9
+        components.minute = 0
+        startPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
+        
+        // Sets End Time for Picker
+        calendar = NSCalendar.currentCalendar()
+        date = endPicker.date
+        components = calendar.components([.Hour], fromDate: date)
+        components.hour = 17
+        components.minute = 0
+        endPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
+    }
+    
     func extractContent() {
         let day = dayPicker.selectedRowInComponent(0)
         
@@ -61,6 +79,8 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         dayPicker.dataSource = self
         dayPicker.delegate = self
+        
+        populateContent()
     }
 
     override func didReceiveMemoryWarning() {
