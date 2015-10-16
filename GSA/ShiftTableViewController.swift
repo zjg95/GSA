@@ -26,14 +26,14 @@ class ShiftTableViewController: UITableViewController {
     
     var shiftCells: [[Shift]] = [
         [
-            Shift(timeStart: 9, timeEnd: 17, day: 0)
+            Shift(timeStart: Time(hour: 9, minutes:0), timeEnd: Time(hour: 11, minutes: 0), day: 0)
         ],
         [
-            Shift(timeStart: 7, timeEnd: 11, day: 1),
-            Shift(timeStart: 9, timeEnd: 12, day: 1)
+            Shift(timeStart: Time(hour: 9, minutes:0), timeEnd: Time(hour: 9, minutes:0), day: 1),
+            Shift(timeStart: Time(hour: 9, minutes:0), timeEnd: Time(hour: 9, minutes:0), day: 1)
         ],
         [
-            Shift(timeStart: 7, timeEnd: 11, day: 2)
+            Shift(timeStart: Time(hour: 9, minutes:0), timeEnd: Time(hour: 9, minutes:0), day: 2)
         ],
         [
         ],

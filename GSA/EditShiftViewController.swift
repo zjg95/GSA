@@ -67,16 +67,16 @@ class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPicke
         var calendar:NSCalendar = NSCalendar.currentCalendar()
         var date = startPicker.date
         var components = calendar.components([.Hour], fromDate: date)
-        components.hour = shift.timeStart
-        components.minute = 0
+        components.hour = shift.timeStart.hour
+        components.minute = shift.timeStart.minutes
         startPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
      
         // Sets End Time for Picker
         calendar = NSCalendar.currentCalendar()
         date = endPicker.date
         components = calendar.components([.Hour], fromDate: date)
-        components.hour = shift.timeEnd
-        components.minute = 0
+        components.hour = shift.timeEnd.hour
+        components.minute = shift.timeEnd.minutes
         endPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
     }
     
@@ -87,16 +87,20 @@ class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPicke
         var date = startPicker.date
         var components = calendar.components([.Hour], fromDate: date)
         let startHour = components.hour
+        let startMinutes = components.minute
         
         // Get end tiem from date picker
         calendar = NSCalendar.currentCalendar()
         date = endPicker.date
         components = calendar.components([.Hour], fromDate: date)
         let endHour = components.hour
+        let endMinutes = components.minute
         
         // Set shifts new times
-        shift.timeStart = startHour
-        shift.timeEnd = endHour
+        shift.timeStart.hour = startHour
+        shift.timeStart.minutes = startMinutes
+        shift.timeEnd.hour = endHour
+        shift.timeEnd.minutes = startMinutes
         
     }
     
@@ -104,7 +108,6 @@ class EditShiftViewController: UIViewController, UIPickerViewDataSource, UIPicke
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         dayPicker.dataSource = self
         dayPicker.delegate = self
         

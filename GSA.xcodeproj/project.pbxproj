@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		495814041BCC3ED1001E1862 /* ShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		495814081BCC4316001E1862 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814071BCC4316001E1862 /* Shift.swift */; settings = {ASSET_TAGS = (); }; };
+		49DF912B1BCEFCA30014946E /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF912A1BCEFCA30014946E /* Time.swift */; settings = {ASSET_TAGS = (); }; };
 		8E595B0E1BCC67B200F4AB86 /* ShiftDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E595B0D1BCC67B200F4AB86 /* ShiftDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E7539141BCC8BD600EFE714 /* NewShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E7539161BCC8BF800EFE714 /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7539151BCC8BF800EFE714 /* EditShiftViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewController.swift; sourceTree = "<group>"; };
 		495814071BCC4316001E1862 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shift.swift; path = ../Shift.swift; sourceTree = "<group>"; };
+		49DF912A1BCEFCA30014946E /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		8E595B0D1BCC67B200F4AB86 /* ShiftDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDetailsViewController.swift; sourceTree = "<group>"; };
 		8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewShiftViewController.swift; sourceTree = "<group>"; };
 		8E7539151BCC8BF800EFE714 /* EditShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditShiftViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				8E595B0D1BCC67B200F4AB86 /* ShiftDetailsViewController.swift */,
 				495814031BCC3ED1001E1862 /* ShiftTableViewController.swift */,
 				495814071BCC4316001E1862 /* Shift.swift */,
+				49DF912A1BCEFCA30014946E /* Time.swift */,
 			);
 			name = Shift;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */,
 				8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */,
 				495814081BCC4316001E1862 /* Shift.swift in Sources */,
+				49DF912B1BCEFCA30014946E /* Time.swift in Sources */,
 				8E9339211BC78EAB00BDA5A7 /* EmployeeTableViewController.swift in Sources */,
 				8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */,
 				8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */,

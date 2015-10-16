@@ -17,8 +17,8 @@ class Shift {
     // data members
     // ------------
     
-    private var _timeStart: Int = 0
-    private var _timeEnd: Int = 0
+    private var _timeStart: Time
+    private var _timeEnd: Time
     private var _day: Int = 0
     private var _position: String = ""
 //    private var employees: [Employee]
@@ -33,8 +33,8 @@ class Shift {
             // Convert Time end and start into a string of AM and/or PM
             var startAMPM = "am"
             var endAMPM = "am"
-            var start = _timeStart
-            var end = _timeEnd
+            var start = _timeStart.hour
+            var end = _timeEnd.hour
             if start > 12 {
                 start = start - 12
                 startAMPM = "pm"
@@ -43,14 +43,11 @@ class Shift {
                 end = end - 12
                 endAMPM = "pm"
             }
-            return " \(start)\(startAMPM) - \(end)\(endAMPM)"
-        }
-        set (newName) {
-            // Convert time String into number time
+            return " \(start):\(_timeStart.minuteString)\(startAMPM) - \(end):\(_timeEnd.minuteString)\(endAMPM)"
         }
     }
     
-    var timeStart: Int {
+    var timeStart: Time {
         get {
             return _timeStart
         }
@@ -59,7 +56,7 @@ class Shift {
         }
     }
     
-    var timeEnd: Int{
+    var timeEnd: Time {
         get {
             return _timeEnd
         }
@@ -77,18 +74,14 @@ class Shift {
         }
     }
     
-    var dayString: String {
+    var duration: String {
         get {
-            return dayString
-        }
-        set (dayString) {
-            _dayString = dayString
-        }
-    }
-    
-    var duration: Int {
-        get {
-            return _timeEnd - _timeStart
+            var hour = _timeEnd.hour - _timeStart.hour
+            if (_timeStart.minutes > _timeEnd.minutes){
+                hour = hour - 1;
+            }
+            let minutes = _timeEnd.minutes - _timeStart.minutes
+            return "\(hour) hour(s) and \(minutes) minutes"
         }
     }
     
@@ -97,11 +90,10 @@ class Shift {
     // constructor
     // -----------
     
-    init(timeStart: Int, timeEnd: Int, day: Int) {
+    init(timeStart: Time, timeEnd: Time, day: Int) {
         _timeStart = timeStart
         _timeEnd = timeEnd
         _day = day
-        _dayString = ""
     }
     
 //    convenience init(timeStart: Int, timeEnd: Int) {
