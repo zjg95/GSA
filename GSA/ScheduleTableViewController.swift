@@ -19,6 +19,12 @@ class ScheduleTableViewController: UITableViewController {
     
     var staff: Staff!
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBAction func sortControl(sender: AnyObject) {
+        print("segmented control pressed")
+    }
+    
     // -------
     // methods
     // -------
