@@ -121,7 +121,7 @@
                   moduleName = "GSA"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Andrew/Documents/iOS-GSA/Shift.swift"
-                  timestampString = "466651681.582933"
+                  timestampString = "466972225.6659"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -136,7 +136,7 @@
                   moduleName = "GSA"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Andrew/Documents/iOS-GSA/Shift.swift"
-                  timestampString = "466651681.583142"
+                  timestampString = "466972225.666274"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -151,7 +151,7 @@
                   moduleName = "GSA"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Andrew/Documents/iOS-GSA/Shift.swift"
-                  timestampString = "466651681.583325"
+                  timestampString = "466972225.666534"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -168,45 +168,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GSA/ShiftTableViewController.swift"
-            timestampString = "466651400.390608"
+            timestampString = "466972030.184347"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
             endingLineNumber = "29"
-            landmarkName = "shiftCells"
-            landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GSA.ShiftTableViewController.init (GSA.ShiftTableViewController.Type)(style : C.UITableViewStyle) -&gt; GSA.ShiftTableViewController"
-                  moduleName = "GSA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andrew/Documents/iOS-GSA/GSA/ShiftTableViewController.swift"
-                  timestampString = "466651681.585644"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "453">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GSA.ShiftTableViewController.init (GSA.ShiftTableViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; Swift.Optional&lt;GSA.ShiftTableViewController&gt;"
-                  moduleName = "GSA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andrew/Documents/iOS-GSA/GSA/ShiftTableViewController.swift"
-                  timestampString = "466651681.586"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "453">
-               </Location>
-            </Locations>
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

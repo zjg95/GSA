@@ -24,6 +24,8 @@ class Shift {
 //    private var employees: [Employee]
     private var _dayString: String = ""
     
+    var _employee: Employee?
+    
     // ---------
     // accessors
     // ---------
@@ -80,7 +82,7 @@ class Shift {
             if (_timeStart.minutes > _timeEnd.minutes){
                 hour = hour - 1;
             }
-            let minutes = _timeEnd.minutes - _timeStart.minutes
+            let minutes = abs(_timeEnd.minutes - _timeStart.minutes)
             return "\(hour) hour(s) and \(minutes) minutes"
         }
     }

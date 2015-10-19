@@ -16,16 +16,6 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     var shift: Shift!
     
-    let pickerData: [String] = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-    ]
-    
     // -----------------
     // reference outlets
     // -----------------
@@ -54,6 +44,7 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
         var components = calendar.components([.Hour], fromDate: date)
         
         let startHour = components.hour
+        components = calendar.components([.Minute], fromDate: date)
         let startMinutes = components.minute
         
         calendar = NSCalendar.currentCalendar()
@@ -61,6 +52,7 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
         components = calendar.components([.Hour], fromDate: date)
         
         let endHour = components.hour
+        components = calendar.components([.Minute], fromDate: date)
         let endMinutes = components.minute
         
         shift = Shift(timeStart: Time(hour:startHour, minutes:startMinutes), timeEnd: Time(hour:endHour, minutes: endMinutes), day: day)
@@ -87,13 +79,13 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        return days.count
     }
     
     //MARK: Delegates
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
+        return days[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

@@ -1,20 +1,22 @@
 //
-//  ShiftTableViewController.swift
+//  ScheduleTableViewController.swift
 //  GSA
 //
-//  Created by Andrew Capindo on 10/12/15.
+//  Created by David Acker on 10/14/15.
 //  Copyright © 2015 Zach Goodman. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ShiftTableViewController: UITableViewController {
+class ScheduleTableViewController: UITableViewController {
     
     // ------------
     // data members
     // ------------
     
     var shiftCells: [[Shift]] = [[Shift]](count: days.count, repeatedValue: [])
+    
     // -------
     // methods
     // -------
@@ -26,7 +28,7 @@ class ShiftTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        shiftCells[0].append(Shift(timeStart: Time(hour:9, minutes:0), timeEnd: Time(hour:17, minutes:0), day: 0))
+        shiftCells[0].append(Shift(timeStart: Time(hour: 9, minutes: 0), timeEnd: Time(hour: 17, minutes:0), day: 0))
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,7 +40,7 @@ class ShiftTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 7
+        return days.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,49 +50,23 @@ class ShiftTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let shift: Shift = shiftCells[indexPath.section][indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("shiftCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath)
         cell.textLabel!.text = String(shift.timeAMPM)
-        cell.detailTextLabel?.text = String(shift.duration)
+        if let employee = shift._employee {
+            cell.detailTextLabel?.text = employee.fullName
+        } else {
+            cell.detailTextLabel?.text = "Available"
+        }
         return cell
     }
-
+    
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return days[section]
     }
     
     func editCell(shift: Shift, index: NSIndexPath) {
-        let day = shift.day
-        if day != index.section {
-            // shift was moved to another day
-            deleteShift(index)
-            addShift(shift)
-        }
-        else {
-            // shift time has changed
-            let cell = tableView.cellForRowAtIndexPath(index)
-            cell?.textLabel?.text = shift.timeAMPM
-        }
-    }
-    
-    func addShift(shift: Shift) {
-        print("new shift added")
-        // add shift to data array
-        // add shift to table
-        let newIndexPath = NSIndexPath(forRow: shiftCells[shift.day].count, inSection: shift.day)
-        shiftCells[shift.day].append(shift)
-        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-    }
-    
-    func deleteShift(index: NSIndexPath) {
-        print("shift deleted")
-        // delete shift from data array
-        // delete shift from table
-        shiftCells[index.section].removeAtIndex(index.row)
-        tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
-        if tableView.numberOfRowsInSection(index.section) == 0 {
-            // delete empty section, the following line causes a crash
-            //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
-        }
+        let cell = tableView.cellForRowAtIndexPath(index)
+        cell?.textLabel?.text = shift.timeAMPM
     }
     
     // MARK: - Navigation
@@ -99,8 +75,8 @@ class ShiftTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if (segue.identifier == "shiftDetailsSegue") {
-            if let destination = segue.destinationViewController as? ShiftDetailsViewController {
+        if (segue.identifier == "scheduleDetailsSegue") {
+            if let destination = segue.destinationViewController as? ScheduleDetailsViewController {
                 let index = self.tableView!.indexPathForSelectedRow
                 destination.shift = self.shiftCells[index!.section][index!.row]
                 destination.index = index
@@ -111,13 +87,26 @@ class ShiftTableViewController: UITableViewController {
     
     @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
-            addShift(shift)
+            print("new shift added")
+            // add shift to data array
+            // add shift to table
+            let newIndexPath = NSIndexPath(forRow: shiftCells[shift.day - 1].count, inSection: shift.day - 1)
+            shiftCells[shift.day - 1].append(shift)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
         }
     }
     
     @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EditShiftViewController, index = sourceViewController.index {
-            deleteShift(index)
+            print("shift deleted")
+            // delete shift from data array
+            // delete shift from table
+            shiftCells[index.section].removeAtIndex(index.row)
+            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
+            if tableView.numberOfRowsInSection(index.section) == 0 {
+                // delete empty section, the following line causes a crash
+                //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
+            }
         }
     }
 }
