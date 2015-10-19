@@ -27,6 +27,7 @@ class ShiftTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,6 +70,7 @@ class ShiftTableViewController: UITableViewController {
             // shift time has changed
             let cell = tableView.cellForRowAtIndexPath(index)
             cell?.textLabel?.text = shift.timeAMPM
+            cell?.detailTextLabel?.text = shift.duration
         }
     }
     

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        week[0].append(Shift(timeStart: 9, timeEnd: 17, day: 0))
+        week[0].append(Shift(timeStart: Time(hour: 9, minutes: 0), timeEnd: Time(hour: 17, minutes: 0), day: 0))
         staff.append(Employee(firstName: "Ned", lastName: "Stark"))
     }
 
