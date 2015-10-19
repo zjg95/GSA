@@ -18,6 +18,15 @@ class ShiftDetailsViewController: UIViewController {
     var delegate: ShiftTableViewController!
     var index: NSIndexPath!
     
+    let pickerData: [String] = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ]
     // -----------------
     // reference outlets
     // -----------------
@@ -46,7 +55,7 @@ class ShiftDetailsViewController: UIViewController {
     }
     
     func populateContent() {
-        dayLabel.text   = String(shift.day)
+        dayLabel.text   = pickerData[shift.day]
         shiftLabel.text = shift.timeAMPM
         hoursLabel.text = "Hours: " + String(shift.duration)
     }
