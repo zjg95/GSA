@@ -16,8 +16,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        week[0].append(Shift(timeStart: Time(hour: 9, minutes: 0), timeEnd: Time(hour: 17, minutes: 0), day: 0))
-        staff.append(Employee(firstName: "Ned", lastName: "Stark"))
+        // add default data
+        let shift1: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 4)
+        let shift2: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 2)
+        let employee: Employee = Employee(firstName: "Robert", lastName: "Seitsinger")
+        employee.position = "Professor"
+        shift1._employee = employee
+        shift2._employee = employee
+        week[4].append(shift1)
+        week[2].append(shift2)
+        staff.append(employee)
     }
 
     override func didReceiveMemoryWarning() {
