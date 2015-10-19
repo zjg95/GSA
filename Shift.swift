@@ -78,11 +78,23 @@ class Shift {
     
     var duration: String {
         get {
-            var hour = _timeEnd.hour - _timeStart.hour
+            var hour = 0
+            var minutes = 0
             if (_timeStart.minutes > _timeEnd.minutes){
-                hour = hour - 1;
+                var tempStartMin = _timeStart.minutes
+                while (tempStartMin != _timeEnd.minutes) {
+                    minutes++
+                    tempStartMin++
+                    if (tempStartMin == 60) {
+                        tempStartMin = 0;
+                    }
+                }
+                hour = _timeEnd.hour - _timeStart.hour - 1
             }
-            let minutes = abs(_timeEnd.minutes - _timeStart.minutes)
+            else {
+                hour = _timeEnd.hour - _timeStart.hour
+                minutes = _timeEnd.minutes - _timeStart.minutes
+            }
             return "\(hour) hour(s) and \(minutes) minutes"
         }
     }

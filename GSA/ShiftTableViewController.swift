@@ -69,6 +69,7 @@ class ShiftTableViewController: UITableViewController {
             // shift time has changed
             let cell = tableView.cellForRowAtIndexPath(index)
             cell?.textLabel?.text = shift.timeAMPM
+            cell?.detailTextLabel?.text = shift.duration
         }
     }
     
