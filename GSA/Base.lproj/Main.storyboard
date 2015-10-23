@@ -57,7 +57,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHQ-Cv-UQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2495.5" y="-1299.5"/>
+            <point key="canvasLocation" x="2344.5" y="-1319.5"/>
         </scene>
         <!--Shifts-->
         <scene sceneID="yfa-T0-ssW">
@@ -415,7 +415,7 @@
                     <navigationItem key="navigationItem" title="Employee Details" id="dYR-Fp-Fcf" userLabel="Navigation Item">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WDF-qb-rKp">
                             <connections>
-                                <segue destination="gm3-SV-2no" kind="show" identifier="editEmployeeSegue" id="fEc-s2-n4p"/>
+                                <segue destination="fog-If-vWR" kind="showDetail" identifier="editEmployeeSegue" animates="NO" id="fEc-s2-n4p"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -487,6 +487,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit Employee" id="DQD-l3-zku">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FC3-dI-ydU">
+                            <connections>
+                                <action selector="cancelButton:" destination="gm3-SV-2no" id="efL-DO-M0f"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="2AF-qr-y76">
                             <connections>
                                 <segue destination="Esv-lp-BgP" kind="unwind" unwindAction="updateEmployeeDetails:" id="7eS-Jh-ovI"/>
@@ -504,7 +509,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9i-h7-buc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Esv-lp-BgP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4082.5" y="-1491.5"/>
+            <point key="canvasLocation" x="4669.5" y="-1491.5"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="S2l-Pk-3wo">
@@ -746,6 +751,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izZ-Wq-Gb1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1245.5" y="1283.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ehj-I0-bCU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fog-If-vWR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vJA-1a-RMm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gm3-SV-2no" kind="relationship" relationship="rootViewController" id="Svh-Sq-NSX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTh-Tm-uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4082.5" y="-1491.5"/>
         </scene>
     </scenes>
 </document>

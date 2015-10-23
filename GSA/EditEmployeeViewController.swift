@@ -21,6 +21,9 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
     // -----------------
     // reference outlets
     // -----------------
+    @IBAction func cancelButton(sender: AnyObject) {
+        dismissViewControllerAnimated(false, completion: nil)
+    }
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
     

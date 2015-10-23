@@ -55,6 +55,12 @@ class EmployeeDetailsViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "editEmployeeSegue") {
+            if let nav = segue.destinationViewController as? UINavigationController {
+                if let destination = nav.presentedViewController as? EditEmployeeViewController {
+                    destination.employee = employee
+                    destination.index = index
+                }
+            }
             if let destination = segue.destinationViewController as? EditEmployeeViewController {
                 destination.employee = employee
                 destination.index = index
@@ -63,10 +69,8 @@ class EmployeeDetailsViewController: UIViewController {
     }
     
     @IBAction func updateEmployeeDetails(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditEmployeeViewController {
-            populateContent()
-            delegate.editCell(employee, index: index)
-        }
+        populateContent()
+        delegate.editCell(employee, index: index)
     }
 
 }
