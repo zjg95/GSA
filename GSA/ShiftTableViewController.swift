@@ -14,7 +14,7 @@ class ShiftTableViewController: UITableViewController {
     // data members
     // ------------
     
-    var week: Week!
+    var week: Week = Week()
     
     // -------
     // methods

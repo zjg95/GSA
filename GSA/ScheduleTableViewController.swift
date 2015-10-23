@@ -15,15 +15,9 @@ class ScheduleTableViewController: UITableViewController {
     // data members
     // ------------
     
-    var week: Week!
+    var week: Week = Week()
     
-    var staff: Staff!
-    
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
-    @IBAction func sortControl(sender: AnyObject) {
-        print("segmented control pressed")
-    }
+    var staff: Staff = Staff()
     
     // -------
     // methods

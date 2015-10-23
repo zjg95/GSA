@@ -14,7 +14,7 @@ class EmployeeTableViewController: UITableViewController {
     // data members
     // ------------
     
-    var staff: Staff!
+    var staff: Staff = Staff()
     
     // -------
     // methods
