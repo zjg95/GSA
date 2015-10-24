@@ -415,7 +415,7 @@
                     <navigationItem key="navigationItem" title="Employee Details" id="dYR-Fp-Fcf" userLabel="Navigation Item">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WDF-qb-rKp">
                             <connections>
-                                <segue destination="fog-If-vWR" kind="showDetail" identifier="editEmployeeSegue" animates="NO" id="fEc-s2-n4p"/>
+                                <segue destination="fog-If-vWR" kind="presentation" identifier="editEmployeeSegue" animates="NO" id="fEc-s2-n4p"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -673,7 +673,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RyA-yt-QBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2970" y="419"/>
+            <point key="canvasLocation" x="2963.5" y="479.5"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="540-iK-Sz1">
@@ -698,6 +698,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ehj-I0-bCU">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTh-Tm-uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fog-If-vWR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vJA-1a-RMm">
@@ -709,7 +710,6 @@
                         <segue destination="gm3-SV-2no" kind="relationship" relationship="rootViewController" id="Svh-Sq-NSX"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UTh-Tm-uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4669.5" y="-1491.5"/>
         </scene>

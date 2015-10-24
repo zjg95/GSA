@@ -56,14 +56,10 @@ class EmployeeDetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier == "editEmployeeSegue") {
             if let nav = segue.destinationViewController as? UINavigationController {
-                if let destination = nav.presentedViewController as? EditEmployeeViewController {
+                if let destination = nav.viewControllers.first as? EditEmployeeViewController {
                     destination.employee = employee
                     destination.index = index
                 }
-            }
-            if let destination = segue.destinationViewController as? EditEmployeeViewController {
-                destination.employee = employee
-                destination.index = index
             }
         }
     }
