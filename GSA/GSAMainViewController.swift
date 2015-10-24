@@ -25,6 +25,33 @@ class GSAMainViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let shift1: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 4)
+        let shift2: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 2)
+        let employee: Employee = Employee(firstName: "Robert", lastName: "Seitsinger")
+        employee.position = "Professor"
+        shift1._employee = employee
+        shift2._employee = employee
+        week[4].append(shift1)
+        week[2].append(shift2)
+        staff.append(employee)
+        
+        if let nav = self.viewControllers![0] as? UINavigationController {
+            if let schedule = nav.viewControllers.first as? ScheduleTableViewController {
+                schedule.week = self.week
+                schedule.staff = self.staff
+            }
+        }
+        if let nav = self.viewControllers![1] as? UINavigationController {
+            if let employee = nav.viewControllers.first as? EmployeeTableViewController {
+                employee.staff = self.staff
+            }
+        }
+        if let nav = self.viewControllers![2] as? UINavigationController {
+            if let shift = nav.viewControllers.first as? ShiftTableViewController {
+                shift.week = self.week
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

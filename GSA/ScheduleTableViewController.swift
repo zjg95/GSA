@@ -15,9 +15,9 @@ class ScheduleTableViewController: UITableViewController {
     // data members
     // ------------
     
-    var week: Week = Week()
+    var week: Week!
     
-    var staff: Staff = Staff()
+    var staff: Staff!
     
     // -------
     // methods

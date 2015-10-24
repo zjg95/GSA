@@ -174,9 +174,9 @@
 			children = (
 				8E9902051BCEEE6100280BA2 /* Day.swift */,
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
+				8ECC92CD1BD9AD9800A920AE /* GSAMainViewController.swift */,
 				8E9338F11BC78BD400BDA5A7 /* ViewController.swift */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
-				8ECC92CD1BD9AD9800A920AE /* GSAMainViewController.swift */,
 				8E38A1881BCCCF2F00B4DE14 /* Shift */,
 				8E38A1891BCCCF3C00B4DE14 /* Employee */,
 				6370D6871BCEE48A004E78AB /* Schedule */,
