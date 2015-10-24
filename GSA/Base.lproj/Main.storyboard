@@ -554,13 +554,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Schedule" id="B9j-ax-9nn">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Settings" id="czy-BI-60d"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Week View" id="W4w-3X-tug"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="View" id="W4w-3X-tug"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inI-7h-lr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3220.5" y="1381.5"/>
+            <point key="canvasLocation" x="3224.5" y="1381.5"/>
         </scene>
         <!--Schedule Details-->
         <scene sceneID="bbL-53-1qf">
@@ -698,7 +697,6 @@
         <!--Navigation Controller-->
         <scene sceneID="ehj-I0-bCU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UTh-Tm-uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fog-If-vWR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vJA-1a-RMm">
@@ -710,6 +708,7 @@
                         <segue destination="gm3-SV-2no" kind="relationship" relationship="rootViewController" id="Svh-Sq-NSX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTh-Tm-uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4669.5" y="-1491.5"/>
         </scene>
@@ -763,12 +762,47 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8Q2-ou-FKP" kind="relationship" relationship="rootViewController" id="W0o-Yt-yrh"/>
+                        <segue destination="ziO-yp-I2S" kind="relationship" relationship="rootViewController" id="35p-ye-hyI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jx-th-PUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2633.5" y="1381.5"/>
+            <point key="canvasLocation" x="2266.5" y="1315.5"/>
+        </scene>
+        <!--All Schedules-->
+        <scene sceneID="YRz-0P-5dW">
+            <objects>
+                <tableViewController id="ziO-yp-I2S" customClass="ScheduleListTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zze-JY-bhd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="93V-lm-VJV">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="93V-lm-VJV" id="Pcj-29-KoT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="8Q2-ou-FKP" kind="show" identifier="scheduleSegue" id="nWF-OP-bCt"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ziO-yp-I2S" id="Tza-qG-1dY"/>
+                            <outlet property="delegate" destination="ziO-yp-I2S" id="F6J-95-iiB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="All Schedules" id="Fel-qg-gSP">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Settings" id="eCU-tL-sX8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xcz-NA-WJh"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZ5-Ms-Faj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2738.5" y="1315.5"/>
         </scene>
     </scenes>
 </document>

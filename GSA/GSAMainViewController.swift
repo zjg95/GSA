@@ -16,6 +16,7 @@ class GSAMainViewController: UITabBarController {
     
     let staff: Staff = Staff()
     let week: Week = Week()
+    var scheduleList: [Schedule]!
     
     // -------
     // methods
@@ -25,6 +26,8 @@ class GSAMainViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        scheduleList = [Schedule(name: "default", staff: staff, week: week)]
         
         let shift1: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 4)
         let shift2: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 2)
@@ -37,9 +40,8 @@ class GSAMainViewController: UITabBarController {
         staff.append(employee)
         
         if let nav = self.viewControllers![0] as? UINavigationController {
-            if let schedule = nav.viewControllers.first as? ScheduleTableViewController {
-                schedule.week = self.week
-                schedule.staff = self.staff
+            if let schedule = nav.viewControllers.first as? ScheduleListTableViewController {
+                schedule.scheduleList = self.scheduleList
             }
         }
         if let nav = self.viewControllers![1] as? UINavigationController {
