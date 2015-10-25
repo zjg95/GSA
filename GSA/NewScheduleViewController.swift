@@ -8,18 +8,22 @@
 
 import UIKit
 
-class NewScheduleViewController: UIViewController {
+class NewScheduleViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // ------------
     // data members
     // ------------
     
     var schedule: Schedule!
+    var scheduleList: [Schedule]!
+    var staff: Staff!
     
     // -------
     // outlets
     // -------
 
+    @IBOutlet weak var schedulePicker: UIPickerView!
+    
     @IBOutlet weak var nameField: UITextField!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -34,19 +38,48 @@ class NewScheduleViewController: UIViewController {
     
     func extractContent() {
         let name: String = nameField.text!
-        let week: Week = Week()
-        schedule = Schedule(name: name, staff: Staff(), week: week)
+        var week: Week!
+        let selection = schedulePicker.selectedRowInComponent(0)
+        if selection > 0 {
+            week = scheduleList[selection - 1].week
+        }
+        else {
+            week = Week()
+        }
+        schedule = Schedule(name: name, staff: staff, week: week)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        schedulePicker.dataSource = self
+        schedulePicker.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Data Sources
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return scheduleList.count + 1
+    }
+    
+    //MARK: Delegates
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if row == 0 {
+            return "None"
+        }
+        return scheduleList[row - 1].name
     }
     
     // MARK: - Navigation

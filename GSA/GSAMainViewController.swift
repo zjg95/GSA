@@ -42,16 +42,12 @@ class GSAMainViewController: UITabBarController {
         if let nav = self.viewControllers![0] as? UINavigationController {
             if let schedule = nav.viewControllers.first as? ScheduleListTableViewController {
                 schedule.scheduleList = self.scheduleList
+                schedule.staff = self.staff
             }
         }
         if let nav = self.viewControllers![1] as? UINavigationController {
             if let employee = nav.viewControllers.first as? EmployeeTableViewController {
                 employee.staff = self.staff
-            }
-        }
-        if let nav = self.viewControllers![2] as? UINavigationController {
-            if let shift = nav.viewControllers.first as? ShiftTableViewController {
-                shift.week = self.week
             }
         }
     }

@@ -15,6 +15,7 @@ class ScheduleListTableViewController: UITableViewController {
     // ------------
     
     var scheduleList: [Schedule]!
+    var staff: Staff!
     
     // -------
     // methods
@@ -106,6 +107,12 @@ class ScheduleListTableViewController: UITableViewController {
                 destination.week = week
                 destination.staff = staff
                 destination.navigationItem.title = scheduleList[index!.row].name
+            }
+        }
+        if segue.identifier == "newScheduleSegue" {
+            if let nav = segue.destinationViewController as? UINavigationController, destination = nav.viewControllers.first as? NewScheduleViewController {
+                destination.staff = self.staff
+                destination.scheduleList = self.scheduleList
             }
         }
     }
