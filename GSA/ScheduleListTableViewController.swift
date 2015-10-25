@@ -108,5 +108,13 @@ class ScheduleListTableViewController: UITableViewController {
             }
         }
     }
+    
+    @IBAction func addScheduleToTable(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? NewScheduleViewController, schedule = sourceViewController.schedule {
+            let newIndexPath = NSIndexPath(forRow: scheduleList.count, inSection: 0)
+            scheduleList.append(schedule)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
+    }
 
 }

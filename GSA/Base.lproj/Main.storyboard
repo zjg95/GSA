@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pLz-Cj-Pyx">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
@@ -797,12 +798,91 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="All Schedules" id="Fel-qg-gSP">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" title="Settings" id="eCU-tL-sX8"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xcz-NA-WJh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xcz-NA-WJh">
+                            <connections>
+                                <segue destination="WgA-Nr-qf9" kind="presentation" id="h2x-11-9bq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZ5-Ms-Faj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2738.5" y="1315.5"/>
+        </scene>
+        <!--New Schedule-->
+        <scene sceneID="EB2-G1-Dck">
+            <objects>
+                <viewController id="9ek-Q1-Qcy" customClass="NewScheduleViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mfD-Gn-Q23"/>
+                        <viewControllerLayoutGuide type="bottom" id="cFH-9p-IFN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hOU-D7-LdH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Schedule Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSC-Ts-PhR">
+                                <rect key="frame" x="98" y="87" width="179" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjg-dX-y41">
+                                <rect key="frame" x="98" y="126" width="179" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INu-43-Bjc">
+                                <rect key="frame" x="0.0" y="242" width="375" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reuse shifts from:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQl-Az-MH1">
+                                <rect key="frame" x="98" y="213" width="179" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Schedule" id="S7q-LV-t6S">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hoI-iD-NXs">
+                            <connections>
+                                <action selector="cancelButton:" destination="9ek-Q1-Qcy" id="L5R-bE-Qr6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vjh-mW-KRI">
+                            <connections>
+                                <segue destination="h2j-jd-Exv" kind="unwind" unwindAction="addScheduleToTable:" id="NY6-rr-MdQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameField" destination="sjg-dX-y41" id="f6a-ns-IqP"/>
+                        <outlet property="saveButton" destination="vjh-mW-KRI" id="fRj-Er-9So"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AfF-oD-Z6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="h2j-jd-Exv" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3272.5" y="2110.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8BH-FN-d0y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WgA-Nr-qf9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lJt-nk-Kce">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9ek-Q1-Qcy" kind="relationship" relationship="rootViewController" id="2Kj-sQ-Q1F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ev2-RN-S6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2777" y="2079"/>
         </scene>
     </scenes>
 </document>
