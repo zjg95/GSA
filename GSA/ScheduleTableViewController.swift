@@ -141,7 +141,7 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditShiftViewController, index = sourceViewController.index {
+        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController, index = sourceViewController.index {
             deleteShift(index)
         }
     }

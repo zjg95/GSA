@@ -69,6 +69,7 @@ class ScheduleDetailsViewController: UIViewController {
                 if let destination = nav.viewControllers.first as? EditScheduleViewController {
                     destination.staff = self.staff
                     destination.shift = shift
+                    destination.index = self.index
                 }
             }
         }
