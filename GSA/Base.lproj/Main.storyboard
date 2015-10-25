@@ -57,57 +57,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHQ-Cv-UQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2931.5" y="-1319.5"/>
-        </scene>
-        <!--Shifts-->
-        <scene sceneID="yfa-T0-ssW">
-            <objects>
-                <tableViewController id="YVS-ru-Pd7" customClass="ShiftTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="shiftCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6Qj-3q-jkE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shiftCell" textLabel="QlU-3h-t73" detailTextLabel="fPf-O4-GY6" style="IBUITableViewCellStyleValue1" id="YBw-hA-3Cg">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" tableViewCell="YBw-hA-3Cg" id="V7H-bF-xrT">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QlU-3h-t73">
-                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fPf-O4-GY6">
-                                            <rect key="frame" x="543" y="12" width="42" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Sce-5M-M8j" kind="show" identifier="shiftDetailsSegue" id="PTe-fp-9G3"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="YVS-ru-Pd7" id="7jf-Va-7W7"/>
-                            <outlet property="delegate" destination="YVS-ru-Pd7" id="qNl-6N-3yu"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Shifts" id="R0T-zw-mcY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AVV-g6-a7W"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XwP-cL-7Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2628.5" y="-375.5"/>
+            <point key="canvasLocation" x="2443.5" y="-479.5"/>
         </scene>
         <!--New Shift-->
         <scene sceneID="nIl-P0-92m">
@@ -179,134 +129,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZ6-UX-hFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rN7-wW-iC7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4237.5" y="577.5"/>
-        </scene>
-        <!--Shift Details-->
-        <scene sceneID="3fv-Ug-SP7">
-            <objects>
-                <viewController id="Sce-5M-M8j" customClass="ShiftDetailsViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RbL-jo-HYJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="omJ-GJ-6CD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HoZ-L2-6o0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;hours&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8An-3B-ssd">
-                                <rect key="frame" x="20" y="183" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;day&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quk-mb-8yM">
-                                <rect key="frame" x="20" y="97" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;shift&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w98-Wn-EA0">
-                                <rect key="frame" x="20" y="141" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Shift Details" id="Y02-jQ-M4f">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="4qM-cj-G6o">
-                            <connections>
-                                <segue destination="Hps-kr-cUg" kind="show" identifier="editShiftSegue" id="E3v-fy-NRk"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="dayLabel" destination="quk-mb-8yM" id="0IZ-zb-fOX"/>
-                        <outlet property="hoursLabel" destination="8An-3B-ssd" id="yfZ-9x-0dh"/>
-                        <outlet property="shiftLabel" destination="w98-Wn-EA0" id="Dvq-lY-1xU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rKF-ET-DKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3107.5" y="-381.5"/>
-        </scene>
-        <!--Edit Shift-->
-        <scene sceneID="Cf2-3i-GgB">
-            <objects>
-                <viewController title="Edit Shift" id="Hps-kr-cUg" customClass="EditShiftViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PcA-O2-9q3"/>
-                        <viewControllerLayoutGuide type="bottom" id="dLB-i5-PAi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ChT-1o-mXz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wqw-TE-zVf">
-                                <rect key="frame" x="0.0" y="294" width="375" height="92"/>
-                                <date key="date" timeIntervalSinceReferenceDate="466391000.52249599">
-                                    <!--2015-10-13 01:03:20 +0000-->
-                                </date>
-                            </datePicker>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDq-hL-yBL">
-                                <rect key="frame" x="0.0" y="111" width="375" height="146"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHy-6s-iWp">
-                                <rect key="frame" x="166" y="82" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJs-QY-UJE">
-                                <rect key="frame" x="153" y="265" width="68" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auz-oz-SMg">
-                                <rect key="frame" x="166" y="419" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="Sb2-Fm-pR9">
-                                <rect key="frame" x="0.0" y="448" width="375" height="92"/>
-                                <date key="date" timeIntervalSinceReferenceDate="466391000.52249599">
-                                    <!--2015-10-13 01:03:20 +0000-->
-                                </date>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzV-4G-R6n">
-                                <rect key="frame" x="20" y="610" width="335" height="30"/>
-                                <state key="normal" title="Delete Shift">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteShiftButton:" destination="Hps-kr-cUg" eventType="touchUpInside" id="vqp-BQ-jQd"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Edit Shift" id="MEh-uz-TDD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6Bg-bi-Nuz">
-                            <connections>
-                                <segue destination="cLg-a9-bTG" kind="unwind" unwindAction="updateShiftDetails:" id="xl0-75-N2M"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="dayPicker" destination="KDq-hL-yBL" id="PlY-wl-TJo"/>
-                        <outlet property="endPicker" destination="Sb2-Fm-pR9" id="iqe-tX-6bD"/>
-                        <outlet property="saveButton" destination="6Bg-bi-Nuz" id="o2g-x0-tFd"/>
-                        <outlet property="startPicker" destination="Wqw-TE-zVf" id="QSD-VW-WTg"/>
-                        <segue destination="cLg-a9-bTG" kind="unwind" identifier="deleteShiftFromTableSegue" unwindAction="deleteShiftFromTable:" id="SVG-Vj-LDE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lG4-XR-DoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="cLg-a9-bTG" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="3571.5" y="-381.5"/>
+            <point key="canvasLocation" x="3469.5" y="305.5"/>
         </scene>
         <!--New Employee-->
         <scene sceneID="oZA-sN-M4T">
@@ -378,7 +201,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8K-NN-aA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lfV-Yk-1Na" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2683.5" y="-2314.5"/>
+            <point key="canvasLocation" x="3587.5" y="-1378.5"/>
         </scene>
         <!--Employee Details-->
         <scene sceneID="uQo-Zb-5BP">
@@ -421,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgA-ty-NZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4130.5" y="-1491.5"/>
+            <point key="canvasLocation" x="3058.5" y="-479.5"/>
         </scene>
         <!--Edit Employee-->
         <scene sceneID="N7c-ee-Lgm">
@@ -504,7 +327,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9i-h7-buc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Esv-lp-BgP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5256.5" y="-1491.5"/>
+            <point key="canvasLocation" x="4184.5" y="-479.5"/>
         </scene>
         <!--<schedule>-->
         <scene sceneID="S2l-Pk-3wo">
@@ -558,7 +381,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inI-7h-lr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3335.5" y="1315.5"/>
+            <point key="canvasLocation" x="2567.5" y="1043.5"/>
         </scene>
         <!--Schedule Details-->
         <scene sceneID="bbL-53-1qf">
@@ -621,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Mp-iR-xlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3871.5" y="1315.5"/>
+            <point key="canvasLocation" x="3103.5" y="1043.5"/>
         </scene>
         <!--Edit Schedule-->
         <scene sceneID="CET-TU-0uT">
@@ -683,6 +506,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwc-an-J5l">
+                                <rect key="frame" x="25" y="78" width="118" height="30"/>
+                                <state key="normal" title="Delete Shift">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButton:" destination="OXO-T9-toO" eventType="touchUpInside" id="Bkr-WZ-q4O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -709,7 +541,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VlS-aj-Zlj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JFF-M2-Jzk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4996.5" y="1315.5"/>
+            <point key="canvasLocation" x="4228.5" y="1043.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZGL-lM-doJ">
@@ -727,7 +559,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fya-S8-pGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2144.5" y="-2314.5"/>
+            <point key="canvasLocation" x="3048.5" y="-1378.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4BA-iG-xZJ">
@@ -745,7 +577,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RyA-yt-QBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3818.5" y="577.5"/>
+            <point key="canvasLocation" x="3050.5" y="305.5"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="540-iK-Sz1">
@@ -783,7 +615,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTh-Tm-uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4669.5" y="-1491.5"/>
+            <point key="canvasLocation" x="3597.5" y="-479.5"/>
         </scene>
         <!--Employees-->
         <scene sceneID="7UO-1j-6BY">
@@ -802,26 +634,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FoA-gm-6mT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2344.5" y="-1319.5"/>
-        </scene>
-        <!--Shifts-->
-        <scene sceneID="WJs-cb-7OG">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OP5-TV-Kfp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shifts" id="fUN-zT-zHy"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d8t-NX-sSZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="YVS-ru-Pd7" kind="relationship" relationship="rootViewController" id="uQI-jZ-4BN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RZ9-1D-gOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1951.5" y="-381.5"/>
+            <point key="canvasLocation" x="1856.5" y="-479.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="JND-er-Ysl">
@@ -867,7 +680,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jx-th-PUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2266.5" y="1315.5"/>
+            <point key="canvasLocation" x="1498.5" y="1043.5"/>
         </scene>
         <!--Schedules-->
         <scene sceneID="YRz-0P-5dW">
@@ -905,7 +718,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZ5-Ms-Faj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2738.5" y="1315.5"/>
+            <point key="canvasLocation" x="1970.5" y="1043.5"/>
         </scene>
         <!--New Schedule-->
         <scene sceneID="EB2-G1-Dck">
@@ -962,7 +775,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AfF-oD-Z6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="h2j-jd-Exv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3242.5" y="2128.5"/>
+            <point key="canvasLocation" x="2474.5" y="1856.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8BH-FN-d0y">
@@ -980,7 +793,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ev2-RN-S6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2738.5" y="2128.5"/>
+            <point key="canvasLocation" x="1970.5" y="1856.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="bec-rm-RlW">
@@ -1017,7 +830,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aoc-Hf-XhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4409.5" y="1315.5"/>
+            <point key="canvasLocation" x="3641.5" y="1043.5"/>
         </scene>
     </scenes>
 </document>
