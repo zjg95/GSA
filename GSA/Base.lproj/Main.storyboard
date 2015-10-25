@@ -113,7 +113,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XwP-cL-7Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3708.5" y="-331.5"/>
+            <point key="canvasLocation" x="2628.5" y="-375.5"/>
         </scene>
         <!--New Shift-->
         <scene sceneID="nIl-P0-92m">
@@ -185,7 +185,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZ6-UX-hFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rN7-wW-iC7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2200.5" y="510.5"/>
+            <point key="canvasLocation" x="2552.5" y="430.5"/>
         </scene>
         <!--Shift Details-->
         <scene sceneID="3fv-Ug-SP7">
@@ -235,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKF-ET-DKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4229.5" y="-331.5"/>
+            <point key="canvasLocation" x="3107.5" y="-381.5"/>
         </scene>
         <!--Edit Shift-->
         <scene sceneID="Cf2-3i-GgB">
@@ -312,7 +312,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lG4-XR-DoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cLg-a9-bTG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4771.5" y="-331.5"/>
+            <point key="canvasLocation" x="3571.5" y="-381.5"/>
         </scene>
         <!--New Employee-->
         <scene sceneID="oZA-sN-M4T">
@@ -560,7 +560,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inI-7h-lr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3224.5" y="1381.5"/>
+            <point key="canvasLocation" x="3335.5" y="1315.5"/>
         </scene>
         <!--Schedule Details-->
         <scene sceneID="bbL-53-1qf">
@@ -602,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Mp-iR-xlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3993.5" y="1381.5"/>
+            <point key="canvasLocation" x="3871.5" y="1315.5"/>
         </scene>
         <!--Edit Schedule-->
         <scene sceneID="CET-TU-0uT">
@@ -637,7 +637,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VlS-aj-Zlj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JFF-M2-Jzk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4623.5" y="1381.5"/>
+            <point key="canvasLocation" x="4409.5" y="1315.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZGL-lM-doJ">
@@ -673,7 +673,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RyA-yt-QBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2963.5" y="479.5"/>
+            <point key="canvasLocation" x="3237.5" y="425.5"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="540-iK-Sz1">
@@ -693,7 +693,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EsS-DO-0Hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848.5" y="-332.5"/>
+            <point key="canvasLocation" x="1108.5" y="-388.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ehj-I0-bCU">
@@ -749,7 +749,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZ9-1D-gOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3121.5" y="-331.5"/>
+            <point key="canvasLocation" x="1951.5" y="-381.5"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="boc-UT-0qA">
@@ -832,15 +832,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INu-43-Bjc">
-                                <rect key="frame" x="0.0" y="242" width="375" height="216"/>
-                            </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reuse shifts from:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQl-Az-MH1">
                                 <rect key="frame" x="98" y="213" width="179" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INu-43-Bjc">
+                                <rect key="frame" x="0.0" y="242" width="375" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -864,7 +864,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AfF-oD-Z6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="h2j-jd-Exv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3272.5" y="2110.5"/>
+            <point key="canvasLocation" x="3242.5" y="2128.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8BH-FN-d0y">
@@ -882,7 +882,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ev2-RN-S6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2777" y="2079"/>
+            <point key="canvasLocation" x="2738.5" y="2128.5"/>
         </scene>
     </scenes>
 </document>
