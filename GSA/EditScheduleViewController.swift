@@ -42,8 +42,7 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBAction func cancelButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    @IBAction func deleteShiftButton(sender: AnyObject) {
+    @IBAction func deleteButton(sender: AnyObject) {
         self.alertController = UIAlertController(title: "Confirm Delete", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
