@@ -65,11 +65,11 @@ class ShiftDetailsViewController: UIViewController {
         }
     }
     
-    @IBAction func updateShiftDetails(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditShiftViewController {
-            populateContent()
-            delegate.editCell(shift, index: index)
-        }
-    }
+//    @IBAction func updateShiftDetails(sender: UIStoryboardSegue) {
+//        if let sourceViewController = sender.sourceViewController as? EditShiftViewController {
+//            populateContent()
+//            delegate.editCell(shift, index: index)
+//        }
+//    }
 
 }

@@ -111,15 +111,15 @@ class ShiftTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
-            addShift(shift)
-        }
-    }
-    
-    @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditShiftViewController, index = sourceViewController.index {
-            deleteShift(index)
-        }
-    }
+//    @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
+//        if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
+//            addShift(shift)
+//        }
+//    }
+//    
+//    @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
+//        if let sourceViewController = sender.sourceViewController as? EditShiftViewController, index = sourceViewController.index {
+//            deleteShift(index)
+//        }
+//    }
 }

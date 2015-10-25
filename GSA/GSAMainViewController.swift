@@ -27,7 +27,7 @@ class GSAMainViewController: UITabBarController {
 
         // Do any additional setup after loading the view.
         
-        scheduleList = [Schedule(name: "default", staff: staff, week: week)]
+        scheduleList = [Schedule(name: "Week 1", staff: staff, week: week)]
         
         let shift1: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 4)
         let shift2: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 2)

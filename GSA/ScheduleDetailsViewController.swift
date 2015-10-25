@@ -25,6 +25,9 @@ class ScheduleDetailsViewController: UIViewController {
     // reference outlets
     // -----------------
     
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var shiftLabel: UILabel!
+    @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var assigneeLabel: UILabel!
     
     // -------
@@ -45,6 +48,9 @@ class ScheduleDetailsViewController: UIViewController {
     }
     
     func populateContent() {
+        dayLabel.text   = days[shift.day]
+        shiftLabel.text = shift.timeAMPM
+        hoursLabel.text = "Hours: " + String(shift.duration)
         if let employee = shift._employee {
             assigneeLabel.text! = employee.fullName
         } else {
@@ -59,18 +65,18 @@ class ScheduleDetailsViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "editScheduleSegue") {
-            if let destination = segue.destinationViewController as? EditScheduleViewController {
-                destination.staff = self.staff
-                destination.shift = shift
+            if let nav = segue.destinationViewController as? UINavigationController {
+                if let destination = nav.viewControllers.first as? EditScheduleViewController {
+                    destination.staff = self.staff
+                    destination.shift = shift
+                }
             }
         }
     }
     
-    @IBAction func updateSheduleShiftDetails(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController {
-            populateContent()
-            delegate.editCell(shift, index: index)
-        }
+    @IBAction func updateShiftDetails(sender: UIStoryboardSegue) {
+        populateContent()
+        delegate.editCell(shift, index: index)
     }
     
 }

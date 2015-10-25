@@ -66,12 +66,54 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func editCell(shift: Shift, index: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(index)
+        // time data
+        let day = shift.day
+        var cell: UITableViewCell?
+        if day != index.section {
+            // shift was moved to another day
+            deleteShift(index)
+            let newIndexPath = NSIndexPath(forRow: week[shift.day].count, inSection: shift.day)
+            addShift(shift)
+            cell = tableView.cellForRowAtIndexPath(newIndexPath)
+        }
+        else {
+            // shift time has changed
+            cell = tableView.cellForRowAtIndexPath(index)
+            cell?.textLabel?.text = shift.timeAMPM
+            cell?.detailTextLabel?.text = shift.duration
+        }
+        
+        // assignee data
         if let employee = shift._employee {
             cell?.detailTextLabel?.text = employee.fullName
         }
         else {
             cell?.detailTextLabel?.text = "Unassigned"
+        }
+    }
+    
+    // adapted from ShiftTableViewController.swift
+    
+    func addShift(shift: Shift) {
+        print("new shift added")
+        // add shift to data array
+        // add shift to table
+        let newIndexPath = NSIndexPath(forRow: week[shift.day].count, inSection: shift.day)
+        week[shift.day].append(shift)
+        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+    }
+    
+    // adapted from ShiftTableViewController.swift
+    
+    func deleteShift(index: NSIndexPath) {
+        print("shift deleted")
+        // delete shift from data array
+        // delete shift from table
+        week[index.section].removeAtIndex(index.row)
+        tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
+        if tableView.numberOfRowsInSection(index.section) == 0 {
+            // delete empty section, the following line causes a crash
+            //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
         }
     }
     
@@ -89,6 +131,18 @@ class ScheduleTableViewController: UITableViewController {
                 destination.shift = week[index!.section][index!.row]
                 destination.staff = staff
             }
+        }
+    }
+    
+    @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
+            addShift(shift)
+        }
+    }
+    
+    @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditShiftViewController, index = sourceViewController.index {
+            deleteShift(index)
         }
     }
     

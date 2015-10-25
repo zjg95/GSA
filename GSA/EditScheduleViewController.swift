@@ -21,7 +21,9 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     var staff: Staff!
     
-    var pickerData: [String] = ["None"]
+    var employeeNames: [String] = ["None"]
+    
+    var alertController: UIAlertController?
     
     // -----------------
     // reference outlets
@@ -29,14 +31,62 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     @IBOutlet weak var employeePicker: UIPickerView!
     
+    @IBOutlet weak var dayPicker: UIPickerView!
+
+    @IBOutlet weak var startPicker: UIDatePicker!
+    
+    @IBOutlet weak var endPicker: UIDatePicker!
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBAction func cancelButton(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func deleteShiftButton(sender: AnyObject) {
+        self.alertController = UIAlertController(title: "Confirm Delete", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
+        })
+        let delete = UIAlertAction (title: "Delete", style: .Destructive ) { alertAction in
+            
+            self.performSegueWithIdentifier("deleteShiftFromTableSegue", sender: self)
+        }
+        
+        self.alertController!.addAction(cancel)
+        self.alertController!.addAction(delete)
+        
+        presentViewController(self.alertController!, animated: true, completion: nil)
+    }
     
     // -------
     // methods
     // -------
     
     func populateContent() {
-        pickerData += staff.employeeNames
+        
+        // day data
+        dayPicker.selectRow(shift.day, inComponent: 0, animated: false)
+        
+        // end time data
+        var calendar:NSCalendar = NSCalendar.currentCalendar()
+        var date = startPicker.date
+        var components = calendar.components([.Hour], fromDate: date)
+        components.hour = shift.timeStart.hour
+        components.minute = shift.timeStart.minutes
+        startPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
+        
+        // end time data
+        calendar = NSCalendar.currentCalendar()
+        date = endPicker.date
+        components = calendar.components([.Hour], fromDate: date)
+        components.hour = shift.timeEnd.hour
+        components.minute = shift.timeEnd.minutes
+        endPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
+        
+        // assignee data
+        
+        employeeNames += staff.employeeNames
         if let employee = shift._employee {
             let index = staff.employeeIndex(employee)
             employeePicker.selectRow(index + 1, inComponent: 0, animated: false)
@@ -44,6 +94,31 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
 
     func extractContent() {
+        
+        // day data
+        shift.day = dayPicker.selectedRowInComponent(0)
+        
+        // start time data
+        var calendar = NSCalendar.currentCalendar()
+        var date = startPicker.date
+        var components = calendar.components([.Hour], fromDate: date)
+        let startHour = components.hour
+        components = calendar.components([.Minute], fromDate: date)
+        let startMinutes = components.minute
+        shift.timeStart.hour = startHour
+        shift.timeStart.minutes = startMinutes
+        
+        // end time data
+        calendar = NSCalendar.currentCalendar()
+        date = endPicker.date
+        components = calendar.components([.Hour], fromDate: date)
+        let endHour = components.hour
+        components = calendar.components([.Minute], fromDate: date)
+        let endMinutes = components.minute
+        shift.timeEnd.hour = endHour
+        shift.timeEnd.minutes = endMinutes
+        
+        // assignee data
         let index: Int = employeePicker.selectedRowInComponent(0)
         if index > 0 {
             let employee: Employee! = staff[index - 1]
@@ -61,6 +136,8 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         employeePicker.dataSource = self
         employeePicker.delegate = self
+        dayPicker.dataSource = self
+        dayPicker.delegate = self
         
         populateContent()
     }
@@ -77,17 +154,23 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        if dayPicker == pickerView {
+            return days.count
+        }
+        else {
+            return employeeNames.count
+        }
     }
     
     //MARK: Delegates
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //        myLabel.text = pickerData[row]
+        if dayPicker == pickerView {
+            return days[row]
+        }
+        else {
+            return employeeNames[row]
+        }
     }
     
     // MARK: - Navigation
