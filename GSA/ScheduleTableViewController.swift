@@ -19,12 +19,15 @@ class ScheduleTableViewController: UITableViewController {
     
     var staff: Staff!
     
+    var employeeView: Bool!
+    
     // -------
     // outlets
     // -------
     
     @IBAction func organizeButton(sender: AnyObject) {
-        print("reorganize table")
+        employeeView = !employeeView
+        self.tableView.reloadData()
     }
     
     // -------
@@ -33,11 +36,8 @@ class ScheduleTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        employeeView = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,28 +49,54 @@ class ScheduleTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return days.count
+        if employeeView == true {
+            return staff.count + 1
+        }
+        else {
+            return days.count
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return week[section].count
+        if employeeView == true {
+            if section == staff.count {
+                return 0
+            }
+            return staff[section].shiftCount
+        }
+        else {
+            return week[section].count
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let shift: Shift = week[indexPath.section][indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath)
-        cell.textLabel!.text = String(shift.timeAMPM)
-        if let employee = shift._employee {
-            cell.detailTextLabel?.text = employee.fullName
-        } else {
-            cell.detailTextLabel?.text = "Unassigned"
+        if employeeView == true {
+            
+        }
+        else {
+            let shift: Shift = week[indexPath.section][indexPath.row]
+            cell.textLabel!.text = String(shift.timeAMPM)
+            if let employee = shift._employee {
+                cell.detailTextLabel?.text = employee.fullName
+            } else {
+                cell.detailTextLabel?.text = "Unassigned"
+            }
         }
         return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return days[section]
+        if employeeView == true {
+            if section == staff.count {
+                return "Unassigned"
+            }
+            return staff[section].fullName
+        }
+        else {
+            return days[section]
+        }
     }
     
     func editCell(shift: Shift, index: NSIndexPath) {
