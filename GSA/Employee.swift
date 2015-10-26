@@ -18,58 +18,46 @@ class Employee {
     // data members
     // ------------
     
-    private var _firstName: String = ""
-    private var _lastName: String = ""
-    private var _position: String = ""
+    var firstName: String = ""
+    var lastName: String = ""
+    var position: String = ""
     
-    // ---------
-    // accessors
-    // ---------
+    private var _shiftCount: Int = 0
     
-    var firstName: String {
+    var shiftCount: Int {
         get {
-            return _firstName
-        }
-        set (newName) {
-            _firstName = newName
-        }
-    }
-    
-    var lastName: String {
-        get {
-            return _lastName
-        }
-        set (newName) {
-            _lastName = newName
+            return _shiftCount
         }
     }
     
     var fullName: String {
         get {
-            return _firstName + " " + _lastName
+            if firstName != "" && lastName != "" {
+                return firstName + " " + lastName
+            }
+            if firstName != "" {
+                return firstName
+            }
+            return lastName
         }
     }
     
-    var position: String {
-        get {
-            return _position
-        }
-        set(value) {
-            _position = value
-        }
-    }
-    
-    // -----------
-    // constructor
-    // -----------
+    // ------------
+    // constructors
+    // ------------
     
     init(firstName: String) {
-        _firstName = firstName
+        self.firstName = firstName
     }
     
     convenience init(firstName: String, lastName: String) {
         self.init(firstName: firstName)
-        _lastName = lastName
+        self.lastName = lastName
+    }
+    
+    convenience init(firstName: String, lastName: String, position: String) {
+        self.init(firstName: firstName, lastName: lastName)
+        self.position = position
     }
     
 }
