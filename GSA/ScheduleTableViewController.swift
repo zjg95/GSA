@@ -78,7 +78,7 @@ class ScheduleTableViewController: UITableViewController {
         else {
             let shift: Shift = week[indexPath.section][indexPath.row]
             cell.textLabel!.text = String(shift.timeAMPM)
-            if let employee = shift._employee {
+            if let employee = shift.assignee {
                 cell.detailTextLabel?.text = employee.fullName
             } else {
                 cell.detailTextLabel?.text = "Unassigned"
@@ -118,7 +118,7 @@ class ScheduleTableViewController: UITableViewController {
         }
         
         // assignee data
-        if let employee = shift._employee {
+        if let employee = shift.assignee {
             cell?.detailTextLabel?.text = employee.fullName
         }
         else {

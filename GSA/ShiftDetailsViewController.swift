@@ -51,7 +51,7 @@ class ScheduleDetailsViewController: UIViewController {
         dayLabel.text   = days[shift.day]
         shiftLabel.text = shift.timeAMPM
         hoursLabel.text = "Hours: " + String(shift.duration)
-        if let employee = shift._employee {
+        if let employee = shift.assignee {
             assigneeLabel.text! = employee.fullName
         } else {
             assigneeLabel.text! = "None"

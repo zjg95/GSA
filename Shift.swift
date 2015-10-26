@@ -7,9 +7,10 @@
 //
 
 import Foundation
-// --------
-// Employee
-// --------
+
+// -----
+// Shift
+// -----
 
 class Shift {
     
@@ -21,10 +22,9 @@ class Shift {
     private var _timeEnd: Time
     private var _day: Int = 0
     private var _position: String = ""
-//    private var employees: [Employee]
     private var _dayString: String = ""
     
-    var _employee: Employee?
+    var assignee: Employee?
     
     // ---------
     // accessors
@@ -109,11 +109,5 @@ class Shift {
         _timeEnd = timeEnd
         _day = day
     }
-    
-//    convenience init(timeStart: Int, timeEnd: Int) {
-//        self.init(timeStart: timeStart, timeEnd: timeEnd)
-//        _timeStart = timeStart
-//        _timeEnd = timeEnd
-//    }
     
 }

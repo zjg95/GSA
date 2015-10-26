@@ -36,4 +36,12 @@ class Week {
         shifts = that.shifts
     }
     
+    // -------
+    // methods
+    // -------
+    
+    func append(shift: Shift) {
+        shifts[shift.day].append(shift)
+    }
+    
 }

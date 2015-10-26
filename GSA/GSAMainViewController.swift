@@ -32,10 +32,10 @@ class GSAMainViewController: UITabBarController {
         let shift1: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 4)
         let shift2: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 2)
         let employee: Employee = Employee(firstName: "Robert", lastName: "Seitsinger", position: "Professor")
-        shift1._employee = employee
-        shift2._employee = employee
-        week[4].append(shift1)
-        week[2].append(shift2)
+        shift1.assignee = employee
+        shift2.assignee = employee
+        week.append(shift1)
+        week.append(shift2)
         staff.append(employee)
         
         if let nav = self.viewControllers![0] as? UINavigationController {
