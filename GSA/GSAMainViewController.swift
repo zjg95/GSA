@@ -31,8 +31,7 @@ class GSAMainViewController: UITabBarController {
         
         let shift1: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 4)
         let shift2: Shift = Shift(timeStart: Time(hour: 18, minutes: 0), timeEnd: Time(hour: 19, minutes: 30), day: 2)
-        let employee: Employee = Employee(firstName: "Robert", lastName: "Seitsinger")
-        employee.position = "Professor"
+        let employee: Employee = Employee(firstName: "Robert", lastName: "Seitsinger", position: "Professor")
         shift1._employee = employee
         shift2._employee = employee
         week[4].append(shift1)
