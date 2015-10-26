@@ -20,6 +20,14 @@ class ScheduleTableViewController: UITableViewController {
     var staff: Staff!
     
     // -------
+    // outlets
+    // -------
+    
+    @IBAction func organizeButton(sender: AnyObject) {
+        print("reorganize table")
+    }
+    
+    // -------
     // methods
     // -------
     

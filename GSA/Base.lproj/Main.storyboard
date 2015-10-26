@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Employees-->
@@ -372,18 +373,25 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="&lt;schedule&gt;" id="B9j-ax-9nn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="W4w-3X-tug">
-                            <connections>
-                                <segue destination="KYi-ya-gFn" kind="presentation" id="0dc-hV-gyB"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="W4w-3X-tug">
+                                <connections>
+                                    <segue destination="KYi-ya-gFn" kind="presentation" id="0dc-hV-gyB"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="organize" id="pOT-Gd-o8O">
+                                <connections>
+                                    <action selector="organizeButton:" destination="8Q2-ou-FKP" id="RJj-u5-3vq"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inI-7h-lr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2567.5" y="1043.5"/>
         </scene>
-        <!--Schedule Details-->
+        <!--Shift Details-->
         <scene sceneID="bbL-53-1qf">
             <objects>
                 <viewController id="adg-0g-G1U" customClass="ScheduleDetailsViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
@@ -428,7 +436,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schedule Details" id="rhI-j2-YdJ">
+                    <navigationItem key="navigationItem" title="Shift Details" id="rhI-j2-YdJ">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="zfw-Vj-Cyw">
                             <connections>
                                 <segue destination="Q27-3L-ZM1" kind="presentation" identifier="editScheduleSegue" id="jnC-Bd-0KG"/>
@@ -446,7 +454,7 @@
             </objects>
             <point key="canvasLocation" x="3103.5" y="1043.5"/>
         </scene>
-        <!--Edit Schedule-->
+        <!--Edit Shift-->
         <scene sceneID="CET-TU-0uT">
             <objects>
                 <viewController id="OXO-T9-toO" customClass="EditScheduleViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
@@ -518,7 +526,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Schedule" id="1a0-kv-uO8">
+                    <navigationItem key="navigationItem" title="Edit Shift" id="1a0-kv-uO8">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cWS-fj-NzG">
                             <connections>
                                 <action selector="cancelButton:" destination="OXO-T9-toO" id="2CK-ue-8Wg"/>
