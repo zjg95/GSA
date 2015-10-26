@@ -73,7 +73,11 @@ class ScheduleTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath)
         if employeeView == true {
-            
+            if indexPath.section == staff.count {
+                // unassigned shift
+            }
+            cell.textLabel!.text = String("time")
+            cell.detailTextLabel!.text = String("day")
         }
         else {
             let shift: Shift = week[indexPath.section][indexPath.row]

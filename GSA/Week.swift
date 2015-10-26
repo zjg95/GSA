@@ -20,6 +20,16 @@ class Week {
     
     private var shifts: [[Shift]] = [[Shift]](count: 7, repeatedValue: [])
     
+    var count: Int {
+        get {
+            var count: Int = 0
+            for s in shifts {
+                count += s.count
+            }
+            return count
+        }
+    }
+    
     subscript(index: Int) -> [Shift] {
         get {
             return shifts[index]

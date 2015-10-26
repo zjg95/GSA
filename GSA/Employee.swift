@@ -22,11 +22,11 @@ class Employee {
     var lastName: String = ""
     var position: String = ""
     
-    private var _shiftCount: Int = 0
+    private var shifts: Week = Week()
     
     var shiftCount: Int {
         get {
-            return _shiftCount
+            return shifts.count
         }
     }
     
@@ -39,6 +39,12 @@ class Employee {
                 return firstName
             }
             return lastName
+        }
+    }
+    
+    subscript(index: Int) ->[Shift] {
+        get {
+            return shifts[index]
         }
     }
     
@@ -58,6 +64,18 @@ class Employee {
     convenience init(firstName: String, lastName: String, position: String) {
         self.init(firstName: firstName, lastName: lastName)
         self.position = position
+    }
+    
+    // -------
+    // methods
+    // -------
+    
+    func append(shift: Shift) {
+        shifts.append(shift)
+    }
+    
+    func remove(shift: Shift) {
+        // TODO
     }
     
 }

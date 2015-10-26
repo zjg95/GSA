@@ -24,7 +24,24 @@ class Shift {
     private var _position: String = ""
     private var _dayString: String = ""
     
-    var assignee: Employee?
+    private var _assignee: Employee?
+    
+    var assignee: Employee? {
+        get {
+            return _assignee
+        }
+        set(newValue) {
+            if let e = _assignee {
+                // notify old employee
+                e.remove(self)
+            }
+            _assignee = newValue
+            if let e = _assignee {
+                // notify new employee
+                e.append(self)
+            }
+        }
+    }
     
     // ---------
     // accessors
@@ -109,5 +126,4 @@ class Shift {
         _timeEnd = timeEnd
         _day = day
     }
-    
 }
