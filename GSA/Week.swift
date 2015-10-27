@@ -12,7 +12,7 @@ import Foundation
 // week
 // ----
 
-class Week {
+class Week : CopyProtocol {
     
     // ------------
     // data members
@@ -56,11 +56,21 @@ class Week {
         }
     }
     
-    // copy constructor
+    // -----------
+    // constructor
+    // -----------
     
-    convenience init(that: Week) {
-        self.init()
-        shifts = that.shifts
+    init() {
+        
+    }
+    
+    // required initializer for the Copying protocol
+    required init(original: Week) {
+        for day in original.shifts {
+            for shift in day {
+                append(shift.copy())
+            }
+        }
     }
     
     // -------

@@ -12,7 +12,7 @@ import Foundation
 // Shift
 // -----
 
-class Shift {
+class Shift : CopyProtocol {
     
     // ------------
     // data members
@@ -125,5 +125,12 @@ class Shift {
         _timeStart = timeStart
         _timeEnd = timeEnd
         _day = day
+    }
+    
+    // required initializer for the Copying protocol
+    required init(original: Shift) {
+        _timeStart = original._timeStart.copy()
+        _timeEnd = original._timeEnd.copy()
+        _day = original._day
     }
 }

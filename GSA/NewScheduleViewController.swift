@@ -41,7 +41,7 @@ class NewScheduleViewController: UIViewController, UIPickerViewDataSource, UIPic
         var week: Week!
         let selection = schedulePicker.selectedRowInComponent(0)
         if selection > 0 {
-            week = scheduleList[selection - 1].week
+            week = scheduleList[selection - 1].week.copy()
         }
         else {
             week = Week()

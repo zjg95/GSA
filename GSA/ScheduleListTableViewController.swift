@@ -84,12 +84,7 @@ class ScheduleListTableViewController: UITableViewController {
         if segue.identifier == "scheduleSegue" {
             if let destination = segue.destinationViewController as? ScheduleTableViewController {
                 let index = self.tableView!.indexPathForSelectedRow
-                let week: Week = scheduleList[index!.row].week
-                let staff: Staff = scheduleList[index!.row].staff
-                destination.week = week
-                destination.staff = staff
-                destination.weekIndex = index!.row
-                destination.navigationItem.title = scheduleList[index!.row].name
+                destination.schedule = scheduleList[index!.row]
             }
         }
         if segue.identifier == "newScheduleSegue" {

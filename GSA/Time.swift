@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Time {
+class Time : CopyProtocol {
     private var _hour: Int
     private var _minutes: Int
     
@@ -46,6 +46,12 @@ class Time {
     init(hour: Int, minutes: Int) {
         _hour = hour
         _minutes = minutes
-    }    
+    }
+    
+    // required initializer for the Copying protocol
+    required init(original: Time) {
+        _hour = original._hour
+        _minutes = original.minutes
+    }
     
 }

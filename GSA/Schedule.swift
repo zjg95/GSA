@@ -28,6 +28,10 @@ class Schedule {
         self.week = week
     }
     
+    convenience init(name: String) {
+        self.init(name: name, staff: Staff(), week: Week())
+    }
+    
     // -------
     // methods
     // -------

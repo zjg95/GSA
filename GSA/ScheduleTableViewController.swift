@@ -15,13 +15,9 @@ class ScheduleTableViewController: UITableViewController {
     // data members
     // ------------
     
-    var week: Week!
+    var schedule: Schedule!
     
-    var staff: Staff!
-    
-    var employeeView: Bool!
-    
-    var weekIndex: Int!
+    var employeeView: Bool = true
     
     // -------
     // outlets
@@ -38,8 +34,7 @@ class ScheduleTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        employeeView = false
+        self.navigationItem.title = schedule.name
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,7 +47,7 @@ class ScheduleTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         if employeeView == true {
-            return staff.count + 1
+            return schedule.staff.count + 1
         }
         else {
             return days.count
@@ -62,47 +57,53 @@ class ScheduleTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if employeeView == true {
-            if section == staff.count {
+            if section == schedule.staff.count {
                 return 0
             }
-            return staff[section].shiftCount
+            return schedule.staff[section].shiftCount
         }
         else {
-            return week[section].count
+            return schedule.week[section].count
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath)
+        var title: String!
+        var detail: String!
         if employeeView == true {
-            if indexPath.section == staff.count {
+            if indexPath.section == schedule.staff.count {
                 // unassigned shift
+                title = "TBA"
+                detail = "TBA"
             }
             else {
-                let emp: Employee = staff[indexPath.section]
+                let emp: Employee = schedule.staff[indexPath.section]
                 let shift: Shift = emp[indexPath.row]!
-                cell.textLabel!.text = days[shift.day]
-                cell.detailTextLabel!.text = shift.timeAMPM
+                title = days[shift.day]
+                detail = shift.timeAMPM
             }
         }
         else {
-            let shift: Shift = week[indexPath.section][indexPath.row]
-            cell.detailTextLabel?.text = String(shift.timeAMPM)
+            let shift: Shift = schedule.week[indexPath.section][indexPath.row]
+            detail = String(shift.timeAMPM)
             if let employee = shift.assignee {
-                cell.textLabel!.text = employee.fullName
+                title = employee.fullName
             } else {
-                cell.textLabel!.text = "Unassigned"
+                title = "Unassigned"
             }
         }
+        cell.textLabel!.text = title
+        cell.detailTextLabel!.text = detail
         return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if employeeView == true {
-            if section == staff.count {
+            if section == schedule.staff.count {
                 return "Unassigned"
             }
-            return staff[section].fullName
+            return schedule.staff[section].fullName
         }
         else {
             return days[section]
@@ -116,7 +117,7 @@ class ScheduleTableViewController: UITableViewController {
         if day != index.section {
             // shift was moved to another day
             deleteShift(index)
-            let newIndexPath = NSIndexPath(forRow: week[shift.day].count, inSection: shift.day)
+            let newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
             addShift(shift)
             cell = tableView.cellForRowAtIndexPath(newIndexPath)
         }
@@ -139,25 +140,33 @@ class ScheduleTableViewController: UITableViewController {
     // adapted from ShiftTableViewController.swift
     
     func addShift(shift: Shift) {
-        print("new shift added")
         // add shift to data array
         // add shift to table
-        let newIndexPath = NSIndexPath(forRow: week[shift.day].count, inSection: shift.day)
-        week[shift.day].append(shift)
-        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        let newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
+        schedule.week.append(shift)
+        if employeeView == true {
+            
+        }
+        else {
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
     }
     
     // adapted from ShiftTableViewController.swift
     
     func deleteShift(index: NSIndexPath) {
-        print("shift deleted")
         // delete shift from data array
         // delete shift from table
-        week[index.section].removeAtIndex(index.row)
-        tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
-        if tableView.numberOfRowsInSection(index.section) == 0 {
-            // delete empty section, the following line causes a crash
-            //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
+        if employeeView == true {
+            
+        }
+        else {
+            schedule.week[index.section].removeAtIndex(index.row)
+            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
+            if tableView.numberOfRowsInSection(index.section) == 0 {
+                // delete empty section, the following line causes a crash
+                //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
+            }
         }
     }
     
@@ -172,8 +181,8 @@ class ScheduleTableViewController: UITableViewController {
                 let index = self.tableView!.indexPathForSelectedRow
                 destination.delegate = self
                 destination.index = index
-                destination.shift = week[index!.section][index!.row]
-                destination.staff = staff
+                destination.shift = schedule.week[index!.section][index!.row]
+                destination.staff = schedule.staff
             }
         }
     }
