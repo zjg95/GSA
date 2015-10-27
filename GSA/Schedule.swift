@@ -52,8 +52,12 @@ class Schedule {
         week.append(shift)
     }
     
-    func remove(shift: Shift) {
+    func remove(shift: Shift) -> NSIndexPath {
         shift.assignee = nil
-        week.remove(shift)
+        return week.remove(shift)
+    }
+    
+    func shift(index: NSIndexPath) -> Shift {
+        return week[index.section][index.row]
     }
 }

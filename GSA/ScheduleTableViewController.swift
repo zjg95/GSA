@@ -146,14 +146,16 @@ class ScheduleTableViewController: UITableViewController {
     func addShift(shift: Shift) {
         // add shift to data array
         // add shift to table
-        let newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
-        schedule.append(shift)
+        var newIndexPath: NSIndexPath!
         if employeeView == true {
-            
+            newIndexPath = NSIndexPath(forRow: schedule.nullEmployee.shiftCount, inSection: schedule.staff.count)
         }
         else {
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
         }
+        schedule.append(shift)
+        shift.assignee = schedule.nullEmployee
+        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
     }
     
     // adapted from ShiftTableViewController.swift
@@ -162,10 +164,13 @@ class ScheduleTableViewController: UITableViewController {
         // delete shift from data array
         // delete shift from table
         if employeeView == true {
-            
+            let shift: Shift = schedule.staff[index.section][index.row]!
+            let newIndex: NSIndexPath = schedule.remove(shift)
+            print(newIndex)
+            tableView.deleteRowsAtIndexPaths([newIndex], withRowAnimation: .Bottom)
         }
         else {
-            schedule.week[index.section].removeAtIndex(index.row)
+            schedule.remove(schedule.shift(index))
             tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
             if tableView.numberOfRowsInSection(index.section) == 0 {
                 // delete empty section, the following line causes a crash
@@ -182,12 +187,28 @@ class ScheduleTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier == "scheduleDetailsSegue") {
             if let destination = segue.destinationViewController as? ScheduleDetailsViewController {
-                let index = self.tableView!.indexPathForSelectedRow
-                self.delegate = destination
+                
+                let index: NSIndexPath! = self.tableView!.indexPathForSelectedRow
+                var shift: Shift!
+                delegate = destination
                 destination.delegate = self
-                destination.index = index
-                destination.shift = schedule.week[index!.section][index!.row]
                 destination.staff = schedule.staff
+                destination.index = index
+                
+                if employeeView == true {
+                    if index.section == schedule.staff.count {
+                        // null employee
+                        shift = schedule.nullEmployee[index.row]
+                    }
+                    else {
+                        shift = schedule.staff[index.section][index.row]
+                    }
+                }
+                else {
+                    shift = schedule.week[index.section][index.row]
+                }
+                
+                destination.shift = shift
             }
         }
     }
