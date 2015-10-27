@@ -88,6 +88,7 @@ class ScheduleListTableViewController: UITableViewController {
                 let staff: Staff = scheduleList[index!.row].staff
                 destination.week = week
                 destination.staff = staff
+                destination.weekIndex = index!.row
                 destination.navigationItem.title = scheduleList[index!.row].name
             }
         }

@@ -21,6 +21,8 @@ class ScheduleTableViewController: UITableViewController {
     
     var employeeView: Bool!
     
+    var weekIndex: Int!
+    
     // -------
     // outlets
     // -------
@@ -76,8 +78,12 @@ class ScheduleTableViewController: UITableViewController {
             if indexPath.section == staff.count {
                 // unassigned shift
             }
-            cell.textLabel!.text = String("time")
-            cell.detailTextLabel!.text = String("day")
+            else {
+                let emp: Employee = staff[indexPath.section]
+                let shift: Shift = emp[indexPath.row]!
+                cell.textLabel!.text = days[shift.day]
+                cell.detailTextLabel!.text = shift.timeAMPM
+            }
         }
         else {
             let shift: Shift = week[indexPath.section][indexPath.row]

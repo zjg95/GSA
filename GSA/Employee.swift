@@ -42,7 +42,7 @@ class Employee {
         }
     }
     
-    subscript(index: Int) ->[Shift] {
+    subscript(index: Int) -> Shift? {
         get {
             return shifts[index]
         }

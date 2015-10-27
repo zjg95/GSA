@@ -39,6 +39,23 @@ class Week {
         }
     }
     
+    // returns the nth shift of the week, nil if it doesn't exist
+    
+    subscript(index: Int) -> Shift? {
+        get {
+            var count: Int = index
+            for day in shifts {
+                if count >= day.count {
+                    count -= day.count
+                }
+                else {
+                    return day[count]
+                }
+            }
+            return nil
+        }
+    }
+    
     // copy constructor
     
     convenience init(that: Week) {
