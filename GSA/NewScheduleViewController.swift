@@ -47,6 +47,7 @@ class NewScheduleViewController: UIViewController, UIPickerViewDataSource, UIPic
             week = Week()
         }
         schedule = Schedule(name: name, staff: staff.copy(), week: week)
+        schedule.clearAssignees()
     }
     
     override func viewDidLoad() {

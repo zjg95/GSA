@@ -18,6 +18,8 @@ class Schedule {
     var staff: Staff!
     var name: String!
     
+    let nullEmployee: Employee = Employee(null: true)
+    
     // -----------
     // constructor
     // -----------
@@ -30,9 +32,23 @@ class Schedule {
     
     convenience init(name: String) {
         self.init(name: name, staff: Staff(), week: Week())
+        clearAssignees()
     }
     
     // -------
     // methods
     // -------
+    
+    func clearAssignees() {
+        for shift in week {
+            shift.assignee = nullEmployee
+        }
+    }
+    
+    func append(shift: Shift) {
+        if shift.assignee == nil {
+            shift.assignee = nullEmployee
+        }
+        week.append(shift)
+    }
 }

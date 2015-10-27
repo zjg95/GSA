@@ -21,8 +21,15 @@ class Employee : CopyProtocol {
     var firstName: String = ""
     var lastName: String = ""
     var position: String = ""
+    private var _null: Bool = false
     
     private var shifts: Week = Week()
+    
+    var null: Bool {
+        get {
+            return self._null
+        }
+    }
     
     var shiftCount: Int {
         get {
@@ -54,6 +61,11 @@ class Employee : CopyProtocol {
     
     init(firstName: String) {
         self.firstName = firstName
+    }
+    
+    convenience init(null: Bool) {
+        self.init(firstName: "None")
+        self._null = null
     }
     
     convenience init(firstName: String, lastName: String) {

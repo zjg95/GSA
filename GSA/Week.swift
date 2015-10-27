@@ -12,7 +12,7 @@ import Foundation
 // week
 // ----
 
-class Week : CopyProtocol {
+class Week : CopyProtocol, SequenceType {
     
     // ------------
     // data members
@@ -76,6 +76,19 @@ class Week : CopyProtocol {
     // -------
     // methods
     // -------
+    
+    func generate() -> AnyGenerator<Shift> {
+        // keep the index of the next car in the iteration
+        var nextIndex = count - 1
+        
+        // Construct a AnyGenerator<Car> instance, passing a closure that returns the next car in the iteration
+        return anyGenerator {
+            if (nextIndex < 0) {
+                return nil
+            }
+            return self[nextIndex--]
+        }
+    }
     
     func append(shift: Shift) {
         shifts[shift.day].append(shift)

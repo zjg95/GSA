@@ -19,7 +19,7 @@ class ScheduleTableViewController: UITableViewController {
     
     var delegate: ScheduleDetailsViewController!
     
-    var employeeView: Bool = true
+    var employeeView: Bool = false
     
     // -------
     // outlets
@@ -60,7 +60,7 @@ class ScheduleTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         if employeeView == true {
             if section == schedule.staff.count {
-                return 0
+                return schedule.nullEmployee.shiftCount
             }
             return schedule.staff[section].shiftCount
         }
@@ -74,23 +74,23 @@ class ScheduleTableViewController: UITableViewController {
         var title: String!
         var detail: String!
         if employeeView == true {
+            var emp: Employee!
             if indexPath.section == schedule.staff.count {
                 // unassigned shift
-                title = "TBA"
-                detail = "TBA"
+                emp = schedule.nullEmployee
             }
             else {
-                let emp: Employee = schedule.staff[indexPath.section]
-                let shift: Shift = emp[indexPath.row]!
-                title = days[shift.day]
-                detail = shift.timeAMPM
+                emp = schedule.staff[indexPath.section]
             }
+            let shift: Shift = emp[indexPath.row]!
+            title = days[shift.day]
+            detail = shift.timeAMPM
         }
         else {
             let shift: Shift = schedule.week[indexPath.section][indexPath.row]
             detail = String(shift.timeAMPM)
-            if let employee = shift.assignee {
-                title = employee.fullName
+            if shift.assignee!.null == false {
+                title = shift.assignee!.fullName
             } else {
                 title = "Unassigned"
             }
@@ -128,16 +128,16 @@ class ScheduleTableViewController: UITableViewController {
         else {
             // shift time has changed
             cell = tableView.cellForRowAtIndexPath(index)
-            cell?.textLabel?.text = shift.timeAMPM
-            cell?.detailTextLabel?.text = shift.duration
+            cell?.detailTextLabel!.text = shift.timeAMPM
         }
         
         // assignee data
         if let employee = shift.assignee {
-            cell?.detailTextLabel?.text = employee.fullName
+            cell?.textLabel!.text = employee.fullName
         }
         else {
-            cell?.detailTextLabel?.text = "Unassigned"
+            shift.assignee = schedule.nullEmployee
+            cell?.textLabel!.text = "Unassigned"
         }
     }
     
@@ -147,7 +147,7 @@ class ScheduleTableViewController: UITableViewController {
         // add shift to data array
         // add shift to table
         let newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
-        schedule.week.append(shift)
+        schedule.append(shift)
         if employeeView == true {
             
         }
