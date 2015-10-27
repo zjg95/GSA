@@ -12,7 +12,7 @@ import Foundation
 // Employee
 // --------
 
-class Employee {
+class Employee : CopyProtocol {
     
     // ------------
     // data members
@@ -64,6 +64,13 @@ class Employee {
     convenience init(firstName: String, lastName: String, position: String) {
         self.init(firstName: firstName, lastName: lastName)
         self.position = position
+    }
+    
+    // required initializer for the Copying protocol
+    required init(original: Employee) {
+        firstName = original.firstName
+        lastName = original.lastName
+        position = original.position
     }
     
     // -------

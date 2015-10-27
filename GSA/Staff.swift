@@ -10,7 +10,7 @@ import Foundation
 
 // staff
 
-class Staff {
+class Staff : CopyProtocol {
     
     // ------------
     // data members
@@ -43,11 +43,19 @@ class Staff {
         }
     }
     
-    // copy constructor
+    // -----------
+    // constructor
+    // -----------
     
-    convenience init(that: Staff) {
-        self.init()
-        employeeList = that.employeeList
+    init() {
+        
+    }
+    
+    // required initializer for the Copying protocol
+    required init(original: Staff) {
+        for emp in original.employeeList {
+            employeeList.append(emp.copy())
+        }
     }
     
     // -------
