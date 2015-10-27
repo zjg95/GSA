@@ -12,7 +12,7 @@ import Foundation
 // Shift
 // -----
 
-class Shift : CopyProtocol {
+class Shift : CopyProtocol, Equatable {
     
     // ------------
     // data members
@@ -133,4 +133,13 @@ class Shift : CopyProtocol {
         _timeEnd = original._timeEnd.copy()
         _day = original._day
     }
+    
+    // -------
+    // methods
+    // -------
+    
+}
+
+func ==(lhs: Shift, rhs: Shift) -> Bool {
+    return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
 }

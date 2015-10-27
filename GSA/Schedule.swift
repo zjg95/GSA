@@ -51,4 +51,9 @@ class Schedule {
         }
         week.append(shift)
     }
+    
+    func remove(shift: Shift) {
+        shift.assignee = nil
+        week.remove(shift)
+    }
 }

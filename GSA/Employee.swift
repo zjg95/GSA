@@ -12,7 +12,7 @@ import Foundation
 // Employee
 // --------
 
-class Employee : CopyProtocol {
+class Employee : CopyProtocol, Equatable {
     
     // ------------
     // data members
@@ -94,7 +94,11 @@ class Employee : CopyProtocol {
     }
     
     func remove(shift: Shift) {
-        // TODO
+        shifts.remove(shift)
     }
     
+}
+
+func ==(lhs: Employee, rhs: Employee) -> Bool {
+    return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
 }

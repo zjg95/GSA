@@ -94,4 +94,13 @@ class Week : CopyProtocol, SequenceType {
         shifts[shift.day].append(shift)
     }
     
+    func remove(shift: Shift) {
+        for var i = 0; i < shifts[shift.day].count; ++i {
+            if shifts[shift.day][i] == shift {
+                shifts[shift.day].removeAtIndex(i)
+                break
+            }
+        }
+    }
+    
 }
