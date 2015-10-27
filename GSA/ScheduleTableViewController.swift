@@ -154,7 +154,6 @@ class ScheduleTableViewController: UITableViewController {
             newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
         }
         schedule.append(shift)
-        shift.assignee = schedule.nullEmployee
         tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
     }
     
