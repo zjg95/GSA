@@ -17,6 +17,8 @@ class ScheduleTableViewController: UITableViewController {
     
     var schedule: Schedule!
     
+    var delegate: ScheduleDetailsViewController!
+    
     var employeeView: Bool = true
     
     // -------
@@ -119,7 +121,9 @@ class ScheduleTableViewController: UITableViewController {
             deleteShift(index)
             let newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
             addShift(shift)
+            delegate.index = newIndexPath
             cell = tableView.cellForRowAtIndexPath(newIndexPath)
+            
         }
         else {
             // shift time has changed
@@ -179,6 +183,7 @@ class ScheduleTableViewController: UITableViewController {
         if (segue.identifier == "scheduleDetailsSegue") {
             if let destination = segue.destinationViewController as? ScheduleDetailsViewController {
                 let index = self.tableView!.indexPathForSelectedRow
+                self.delegate = destination
                 destination.delegate = self
                 destination.index = index
                 destination.shift = schedule.week[index!.section][index!.row]
