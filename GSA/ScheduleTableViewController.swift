@@ -113,6 +113,19 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func editCell(shift: Shift, index: NSIndexPath) {
+        if employeeView == true {
+            editCellEmployeeView(shift, index: index)
+        }
+        else {
+            editCellShiftView(shift, index: index)
+        }
+    }
+    
+    func editCellEmployeeView(shift: Shift, index: NSIndexPath) {
+        
+    }
+    
+    func editCellShiftView(shift: Shift, index: NSIndexPath) {
         // time data
         let day = shift.day
         var cell: UITableViewCell?
@@ -123,7 +136,6 @@ class ScheduleTableViewController: UITableViewController {
             addShift(shift)
             delegate.index = newIndexPath
             cell = tableView.cellForRowAtIndexPath(newIndexPath)
-            
         }
         else {
             // shift time has changed
@@ -148,7 +160,7 @@ class ScheduleTableViewController: UITableViewController {
         // add shift to table
         var newIndexPath: NSIndexPath!
         if employeeView == true {
-            
+            // get index path
         }
         else {
             newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
@@ -163,7 +175,7 @@ class ScheduleTableViewController: UITableViewController {
         // delete shift from data array
         // delete shift from table
         if employeeView == true {
-            
+            // get index path
         }
         else {
             schedule.remove(schedule.getShiftAtIndex(index))
