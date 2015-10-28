@@ -20,6 +20,18 @@ class Schedule {
     
     let nullEmployee: Employee = Employee(null: true)
     
+    var numberOfEmployees: Int {
+        get {
+            return staff.count
+        }
+    }
+    
+    var unassignedShiftCount: Int {
+        get {
+            return nullEmployee.shiftCount
+        }
+    }
+    
     // -----------
     // constructor
     // -----------
@@ -45,6 +57,22 @@ class Schedule {
         }
     }
     
+    func shiftsOnDay(day: Int) -> Int {
+        return week.shiftCount(day)
+    }
+    
+    func shiftsForEmployee(employee: Int) -> Int {
+        return staff.shiftCount(employee)
+    }
+    
+    func numberOfShiftsOnDay(day: Int) -> Int {
+        return week.shiftCount(day)
+    }
+    
+    func getEmployeeAtIndex(index: Int) -> Employee {
+        return staff[index]
+    }
+    
     func append(shift: Shift) {
         if shift.assignee == nil {
             shift.assignee = nullEmployee
@@ -57,7 +85,7 @@ class Schedule {
         return week.remove(shift)
     }
     
-    func shift(index: NSIndexPath) -> Shift {
+    func getShiftAtIndex(index: NSIndexPath) -> Shift {
         return week[index.section][index.row]
     }
 }

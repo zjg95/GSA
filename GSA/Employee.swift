@@ -25,7 +25,7 @@ class Employee : CopyProtocol, Equatable {
     
     private var shifts: Week = Week()
     
-    var null: Bool {
+    var isNullEmployee: Bool {
         get {
             return self._null
         }
@@ -33,7 +33,7 @@ class Employee : CopyProtocol, Equatable {
     
     var shiftCount: Int {
         get {
-            return shifts.count
+            return shifts.shiftCount
         }
     }
     
@@ -46,12 +46,6 @@ class Employee : CopyProtocol, Equatable {
                 return firstName
             }
             return lastName
-        }
-    }
-    
-    subscript(index: Int) -> Shift? {
-        get {
-            return shifts[index]
         }
     }
     
@@ -88,6 +82,10 @@ class Employee : CopyProtocol, Equatable {
     // -------
     // methods
     // -------
+    
+    func getShiftAtIndex(index: Int) -> Shift {
+        return shifts[index]!
+    }
     
     func append(shift: Shift) {
         shifts.append(shift)

@@ -330,10 +330,10 @@
             </objects>
             <point key="canvasLocation" x="4184.5" y="-479.5"/>
         </scene>
-        <!--<schedule>-->
+        <!--Schedule View-->
         <scene sceneID="S2l-Pk-3wo">
             <objects>
-                <tableViewController id="8Q2-ou-FKP" customClass="ScheduleTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Schedule View" id="8Q2-ou-FKP" customClass="ScheduleTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="scheduleCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vo2-fn-azo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -690,10 +690,10 @@
             </objects>
             <point key="canvasLocation" x="1498.5" y="1043.5"/>
         </scene>
-        <!--Schedules-->
+        <!--All Schedules-->
         <scene sceneID="YRz-0P-5dW">
             <objects>
-                <tableViewController id="ziO-yp-I2S" customClass="ScheduleListTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="All Schedules" id="ziO-yp-I2S" customClass="ScheduleListTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zze-JY-bhd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

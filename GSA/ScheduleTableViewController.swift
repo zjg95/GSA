@@ -49,23 +49,23 @@ class ScheduleTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         if employeeView == true {
-            return schedule.staff.count + 1
+            return schedule.numberOfEmployees + 1
         }
         else {
-            return days.count
+            return 7 // 7 days in a week
         }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if employeeView == true {
-            if section == schedule.staff.count {
-                return schedule.nullEmployee.shiftCount
+            if section == schedule.numberOfEmployees {
+                return schedule.unassignedShiftCount
             }
-            return schedule.staff[section].shiftCount
+            return schedule.shiftsForEmployee(section)
         }
         else {
-            return schedule.week[section].count
+            return schedule.shiftsOnDay(section)
         }
     }
     
@@ -75,21 +75,21 @@ class ScheduleTableViewController: UITableViewController {
         var detail: String!
         if employeeView == true {
             var emp: Employee!
-            if indexPath.section == schedule.staff.count {
+            if indexPath.section == schedule.numberOfEmployees {
                 // unassigned shift
                 emp = schedule.nullEmployee
             }
             else {
-                emp = schedule.staff[indexPath.section]
+                emp = schedule.getEmployeeAtIndex(indexPath.section)
             }
-            let shift: Shift = emp[indexPath.row]!
+            let shift: Shift = emp.getShiftAtIndex(indexPath.row)
             title = days[shift.day]
             detail = shift.timeAMPM
         }
         else {
-            let shift: Shift = schedule.week[indexPath.section][indexPath.row]
+            let shift: Shift = schedule.getShiftAtIndex(indexPath)
             detail = String(shift.timeAMPM)
-            if shift.assignee!.null == false {
+            if shift.assignee!.isNullEmployee == false {
                 title = shift.assignee!.fullName
             } else {
                 title = "Unassigned"
@@ -102,10 +102,10 @@ class ScheduleTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if employeeView == true {
-            if section == schedule.staff.count {
+            if section == schedule.numberOfEmployees {
                 return "Unassigned"
             }
-            return schedule.staff[section].fullName
+            return schedule.getEmployeeAtIndex(section).fullName
         }
         else {
             return days[section]
@@ -119,7 +119,7 @@ class ScheduleTableViewController: UITableViewController {
         if day != index.section {
             // shift was moved to another day
             deleteShift(index)
-            let newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
+            let newIndexPath = NSIndexPath(forRow: schedule.numberOfShiftsOnDay(shift.day), inSection: shift.day)
             addShift(shift)
             delegate.index = newIndexPath
             cell = tableView.cellForRowAtIndexPath(newIndexPath)
@@ -148,7 +148,7 @@ class ScheduleTableViewController: UITableViewController {
         // add shift to table
         var newIndexPath: NSIndexPath!
         if employeeView == true {
-            newIndexPath = NSIndexPath(forRow: schedule.nullEmployee.shiftCount, inSection: schedule.staff.count)
+            
         }
         else {
             newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
@@ -163,13 +163,10 @@ class ScheduleTableViewController: UITableViewController {
         // delete shift from data array
         // delete shift from table
         if employeeView == true {
-            let shift: Shift = schedule.staff[index.section][index.row]!
-            let newIndex: NSIndexPath = schedule.remove(shift)
-            print(newIndex)
-            tableView.deleteRowsAtIndexPaths([newIndex], withRowAnimation: .Bottom)
+            
         }
         else {
-            schedule.remove(schedule.shift(index))
+            schedule.remove(schedule.getShiftAtIndex(index))
             tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
             if tableView.numberOfRowsInSection(index.section) == 0 {
                 // delete empty section, the following line causes a crash
@@ -197,10 +194,10 @@ class ScheduleTableViewController: UITableViewController {
                 if employeeView == true {
                     if index.section == schedule.staff.count {
                         // null employee
-                        shift = schedule.nullEmployee[index.row]
+                        shift = schedule.nullEmployee.getShiftAtIndex(index.row)
                     }
                     else {
-                        shift = schedule.staff[index.section][index.row]
+                        shift = schedule.getEmployeeAtIndex(index.section).getShiftAtIndex(index.row)
                     }
                 }
                 else {

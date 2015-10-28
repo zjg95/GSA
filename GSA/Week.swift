@@ -19,13 +19,10 @@ class Week : CopyProtocol, SequenceType {
     // ------------
     
     private var shifts: [[Shift]] = [[Shift]](count: 7, repeatedValue: [])
+    private var count: Int = 0
     
-    var count: Int {
+    var shiftCount: Int {
         get {
-            var count: Int = 0
-            for s in shifts {
-                count += s.count
-            }
             return count
         }
     }
@@ -90,8 +87,13 @@ class Week : CopyProtocol, SequenceType {
         }
     }
     
+    func shiftCount(day: Int) -> Int {
+        return shifts[day].count
+    }
+    
     func append(shift: Shift) {
         shifts[shift.day].append(shift)
+        ++count
     }
     
     func remove(shift: Shift) -> NSIndexPath {
@@ -102,6 +104,7 @@ class Week : CopyProtocol, SequenceType {
                 break
             }
         }
+        --count
         return NSIndexPath(forRow: i, inSection: shift.day)
     }
     
