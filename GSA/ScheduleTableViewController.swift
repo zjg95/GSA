@@ -161,11 +161,11 @@ class ScheduleTableViewController: UITableViewController {
         var newIndexPath: NSIndexPath!
         if employeeView == true {
             // get index path
+            schedule.append(shift)
         }
         else {
-            newIndexPath = NSIndexPath(forRow: schedule.week[shift.day].count, inSection: shift.day)
+            newIndexPath = schedule.append(shift)
         }
-        schedule.append(shift)
         tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
     }
     
@@ -179,7 +179,7 @@ class ScheduleTableViewController: UITableViewController {
         }
         else {
             schedule.remove(schedule.getShiftAtIndex(index))
-            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
+            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Fade)
             if tableView.numberOfRowsInSection(index.section) == 0 {
                 // delete empty section, the following line causes a crash
                 //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)

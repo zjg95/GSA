@@ -73,11 +73,11 @@ class Schedule {
         return staff[index]
     }
     
-    func append(shift: Shift) {
+    func append(shift: Shift) -> NSIndexPath {
         if shift.assignee == nil {
             shift.assignee = nullEmployee
         }
-        week.append(shift)
+        return week.append(shift)
     }
     
     func remove(shift: Shift) -> NSIndexPath {
