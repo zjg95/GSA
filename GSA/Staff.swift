@@ -75,7 +75,7 @@ class Staff : CopyProtocol, SequenceType {
         }
     }
     
-    func shiftCount(employee: Int) -> Int {
+    func numberOfShiftsAssignedToEmployee(employee: Int) -> Int {
         return employeeList[employee].shiftCount
     }
     

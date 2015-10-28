@@ -54,4 +54,24 @@ class Time : CopyProtocol {
         _minutes = original.minutes
     }
     
+    // -------
+    // methods
+    // -------
+    
+    func compareTo(otherTime: Time) -> Int {
+        if _hour < otherTime._hour {
+            return -1
+        }
+        if _hour > otherTime._hour {
+            return 1
+        }
+        if _minutes < otherTime._minutes {
+            return -1
+        }
+        if _minutes > otherTime._minutes {
+            return 1
+        }
+        return 0
+    }
+    
 }

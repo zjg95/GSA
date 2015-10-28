@@ -138,6 +138,14 @@ class Shift : CopyProtocol, Equatable {
     // methods
     // -------
     
+    func compareTo(otherShift: Shift) -> Int {
+        let start: Int = _timeStart.compareTo(otherShift._timeStart)
+        if start == 0 {
+            return _timeEnd.compareTo(otherShift._timeEnd)
+        }
+        return start
+    }
+    
 }
 
 func ==(lhs: Shift, rhs: Shift) -> Bool {

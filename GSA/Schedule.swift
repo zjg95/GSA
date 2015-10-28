@@ -62,7 +62,7 @@ class Schedule {
     }
     
     func shiftsForEmployee(employee: Int) -> Int {
-        return staff.shiftCount(employee)
+        return staff.numberOfShiftsAssignedToEmployee(employee)
     }
     
     func numberOfShiftsOnDay(day: Int) -> Int {

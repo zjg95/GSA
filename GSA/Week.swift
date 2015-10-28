@@ -91,9 +91,17 @@ class Week : CopyProtocol, SequenceType {
         return shifts[day].count
     }
     
-    func append(shift: Shift) {
-        shifts[shift.day].append(shift)
+    func append(shift: Shift) -> NSIndexPath {
+        var i: Int = 0
+        for s in shifts[shift.day] {
+            if shift.compareTo(s) < 0 {
+                break
+            }
+            ++i
+        }
+        shifts[shift.day].insert(shift, atIndex: i)
         ++count
+        return NSIndexPath(forItem: i, inSection: shift.day)
     }
     
     func remove(shift: Shift) -> NSIndexPath {
