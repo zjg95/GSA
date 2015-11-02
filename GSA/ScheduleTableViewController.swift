@@ -178,12 +178,8 @@ class ScheduleTableViewController: UITableViewController {
             // get index path
         }
         else {
-            schedule.remove(schedule.getShiftAtIndex(index))
-            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Fade)
-            if tableView.numberOfRowsInSection(index.section) == 0 {
-                // delete empty section, the following line causes a crash
-                //tableView.deleteSections(NSIndexSet(index: index.section), withRowAnimation: .Bottom)
-            }
+            schedule.removeAtIndex(index)
+            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
         }
     }
     

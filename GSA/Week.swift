@@ -104,6 +104,10 @@ class Week : CopyProtocol, SequenceType {
         return NSIndexPath(forItem: i, inSection: shift.day)
     }
     
+    func removeAtIndex(index: NSIndexPath) {
+        shifts[index.section].removeAtIndex(index.row)
+    }
+    
     func remove(shift: Shift) -> NSIndexPath {
         var i = 0
         for i = 0; i < shifts[shift.day].count; ++i {

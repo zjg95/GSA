@@ -85,6 +85,10 @@ class Schedule {
         return week.remove(shift)
     }
     
+    func removeAtIndex(index: NSIndexPath) {
+        week.removeAtIndex(index)
+    }
+    
     func getShiftAtIndex(index: NSIndexPath) -> Shift {
         return week[index.section][index.row]
     }
