@@ -122,7 +122,11 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func editCellEmployeeView(shift: Shift, index: NSIndexPath) {
-        
+        print(index)
+        // was day modified?
+        // was assignee modified?
+        // was start/end time modified?
+        // was shift deleted?
     }
     
     func editCellShiftView(shift: Shift, index: NSIndexPath) {
@@ -161,7 +165,9 @@ class ScheduleTableViewController: UITableViewController {
         var newIndexPath: NSIndexPath!
         if employeeView {
             // get index path
+            newIndexPath = NSIndexPath(forRow: schedule.nullEmployee.shiftCount, inSection: schedule.numberOfEmployees)
             schedule.append(shift)
+            print(newIndexPath)
         }
         else {
             newIndexPath = schedule.append(shift)
