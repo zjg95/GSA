@@ -48,7 +48,7 @@ class ScheduleTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if employeeView == true {
+        if employeeView {
             return schedule.numberOfEmployees + 1
         }
         else {
@@ -58,7 +58,7 @@ class ScheduleTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if employeeView == true {
+        if employeeView {
             if section == schedule.numberOfEmployees {
                 return schedule.unassignedShiftCount
             }
@@ -73,7 +73,7 @@ class ScheduleTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath)
         var title: String!
         var detail: String!
-        if employeeView == true {
+        if employeeView {
             var emp: Employee!
             if indexPath.section == schedule.numberOfEmployees {
                 // unassigned shift
@@ -101,7 +101,7 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if employeeView == true {
+        if employeeView {
             if section == schedule.numberOfEmployees {
                 return "Unassigned"
             }
@@ -113,7 +113,7 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func editCell(shift: Shift, index: NSIndexPath) {
-        if employeeView == true {
+        if employeeView {
             editCellEmployeeView(shift, index: index)
         }
         else {
@@ -159,7 +159,7 @@ class ScheduleTableViewController: UITableViewController {
         // add shift to data array
         // add shift to table
         var newIndexPath: NSIndexPath!
-        if employeeView == true {
+        if employeeView {
             // get index path
             schedule.append(shift)
         }
@@ -174,7 +174,7 @@ class ScheduleTableViewController: UITableViewController {
     func deleteShift(index: NSIndexPath) {
         // delete shift from data array
         // delete shift from table
-        if employeeView == true {
+        if employeeView {
             // get index path
         }
         else {
@@ -203,7 +203,7 @@ class ScheduleTableViewController: UITableViewController {
                 destination.staff = schedule.staff
                 destination.index = index
                 
-                if employeeView == true {
+                if employeeView {
                     if index.section == schedule.staff.count {
                         // null employee
                         shift = schedule.nullEmployee.getShiftAtIndex(index.row)
