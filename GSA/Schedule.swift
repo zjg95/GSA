@@ -66,6 +66,9 @@ class Schedule {
     }
     
     func getEmployeeAtIndex(index: Int) -> Employee {
+        if index == nullEmployee.index {
+            return nullEmployee
+        }
         return staff[index]
     }
     

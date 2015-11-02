@@ -76,14 +76,14 @@ class Week : CopyProtocol, SequenceType {
     
     func generate() -> AnyGenerator<Shift> {
         // keep the index of the next car in the iteration
-        var nextIndex = count - 1
+        var nextIndex = 0
         
         // Construct a AnyGenerator<Car> instance, passing a closure that returns the next car in the iteration
         return anyGenerator {
-            if (nextIndex < 0) {
+            if (nextIndex >= self.count) {
                 return nil
             }
-            return self[nextIndex--]
+            return self[nextIndex++]
         }
     }
     

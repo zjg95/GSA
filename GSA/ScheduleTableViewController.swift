@@ -136,9 +136,11 @@ class ScheduleTableViewController: UITableViewController {
         if day != index.section {
             // shift was moved to another day
             deleteShift(index)
-            let newIndexPath = NSIndexPath(forRow: schedule.numberOfShiftsOnDay(shift.day), inSection: shift.day)
-            addShift(shift)
+            let newIndexPath = addShift(shift)
             delegate.index = newIndexPath
+            if shift.assigneeIndex == schedule.numberOfEmployees {
+                shift.assignee = nil
+            }
             cell = tableView.cellForRowAtIndexPath(newIndexPath)
         }
         else {
@@ -159,23 +161,21 @@ class ScheduleTableViewController: UITableViewController {
     
     // adapted from ShiftTableViewController.swift
     
-    func addShift(shift: Shift) {
+    func addShift(shift: Shift) -> NSIndexPath {
         // add shift to data array
         // add shift to table
         var newIndexPath: NSIndexPath!
         if employeeView {
             // get index path
-            newIndexPath = NSIndexPath(forRow: schedule.nullEmployee.shiftCount, inSection: schedule.numberOfEmployees)
             schedule.append(shift)
-            let empIndex: Int = shift.assigneeIndex!
-            print(shift.assignee!)
-            print(empIndex)
+            newIndexPath = NSIndexPath(forRow: schedule.getEmployeeAtIndex(shift.assigneeIndex!).indexOfShift(shift), inSection: shift.assigneeIndex!)
             print(newIndexPath)
         }
         else {
             newIndexPath = schedule.append(shift)
         }
         tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        return newIndexPath
     }
     
     // adapted from ShiftTableViewController.swift

@@ -90,6 +90,17 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     // methods
     // -------
     
+    func indexOfShift(shift: Shift) -> Int {
+        var i = 0
+        for s in shifts {
+            if shift == s {
+                break
+            }
+            ++i
+        }
+        return i
+    }
+    
     func getShiftAtIndex(index: Int) -> Shift {
         return shifts[index]!
     }
