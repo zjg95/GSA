@@ -80,11 +80,20 @@ class Staff : CopyProtocol, SequenceType {
     }
     
     func append(employee: Employee) {
+        employee.index = count
         employeeList.append(employee)
+    }
+    
+    func indexEmployees() {
+        var c: Int = 0
+        for employee in employeeList {
+            employee.index = c++
+        }
     }
     
     func removeAtIndex(index: Int) {
         employeeList.removeAtIndex(index)
+        indexEmployees()
     }
     
     func employeeIndex(employee: Employee) -> Int {

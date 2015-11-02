@@ -40,11 +40,7 @@ class Schedule {
         self.name = name
         self.staff = staff
         self.week = week
-    }
-    
-    convenience init(name: String) {
-        self.init(name: name, staff: Staff(), week: Week())
-        clearAssignees()
+        nullEmployee.index = numberOfEmployees
     }
     
     // -------
@@ -61,8 +57,8 @@ class Schedule {
         return week.shiftCount(day)
     }
     
-    func shiftsForEmployee(employee: Int) -> Int {
-        return staff.numberOfShiftsAssignedToEmployee(employee)
+    func shiftsAssignedToEmployeeAtIndex(index: Int) -> Int {
+        return staff.numberOfShiftsAssignedToEmployee(index)
     }
     
     func numberOfShiftsOnDay(day: Int) -> Int {
@@ -85,7 +81,7 @@ class Schedule {
         return week.remove(shift)
     }
     
-    func removeAtIndex(index: NSIndexPath) {
+    func removeShiftAtIndex(index: NSIndexPath) {
         week.removeAtIndex(index)
     }
     

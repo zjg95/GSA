@@ -12,7 +12,7 @@ import Foundation
 // Employee
 // --------
 
-class Employee : CopyProtocol, Equatable {
+class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     // ------------
     // data members
@@ -21,9 +21,16 @@ class Employee : CopyProtocol, Equatable {
     var firstName: String = ""
     var lastName: String = ""
     var position: String = ""
+    var index: Int!
     private var _null: Bool = false
     
     private var shifts: Week = Week()
+    
+    var description: String {
+        get {
+            return fullName
+        }
+    }
     
     var isNullEmployee: Bool {
         get {

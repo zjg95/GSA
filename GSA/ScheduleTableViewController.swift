@@ -62,7 +62,7 @@ class ScheduleTableViewController: UITableViewController {
             if section == schedule.numberOfEmployees {
                 return schedule.unassignedShiftCount
             }
-            return schedule.shiftsForEmployee(section)
+            return schedule.shiftsAssignedToEmployeeAtIndex(section)
         }
         else {
             return schedule.shiftsOnDay(section)
@@ -167,6 +167,9 @@ class ScheduleTableViewController: UITableViewController {
             // get index path
             newIndexPath = NSIndexPath(forRow: schedule.nullEmployee.shiftCount, inSection: schedule.numberOfEmployees)
             schedule.append(shift)
+            let empIndex: Int = shift.assigneeIndex!
+            print(shift.assignee!)
+            print(empIndex)
             print(newIndexPath)
         }
         else {
@@ -184,7 +187,7 @@ class ScheduleTableViewController: UITableViewController {
             // get index path
         }
         else {
-            schedule.removeAtIndex(index)
+            schedule.removeShiftAtIndex(index)
             tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
         }
     }

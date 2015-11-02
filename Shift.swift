@@ -43,6 +43,15 @@ class Shift : CopyProtocol, Equatable {
         }
     }
     
+    var assigneeIndex: Int? {
+        get {
+            if _assignee == nil {
+                return nil
+            }
+            return _assignee!.index
+        }
+    }
+    
     // ---------
     // accessors
     // ---------
