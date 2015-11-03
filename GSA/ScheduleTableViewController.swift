@@ -47,7 +47,6 @@ class ScheduleTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         if employeeView {
             return schedule.numberOfEmployees + 1
         }
@@ -57,12 +56,12 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if employeeView {
             if section == schedule.numberOfEmployees {
                 return schedule.unassignedShiftCount
             }
-            return schedule.shiftsAssignedToEmployeeAtIndex(section)
+            let employee: Employee = schedule.getEmployeeAtIndex(section)
+            return employee.shiftCount
         }
         else {
             return schedule.shiftsOnDay(section)
@@ -71,46 +70,45 @@ class ScheduleTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath)
-        var title: String!
-        var detail: String!
         if employeeView {
-            var emp: Employee!
-            if indexPath.section == schedule.numberOfEmployees {
-                // unassigned shift
-                emp = schedule.nullEmployee
-            }
-            else {
-                emp = schedule.getEmployeeAtIndex(indexPath.section)
-            }
-            let shift: Shift = emp.getShiftAtIndex(indexPath.row)
-            title = days[shift.day]
-            detail = shift.timeAMPM
+            buildCellShiftView(cell, index: indexPath)
         }
         else {
-            let shift: Shift = schedule.getShiftAtIndex(indexPath)
-            detail = String(shift.timeAMPM)
-            if shift.assignee!.isNullEmployee == false {
-                title = shift.assignee!.fullName
-            } else {
-                title = "Unassigned"
-            }
+            buildCellEmployeeView(cell, index: indexPath)
         }
-        cell.textLabel!.text = title
-        cell.detailTextLabel!.text = detail
         return cell
     }
+    
+    func buildCellShiftView(cell: UITableViewCell, index: NSIndexPath) {
+        
+    }
+    
+    func buildCellEmployeeView(cell: UITableViewCell, index: NSIndexPath) {
+        
+    }
+    
+    // ------------
+    // section name
+    // ------------
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if employeeView {
             if section == schedule.numberOfEmployees {
+                // null employee, shift not assigned
                 return "Unassigned"
             }
+            // assignee name
             return schedule.getEmployeeAtIndex(section).fullName
         }
         else {
+            // day name
             return days[section]
         }
     }
+    
+    // ---------
+    // edit cell
+    // ---------
     
     func editCell(shift: Shift, index: NSIndexPath) {
         if employeeView {
@@ -122,7 +120,6 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func editCellEmployeeView(shift: Shift, index: NSIndexPath) {
-        print(index)
         // was day modified?
         // was assignee modified?
         // was start/end time modified?
@@ -130,66 +127,28 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func editCellShiftView(shift: Shift, index: NSIndexPath) {
-        // time data
-        let day = shift.day
-        var cell: UITableViewCell?
-        if day != index.section {
-            // shift was moved to another day
-            deleteShift(index)
-            let newIndexPath = addShift(shift)
-            delegate.index = newIndexPath
-            if shift.assigneeIndex == schedule.numberOfEmployees {
-                shift.assignee = nil
-            }
-            cell = tableView.cellForRowAtIndexPath(newIndexPath)
-        }
-        else {
-            // shift time has changed
-            cell = tableView.cellForRowAtIndexPath(index)
-            cell?.detailTextLabel!.text = shift.timeAMPM
-        }
-        
-        // assignee data
-        if let employee = shift.assignee {
-            cell?.textLabel!.text = employee.fullName
-        }
-        else {
-            shift.assignee = schedule.nullEmployee
-            cell?.textLabel!.text = "Unassigned"
-        }
+        // was day modified?
+        // was assignee modified?
+        // was start/end time modified?
+        // was shift deleted?
     }
     
-    // adapted from ShiftTableViewController.swift
+    // ---------
+    // add shift
+    // ---------
     
-    func addShift(shift: Shift) -> NSIndexPath {
+    func addShift(shift: Shift) {
         // add shift to data array
         // add shift to table
-        var newIndexPath: NSIndexPath!
-        if employeeView {
-            // get index path
-            schedule.append(shift)
-            newIndexPath = NSIndexPath(forRow: schedule.getEmployeeAtIndex(shift.assigneeIndex!).indexOfShift(shift), inSection: shift.assigneeIndex!)
-            print(newIndexPath)
-        }
-        else {
-            newIndexPath = schedule.append(shift)
-        }
-        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-        return newIndexPath
     }
     
-    // adapted from ShiftTableViewController.swift
+    // ------------
+    // remove shift
+    // ------------
     
-    func deleteShift(index: NSIndexPath) {
+    func removeShift(index: NSIndexPath) {
         // delete shift from data array
         // delete shift from table
-        if employeeView {
-            // get index path
-        }
-        else {
-            schedule.removeShiftAtIndex(index)
-            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
-        }
     }
     
     // MARK: - Navigation
@@ -234,7 +193,7 @@ class ScheduleTableViewController: UITableViewController {
     
     @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EditScheduleViewController, index = sourceViewController.index {
-            deleteShift(index)
+            removeShift(index)
         }
     }
     
