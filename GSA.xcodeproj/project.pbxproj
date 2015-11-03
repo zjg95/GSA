@@ -116,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				8EB92C801BDD4C0A00674FCA /* NewScheduleViewController.swift */,
+				63AED4C61BCEF97D00F4A82F /* EditShiftViewController.swift */,
+				6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */,
 				8E469AD51BDBE5F4004ECEDD /* ScheduleListTableViewController.swift */,
 				6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */,
 				8E469AD31BDBE494004ECEDD /* Schedule.swift */,
@@ -127,8 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */,
-				63AED4C61BCEF97D00F4A82F /* EditShiftViewController.swift */,
-				6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */,
 				8EA08C231BCF636B005774CC /* Week.swift */,
 				495814071BCC4316001E1862 /* Shift.swift */,
 				49DF912A1BCEFCA30014946E /* Time.swift */,
