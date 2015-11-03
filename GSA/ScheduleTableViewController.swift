@@ -98,14 +98,7 @@ class ScheduleTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if employeeView {
-            if section == schedule.numberOfEmployees {
-                // null employee, shift not assigned
-                return "Unassigned"
-            }
-            else {
-                // assignee name
-                return schedule.getEmployeeAtIndex(section).fullName
-            }
+            return schedule.getEmployeeAtIndex(section).fullName
         }
         else {
             // day name
