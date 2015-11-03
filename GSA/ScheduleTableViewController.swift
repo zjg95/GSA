@@ -64,7 +64,7 @@ class ScheduleTableViewController: UITableViewController {
             return employee.shiftCount
         }
         else {
-            return schedule.shiftsOnDay(section)
+            return schedule.numberOfShiftsOnDay(section)
         }
     }
     

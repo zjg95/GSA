@@ -53,16 +53,12 @@ class Schedule {
         }
     }
     
-    func shiftsOnDay(day: Int) -> Int {
-        return week.shiftCount(day)
-    }
-    
     func shiftsAssignedToEmployeeAtIndex(index: Int) -> Int {
         return staff.numberOfShiftsAssignedToEmployee(index)
     }
     
     func numberOfShiftsOnDay(day: Int) -> Int {
-        return week.shiftCount(day)
+        return week.numberOfShiftsOnDay(day)
     }
     
     func getEmployeeAtIndex(index: Int) -> Employee {

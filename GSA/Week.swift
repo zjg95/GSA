@@ -87,7 +87,7 @@ class Week : CopyProtocol, SequenceType {
         }
     }
     
-    func shiftCount(day: Int) -> Int {
+    func numberOfShiftsOnDay(day: Int) -> Int {
         return shifts[day].count
     }
     
