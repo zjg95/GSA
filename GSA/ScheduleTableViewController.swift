@@ -71,20 +71,25 @@ class ScheduleTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath)
         if employeeView {
-            buildCellShiftView(cell, index: indexPath)
+            buildCellEmployeeView(cell, index: indexPath)
         }
         else {
-            buildCellEmployeeView(cell, index: indexPath)
+            buildCellShiftView(cell, index: indexPath)
         }
         return cell
     }
     
     func buildCellShiftView(cell: UITableViewCell, index: NSIndexPath) {
-        
+        let shift: Shift = schedule.getShiftAtIndex(index)
+        cell.textLabel!.text = shift.assignee!.fullName
+        cell.detailTextLabel!.text = shift.timeAMPM
     }
     
     func buildCellEmployeeView(cell: UITableViewCell, index: NSIndexPath) {
-        
+        let emp: Employee = schedule.getEmployeeAtIndex(index.section)
+        let shift: Shift = emp.getShiftAtIndex(index.row)
+        cell.textLabel!.text = days[shift.day]
+        cell.detailTextLabel!.text = shift.timeAMPM
     }
     
     // ------------
@@ -97,8 +102,10 @@ class ScheduleTableViewController: UITableViewController {
                 // null employee, shift not assigned
                 return "Unassigned"
             }
-            // assignee name
-            return schedule.getEmployeeAtIndex(section).fullName
+            else {
+                // assignee name
+                return schedule.getEmployeeAtIndex(section).fullName
+            }
         }
         else {
             // day name
@@ -137,18 +144,48 @@ class ScheduleTableViewController: UITableViewController {
     // add shift
     // ---------
     
-    func addShift(shift: Shift) {
-        // add shift to data array
-        // add shift to table
+    // adds a shift to the schedule and creates a cell
+    func createShift(shift: Shift) -> NSIndexPath {
+        if employeeView {
+            
+        }
+        else {
+            
+        }
+        return NSIndexPath()
+    }
+    
+    // adds a shift to the schedule
+    func addShift(shift: Shift) -> NSIndexPath {
+        return NSIndexPath()
+    }
+    
+    // create a cell at given index
+    func addCell(index: NSIndexPath) {
+        tableView.insertRowsAtIndexPaths([index], withRowAnimation: .Fade)
     }
     
     // ------------
     // remove shift
     // ------------
     
+    // remove shift from schedule, delete its cell
+    func deleteShift(shift: Shift) {
+        if employeeView {
+            
+        }
+        else {
+            
+        }
+    }
+    
+    // remove shift from schedule
     func removeShift(index: NSIndexPath) {
-        // delete shift from data array
-        // delete shift from table
+    }
+    
+    // remove cell from table
+    func removeCell(index: NSIndexPath) {
+        tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Fade)
     }
     
     // MARK: - Navigation
@@ -187,13 +224,13 @@ class ScheduleTableViewController: UITableViewController {
     
     @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
-            addShift(shift)
+            createShift(shift)
         }
     }
     
     @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController, index = sourceViewController.index {
-            removeShift(index)
+        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController, shift = sourceViewController.shift {
+            deleteShift(shift)
         }
     }
     
