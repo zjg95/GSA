@@ -139,12 +139,14 @@ class ScheduleTableViewController: UITableViewController {
     
     // adds a shift to the schedule and creates a cell
     func createShift(shift: Shift) {
+        var index: NSIndexPath!
         if employeeView {
+            index = addShiftEmployeeView(shift)
         }
         else {
-            let index: NSIndexPath = addShiftShiftView(shift)
-            addCell(index)
+            index = addShiftShiftView(shift)
         }
+        addCell(index)
     }
     
     // adds a shift to the schedule
@@ -154,7 +156,10 @@ class ScheduleTableViewController: UITableViewController {
     
     // adds a shift to the schedule
     func addShiftEmployeeView(shift: Shift) -> NSIndexPath {
-        return NSIndexPath()
+        schedule.append(shift)
+        let employee: Employee = shift.assignee!
+        let employeeIndex: NSIndexPath = NSIndexPath(forRow: employee.indexOfShift(shift), inSection: employee.index)
+        return employeeIndex
     }
     
     // create a cell at given index
