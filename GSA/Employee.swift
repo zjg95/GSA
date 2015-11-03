@@ -65,7 +65,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     }
     
     convenience init(null: Bool) {
-        self.init(firstName: "None")
+        self.init(firstName: "Unassigned")
         self._null = null
     }
     
