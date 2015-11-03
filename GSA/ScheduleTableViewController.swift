@@ -172,13 +172,14 @@ class ScheduleTableViewController: UITableViewController {
     // ------------
     
     // remove shift from schedule, delete its cell
-    func deleteShift(shift: Shift) {
+    func deleteShift(index: NSIndexPath) {
         if employeeView {
             
         }
         else {
             
         }
+        removeCell(index)
     }
     
     // remove shift from schedule
@@ -231,8 +232,8 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController, shift = sourceViewController.shift {
-            deleteShift(shift)
+        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController, index = sourceViewController.index {
+            deleteShift(index)
         }
     }
     
