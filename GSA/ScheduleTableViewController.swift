@@ -177,7 +177,7 @@ class ScheduleTableViewController: UITableViewController {
             
         }
         else {
-            
+            schedule.removeShiftAtIndex(index)
         }
         removeCell(index)
     }
