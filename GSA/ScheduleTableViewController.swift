@@ -87,7 +87,7 @@ class ScheduleTableViewController: UITableViewController {
     
     func buildCellEmployeeView(cell: UITableViewCell, index: NSIndexPath) {
         let emp: Employee = schedule.getEmployeeAtIndex(index.section)
-        let shift: Shift = emp.getShiftAtIndex(index.row)
+        let shift: Shift! = emp.getShiftAtIndex(index.row)
         cell.textLabel!.text = days[shift.day]
         cell.detailTextLabel!.text = shift.timeAMPM
     }
@@ -186,10 +186,16 @@ class ScheduleTableViewController: UITableViewController {
     // remove shift from schedule, delete its cell
     func removeShift(index: NSIndexPath) {
         if employeeView {
+            print("employee index:")
+            print(index)
             let emp: Employee = schedule.getEmployeeAtIndex(index.section)
-            let shift: Shift = emp.getShiftAtIndex(index.row)
-            let shiftNumber: Int = emp.shiftNumberByDay(shift)
-            let shiftIndex: NSIndexPath = NSIndexPath(forRow: shiftNumber, inSection: shift.day)
+            print(emp.shiftCount)
+            let shift: Shift! = emp.getShiftAtIndex(index.row)
+            assert(shift != nil)
+            let shiftIndex: NSIndexPath! = schedule.indexOfShift(shift)
+            assert(shiftIndex != nil)
+            print("shift index:")
+            print(shiftIndex)
             schedule.removeShiftAtIndex(shiftIndex)
         }
         else {

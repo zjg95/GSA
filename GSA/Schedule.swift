@@ -53,6 +53,10 @@ class Schedule {
         }
     }
     
+    func indexOfShift(shift: Shift) -> NSIndexPath? {
+        return week.indexOfShift(shift)
+    }
+    
     func shiftsAssignedToEmployeeAtIndex(index: Int) -> Int {
         return staff.numberOfShiftsAssignedToEmployee(index)
     }

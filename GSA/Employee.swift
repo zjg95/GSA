@@ -109,8 +109,8 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
         return shifts.shiftNumberByWeek(shift)
     }
     
-    func getShiftAtIndex(index: Int) -> Shift {
-        return shifts[index]!
+    func getShiftAtIndex(index: Int) -> Shift? {
+        return shifts[index]
     }
     
     func append(shift: Shift) {
