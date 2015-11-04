@@ -120,4 +120,26 @@ class Week : CopyProtocol, SequenceType {
         return NSIndexPath(forRow: i, inSection: shift.day)
     }
     
+    func shiftNumberByWeek(shift: Shift) -> Int {
+        var i = 0
+        for s in self {
+            if shift == s {
+                break
+            }
+            ++i
+        }
+        return i
+    }
+    
+    func shiftNumberByDay(shift: Shift) -> Int {
+        var i = 0
+        for s in shifts[shift.day] {
+            if shift == s {
+                break
+            }
+            ++i
+        }
+        return i
+    }
+    
 }
