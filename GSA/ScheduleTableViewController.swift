@@ -176,8 +176,8 @@ class ScheduleTableViewController: UITableViewController {
         if employeeView {
             let emp: Employee = schedule.getEmployeeAtIndex(index.section)
             let shift: Shift = emp.getShiftAtIndex(index.row)
-            let x: Int = emp.shiftNumberByWeek(shift)
-            let shiftIndex: NSIndexPath = NSIndexPath(forRow: x, inSection: shift.day)
+            let shiftNumber: Int = emp.shiftNumberByWeek(shift)
+            let shiftIndex: NSIndexPath = NSIndexPath(forRow: shiftNumber, inSection: shift.day)
             schedule.removeShiftAtIndex(shiftIndex)
         }
         else {

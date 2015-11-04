@@ -75,6 +75,11 @@ class Schedule {
         return week.append(shift)
     }
     
+    // does not change assignee data
+    func reinsert(shift: Shift) {
+        
+    }
+    
     func remove(shift: Shift) -> NSIndexPath {
         shift.assignee = nil
         return week.remove(shift)
