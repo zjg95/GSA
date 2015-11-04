@@ -180,15 +180,9 @@ class ScheduleTableViewController: UITableViewController {
     // remove shift from schedule, delete its cell
     func removeShift(index: NSIndexPath) {
         if employeeView {
-            print("employee index: \(index.section) shift index: \(index.row)")
             let emp: Employee = schedule.getEmployeeAtIndex(index.section)
-            print("employee: \(emp.fullName)")
-            for s in emp.shifts {
-                print("\(days[s.day]) \(s.timeAMPM)")
-            }
             let shift: Shift! = emp.getShiftAtIndex(index.row)
             assert(shift != nil)
-            print("shift: \(days[shift.day]) \(shift.timeAMPM)")
             let shiftIndex: NSIndexPath! = schedule.indexOfShift(shift)
             assert(shiftIndex != nil)
             schedule.removeShiftAtIndex(shiftIndex)
