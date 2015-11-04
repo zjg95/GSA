@@ -93,10 +93,6 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
 
     func extractContent() {
-        print("before1 edits:")
-        for s in shift.assignee!.shifts {
-            print(days[s.day] + " " + s.timeAMPM)
-        }
         shift.assignee = nil
         
         // day data
@@ -127,10 +123,6 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
         if index > 0 {
             let employee: Employee! = staff[index - 1]
             shift.assignee = employee
-            print("after1 edits:")
-            for s in shift.assignee!.shifts {
-                print(days[s.day] + " " + s.timeAMPM)
-            }
         }
     }
     
