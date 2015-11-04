@@ -19,6 +19,8 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     var shift: Shift!
     
+    var oldShift: Shift!
+    
     var staff: Staff!
     
     var employeeNames: [String] = ["None"]
@@ -86,7 +88,7 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
         // assignee data
         
         employeeNames += staff.employeeNames
-        if let employee = shift.assignee {
+        if let employee = oldShift.assignee {
             let index = staff.employeeIndex(employee)
             employeePicker.selectRow(index + 1, inComponent: 0, animated: false)
         }
