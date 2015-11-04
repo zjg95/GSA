@@ -164,8 +164,12 @@ class ScheduleTableViewController: UITableViewController {
         schedule.append(shift)
         let employee: Employee! = shift.assignee
         assert(employee != nil)
-        let employeeIndex: NSIndexPath = NSIndexPath(forRow: employee.indexOfShift(shift), inSection: employee.index)
-        return employeeIndex
+        let shiftIndex: Int! = employee.indexOfShift(shift)
+        assert(shiftIndex != nil)
+        let employeeIndex: Int! = employee.index
+        assert(employeeIndex != nil)
+        let newIndex: NSIndexPath = NSIndexPath(forRow: shiftIndex, inSection: employeeIndex)
+        return newIndex
     }
     
     // create a cell at given index

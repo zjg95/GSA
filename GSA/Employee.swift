@@ -84,21 +84,22 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
         firstName = original.firstName
         lastName = original.lastName
         position = original.position
+        index = original.index
     }
     
     // -------
     // methods
     // -------
     
-    func indexOfShift(shift: Shift) -> Int {
+    func indexOfShift(shift: Shift) -> Int? {
         var i = 0
         for s in shifts {
             if shift == s {
-                break
+                return i
             }
             ++i
         }
-        return i
+        return nil
     }
     
     func shiftNumberByDay(shift: Shift) -> Int {
