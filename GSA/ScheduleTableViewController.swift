@@ -110,43 +110,27 @@ class ScheduleTableViewController: UITableViewController {
     // edit cell
     // ---------
     
-    func editCell(shift: Shift, index: NSIndexPath) {
+    func editShift(oldShift: Shift, newShift: Shift, oldIndex: NSIndexPath) {
         var newIndex: NSIndexPath!
         if employeeView {
-            newIndex = editCellEmployeeView(shift, oldIndex: index)
+            newIndex = editShiftEmployeeView(oldShift, newShift: newShift, oldIndex: oldIndex)
         }
         else {
-            newIndex = editCellShiftView(shift, oldIndex: index)
+            newIndex = editShiftShiftView(oldShift, oldIndex: oldIndex)
         }
-        delegate!.index = newIndex
+        assert(newIndex != nil)
+        assert(delegate != nil)
+        // update the shift in the details view
+        delegate.index = newIndex
+        delegate.shift = newShift
     }
     
-    func editCellEmployeeView(shift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
-        var emp: Employee? = shift.assignee
-        if emp == nil {
-            emp = schedule.nullEmployee
-        }
-        // remove the shift
-        removeShift(oldIndex)
-        // reassign the shift
-        shift.assignee = emp
-        // add the shift
-        addShift(shift)
-        let newIndex: NSIndexPath = NSIndexPath(forRow: emp!.shiftNumberByWeek(shift), inSection: emp!.index)
-        // return the index
-        return newIndex
+    func editShiftEmployeeView(oldShift: Shift, newShift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
+        return oldIndex
     }
     
-    func editCellShiftView(shift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
-        let emp: Employee? = shift.assignee
-        // remove the shift
-        removeShift(oldIndex)
-        // reassign the shift
-        shift.assignee = emp
-        // add the shift
-        let newIndex: NSIndexPath = addShift(shift)
-        // return the index
-        return newIndex
+    func editShiftShiftView(shift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
+        return oldIndex
     }
     
     // ---------
@@ -169,7 +153,8 @@ class ScheduleTableViewController: UITableViewController {
     // adds a shift to the schedule
     func addShiftEmployeeView(shift: Shift) -> NSIndexPath {
         schedule.append(shift)
-        let employee: Employee = shift.assignee!
+        let employee: Employee! = shift.assignee
+        assert(employee != nil)
         let employeeIndex: NSIndexPath = NSIndexPath(forRow: employee.indexOfShift(shift), inSection: employee.index)
         return employeeIndex
     }
@@ -186,16 +171,11 @@ class ScheduleTableViewController: UITableViewController {
     // remove shift from schedule, delete its cell
     func removeShift(index: NSIndexPath) {
         if employeeView {
-            print("employee index:")
-            print(index)
             let emp: Employee = schedule.getEmployeeAtIndex(index.section)
-            print(emp.shiftCount)
             let shift: Shift! = emp.getShiftAtIndex(index.row)
             assert(shift != nil)
             let shiftIndex: NSIndexPath! = schedule.indexOfShift(shift)
             assert(shiftIndex != nil)
-            print("shift index:")
-            print(shiftIndex)
             schedule.removeShiftAtIndex(shiftIndex)
         }
         else {
