@@ -68,7 +68,7 @@ class ScheduleDetailsViewController: UIViewController {
             if let nav = segue.destinationViewController as? UINavigationController {
                 if let destination = nav.viewControllers.first as? EditScheduleViewController {
                     destination.staff = self.staff
-                    destination.shift = shift
+                    destination.shift = shift.copy()
                     destination.index = self.index
                 }
             }
@@ -76,8 +76,11 @@ class ScheduleDetailsViewController: UIViewController {
     }
     
     @IBAction func updateShiftDetails(sender: UIStoryboardSegue) {
-        populateContent()
-        delegate.editCell(shift, index: index)
+        if let source = sender.sourceViewController as? EditScheduleViewController, thatShift = source.shift {
+            assert(delegate != nil)
+            delegate.editShift(shift, newShift: thatShift, oldIndex: index)
+            populateContent()
+        }
     }
     
 }
