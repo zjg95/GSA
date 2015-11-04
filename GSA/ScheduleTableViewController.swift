@@ -127,10 +127,7 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func editCellShiftView(shift: Shift, index: NSIndexPath) {
-        // was day modified?
-        // was assignee modified?
-        // was start/end time modified?
-        // was shift deleted?
+        
     }
     
     // ---------
@@ -184,10 +181,6 @@ class ScheduleTableViewController: UITableViewController {
             schedule.removeShiftAtIndex(index)
         }
         removeCell(index)
-    }
-    
-    // remove shift from schedule
-    func removeShift(index: NSIndexPath) {
     }
     
     // remove cell from table
