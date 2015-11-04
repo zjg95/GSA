@@ -116,7 +116,7 @@ class ScheduleTableViewController: UITableViewController {
             newIndex = editShiftEmployeeView(oldShift, newShift: newShift, oldIndex: oldIndex)
         }
         else {
-            newIndex = editShiftShiftView(oldShift, oldIndex: oldIndex)
+            newIndex = editShiftShiftView(oldShift, newShift: newShift, oldIndex: oldIndex)
         }
         assert(newIndex != nil)
         assert(delegate != nil)
@@ -126,11 +126,18 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func editShiftEmployeeView(oldShift: Shift, newShift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
+        // remove the old shift
+        // add the new shift
         return oldIndex
     }
     
-    func editShiftShiftView(shift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
-        return oldIndex
+    func editShiftShiftView(oldShift: Shift, newShift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
+        // copy the assignee
+//        newShift.assignee = oldShift.assignee
+        // remove the old shift
+        removeShift(oldIndex)
+        // add the new shift
+        return addShift(newShift)
     }
     
     // ---------
