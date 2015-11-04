@@ -8,17 +8,19 @@
 
 import UIKit
 
-class NewEmployeeViewController: UIViewController, UITextFieldDelegate {
+class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     
     // ------------
     // data members
     // ------------
     
     var employee: Employee!
+    var availableShifts: [Shift]!
     
     // -----------------
     // reference outlets
     // -----------------
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
@@ -41,10 +43,19 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate {
         let lastName: String = lastNameField.text!
         employee = Employee(firstName: firstName, lastName: lastName)
         employee.position = positionField.text!
+        for shift in availableShifts {
+            employee.availability.append(shift)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        self.tableView.separatorStyle = .SingleLine
+        self.tableView.separatorColor = UIColor.blackColor()
         
         // Handle the text field’s user input through delegate callbacks.
         firstNameField.delegate = self
@@ -69,7 +80,12 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate {
         if doneButton == (sender as? UIBarButtonItem) {
             extractContent()
         }
+        if segue.identifier == "addAvailableTime" {
+            let newAvailabilityViewController:NewAvailabilityViewController = segue.destinationViewController as! NewAvailabilityViewController
+    
+        }
     }
+    
     
     // MARK: - UITextFieldDelegate
     
@@ -90,6 +106,42 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate {
         checkNameEdit()
     }
     
+    // MARK: - Table view data source
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.availableShifts == nil {
+            return 0
+        } else {
+            return self.availableShifts.count + 1
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
+        
+        // Configure the cell...
+        let index:Int = indexPath.row
+        
+        if (index == 0) {
+            cell.dayLabel!.text = "Day"
+            cell.timeLabel!.text = "Time"
+        } else {
+            //availableShifts = employee.shifts.weekToArray()
+            let currentShift:Shift = availableShifts[index - 1]
+            
+            cell.dayLabel!.text = currentShift.dayToString()
+            cell.timeLabel!.text = currentShift.timeAMPM
+        }
+        
+        return cell
+    }
+
+    
     // This method is called when the user touches the Return key on the
     // keyboard. The 'textField' passed in is a pointer to the textField
     // widget the cursor was in at the time they touched the Return key on
@@ -102,6 +154,17 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         self.view.endEditing(true)
         return true
+    }
+    
+    @IBAction func saveAvailableTime(segue:UIStoryboardSegue) {
+        if let sourceViewController = segue.sourceViewController as? NewAvailabilityViewController, shift = sourceViewController.shift {
+            if availableShifts == nil {
+                availableShifts = [shift]
+            } else {
+                availableShifts.append(shift)
+            }
+        }
+        self.tableView.reloadData()
     }
 
 }

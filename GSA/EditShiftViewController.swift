@@ -85,6 +85,16 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         // assignee data
         
+        //Gets all available employees for the current shift
+//        var availableEmployees : Staff!
+//        var i:Int
+//        for i = 0; i < staff.count; i++ {
+//            if staff[i].isAvailable(shift){
+//                availableEmployees.append(staff[i])
+//            }
+//        }
+        //replace staff below with available employees once we can assign availability to employees
+        
         employeeNames += staff.employeeNames
         if let employee = shift.assignee {
             let index = staff.employeeIndex(employee)

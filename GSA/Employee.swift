@@ -25,6 +25,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     private var _null: Bool = false
     
     var shifts: Week = Week()
+    var availability: Week = Week()
     
     var description: String {
         get {
@@ -119,6 +120,28 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     func remove(shift: Shift) {
         shifts.remove(shift)
+    }
+    
+    func appendAvail(shift: Shift){
+        availability.append(shift)
+    }
+    
+    //Doesn't work for over night shifts
+    func isAvailable(shift: Shift) -> Bool {
+        let day = shift.day
+        let start = shift.timeStart.hour
+        let end = shift.timeEnd.hour
+        
+        let available: [Shift] = availability[day]
+        
+        for curShift in available {
+            if start >= curShift.timeStart.hour && end <= curShift.timeEnd.hour{
+                if shift.timeStart.minutes >= curShift.timeStart.minutes && shift.timeEnd.minutes <= curShift.timeEnd.minutes {
+                    return true
+                }
+            }
+        }
+        return false
     }
     
 }
