@@ -53,16 +53,12 @@ class Schedule {
         }
     }
     
-    func shiftsOnDay(day: Int) -> Int {
-        return week.shiftCount(day)
-    }
-    
     func shiftsAssignedToEmployeeAtIndex(index: Int) -> Int {
         return staff.numberOfShiftsAssignedToEmployee(index)
     }
     
     func numberOfShiftsOnDay(day: Int) -> Int {
-        return week.shiftCount(day)
+        return week.numberOfShiftsOnDay(day)
     }
     
     func getEmployeeAtIndex(index: Int) -> Employee {
@@ -85,6 +81,8 @@ class Schedule {
     }
     
     func removeShiftAtIndex(index: NSIndexPath) {
+        let shift: Shift = week[index.section][index.row]
+        shift.assignee = nil
         week.removeAtIndex(index)
     }
     

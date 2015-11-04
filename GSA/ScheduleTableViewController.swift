@@ -64,7 +64,7 @@ class ScheduleTableViewController: UITableViewController {
             return employee.shiftCount
         }
         else {
-            return schedule.shiftsOnDay(section)
+            return schedule.numberOfShiftsOnDay(section)
         }
     }
     
@@ -111,26 +111,32 @@ class ScheduleTableViewController: UITableViewController {
     // ---------
     
     func editCell(shift: Shift, index: NSIndexPath) {
+        var newIndex: NSIndexPath!
         if employeeView {
-            editCellEmployeeView(shift, index: index)
+            editCellEmployeeView(shift, oldIndex: index)
         }
         else {
-            editCellShiftView(shift, index: index)
+            newIndex = editCellShiftView(shift, oldIndex: index)
         }
+        delegate!.index = newIndex
     }
     
-    func editCellEmployeeView(shift: Shift, index: NSIndexPath) {
+    func editCellEmployeeView(shift: Shift, oldIndex: NSIndexPath) {
         // was day modified?
         // was assignee modified?
         // was start/end time modified?
-        // was shift deleted?
     }
     
-    func editCellShiftView(shift: Shift, index: NSIndexPath) {
-        // was day modified?
-        // was assignee modified?
-        // was start/end time modified?
-        // was shift deleted?
+    func editCellShiftView(shift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
+        let emp: Employee? = shift.assignee
+        // remove the shift
+        removeShift(oldIndex)
+        // reassign the shift
+        shift.assignee = emp
+        // add the shift
+        let newIndex: NSIndexPath = addShift(shift)
+        return newIndex
+        // reassigning a shift should remove it from that employee's week
     }
     
     // ---------
@@ -138,20 +144,16 @@ class ScheduleTableViewController: UITableViewController {
     // ---------
     
     // adds a shift to the schedule and creates a cell
-    func createShift(shift: Shift) {
+    func addShift(shift: Shift) -> NSIndexPath {
         var index: NSIndexPath!
         if employeeView {
             index = addShiftEmployeeView(shift)
         }
         else {
-            index = addShiftShiftView(shift)
+            index = schedule.append(shift)
         }
         addCell(index)
-    }
-    
-    // adds a shift to the schedule
-    func addShiftShiftView(shift: Shift) -> NSIndexPath {
-        return schedule.append(shift)
+        return index
     }
     
     // adds a shift to the schedule
@@ -172,17 +174,18 @@ class ScheduleTableViewController: UITableViewController {
     // ------------
     
     // remove shift from schedule, delete its cell
-    func deleteShift(shift: Shift) {
+    func removeShift(index: NSIndexPath) {
         if employeeView {
-            
+            let emp: Employee = schedule.getEmployeeAtIndex(index.section)
+            let shift: Shift = emp.getShiftAtIndex(index.row)
+            let shiftNumber: Int = emp.shiftNumberByWeek(shift)
+            let shiftIndex: NSIndexPath = NSIndexPath(forRow: shiftNumber, inSection: shift.day)
+            schedule.removeShiftAtIndex(shiftIndex)
         }
         else {
-            
+            schedule.removeShiftAtIndex(index)
         }
-    }
-    
-    // remove shift from schedule
-    func removeShift(index: NSIndexPath) {
+        removeCell(index)
     }
     
     // remove cell from table
@@ -226,13 +229,13 @@ class ScheduleTableViewController: UITableViewController {
     
     @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
-            createShift(shift)
+            addShift(shift)
         }
     }
     
     @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController, shift = sourceViewController.shift {
-            deleteShift(shift)
+        if let sourceViewController = sender.sourceViewController as? EditScheduleViewController, index = sourceViewController.index {
+            removeShift(index)
         }
     }
     

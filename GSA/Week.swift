@@ -87,7 +87,7 @@ class Week : CopyProtocol, SequenceType {
         }
     }
     
-    func shiftCount(day: Int) -> Int {
+    func numberOfShiftsOnDay(day: Int) -> Int {
         return shifts[day].count
     }
     
@@ -118,6 +118,28 @@ class Week : CopyProtocol, SequenceType {
         }
         --count
         return NSIndexPath(forRow: i, inSection: shift.day)
+    }
+    
+    func shiftNumberByWeek(shift: Shift) -> Int {
+        var i = 0
+        for s in self {
+            if shift == s {
+                break
+            }
+            ++i
+        }
+        return i
+    }
+    
+    func shiftNumberByDay(shift: Shift) -> Int {
+        var i = 0
+        for s in shifts[shift.day] {
+            if shift == s {
+                break
+            }
+            ++i
+        }
+        return i
     }
     
 }

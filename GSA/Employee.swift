@@ -25,7 +25,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     private var _null: Bool = false
     
-    private var shifts: Week = Week()
+    var shifts: Week = Week()
     
     var description: String {
         get {
@@ -100,6 +100,14 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
             ++i
         }
         return i
+    }
+    
+    func shiftNumberByDay(shift: Shift) -> Int {
+        return shifts.shiftNumberByDay(shift)
+    }
+    
+    func shiftNumberByWeek(shift: Shift) -> Int {
+        return shifts.shiftNumberByWeek(shift)
     }
     
     func getShiftAtIndex(index: Int) -> Shift {
