@@ -24,7 +24,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     var index: Int!
     private var _null: Bool = false
     
-    private var shifts: Week = Week()
+    var shifts: Week = Week()
     
     var description: String {
         get {
