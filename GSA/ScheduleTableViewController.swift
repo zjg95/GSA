@@ -19,13 +19,23 @@ class ScheduleTableViewController: UITableViewController {
     
     var delegate: ScheduleDetailsViewController!
     
-    var employeeView: Bool = false
+    var employeeView: Bool = true
     
     // -------
     // outlets
     // -------
     
-    @IBAction func organizeButton(sender: AnyObject) {
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBAction func generateButton(sender: AnyObject) {
+        generateSchedule()
+    }
+    
+    @IBAction func clearButton(sender: AnyObject) {
+        clearSchedule()
+    }
+    
+    @IBAction func segmentChanged(sender: AnyObject) {
         employeeView = !employeeView
         self.tableView.reloadData()
     }
@@ -37,6 +47,9 @@ class ScheduleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = schedule.name
+        if employeeView {
+            segmentedControl.selectedSegmentIndex = 1
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -234,6 +247,16 @@ class ScheduleTableViewController: UITableViewController {
                 destination.shift = shift
             }
         }
+    }
+    
+    func clearSchedule() {
+        print("Schedule cleared")
+        schedule.clearAssignees()
+    }
+    
+    func generateSchedule() {
+        print("Schedule generated")
+        schedule.generate()
     }
     
     @IBAction func addShiftToTable(sender: UIStoryboardSegue) {

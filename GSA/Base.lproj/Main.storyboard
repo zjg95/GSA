@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Employees-->
@@ -338,9 +337,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <toolbar key="tableHeaderView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="9s1-eM-JM8">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem systemItem="trash" id="R0o-3h-GQR">
+                                    <connections>
+                                        <action selector="clearButton:" destination="8Q2-ou-FKP" id="B9A-pw-WYi"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem systemItem="flexibleSpace" id="pra-cA-OZX"/>
+                                <barButtonItem style="plain" id="9oF-C1-m3h">
+                                    <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="XLy-aJ-loF">
+                                        <rect key="frame" x="110" y="7" width="155" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Week"/>
+                                            <segment title="Employee"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentChanged:" destination="8Q2-ou-FKP" eventType="valueChanged" id="pfZ-Ly-RJX"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </barButtonItem>
+                                <barButtonItem systemItem="flexibleSpace" id="C7x-6P-ntW"/>
+                                <barButtonItem systemItem="compose" id="Vr6-MX-cBA">
+                                    <connections>
+                                        <action selector="generateButton:" destination="8Q2-ou-FKP" id="E9z-ev-JDW"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" textLabel="ihJ-PM-9dI" detailTextLabel="P5d-Zh-A88" style="IBUITableViewCellStyleSubtitle" id="Dld-Fk-F2h">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="136" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dld-Fk-F2h" id="uhn-ZT-XeI">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -373,19 +403,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="&lt;schedule&gt;" id="B9j-ax-9nn">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="W4w-3X-tug">
-                                <connections>
-                                    <segue destination="KYi-ya-gFn" kind="presentation" id="0dc-hV-gyB"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="organize" id="pOT-Gd-o8O">
-                                <connections>
-                                    <action selector="organizeButton:" destination="8Q2-ou-FKP" id="RJj-u5-3vq"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="W4w-3X-tug">
+                            <connections>
+                                <segue destination="KYi-ya-gFn" kind="presentation" id="0dc-hV-gyB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="XLy-aJ-loF" id="5MK-SB-1Mi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inI-7h-lr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

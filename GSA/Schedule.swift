@@ -93,4 +93,8 @@ class Schedule {
     func getShiftAtIndex(index: NSIndexPath) -> Shift {
         return week[index.section][index.row]
     }
+    
+    func generate() -> Int? {
+        return nil
+    }
 }
