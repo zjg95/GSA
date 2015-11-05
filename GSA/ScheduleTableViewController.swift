@@ -75,6 +75,7 @@ class ScheduleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = schedule.name
+        clearButton.enabled = !(schedule.numberOfUnassignedShifts == schedule.numberOfShifts)
         if employeeView {
             segmentedControl.selectedSegmentIndex = 1
         }
@@ -161,6 +162,9 @@ class ScheduleTableViewController: UITableViewController {
         }
         assert(newIndex != nil)
         assert(delegate != nil)
+        print("u\(schedule.numberOfUnassignedShifts) a\(schedule.numberOfShifts)")
+        clearButton.enabled = !(schedule.numberOfUnassignedShifts == schedule.numberOfShifts)
+        print(clearButton.enabled)
         // update the shift in the details view
         delegate.index = newIndex
         delegate.shift = newShift
@@ -236,7 +240,6 @@ class ScheduleTableViewController: UITableViewController {
             schedule.removeShiftAtIndex(index)
         }
         removeCell(index)
-//        clearButton.enabled = (schedule.numberOfUnassignedShifts == schedule.numberOfShifts)
     }
     
     // remove cell from table
