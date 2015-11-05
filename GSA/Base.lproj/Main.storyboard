@@ -343,7 +343,7 @@
                             <items>
                                 <barButtonItem systemItem="trash" id="R0o-3h-GQR">
                                     <connections>
-                                        <action selector="clearButton:" destination="8Q2-ou-FKP" id="B9A-pw-WYi"/>
+                                        <action selector="clearPressed:" destination="8Q2-ou-FKP" id="hiC-cQ-ds8"/>
                                     </connections>
                                 </barButtonItem>
                                 <barButtonItem systemItem="flexibleSpace" id="pra-cA-OZX"/>
@@ -363,7 +363,7 @@
                                 <barButtonItem systemItem="flexibleSpace" id="C7x-6P-ntW"/>
                                 <barButtonItem systemItem="compose" id="Vr6-MX-cBA">
                                     <connections>
-                                        <action selector="generateButton:" destination="8Q2-ou-FKP" id="E9z-ev-JDW"/>
+                                        <action selector="generatePressed:" destination="8Q2-ou-FKP" id="o3O-rB-EKt"/>
                                     </connections>
                                 </barButtonItem>
                             </items>
@@ -410,6 +410,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearButton" destination="R0o-3h-GQR" id="y7v-SX-RVL"/>
+                        <outlet property="generateButton" destination="Vr6-MX-cBA" id="kXq-Dr-Z4r"/>
                         <outlet property="segmentedControl" destination="XLy-aJ-loF" id="5MK-SB-1Mi"/>
                     </connections>
                 </tableViewController>

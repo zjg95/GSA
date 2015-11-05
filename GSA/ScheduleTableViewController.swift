@@ -26,13 +26,41 @@ class ScheduleTableViewController: UITableViewController {
     // -------
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var clearButton: UIBarButtonItem!
+    @IBOutlet weak var generateButton: UIBarButtonItem!
     
-    @IBAction func generateButton(sender: AnyObject) {
-        generateSchedule()
+    @IBAction func generatePressed(sender: AnyObject) {
+        dispatch_async(dispatch_get_main_queue()) {
+            let alertController = UIAlertController(title: "Confirm Generate", message: "Are you sure you want to automatically assign employees to shifts?", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let OKAction = UIAlertAction(title: "Generate Schedule", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
+                self.generateSchedule()
+            }
+            alertController.addAction(OKAction)
+            
+            let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
+            }
+            alertController.addAction(cancel)
+            
+            self.presentViewController(alertController, animated: true, completion:nil)
+        }
     }
     
-    @IBAction func clearButton(sender: AnyObject) {
-        clearSchedule()
+    @IBAction func clearPressed(sender: AnyObject) {
+        dispatch_async(dispatch_get_main_queue()) {
+            let alertController = UIAlertController(title: "Confirm Clear", message: "Are you sure you want to unassign all shifts?", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let OKAction = UIAlertAction(title: "Clear Schedule", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
+                self.clearSchedule()
+            }
+            alertController.addAction(OKAction)
+            
+            let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
+            }
+            alertController.addAction(cancel)
+            
+            self.presentViewController(alertController, animated: true, completion:nil)
+        }
     }
     
     @IBAction func segmentChanged(sender: AnyObject) {
@@ -208,6 +236,7 @@ class ScheduleTableViewController: UITableViewController {
             schedule.removeShiftAtIndex(index)
         }
         removeCell(index)
+//        clearButton.enabled = (schedule.numberOfUnassignedShifts == schedule.numberOfShifts)
     }
     
     // remove cell from table
@@ -252,11 +281,14 @@ class ScheduleTableViewController: UITableViewController {
     func clearSchedule() {
         print("Schedule cleared")
         schedule.clearAssignees()
+        self.tableView.reloadData()
+        clearButton.enabled = false
     }
     
     func generateSchedule() {
         print("Schedule generated")
         schedule.generate()
+        self.tableView.reloadData()
     }
     
     @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
