@@ -99,7 +99,7 @@ class ScheduleTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if employeeView {
             if section == schedule.numberOfEmployees {
-                return schedule.unassignedShiftCount
+                return schedule.numberOfUnassignedShifts
             }
             let employee: Employee = schedule.getEmployeeAtIndex(section)
             return employee.shiftCount

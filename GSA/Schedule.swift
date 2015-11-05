@@ -20,13 +20,19 @@ class Schedule {
     
     let nullEmployee: Employee = Employee(null: true)
     
+    var numberOfShifts: Int {
+        get {
+            return week.shiftCount
+        }
+    }
+    
     var numberOfEmployees: Int {
         get {
             return staff.count
         }
     }
     
-    var unassignedShiftCount: Int {
+    var numberOfUnassignedShifts: Int {
         get {
             return nullEmployee.shiftCount
         }
