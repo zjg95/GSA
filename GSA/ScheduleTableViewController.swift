@@ -162,9 +162,7 @@ class ScheduleTableViewController: UITableViewController {
         }
         assert(newIndex != nil)
         assert(delegate != nil)
-        print("u\(schedule.numberOfUnassignedShifts) a\(schedule.numberOfShifts)")
         clearButton.enabled = !(schedule.numberOfUnassignedShifts == schedule.numberOfShifts)
-        print(clearButton.enabled)
         // update the shift in the details view
         delegate.index = newIndex
         delegate.shift = newShift
@@ -282,7 +280,6 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func clearSchedule() {
-        print("Schedule cleared")
         schedule.clearAssignees()
         self.tableView.reloadData()
         clearButton.enabled = false
