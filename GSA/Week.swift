@@ -118,6 +118,7 @@ class Week : CopyProtocol, SequenceType {
     
     func removeAtIndex(index: NSIndexPath) {
         shifts[index.section].removeAtIndex(index.row)
+        --count
     }
     
     func remove(shift: Shift) -> NSIndexPath {
