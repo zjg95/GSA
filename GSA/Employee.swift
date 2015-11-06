@@ -133,6 +133,11 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     // scheduling methods
     // ------------------
     
+    // if the shift's position a position that the employee is qualified to work
+    private func canWorkPosition(shift: Shift) -> Bool {
+        return true
+    }
+    
     // if working the shift would cause the employee to exceed their desired hours by more than the wiggle room
     private func exceedsDesiredHours(shift: Shift) -> Bool {
         return false
