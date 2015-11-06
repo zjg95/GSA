@@ -20,7 +20,11 @@ class Shift : CopyProtocol, Equatable {
     
     private var _timeStart: Time
     private var _timeEnd: Time
-    private var _day: Int = 0
+    
+    var startDay: Int!
+    var endDay: Int!
+    var day: Int = 0
+    
     private var _position: String = ""
     private var _dayString: String = ""
     
@@ -99,15 +103,6 @@ class Shift : CopyProtocol, Equatable {
         }
     }
     
-    var day: Int{
-        get {
-            return _day
-        }
-        set (day) {
-            _day = day
-        }
-    }
-    
     var duration: String {
         get {
             var hour = 0
@@ -139,14 +134,18 @@ class Shift : CopyProtocol, Equatable {
     init(timeStart: Time, timeEnd: Time, day: Int) {
         _timeStart = timeStart
         _timeEnd = timeEnd
-        _day = day
+        self.day = day
     }
     
     // required initializer for the Copying protocol
     required init(original: Shift) {
         _timeStart = original._timeStart.copy()
         _timeEnd = original._timeEnd.copy()
-        _day = original._day
+        self.day = original.day
+    }
+    
+    convenience init(startHour: Int, endHour: Int, day: Int) {
+        self.init(timeStart: Time(hour: startHour, minutes: 0), timeEnd: Time(hour: endHour, minutes: 0), day: day)
     }
     
     // -------
