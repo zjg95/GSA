@@ -108,7 +108,6 @@ class Schedule {
             if shift.assignee == nullEmployee {
                 for employee in staff {
                     assert(!employee.isNullEmployee)
-                    print("\(employee.fullName)")
                     if employee.isAvailableForShift(shift) {
                         let n1 = numberOfUnassignedShifts
                         shift.assignee = employee
