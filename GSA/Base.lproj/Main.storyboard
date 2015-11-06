@@ -672,33 +672,6 @@
             </objects>
             <point key="canvasLocation" x="1856.5" y="-479.5"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="JND-er-Ysl">
-            <objects>
-                <viewController id="j9S-aj-inc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="061-qU-CXe"/>
-                        <viewControllerLayoutGuide type="bottom" id="H1W-D5-dIt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bxA-Pt-bdc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nfo-9x-Wci">
-                                <rect key="frame" x="17" y="155" width="341" height="123"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="cSk-8o-fh8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ls-2a-w0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="942.5" y="477.5"/>
-        </scene>
         <!--Schedule-->
         <scene sceneID="boc-UT-0qA">
             <objects>
@@ -831,25 +804,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ev2-RN-S6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1970.5" y="1856.5"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="bec-rm-RlW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bsj-xo-3ua" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="6is-zT-0TN"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wlB-97-HxF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="j9S-aj-inc" kind="relationship" relationship="rootViewController" id="M1g-p4-sQY"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6hX-Gc-dIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="836.5" y="425.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ITt-LL-Wo3">
