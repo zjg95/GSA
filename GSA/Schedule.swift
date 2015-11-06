@@ -97,28 +97,36 @@ class Schedule {
     }
     
     func getShiftAtIndex(index: NSIndexPath) -> Shift {
+        assert(index.section < 7)
+        assert(index.row < week[index.section].count)
         return week[index.section][index.row]
     }
     
-    func generate() -> Int? {
+    private func assign(shift: Shift) -> Employee? {
+        for employee in staff {
+            assert(!employee.isNullEmployee)
+            if employee.canWorkShift(shift) {
+                let n1 = numberOfUnassignedShifts
+                shift.assignee = employee
+                let n2 = numberOfUnassignedShifts + 1
+                assert(n2 == n1)
+                return employee
+            }
+        }
+        return nil
+    }
+    
+    // returns the number of unassigned shifts remaining
+    func generate() -> Int {
         // first come first served
         for shift in week {
             assert(shift.assignee != nil)
             assert(shift.assigneeIndex != nil)
             if shift.assignee == nullEmployee {
-                for employee in staff {
-                    assert(!employee.isNullEmployee)
-                    if employee.isAvailableForShift(shift) {
-                        let n1 = numberOfUnassignedShifts
-                        shift.assignee = employee
-                        let n2 = numberOfUnassignedShifts + 1
-                        assert(n2 == n1)
-                        break
-                    }
-                }
+                // only assign shifts that are unassigned
+                assign(shift)
             }
         }
-        let n: Int = numberOfUnassignedShifts
-        return n > 0 ? n : nil
+        return numberOfUnassignedShifts
     }
 }

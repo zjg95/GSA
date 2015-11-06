@@ -12,6 +12,8 @@ import Foundation
 // Employee
 // --------
 
+private let wiggleRoom: Int = 3
+
 class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     // ------------
@@ -22,6 +24,11 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     var lastName: String = ""
     var position: String = ""
     var index: Int!
+    
+    var maxHours: Int = 40
+    var desiredHours: Int = 40
+    var minimumHours: Int = 0
+    
     private var _null: Bool = false
     
     var shifts: Week = Week()
@@ -122,8 +129,28 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
         shifts.remove(shift)
     }
     
-    func isAvailableForShift(shift: Shift) -> Bool {
+    // ------------------
+    // scheduling methods
+    // ------------------
+    
+    // if working the shift would cause the employee to exceed their desired hours by more than the wiggle room
+    private func exceedsDesiredHours(shift: Shift) -> Bool {
+        return false
+    }
+    
+    // if working the shift would cause the employee to exceed their max hours
+    private func exceedsMaxHours(shift: Shift) -> Bool {
+        return false
+    }
+    
+    // if the employee is actually available during that time
+    private func isAvailableForShift(shift: Shift) -> Bool {
         return true
+    }
+    
+    // if overall the employee is able to work the shift
+    func canWorkShift(shift: Shift) -> Bool {
+        return isAvailableForShift(shift)
     }
     
 }
