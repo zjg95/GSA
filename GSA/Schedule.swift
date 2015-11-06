@@ -101,6 +101,25 @@ class Schedule {
     }
     
     func generate() -> Int? {
-        return nil
+        // first come first served
+        for shift in week {
+            assert(shift.assignee != nil)
+            assert(shift.assigneeIndex != nil)
+            if shift.assignee == nullEmployee {
+                for employee in staff {
+                    assert(!employee.isNullEmployee)
+                    print("\(employee.fullName)")
+                    if employee.isAvailableForShift(shift) {
+                        let n1 = numberOfUnassignedShifts
+                        shift.assignee = employee
+                        let n2 = numberOfUnassignedShifts + 1
+                        assert(n2 == n1)
+                        break
+                    }
+                }
+            }
+        }
+        let n: Int = numberOfUnassignedShifts
+        return n > 0 ? n : nil
     }
 }

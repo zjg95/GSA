@@ -122,6 +122,10 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
         shifts.remove(shift)
     }
     
+    func isAvailableForShift(shift: Shift) -> Bool {
+        return true
+    }
+    
 }
 
 func ==(lhs: Employee, rhs: Employee) -> Bool {
