@@ -281,13 +281,13 @@ class ScheduleTableViewController: UITableViewController {
     
     func clearSchedule() {
         schedule.clearAssignees()
-        self.tableView.reloadData()
         clearButton.enabled = false
+        self.tableView.reloadData()
     }
     
     func generateSchedule() {
-        print("Schedule generated")
         schedule.generate()
+        clearButton.enabled = true
         self.tableView.reloadData()
     }
     
