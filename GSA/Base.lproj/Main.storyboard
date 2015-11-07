@@ -169,40 +169,6 @@
             </objects>
             <point key="canvasLocation" x="4056.5" y="305.5"/>
         </scene>
-        <!--New Shift-->
-        <scene sceneID="WSF-TS-L7X">
-            <objects>
-                <tableViewController id="Alz-mk-5SL" customClass="NewShiftTableViewController2" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="tAd-Wg-8wu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Alz-mk-5SL" id="6Py-BM-1Oy"/>
-                            <outlet property="delegate" destination="Alz-mk-5SL" id="9YK-bR-naj"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="New Shift" id="P2e-db-IGY">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dU0-np-zJQ">
-                            <connections>
-                                <action selector="cancelPressed:" destination="Alz-mk-5SL" id="1wQ-H9-tAX"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="b4t-nR-HrJ">
-                            <connections>
-                                <segue destination="dRg-2c-QSe" kind="unwind" unwindAction="addShiftToTable:" id="7JR-CC-gK7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="doneButton" destination="b4t-nR-HrJ" id="ofg-d9-b0w"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rfJ-dR-9gm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="dRg-2c-QSe" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="5008.5" y="305.5"/>
-        </scene>
         <!--New Employee-->
         <scene sceneID="oZA-sN-M4T">
             <objects>
@@ -533,17 +499,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="&lt;schedule&gt;" id="B9j-ax-9nn">
                         <rightBarButtonItems>
-                            <barButtonItem title="1" id="W4w-3X-tug">
+                            <barButtonItem systemItem="add" id="W4w-3X-tug">
                                 <connections>
                                     <segue destination="KYi-ya-gFn" kind="presentation" id="0dc-hV-gyB"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="2" id="6Rs-nx-0jP">
-                                <connections>
-                                    <segue destination="72z-jq-q6O" kind="presentation" id="iyf-G2-0VR"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="3" id="hQH-i5-oxj">
+                            <barButtonItem systemItem="add" id="hQH-i5-oxj">
                                 <connections>
                                     <segue destination="Ucl-Xp-Z4k" kind="presentation" id="FJN-FD-4gD"/>
                                 </connections>
@@ -816,8 +777,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <datePicker tag="99" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="3zb-ol-j5Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
+                                        <datePicker tag="99" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="3zb-ol-j5Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                             <date key="date" timeIntervalSinceReferenceDate="444924088.28887397">
                                                 <!--2015-02-06 14:01:28 +0000-->
                                             </date>
@@ -859,13 +820,19 @@
                                 <action selector="cancelPressed:" destination="wWM-ik-L5G" id="rWa-7n-SyQ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2lO-oU-WrM"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2lO-oU-WrM">
+                            <connections>
+                                <segue destination="Kw5-cT-2k3" kind="unwind" unwindAction="addShiftToTable:" id="Rb5-OK-d7n"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneButton" destination="2lO-oU-WrM" id="MwV-Yc-kxE"/>
                         <outlet property="view" destination="SqF-U2-rsD" id="L5I-3K-sbv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zLc-mg-CBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Kw5-cT-2k3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2863.5" y="279.5"/>
         </scene>
@@ -1089,24 +1056,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aoc-Hf-XhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3641.5" y="1043.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fm7-VW-9OJ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="72z-jq-q6O" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pRe-fr-4UA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Alz-mk-5SL" kind="relationship" relationship="rootViewController" id="wFw-ET-RPg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u7r-gw-Jm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4537.5" y="305.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RMW-to-V3g">

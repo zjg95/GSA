@@ -43,6 +43,8 @@ class DateCellTableViewController: UITableViewController {
     
     @IBOutlet var pickerView: UIDatePicker!
     
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
     @IBAction func cancelPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -62,13 +64,13 @@ class DateCellTableViewController: UITableViewController {
         let itemFive = [kTitleKey : "(other item2)"]
         dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
         
-        dateFormatter.dateStyle = .ShortStyle // show short-style date format
+//        dateFormatter.dateStyle = .ShortStyle // show short-style date format
         dateFormatter.timeStyle = .ShortStyle
         
         // if the local changes while in the background, we need to be notified so we can update the date
         // format in the table view cells
         //
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "localeChanged:", name: NSCurrentLocaleDidChangeNotification, object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "localeChanged:", name: NSCurrentLocaleDidChangeNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -183,10 +185,10 @@ class DateCellTableViewController: UITableViewController {
         
         cell = tableView.dequeueReusableCellWithIdentifier(cellID)
     
-        if indexPath.row == 0 {
-            // we decide here that first cell in the table is not selectable (it's just an indicator)
-            cell?.selectionStyle = .None;
-        }
+//        if indexPath.row == 0 {
+//            // we decide here that first cell in the table is not selectable (it's just an indicator)
+//            cell?.selectionStyle = .None;
+//        }
         
         // if we have a date picker open whose cell is above the cell we want to update,
         // then we have one more cell than the model allows
@@ -204,7 +206,7 @@ class DateCellTableViewController: UITableViewController {
             cell?.textLabel?.text = itemData[kTitleKey] as? String
             cell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(itemData[kDateKey] as! NSDate)
         } else if cellID == kOtherCellID {
-            // this cell is a non-date cell, just assign it's text label
+            // this cell is a non-date cell, just assign its text label
             //
             cell?.textLabel?.text = itemData[kTitleKey] as? String
         }
@@ -319,6 +321,12 @@ class DateCellTableViewController: UITableViewController {
         cell?.detailTextLabel?.text = dateFormatter.stringFromDate(targetedDatePicker.date)
         
 
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if doneButton == sender as? UIBarButtonItem {
+            // extract content
+        }
     }
 
 }

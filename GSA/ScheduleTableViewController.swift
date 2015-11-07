@@ -140,6 +140,9 @@ class ScheduleTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if employeeView {
+            if section == schedule.nullEmployee.index {
+                return "Unassigned Shifts"
+            }
             return schedule.getEmployeeAtIndex(section).fullName
         }
         else {

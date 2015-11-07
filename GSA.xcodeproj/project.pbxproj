@@ -15,9 +15,6 @@
 		8E469AD41BDBE494004ECEDD /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E469AD31BDBE494004ECEDD /* Schedule.swift */; settings = {ASSET_TAGS = (); }; };
 		8E469AD61BDBE5F4004ECEDD /* ScheduleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E469AD51BDBE5F4004ECEDD /* ScheduleListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E7539141BCC8BD600EFE714 /* NewShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8E92DA771BED96270016132A /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E92DA751BED96270016132A /* DatePickerCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8E92DA781BED96270016132A /* NewShiftTableViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E92DA761BED96270016132A /* NewShiftTableViewController2.swift */; settings = {ASSET_TAGS = (); }; };
-		8E92DA7A1BEDA1D50016132A /* DateCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E92DA791BEDA1D50016132A /* DateCellTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9338F01BC78BD400BDA5A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */; };
 		8E9338F51BC78BD400BDA5A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E9338F31BC78BD400BDA5A7 /* Main.storyboard */; };
 		8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E9338F61BC78BD400BDA5A7 /* GSA.xcdatamodeld */; };
@@ -29,6 +26,7 @@
 		8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339261BC7A45D00BDA5A7 /* Employee.swift */; settings = {ASSET_TAGS = (); }; };
+		8E9563251BEDF3B3004E0A2C /* DateCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9563241BEDF3B3004E0A2C /* DateCellTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E98C9461BDF1D39006B1B08 /* CopyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C9451BDF1D39006B1B08 /* CopyProtocol.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9902061BCEEE6100280BA2 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9902051BCEEE6100280BA2 /* Day.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9902081BCEF99C00280BA2 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9902071BCEF99C00280BA2 /* Staff.swift */; settings = {ASSET_TAGS = (); }; };
@@ -64,9 +62,6 @@
 		8E469AD31BDBE494004ECEDD /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		8E469AD51BDBE5F4004ECEDD /* ScheduleListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListTableViewController.swift; sourceTree = "<group>"; };
 		8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewShiftViewController.swift; sourceTree = "<group>"; };
-		8E92DA751BED96270016132A /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
-		8E92DA761BED96270016132A /* NewShiftTableViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewShiftTableViewController2.swift; sourceTree = "<group>"; };
-		8E92DA791BEDA1D50016132A /* DateCellTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCellTableViewController.swift; sourceTree = "<group>"; };
 		8E9338EC1BC78BD400BDA5A7 /* GSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E9338F41BC78BD400BDA5A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +79,7 @@
 		8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEmployeeViewController.swift; sourceTree = "<group>"; };
 		8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
 		8E9339261BC7A45D00BDA5A7 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		8E9563241BEDF3B3004E0A2C /* DateCellTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCellTableViewController.swift; sourceTree = "<group>"; };
 		8E98C9451BDF1D39006B1B08 /* CopyProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyProtocol.swift; sourceTree = "<group>"; };
 		8E9902051BCEEE6100280BA2 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		8E9902071BCEF99C00280BA2 /* Staff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
@@ -179,13 +175,11 @@
 			isa = PBXGroup;
 			children = (
 				8E98C9451BDF1D39006B1B08 /* CopyProtocol.swift */,
+				8E9563241BEDF3B3004E0A2C /* DateCellTableViewController.swift */,
 				8E9902051BCEEE6100280BA2 /* Day.swift */,
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
 				8ECC92CD1BD9AD9800A920AE /* GSAMainViewController.swift */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
-				8E92DA751BED96270016132A /* DatePickerCell.swift */,
-				8E92DA791BEDA1D50016132A /* DateCellTableViewController.swift */,
-				8E92DA761BED96270016132A /* NewShiftTableViewController2.swift */,
 				8E38A1881BCCCF2F00B4DE14 /* Shift */,
 				8E38A1891BCCCF3C00B4DE14 /* Employee */,
 				6370D6871BCEE48A004E78AB /* Schedule */,
@@ -351,8 +345,6 @@
 				8E9902061BCEEE6100280BA2 /* Day.swift in Sources */,
 				8E469AD41BDBE494004ECEDD /* Schedule.swift in Sources */,
 				8EA08C241BCF636B005774CC /* Week.swift in Sources */,
-				8E92DA7A1BEDA1D50016132A /* DateCellTableViewController.swift in Sources */,
-				8E92DA771BED96270016132A /* DatePickerCell.swift in Sources */,
 				8E7539141BCC8BD600EFE714 /* NewShiftViewController.swift in Sources */,
 				8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */,
 				8EB92C811BDD4C0A00674FCA /* NewScheduleViewController.swift in Sources */,
@@ -360,7 +352,6 @@
 				8ECC92CE1BD9AD9800A920AE /* GSAMainViewController.swift in Sources */,
 				6370D6891BCEE5DC004E78AB /* ScheduleTableViewController.swift in Sources */,
 				8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */,
-				8E92DA781BED96270016132A /* NewShiftTableViewController2.swift in Sources */,
 				8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */,
 				495814081BCC4316001E1862 /* Shift.swift in Sources */,
 				49DF912B1BCEFCA30014946E /* Time.swift in Sources */,
@@ -372,6 +363,7 @@
 				8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */,
 				8E9338F01BC78BD400BDA5A7 /* AppDelegate.swift in Sources */,
 				8E98C9461BDF1D39006B1B08 /* CopyProtocol.swift in Sources */,
+				8E9563251BEDF3B3004E0A2C /* DateCellTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
