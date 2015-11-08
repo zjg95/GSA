@@ -22,8 +22,8 @@ class DateCellTableViewController: UITableViewController {
     let kIndexKey = "index" // key for obtaining the index
     
     // keep track of which rows have date cells
-    let kDateStartRow = 1
-    let kDateEndRow   = 2
+    let kDateStartRow = 0
+    let kDateEndRow   = 1
     
     let kDateCellID       = "dateCell";       // the cells with the start or end date
     let kDatePickerCellID = "datePickerCell"; // the cell containing the date picker
@@ -57,12 +57,11 @@ class DateCellTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // setup our data source
-        let itemOne = [kTitleKey : "Day", kIndexKey : 0]
         let itemTwo = [kTitleKey : "Start Time", kDateKey : NSDate()]
         let itemThree = [kTitleKey : "End Time", kDateKey : NSDate()]
-        let itemFour = [kTitleKey : "(other item1)"]
-        let itemFive = [kTitleKey : "(other item2)"]
-        dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
+        let itemFour = [kTitleKey : "Day", kIndexKey : 0]
+        let itemFive = [kTitleKey : "Duration"]
+        dataArray = [itemTwo, itemThree, itemFour, itemFive]
         
 //        dateFormatter.dateStyle = .ShortStyle // show short-style date format
         dateFormatter.timeStyle = .ShortStyle
@@ -185,10 +184,11 @@ class DateCellTableViewController: UITableViewController {
         
         cell = tableView.dequeueReusableCellWithIdentifier(cellID)
     
-//        if indexPath.row == 0 {
-//            // we decide here that first cell in the table is not selectable (it's just an indicator)
-//            cell?.selectionStyle = .None;
-//        }
+        if indexPath.row == 3 {
+            // we decide here that first cell in the table is not selectable (it's just an indicator)
+            cell?.selectionStyle = .None
+            cell?.detailTextLabel?.text = "4 hours"
+        }
         
         // if we have a date picker open whose cell is above the cell we want to update,
         // then we have one more cell than the model allows
