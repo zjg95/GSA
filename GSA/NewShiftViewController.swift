@@ -59,18 +59,16 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         var calendar = NSCalendar.currentCalendar()
         var date = startPicker.date
-        var components = calendar.components([.Hour], fromDate: date)
+        var components = calendar.components([.Hour, .Minute], fromDate: date)
         
         let startHour = components.hour
-        components = calendar.components([.Minute], fromDate: date)
         let startMinutes = components.minute
         
         calendar = NSCalendar.currentCalendar()
         date = endPicker.date
-        components = calendar.components([.Hour], fromDate: date)
+        components = calendar.components([.Hour, .Minute], fromDate: date)
         
         let endHour = components.hour
-        components = calendar.components([.Minute], fromDate: date)
         let endMinutes = components.minute
         
         shift = Shift(timeStart: Time(hour:startHour, minutes:startMinutes), timeEnd: Time(hour:endHour, minutes: endMinutes), day: day)
@@ -122,5 +120,4 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
             extractContent()
         }
     }
-
 }

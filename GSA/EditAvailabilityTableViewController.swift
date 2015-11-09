@@ -25,10 +25,6 @@ class EditAvailabilityTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Use the edit button item provided by the table view controller.
-//        let backItem = UIBarButtonItem()
-//        backItem.title = "All"
-//        navigationItem.backBarButtonItem = backItem
-        
         availableShifts = employee.availability.weekToArray()
     }
     
@@ -97,7 +93,6 @@ class EditAvailabilityTableViewController: UITableViewController {
             } else {
                 availableShifts.append(shift)
             }
-//            employee.availability = availableShifts;
             for shift in availableShifts {
                 if employee.availability.contains(shift){
                     
@@ -119,7 +114,7 @@ class EditAvailabilityTableViewController: UITableViewController {
                 //availableShifts.append(shift)
             }
             
-            var holdEmployee:Employee = Employee(firstName: "Hold")
+            let holdEmployee:Employee = Employee(firstName: "Hold")
             
             for shift in availableShifts {
                 holdEmployee.availability.append(shift)
