@@ -298,6 +298,11 @@ class ScheduleTableViewController: UITableViewController {
         if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
             addShift(shift)
         }
+        if let sourceViewController = sender.sourceViewController as? DateCellTableViewController, shifts: [Shift]! = sourceViewController.shifts {
+            for s in shifts {
+                addShift(s)
+            }
+        }
     }
     
     @IBAction func deleteShiftFromTable(sender: UIStoryboardSegue) {

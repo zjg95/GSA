@@ -37,6 +37,16 @@ class DateCellTableViewController: UITableViewController {
     
     var pickerCellRowHeight: CGFloat = 216
     
+    var dayBools: [Bool] = [Bool](count: 7, repeatedValue: true)
+    
+    var itemOne:   [String: AnyObject]!
+    var itemTwo:   [String: AnyObject]!
+    var itemThree: [String: AnyObject]!
+    var itemFour:  [String: AnyObject]!
+    var itemFive:  [String: AnyObject]!
+    
+    var shifts: [Shift] = []
+    
     // -------
     // outlets
     // -------
@@ -52,43 +62,45 @@ class DateCellTableViewController: UITableViewController {
     // -------
     // methods
     // -------
+    
+    func extractContent() {
+        var calendar = NSCalendar.currentCalendar()
+        var date = itemTwo[kDateKey] as! NSDate
+        var components = calendar.components([.Hour], fromDate: date)
+        
+        let startHour = components.hour
+        components = calendar.components([.Minute], fromDate: date)
+        let startMinutes = components.minute
+        
+        calendar = NSCalendar.currentCalendar()
+        date = itemThree[kDateKey] as! NSDate
+        components = calendar.components([.Hour], fromDate: date)
+        
+        let endHour = components.hour
+        components = calendar.components([.Minute], fromDate: date)
+        let endMinutes = components.minute
+        
+        for var i = 0; i < 7; ++i {
+            if dayBools[i] {
+                shifts.append(Shift(timeStart: Time(hour: startHour, minutes: startMinutes), timeEnd: Time(hour: endHour, minutes: endMinutes), day: i))
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dayBools[0] = true
 
         // setup our data source
-        let itemTwo = [kTitleKey : "Start Time", kDateKey : NSDate()]
-        let itemThree = [kTitleKey : "End Time", kDateKey : NSDate()]
-        let itemFour = [kTitleKey : "Day", kIndexKey : 0]
-        let itemFive = [kTitleKey : "Duration"]
+        itemTwo = [kTitleKey : "Start Time", kDateKey : NSDate()]
+        itemThree = [kTitleKey : "End Time", kDateKey : NSDate()]
+        itemFour = [kTitleKey : "Day", kIndexKey : [0]]
+        itemFive = [kTitleKey : "Duration"]
         dataArray = [itemTwo, itemThree, itemFour, itemFive]
         
-//        dateFormatter.dateStyle = .ShortStyle // show short-style date format
         dateFormatter.timeStyle = .ShortStyle
-        
-        // if the local changes while in the background, we need to be notified so we can update the date
-        // format in the table view cells
-        //
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "localeChanged:", name: NSCurrentLocaleDidChangeNotification, object: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
-    // MARK: - Locale
-    
-    /*! Responds to region format or locale changes.
-    */
-    func localeChanged(notif: NSNotification) {
-    // the user changed the locale (region format) in Settings, so we are notified here to
-    // update the date format in the table view cells
-    //
-        tableView.reloadData()
-    }
-    
 
     /*! Determines if the given indexPath has a cell below it with a UIDatePicker.
     
@@ -106,8 +118,7 @@ class DateCellTableViewController: UITableViewController {
         return hasDatePicker
     }
 
-    /*! Updates the UIDatePicker's value to match with the date of the cell above it.
-    */
+    // Updates the UIDatePicker's value to match with the date of the cell above it.
     func updateDatePicker() {
         if let indexPath = datePickerIndexPath {
             let associatedDatePickerCell = tableView.cellForRowAtIndexPath(indexPath)
@@ -118,24 +129,19 @@ class DateCellTableViewController: UITableViewController {
         }
     }
     
-    /*! Determines if the UITableViewController has a UIDatePicker in any of its cells.
-    */
+    // Determines if the UITableViewController has a UIDatePicker in any of its cells.
     func hasInlineDatePicker() -> Bool {
         return datePickerIndexPath != nil
     }
     
-    /*! Determines if the given indexPath points to a cell that contains the UIDatePicker.
-    
-    @param indexPath The indexPath to check if it represents a cell with the UIDatePicker.
-    */
+    // Determines if the given indexPath points to a cell that contains the UIDatePicker.
+    // @param indexPath The indexPath to check if it represents a cell with the UIDatePicker
     func indexPathHasPicker(indexPath: NSIndexPath) -> Bool {
         return hasInlineDatePicker() && datePickerIndexPath?.row == indexPath.row
     }
 
-    /*! Determines if the given indexPath points to a cell that contains the start/end dates.
-    
-    @param indexPath The indexPath to check if it represents start/end date cell.
-    */
+    // Determines if the given indexPath points to a cell that contains the start/end dates.
+     // @param indexPath The indexPath to check if it represents start/end date cell.
     func indexPathHasDate(indexPath: NSIndexPath) -> Bool {
         var hasDate = false
         
@@ -152,9 +158,8 @@ class DateCellTableViewController: UITableViewController {
         return (indexPathHasPicker(indexPath) ? pickerCellRowHeight : tableView.rowHeight)
     }
     
+    // Return the number of sections
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
@@ -187,7 +192,11 @@ class DateCellTableViewController: UITableViewController {
         if indexPath.row == 3 {
             // we decide here that first cell in the table is not selectable (it's just an indicator)
             cell?.selectionStyle = .None
-            cell?.detailTextLabel?.text = "4 hours"
+            cell?.userInteractionEnabled = false
+            cell?.detailTextLabel?.text = "8 hours"
+        }
+        else if indexPath.row == 2 {
+            cell?.detailTextLabel?.text = "Sunday"
         }
         
         // if we have a date picker open whose cell is above the cell we want to update,
@@ -319,13 +328,11 @@ class DateCellTableViewController: UITableViewController {
         
         // update the cell's date string
         cell?.detailTextLabel?.text = dateFormatter.stringFromDate(targetedDatePicker.date)
-        
-
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if doneButton == sender as? UIBarButtonItem {
-            // extract content
+            extractContent()
         }
     }
 
