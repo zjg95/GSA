@@ -87,7 +87,7 @@ class EditAvailabilityTableViewController: UITableViewController {
             if let destination = segue.destinationViewController as? AvailabilityDetailsViewController {
                 let index = self.tableView!.indexPathForSelectedRow
                 destination.shift = self.availableShifts[index!.row]
-                availableShifts.removeAtIndex(index!.row)
+                destination.index = index
             }
         }
     }
@@ -104,14 +104,23 @@ class EditAvailabilityTableViewController: UITableViewController {
     }
     
     @IBAction func editEmployeeAvailability(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? AvailabilityDetailsViewController, shift = sourceViewController.shift {
+        if let sourceViewController = sender.sourceViewController as? AvailabilityDetailsViewController, shift = sourceViewController.shift, index = sourceViewController.index {
             if availableShifts == nil {
                 availableShifts = [shift]
             } else {
-                availableShifts.append(shift)
+                availableShifts.removeAtIndex(index.row)
+                availableShifts.insert(shift, atIndex: index.row)
+                //availableShifts.append(shift)
             }
         }
         tableView.reloadData()
+    }
+    
+    @IBAction func deleteAvailabilityFromTable(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? AvailabilityDetailsViewController, index = sourceViewController.index {
+            availableShifts.removeAtIndex(index.row)
+            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
+        }
     }
     
 }

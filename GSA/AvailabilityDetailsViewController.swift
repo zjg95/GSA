@@ -16,7 +16,9 @@ class AvailabilityDetailsViewController: UIViewController, UIPickerViewDataSourc
     // ------------
     
     var shift: Shift!
-    
+    var alertController:UIAlertController? = nil
+    var index: NSIndexPath!
+
     // -----------------
     // reference outlets
     // -----------------
@@ -34,6 +36,7 @@ class AvailabilityDetailsViewController: UIViewController, UIPickerViewDataSourc
     }
     
     @IBAction func deleteButton(sender: AnyObject) {
+        
     }
     
     // -------
@@ -57,7 +60,8 @@ class AvailabilityDetailsViewController: UIViewController, UIPickerViewDataSourc
         components.minute = self.shift.timeEnd.minutes
         endPicker.setDate(calendar.dateFromComponents(components)!, animated: true)
         
-        
+        // Set start day for day picker
+    
     }
     
     func extractContent() {

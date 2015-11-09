@@ -640,6 +640,7 @@
                                 </state>
                                 <connections>
                                     <action selector="deleteButton:" destination="V8X-WF-JyO" eventType="touchUpInside" id="EBg-DM-iHP"/>
+                                    <segue destination="Hi7-L4-ZoR" kind="unwind" unwindAction="deleteAvailabilityFromTable:" id="yMc-U8-T44"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -651,7 +652,11 @@
                                 <action selector="cancelButton:" destination="V8X-WF-JyO" id="aeR-OD-TCG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="xOb-1f-d3x"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="xOb-1f-d3x">
+                            <connections>
+                                <segue destination="Hi7-L4-ZoR" kind="unwind" unwindAction="editEmployeeAvailability:" id="1dn-Fc-Npa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dayPicker" destination="5zT-N3-Zve" id="3dP-If-hw0"/>
@@ -661,6 +666,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KtO-Df-W95" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Hi7-L4-ZoR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5181.5" y="-143.5"/>
         </scene>
