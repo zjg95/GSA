@@ -328,6 +328,9 @@ class DateCellTableViewController: UITableViewController {
         if doneButton == sender as? UIBarButtonItem {
             extractContent()
         }
+        else if let destination = segue.destinationViewController as? DayPickerTableViewController {
+            destination.delegate = self
+        }
     }
 
 }
