@@ -114,6 +114,7 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
     @IBAction func updateEmployeeDetails(sender: UIStoryboardSegue) {
         populateContent()
         delegate.editCell(employee, index: index)
+        tableView.reloadData()
     }
 
 }

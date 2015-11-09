@@ -25,9 +25,9 @@ class EditAvailabilityTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Use the edit button item provided by the table view controller.
-        let backItem = UIBarButtonItem()
-        backItem.title = "All"
-        navigationItem.backBarButtonItem = backItem
+//        let backItem = UIBarButtonItem()
+//        backItem.title = "All"
+//        navigationItem.backBarButtonItem = backItem
         
         availableShifts = employee.availability.weekToArray()
     }
@@ -99,7 +99,11 @@ class EditAvailabilityTableViewController: UITableViewController {
             }
 //            employee.availability = availableShifts;
             for shift in availableShifts {
-                employee.availability.append(shift)
+                if employee.availability.contains(shift){
+                    
+                } else {
+                    employee.availability.append(shift)
+                }
             }
         }
         tableView.reloadData()
@@ -114,9 +118,14 @@ class EditAvailabilityTableViewController: UITableViewController {
                 availableShifts.insert(shift, atIndex: index.row)
                 //availableShifts.append(shift)
             }
+            
+            var holdEmployee:Employee = Employee(firstName: "Hold")
+            
             for shift in availableShifts {
-                employee.availability.append(shift)
+                holdEmployee.availability.append(shift)
             }
+            
+            employee.availability = holdEmployee.availability
             
         }
         tableView.reloadData()
@@ -127,6 +136,14 @@ class EditAvailabilityTableViewController: UITableViewController {
             availableShifts.removeAtIndex(index.row)
             tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
         }
+        
+        var holdEmployee:Employee = Employee(firstName: "Hold")
+        
+        for shift in availableShifts {
+            holdEmployee.availability.append(shift)
+        }
+        
+        self.employee.availability = holdEmployee.availability
     }
     
 }

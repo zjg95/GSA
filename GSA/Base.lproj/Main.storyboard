@@ -577,15 +577,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Availability" id="BHG-bh-Fic">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Zob-DW-CM3">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VBL-Nc-ThH">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Back" id="869-aY-VsO">
                                 <connections>
-                                    <segue destination="4c9-5M-hz2" kind="unwind" unwindAction="addEmployeeAvailability:" id="lat-lb-SEh"/>
+                                    <segue destination="4c9-5M-hz2" kind="unwind" unwindAction="backToEmployeeDetails:" id="Sdn-E7-N6e"/>
                                 </connections>
-                            </button>
-                        </barButtonItem>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="Zob-DW-CM3">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VBL-Nc-ThH">
+                                    <rect key="frame" x="54" y="7" width="83" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <segue destination="4c9-5M-hz2" kind="unwind" unwindAction="addEmployeeAvailability:" id="lat-lb-SEh"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pc4-AF-obX">
                             <connections>
                                 <segue destination="gSE-tp-ToX" kind="show" id="6h9-CW-Gnm"/>

@@ -179,4 +179,13 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         self.view.endEditing(true)
         return true
     }
+    
+    
+    @IBAction func backToEmployeeDetails(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditAvailabilityTableViewController, employee = sourceViewController.employee {
+            self.employee = employee
+            self.availableShifts = employee.availability.weekToArray()
+            tableView.reloadData()
+        }
+    }
 }
