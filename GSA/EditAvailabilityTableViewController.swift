@@ -25,7 +25,6 @@ class EditAvailabilityTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Use the edit button item provided by the table view controller.
-        navigationItem.leftBarButtonItem = editButtonItem()
         let backItem = UIBarButtonItem()
         backItem.title = "All"
         navigationItem.backBarButtonItem = backItem
@@ -57,7 +56,6 @@ class EditAvailabilityTableViewController: UITableViewController {
         
         cell.dayLabel!.text = currentShift.dayToString()
         cell.timeLabel!.text = currentShift.timeAMPM
-
         
         return cell
     }
@@ -99,6 +97,10 @@ class EditAvailabilityTableViewController: UITableViewController {
             } else {
                 availableShifts.append(shift)
             }
+//            employee.availability = availableShifts;
+            for shift in availableShifts {
+                employee.availability.append(shift)
+            }
         }
         tableView.reloadData()
     }
@@ -112,6 +114,10 @@ class EditAvailabilityTableViewController: UITableViewController {
                 availableShifts.insert(shift, atIndex: index.row)
                 //availableShifts.append(shift)
             }
+            for shift in availableShifts {
+                employee.availability.append(shift)
+            }
+            
         }
         tableView.reloadData()
     }

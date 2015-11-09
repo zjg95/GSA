@@ -145,14 +145,14 @@ class Week : CopyProtocol, SequenceType {
     func weekToArray() -> [Shift] {
         var i:Int = 0
         var j:Int = 0
-        var newShifts: [Shift]!
+        var newShifts = [Shift]();
         for i = 0; i < shifts.count; i++ {
             for j = 0; j < shifts[i].count; j++ {
-                if newShifts == nil {
-                    newShifts = [shifts[i][j]]
-                } else {
+//                if newShifts == nil {
+//                    newShifts = [shifts[i][j]]
+//                } else {
                     newShifts.append(shifts[i][j])
-                }
+//                }
             }
         }
         return newShifts
