@@ -39,12 +39,6 @@ class DateCellTableViewController: UITableViewController {
     
     var dayBools: [Bool] = [Bool](count: 7, repeatedValue: true)
     
-    var itemOne:   [String: AnyObject]!
-    var itemTwo:   [String: AnyObject]!
-    var itemThree: [String: AnyObject]!
-    var itemFour:  [String: AnyObject]!
-    var itemFive:  [String: AnyObject]!
-    
     var shifts: [Shift] = []
     
     // -------
@@ -65,7 +59,7 @@ class DateCellTableViewController: UITableViewController {
     
     func extractContent() {
         var calendar = NSCalendar.currentCalendar()
-        var date = itemTwo[kDateKey] as! NSDate
+        var date = dataArray[0][kDateKey] as! NSDate
         var components = calendar.components([.Hour], fromDate: date)
         
         let startHour = components.hour
@@ -73,7 +67,7 @@ class DateCellTableViewController: UITableViewController {
         let startMinutes = components.minute
         
         calendar = NSCalendar.currentCalendar()
-        date = itemThree[kDateKey] as! NSDate
+        date = dataArray[1][kDateKey] as! NSDate
         components = calendar.components([.Hour], fromDate: date)
         
         let endHour = components.hour
@@ -93,10 +87,10 @@ class DateCellTableViewController: UITableViewController {
         dayBools[0] = true
 
         // setup our data source
-        itemTwo = [kTitleKey : "Start Time", kDateKey : NSDate()]
-        itemThree = [kTitleKey : "End Time", kDateKey : NSDate()]
-        itemFour = [kTitleKey : "Day", kIndexKey : [0]]
-        itemFive = [kTitleKey : "Duration"]
+        let itemTwo = [kTitleKey : "Start Time", kDateKey : NSDate()]
+        let itemThree = [kTitleKey : "End Time", kDateKey : NSDate()]
+        let itemFour = [kTitleKey : "Day", kIndexKey : [0]]
+        let itemFive = [kTitleKey : "Duration"]
         dataArray = [itemTwo, itemThree, itemFour, itemFive]
         
         dateFormatter.timeStyle = .ShortStyle
