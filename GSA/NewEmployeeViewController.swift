@@ -140,6 +140,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         
         return cell
     }
+    
 
     
     // This method is called when the user touches the Return key on the

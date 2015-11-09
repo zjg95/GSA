@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
+class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     
     // ------------
     // data members
@@ -17,6 +17,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
     var employee: Employee!
     var index: NSIndexPath!
     var alertController:UIAlertController? = nil
+    var availableShifts: [Shift]!
     
     // -----------------
     // reference outlets
@@ -49,6 +50,8 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
         presentViewController(self.alertController!, animated: true, completion: nil)
     }
     
+    @IBOutlet weak var tableView: UITableView!
+    
     // -------
     // methods
     // -------
@@ -71,6 +74,12 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
         // Handle the text field’s user input through delegate callbacks.
         firstNameField.delegate = self
         lastNameField.delegate = self
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        self.tableView.separatorStyle = .SingleLine
+        self.tableView.separatorColor = UIColor.blackColor()
         
         // Do any additional setup after loading the view.
         checkNameEdit()
@@ -112,6 +121,42 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(textField: UITextField) {
         checkNameEdit()
     }
+    
+    // MARK: - Table view data source
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.availableShifts == nil {
+            return 0
+        } else {
+            return self.availableShifts.count + 1
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
+        
+        // Configure the cell...
+        let index:Int = indexPath.row
+        
+        if (index == 0) {
+            cell.dayLabel!.text = "Day"
+            cell.timeLabel!.text = "Time"
+        } else {
+            //availableShifts = employee.shifts.weekToArray()
+            let currentShift:Shift = availableShifts[index - 1]
+            
+            cell.dayLabel!.text = currentShift.dayToString()
+            cell.timeLabel!.text = currentShift.timeAMPM
+        }
+        
+        return cell
+    }
+
     
     // This method is called when the user touches the Return key on the
     // keyboard. The 'textField' passed in is a pointer to the textField

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmployeeDetailsViewController: UIViewController {
+class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // ------------
     // data members
@@ -17,6 +17,7 @@ class EmployeeDetailsViewController: UIViewController {
     var employee: Employee!
     var index: NSIndexPath!
     var delegate: EmployeeTableViewController!
+    var availableShifts: [Shift]!
     
     // -----------------
     // reference outlets
@@ -26,6 +27,9 @@ class EmployeeDetailsViewController: UIViewController {
     
     @IBOutlet weak var positionLabel: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+
+    
     // -------
     // methods
     // -------
@@ -33,10 +37,17 @@ class EmployeeDetailsViewController: UIViewController {
     func populateContent() {
         nameLabel.text = employee.fullName
         positionLabel.text = employee.position
+        availableShifts = employee.availability.weekToArray()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        self.tableView.separatorStyle = .SingleLine
+        self.tableView.separatorColor = UIColor.blackColor()
 
         // Do any additional setup after loading the view.
         populateContent()
@@ -63,6 +74,42 @@ class EmployeeDetailsViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Table view data source
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.availableShifts == nil {
+            return 0
+        } else {
+            return self.availableShifts.count + 1
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
+        
+        // Configure the cell...
+        let index:Int = indexPath.row
+        
+        if (index == 0) {
+            cell.dayLabel!.text = "Day"
+            cell.timeLabel!.text = "Time"
+        } else {
+            //availableShifts = employee.shifts.weekToArray()
+            let currentShift:Shift = availableShifts[index - 1]
+            
+            cell.dayLabel!.text = currentShift.dayToString()
+            cell.timeLabel!.text = currentShift.timeAMPM
+        }
+        
+        return cell
+    }
+
     
     @IBAction func updateEmployeeDetails(sender: UIStoryboardSegue) {
         populateContent()
