@@ -1,0 +1,117 @@
+//
+//  EditAvailabilityTableViewController.swift
+//  GSA
+//
+//  Created by David Acker on 11/9/15.
+//  Copyright © 2015 Zach Goodman. All rights reserved.
+//
+
+import UIKit
+
+class EditAvailabilityTableViewController: UITableViewController {
+    
+    // ------------
+    // data members
+    // ------------
+    
+    var employee: Employee!
+    var availableShifts: [Shift]!
+    
+    // -------
+    // methods
+    // -------
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Use the edit button item provided by the table view controller.
+        navigationItem.leftBarButtonItem = editButtonItem()
+        let backItem = UIBarButtonItem()
+        backItem.title = "All"
+        navigationItem.backBarButtonItem = backItem
+        
+        availableShifts = employee.availability.weekToArray()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return availableShifts.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
+        
+        // Configure the cell...
+        let index:Int = indexPath.row
+        let currentShift:Shift = availableShifts[index]
+        
+        cell.dayLabel!.text = currentShift.dayToString()
+        cell.timeLabel!.text = currentShift.timeAMPM
+
+        
+        return cell
+    }
+    
+//    // Override to support conditional editing of the table view.
+//    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        // Return false if you do not want the specified item to be editable.
+//        return true
+//    }
+    
+//    // Override to support editing the table view.
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {
+//            // Delete the row from the data source
+//            availableShifts.removeAtIndex(indexPath.row)
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        } else if editingStyle == .Insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "editAvailabilityDetails" {
+            if let destination = segue.destinationViewController as? AvailabilityDetailsViewController {
+                let index = self.tableView!.indexPathForSelectedRow
+                destination.shift = self.availableShifts[index!.row]
+                availableShifts.removeAtIndex(index!.row)
+            }
+        }
+    }
+    
+    @IBAction func addEmployeeAvailability(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? NewAvailabilityViewController, shift = sourceViewController.shift {
+            if availableShifts == nil {
+                availableShifts = [shift]
+            } else {
+                availableShifts.append(shift)
+            }
+        }
+        tableView.reloadData()
+    }
+    
+    @IBAction func editEmployeeAvailability(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? AvailabilityDetailsViewController, shift = sourceViewController.shift {
+            if availableShifts == nil {
+                availableShifts = [shift]
+            } else {
+                availableShifts.append(shift)
+            }
+        }
+        tableView.reloadData()
+    }
+    
+}

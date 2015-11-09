@@ -52,6 +52,8 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var editButton: UIButton!
+    
     // -------
     // methods
     // -------
@@ -60,6 +62,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         firstNameField.text = employee.firstName
         lastNameField.text = employee.lastName
         positionField.text = employee.position
+        availableShifts = employee.availability.weekToArray()
     }
     
     func extractContent() {
@@ -100,6 +103,11 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         // Pass the selected object to the new view controller.
         if doneButton == sender as? UIBarButtonItem {
             extractContent()
+        }
+        if segue.identifier == "editAvailability" {
+            if let destination = segue.destinationViewController as? EditAvailabilityTableViewController {
+                destination.employee = self.employee
+            }
         }
     }
     

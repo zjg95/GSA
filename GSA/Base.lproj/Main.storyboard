@@ -299,12 +299,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Available Time" id="rmF-OC-zNX">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="X50-lZ-TPY">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="X50-lZ-TPY">
                             <connections>
                                 <action selector="cancelButton:" destination="d8X-yR-u4j" id="nBq-Zt-sWe"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="d9M-Ax-NeJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="d9M-Ax-NeJ">
                             <connections>
                                 <segue destination="noR-GR-YVs" kind="unwind" unwindAction="saveAvailableTime:" id="hp1-a7-M8A"/>
                             </connections>
@@ -493,6 +493,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zN9-Nq-gTV">
                                 <rect key="frame" x="132" y="317" width="46" height="30"/>
                                 <state key="normal" title="Edit"/>
+                                <connections>
+                                    <segue destination="Wxm-Hz-9RQ" kind="show" identifier="editAvailability" id="s1f-dH-yUy"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Availability:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8b-nN-8gu">
                                 <rect key="frame" x="24" y="321" width="95" height="21"/>
@@ -518,6 +521,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="2AF-qr-y76" id="vfj-98-XFU"/>
+                        <outlet property="editButton" destination="zN9-Nq-gTV" id="xL8-tA-VKa"/>
                         <outlet property="firstNameField" destination="ICr-GX-0LN" id="ArI-K0-DgF"/>
                         <outlet property="lastNameField" destination="H9j-PX-OFR" id="rxA-4f-HAC"/>
                         <outlet property="positionField" destination="0xL-0p-N5I" id="qQI-J7-ckB"/>
@@ -529,6 +533,208 @@
                 <exit id="Esv-lp-BgP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4184.5" y="-479.5"/>
+        </scene>
+        <!--Availability-->
+        <scene sceneID="5xj-zn-JIN">
+            <objects>
+                <tableViewController id="Wxm-Hz-9RQ" customClass="EditAvailabilityTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iv5-UP-fe8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" id="1TL-zo-Gfz" customClass="AvailabilityTableViewCell" customModule="GSA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1TL-zo-Gfz" id="W7N-a1-I3z">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGL-8v-KxV">
+                                            <rect key="frame" x="14" y="11" width="139" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjl-RL-sVV">
+                                            <rect key="frame" x="182" y="14" width="180" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dayLabel" destination="jGL-8v-KxV" id="YVK-hN-c3Z"/>
+                                    <outlet property="timeLabel" destination="bjl-RL-sVV" id="5fL-bm-lff"/>
+                                    <segue destination="V8X-WF-JyO" kind="show" identifier="editAvailabilityDetails" id="bVq-Ue-F8i"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Wxm-Hz-9RQ" id="LFO-pP-w8y"/>
+                            <outlet property="delegate" destination="Wxm-Hz-9RQ" id="zTz-IM-8xH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Availability" id="BHG-bh-Fic">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pc4-AF-obX">
+                            <connections>
+                                <segue destination="gSE-tp-ToX" kind="show" id="6h9-CW-Gnm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ySF-Ga-osy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4681.5" y="-479.5"/>
+        </scene>
+        <!--Edit Available Time-->
+        <scene sceneID="Ix2-dI-UmM">
+            <objects>
+                <viewController id="V8X-WF-JyO" customClass="AvailabilityDetailsViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gg3-Un-gfV"/>
+                        <viewControllerLayoutGuide type="bottom" id="ngF-W1-0Xi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TLO-9a-VWI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zT-N3-Zve">
+                                <rect key="frame" x="0.0" y="97" width="375" height="124"/>
+                            </pickerView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lQp-Lz-PlX">
+                                <rect key="frame" x="0.0" y="259" width="375" height="136"/>
+                                <date key="date" timeIntervalSinceReferenceDate="468787784.79396701">
+                                    <!--2015-11-09 18:49:44 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="P0e-ET-AsQ">
+                                <rect key="frame" x="0.0" y="434" width="375" height="151"/>
+                                <date key="date" timeIntervalSinceReferenceDate="468787800.04902798">
+                                    <!--2015-11-09 18:50:00 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCD-zf-rfm">
+                                <rect key="frame" x="166" y="72" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uJ-Ky-F2I">
+                                <rect key="frame" x="163" y="237" width="48" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dl-zL-fuF">
+                                <rect key="frame" x="166" y="411" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByL-69-6ck">
+                                <rect key="frame" x="119" y="607" width="137" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButton:" destination="V8X-WF-JyO" eventType="touchUpInside" id="EBg-DM-iHP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Available Time" id="wCC-hi-4gI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ya8-Xr-tko">
+                            <connections>
+                                <action selector="cancelButton:" destination="V8X-WF-JyO" id="aeR-OD-TCG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="xOb-1f-d3x"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dayPicker" destination="5zT-N3-Zve" id="3dP-If-hw0"/>
+                        <outlet property="endPicker" destination="P0e-ET-AsQ" id="cDC-54-cTH"/>
+                        <outlet property="saveButton" destination="xOb-1f-d3x" id="yiN-1j-zi8"/>
+                        <outlet property="startPicker" destination="lQp-Lz-PlX" id="7iR-Ki-7RZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KtO-Df-W95" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5181.5" y="-143.5"/>
+        </scene>
+        <!--Add Available Time-->
+        <scene sceneID="EQx-2t-7TY">
+            <objects>
+                <viewController id="gSE-tp-ToX" customClass="NewAvailabilityViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TpK-MC-W9B"/>
+                        <viewControllerLayoutGuide type="bottom" id="XT7-pq-Mtg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hwn-pm-Wfa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsM-gb-LD4">
+                                <rect key="frame" x="166" y="72" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wU4-Qu-cUw">
+                                <rect key="frame" x="164" y="260" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tm-tE-df0">
+                                <rect key="frame" x="166" y="426" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WRK-03-eHL">
+                                <rect key="frame" x="0.0" y="92" width="375" height="138"/>
+                            </pickerView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dBC-VZ-gGO">
+                                <rect key="frame" x="0.0" y="281" width="375" height="118"/>
+                                <date key="date" timeIntervalSinceReferenceDate="468784190.06685799">
+                                    <!--2015-11-09 17:49:50 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jok-ry-ZQo">
+                                <rect key="frame" x="0.0" y="448" width="375" height="126"/>
+                                <date key="date" timeIntervalSinceReferenceDate="468784261.015279">
+                                    <!--2015-11-09 17:51:01 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Available Time" id="Z2t-Rx-7oP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b0Z-2m-8DT">
+                            <connections>
+                                <action selector="cancelButton:" destination="gSE-tp-ToX" id="ufZ-rQ-0bF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1Mn-nj-smw">
+                            <connections>
+                                <segue destination="rWg-OG-s7Y" kind="unwind" unwindAction="addEmployeeAvailability:" id="Kfa-YB-8gG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dayPicker" destination="WRK-03-eHL" id="uMx-lV-4VZ"/>
+                        <outlet property="endPicker" destination="jok-ry-ZQo" id="gSQ-pp-fPi"/>
+                        <outlet property="saveButton" destination="1Mn-nj-smw" id="Vss-Zs-bfG"/>
+                        <outlet property="startPicker" destination="dBC-VZ-gGO" id="1ee-Fg-REo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRD-Mw-F09" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rWg-OG-s7Y" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5181.5" y="-881.5"/>
         </scene>
         <!--Schedule View-->
         <scene sceneID="S2l-Pk-3wo">
