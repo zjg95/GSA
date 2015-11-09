@@ -37,7 +37,7 @@ class DateCellTableViewController: UITableViewController {
     
     var pickerCellRowHeight: CGFloat = 216
     
-    var dayBools: [Bool] = [Bool](count: 7, repeatedValue: true)
+    var dayBools: [Bool] = [Bool](count: 7, repeatedValue: false)
     
     var shifts: [Shift] = []
     
@@ -79,6 +79,10 @@ class DateCellTableViewController: UITableViewController {
                 shifts.append(Shift(timeStart: Time(hour: startHour, minutes: startMinutes), timeEnd: Time(hour: endHour, minutes: endMinutes), day: i))
             }
         }
+    }
+    
+    func changeDay(index: Int) {
+        dayBools[index] = !dayBools[index]
     }
 
     override func viewDidLoad() {

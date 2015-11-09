@@ -14,6 +14,7 @@ class DayPickerTableViewController: UITableViewController {
     // data members
     // ------------
     
+    let check: String = "✔"
     var delegate: DateCellTableViewController!
     
     // -------
@@ -36,7 +37,7 @@ class DayPickerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let row: Int = indexPath.row
-        delegate.dayBools[row] = !delegate.dayBools[row]
+        delegate.changeDay(row)
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         cell?.textLabel?.text = getText(row)
     }
@@ -44,7 +45,7 @@ class DayPickerTableViewController: UITableViewController {
     private func getText(index: Int) -> String {
         var text: String = days[index]
         if delegate.dayBools[index] {
-            text += " ✓"
+            text += " \(check)"
         }
         return text
     }
