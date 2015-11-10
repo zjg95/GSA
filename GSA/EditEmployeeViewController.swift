@@ -18,6 +18,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
     var index: NSIndexPath!
     var alertController:UIAlertController? = nil
     var availableShifts: [Shift]!
+    var edited:Bool = false
     
     // -----------------
     // reference outlets
@@ -94,7 +95,6 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
     
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -105,6 +105,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
             extractContent()
         }
         if segue.identifier == "editAvailability" {
+            edited = true;
             if let destination = segue.destinationViewController as? EditAvailabilityTableViewController {
                 destination.employee = self.employee
             }
@@ -123,7 +124,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         // Disable the Save button if the text field is empty.
         let text = firstNameField.text ?? ""
         let text2 = lastNameField.text ?? ""
-        doneButton.enabled = (!text.isEmpty) || (!text2.isEmpty)
+        doneButton.enabled = (!text.isEmpty) || (!text2.isEmpty) || (edited)
     }
     
     func textFieldDidEndEditing(textField: UITextField) {

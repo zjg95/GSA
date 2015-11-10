@@ -60,14 +60,12 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
         var calendar = NSCalendar.currentCalendar()
         var date = startPicker.date
         var components = calendar.components([.Hour, .Minute], fromDate: date)
-        
         let startHour = components.hour
         let startMinutes = components.minute
         
         calendar = NSCalendar.currentCalendar()
         date = endPicker.date
         components = calendar.components([.Hour, .Minute], fromDate: date)
-        
         let endHour = components.hour
         let endMinutes = components.minute
         
@@ -106,9 +104,9 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return days[row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 //        myLabel.text = pickerData[row]
-    }
+//    }
     
     // MARK: - Navigation
 

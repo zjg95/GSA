@@ -24,6 +24,10 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     var index: Int!
     private var _null: Bool = false
     
+    
+    // We be used for position array
+//    var positions: [Position] = []
+    
     var shifts: Week = Week()
     var availability: Week = Week()
     
@@ -143,7 +147,6 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
         }
         return false
     }
-    
 }
 
 func ==(lhs: Employee, rhs: Employee) -> Bool {

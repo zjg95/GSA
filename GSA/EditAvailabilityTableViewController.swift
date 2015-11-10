@@ -123,6 +123,7 @@ class EditAvailabilityTableViewController: UITableViewController {
         savingAvailability()
     }
     
+    // Saves new available times for Employee
     func savingAvailability () {
         let holdEmployee:Employee = Employee(firstName: "Hold")
         

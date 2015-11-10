@@ -86,7 +86,6 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         }
     }
     
-    
     // MARK: - UITextFieldDelegate
     
     // Disable the Done button while editing.
@@ -131,13 +130,11 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
             cell.dayLabel!.text = "Day"
             cell.timeLabel!.text = "Time"
         } else {
-            //availableShifts = employee.shifts.weekToArray()
             let currentShift:Shift = availableShifts[index - 1]
             
             cell.dayLabel!.text = currentShift.dayToString()
             cell.timeLabel!.text = currentShift.timeAMPM
         }
-        
         return cell
     }
         

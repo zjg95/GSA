@@ -56,19 +56,20 @@ class NewAvailabilityViewController: UIViewController, UIPickerViewDataSource, U
     }
     
     func extractContent() {
+        // Gets Day for Availability
         let day = dayPicker.selectedRowInComponent(0)
         
+        // Get Starting time in hrs and mins
         var calendar = NSCalendar.currentCalendar()
         var date = startPicker.date
         var components = calendar.components([.Hour, .Minute], fromDate: date)
-        
         let startHour = components.hour
         let startMinutes = components.minute
         
+        // Get Ending time in hrs and mins
         calendar = NSCalendar.currentCalendar()
         date = endPicker.date
         components = calendar.components([.Hour, .Minute], fromDate: date)
-        
         let endHour = components.hour
         let endMinutes = components.minute
         
