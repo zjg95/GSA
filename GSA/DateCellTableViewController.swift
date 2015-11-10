@@ -27,6 +27,8 @@ class DateCellTableViewController: UITableViewController {
     let kDateCellID       = "dateCell";       // the cells with the start or end date
     let kDatePickerCellID = "datePickerCell"; // the cell containing the date picker
     let kOtherCellID      = "otherCell";      // the remaining cells at the end
+    
+    let everyDay: String  = "Every Day"
 
     var dataArray: [[String: AnyObject]] = []
     var dateFormatter = NSDateFormatter()
@@ -84,6 +86,7 @@ class DateCellTableViewController: UITableViewController {
         if (dayBools[index] && trueCount > 1) || !dayBools[index] {
             trueCount += dayBools[index] ? -1 : 1
             dayBools[index] = !dayBools[index]
+            updateDayLabel()
         }
     }
 
@@ -294,6 +297,29 @@ class DateCellTableViewController: UITableViewController {
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
+    }
+    
+    private func updateDayLabel() {
+        let index: NSIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+        let cell = tableView.cellForRowAtIndexPath(index)
+        var string: String = ""
+        if trueCount == 7 {
+            string = everyDay
+        }
+        else {
+            for var i = 0; i < 7; ++i {
+                if dayBools[i] {
+                    if trueCount > 1 {
+                        string += daysShort[i] + " "
+                    }
+                    else {
+                        string = days[i]
+                        break
+                    }
+                }
+            }
+        }
+        cell?.detailTextLabel?.text = string
     }
     
     
