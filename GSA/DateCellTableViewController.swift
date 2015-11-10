@@ -19,7 +19,6 @@ class DateCellTableViewController: UITableViewController {
     
     let kTitleKey = "title" // key for obtaining the data source item's title
     let kDateKey  = "date"  // key for obtaining the data source item's date value
-    let kIndexKey = "index" // key for obtaining the index
     
     // keep track of which rows have date cells
     let kDateStartRow = 0
@@ -39,13 +38,13 @@ class DateCellTableViewController: UITableViewController {
     
     var dayBools: [Bool] = [Bool](count: 7, repeatedValue: false)
     
+    var trueCount: Int = 1
+    
     var shifts: [Shift] = []
     
     // -------
     // outlets
     // -------
-    
-    @IBOutlet var pickerView: UIDatePicker!
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
@@ -82,7 +81,10 @@ class DateCellTableViewController: UITableViewController {
     }
     
     func changeDay(index: Int) {
-        dayBools[index] = !dayBools[index]
+        if (dayBools[index] && trueCount > 1) || !dayBools[index] {
+            trueCount += dayBools[index] ? -1 : 1
+            dayBools[index] = !dayBools[index]
+        }
     }
 
     override func viewDidLoad() {
@@ -93,7 +95,7 @@ class DateCellTableViewController: UITableViewController {
         // setup our data source
         let itemTwo = [kTitleKey : "Start Time", kDateKey : NSDate()]
         let itemThree = [kTitleKey : "End Time", kDateKey : NSDate()]
-        let itemFour = [kTitleKey : "Day", kIndexKey : [0]]
+        let itemFour = [kTitleKey : "Day"]
         let itemFive = [kTitleKey : "Duration"]
         dataArray = [itemTwo, itemThree, itemFour, itemFive]
         
