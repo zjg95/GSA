@@ -138,8 +138,8 @@ class EmployeeTableViewController: UITableViewController {
     func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
         let longPress = gestureRecognizer as! UILongPressGestureRecognizer
         let state = longPress.state
-        var locationInView = longPress.locationInView(tableView)
-        var indexPath = tableView.indexPathForRowAtPoint(locationInView)
+        let locationInView = longPress.locationInView(tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(locationInView)
         
         struct My {
             
@@ -229,7 +229,4 @@ class EmployeeTableViewController: UITableViewController {
         cellSnapshot.layer.shadowOpacity = 0.4
         return cellSnapshot
     }
-    
-        
-
 }

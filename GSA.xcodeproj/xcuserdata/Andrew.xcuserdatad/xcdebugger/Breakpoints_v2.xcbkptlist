@@ -101,7 +101,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shift.swift"
@@ -114,14 +114,29 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GSA.Shift.init (GSA.Shift.Type)(original : GSA.Shift) -&gt; GSA.Shift"
+                  moduleName = "GSA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andrew/Documents/iOS-GSA/Shift.swift"
+                  timestampString = "468807004.669223"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GSA.Shift.(_dayString in _F3273293AEB62FFDCB36C5A74DF46A36).getter : Swift.String"
                   moduleName = "GSA"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Andrew/Documents/iOS-GSA/Shift.swift"
-                  timestampString = "466972225.6659"
+                  timestampString = "468807004.669427"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -129,14 +144,14 @@
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GSA.Shift.(_dayString in _F3273293AEB62FFDCB36C5A74DF46A36).setter : Swift.String"
                   moduleName = "GSA"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Andrew/Documents/iOS-GSA/Shift.swift"
-                  timestampString = "466972225.666274"
+                  timestampString = "468807004.669794"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -144,14 +159,14 @@
                   offsetFromSymbolStart = "24">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GSA.Shift.(_dayString in _F3273293AEB62FFDCB36C5A74DF46A36).materializeForSet : Swift.String"
                   moduleName = "GSA"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Andrew/Documents/iOS-GSA/Shift.swift"
-                  timestampString = "466972225.666534"
+                  timestampString = "468807004.670103"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"

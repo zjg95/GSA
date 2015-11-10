@@ -94,9 +94,7 @@ class EditAvailabilityTableViewController: UITableViewController {
                 availableShifts.append(shift)
             }
             for shift in availableShifts {
-                if employee.availability.contains(shift){
-                    
-                } else {
+                if !(employee.availability.contains(shift)){
                     employee.availability.append(shift)
                 }
             }
@@ -111,17 +109,8 @@ class EditAvailabilityTableViewController: UITableViewController {
             } else {
                 availableShifts.removeAtIndex(index.row)
                 availableShifts.insert(shift, atIndex: index.row)
-                //availableShifts.append(shift)
             }
-            
-            let holdEmployee:Employee = Employee(firstName: "Hold")
-            
-            for shift in availableShifts {
-                holdEmployee.availability.append(shift)
-            }
-            
-            employee.availability = holdEmployee.availability
-            
+            savingAvailability()
         }
         tableView.reloadData()
     }
@@ -131,8 +120,11 @@ class EditAvailabilityTableViewController: UITableViewController {
             availableShifts.removeAtIndex(index.row)
             tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
         }
-        
-        var holdEmployee:Employee = Employee(firstName: "Hold")
+        savingAvailability()
+    }
+    
+    func savingAvailability () {
+        let holdEmployee:Employee = Employee(firstName: "Hold")
         
         for shift in availableShifts {
             holdEmployee.availability.append(shift)
@@ -140,5 +132,4 @@ class EditAvailabilityTableViewController: UITableViewController {
         
         self.employee.availability = holdEmployee.availability
     }
-    
 }

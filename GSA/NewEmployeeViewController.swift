@@ -140,9 +140,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         
         return cell
     }
-    
-
-    
+        
     // This method is called when the user touches the Return key on the
     // keyboard. The 'textField' passed in is a pointer to the textField
     // widget the cursor was in at the time they touched the Return key on

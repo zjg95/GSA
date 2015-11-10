@@ -76,7 +76,6 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
     }
     
     // MARK: - Table view data source
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -106,10 +105,8 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
             cell.dayLabel!.text = currentShift.dayToString()
             cell.timeLabel!.text = currentShift.timeAMPM
         }
-        
         return cell
     }
-
     
     @IBAction func updateEmployeeDetails(sender: UIStoryboardSegue) {
         populateContent()
