@@ -155,7 +155,6 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
             cell.dayLabel!.text = "Day"
             cell.timeLabel!.text = "Time"
         } else {
-            //availableShifts = employee.shifts.weekToArray()
             let currentShift:Shift = availableShifts[index - 1]
             
             cell.dayLabel!.text = currentShift.dayToString()
@@ -164,7 +163,6 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         
         return cell
     }
-
     
     // This method is called when the user touches the Return key on the
     // keyboard. The 'textField' passed in is a pointer to the textField
@@ -180,7 +178,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         return true
     }
     
-    
+    // Goes back to the Details Page and updates the array to reflect additions
     @IBAction func backToEmployeeDetails(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EditAvailabilityTableViewController, employee = sourceViewController.employee {
             self.employee = employee

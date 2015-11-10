@@ -184,7 +184,6 @@ class EmployeeTableViewController: UITableViewController {
                                 cell.hidden = true
                             
                             }
-                        
                     })
                 
                 }

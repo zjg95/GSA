@@ -99,7 +99,6 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
             cell.dayLabel!.text = "Day"
             cell.timeLabel!.text = "Time"
         } else {
-            //availableShifts = employee.shifts.weekToArray()
             let currentShift:Shift = availableShifts[index - 1]
             
             cell.dayLabel!.text = currentShift.dayToString()

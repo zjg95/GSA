@@ -148,11 +148,7 @@ class Week : CopyProtocol, SequenceType {
         var newShifts = [Shift]();
         for i = 0; i < shifts.count; i++ {
             for j = 0; j < shifts[i].count; j++ {
-//                if newShifts == nil {
-//                    newShifts = [shifts[i][j]]
-//                } else {
-                    newShifts.append(shifts[i][j])
-//                }
+                newShifts.append(shifts[i][j])
             }
         }
         return newShifts
