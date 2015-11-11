@@ -196,7 +196,7 @@ class DateCellTableViewController: UITableViewController {
             // we decide here that first cell in the table is not selectable (it's just an indicator)
             cell?.selectionStyle = .None
             cell?.userInteractionEnabled = false
-            cell?.detailTextLabel?.text = "8 hours"
+            cell?.detailTextLabel?.text = "Coming in final release"
         }
         else if indexPath.row == 2 {
             cell?.detailTextLabel?.text = "Sunday"
