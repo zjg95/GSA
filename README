@@ -1,1 +1,15 @@
-README
+what's new?
+
+- removed the "shift" view of the app. It felt too redundant and complicated
+- implemented app navigation with a tab bar view controller
+- users can create and manage multiple schedules
+- multiple schedules are shown in a table view
+- schedules can be deleted
+- schedules can be given a name
+- new schedules can inherit shifts from existing schedules
+- multiple shifts can be created at the same time (shifts can repeat across multiple days)
+- removed the old "new shift" view
+- built a brand new "new shift" view that uses a table view. Not only does it look pretty, but it scales across all devices and it functions well
+- shifts are now inserted in-order (9am-10am appears before 11am-12pm)
+- the schedule view controller can be sorted by employees or shifts by touching a switch. this means the user can choose to view the schedule based off the day of the week, or the employees that the shifts are assigned to
+- basic auto scheduling has been implemented. For now, all shifts are assigned to a single employee, because we haven't implemented any particular scheduling algorithm. this is significant though because we can just drop in a single method with the algorithm and auto scheduling will be fully functional
