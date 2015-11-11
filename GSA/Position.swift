@@ -9,6 +9,11 @@
 import Foundation
 
 class Position {
+
+    // ------------
+    // data members
+    // ------------
+    
     private var _title:String
     private var _level:Float
     
@@ -30,9 +35,17 @@ class Position {
         }
     }
     
+    // -----------
+    // constructor
+    // -----------
+    
     // Constructor for Position Object
     init(title: String, level: Float) {
         _title = title
         _level = level
     }
+}
+
+func ==(lhs: Position, rhs: Position) -> Bool {
+    return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
 }

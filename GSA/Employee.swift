@@ -22,6 +22,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     var lastName: String = ""
     var position: String = ""
     var index: Int!
+    
     private var _null: Bool = false
     
     

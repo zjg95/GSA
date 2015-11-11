@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		495814081BCC4316001E1862 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814071BCC4316001E1862 /* Shift.swift */; settings = {ASSET_TAGS = (); }; };
-		49AF2D131BF1912000563750 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AF2D121BF1912000563750 /* Position.swift */; settings = {ASSET_TAGS = (); }; };
+		497609A01BE9C98B00652FC0 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976099F1BE9C98B00652FC0 /* Position.swift */; settings = {ASSET_TAGS = (); }; };
 		49DF912B1BCEFCA30014946E /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF912A1BCEFCA30014946E /* Time.swift */; settings = {ASSET_TAGS = (); }; };
 		6370D6891BCEE5DC004E78AB /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		6370D68B1BCEEA2D004E78AB /* ShiftDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -59,7 +59,7 @@
 
 /* Begin PBXFileReference section */
 		495814071BCC4316001E1862 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shift.swift; path = ../Shift.swift; sourceTree = "<group>"; };
-		49AF2D121BF1912000563750 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		4976099F1BE9C98B00652FC0 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		49DF912A1BCEFCA30014946E /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDetailsViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +154,7 @@
 				8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */,
 				8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */,
 				8E9902071BCEF99C00280BA2 /* Staff.swift */,
+				4976099F1BE9C98B00652FC0 /* Position.swift */,
 				8E9339261BC7A45D00BDA5A7 /* Employee.swift */,
 				637DF0E41BEA7DE6007CD344 /* AvailabilityTableViewCell.swift */,
 				63DD2C7C1BEA94320010E760 /* NewAvailabilityViewController.swift */,
@@ -355,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				637DF0E51BEA7DE6007CD344 /* AvailabilityTableViewCell.swift in Sources */,
+				497609A01BE9C98B00652FC0 /* Position.swift in Sources */,
 				8E9902061BCEEE6100280BA2 /* Day.swift in Sources */,
 				8E469AD41BDBE494004ECEDD /* Schedule.swift in Sources */,
 				8EA08C241BCF636B005774CC /* Week.swift in Sources */,
