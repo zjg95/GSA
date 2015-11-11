@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pLz-Cj-Pyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pLz-Cj-Pyx">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Employees-->
@@ -60,114 +59,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHQ-Cv-UQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2443.5" y="-479.5"/>
-        </scene>
-        <!--New Shift-->
-        <scene sceneID="nIl-P0-92m">
-            <objects>
-                <viewController title="New Shift" id="6Qv-pd-jl1" customClass="NewShiftViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jHm-Gd-ypP"/>
-                        <viewControllerLayoutGuide type="bottom" id="WIR-Xf-eBg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FcR-tn-Qhu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="E1e-Rx-sEa">
-                                <rect key="frame" x="0.0" y="293" width="375" height="92"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="Kym-jp-hEf"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="466391000.52249599">
-                                    <!--2015-10-13 01:03:20 +0000-->
-                                </date>
-                            </datePicker>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="m7p-FF-w26">
-                                <rect key="frame" x="0.0" y="447" width="375" height="92"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="vQy-wz-9Pc"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="466391000.52249599">
-                                    <!--2015-10-13 01:03:20 +0000-->
-                                </date>
-                            </datePicker>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RN3-so-p3O">
-                                <rect key="frame" x="0.0" y="110" width="375" height="146"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-KT-Ent">
-                                <rect key="frame" x="166" y="81" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="xvH-hQ-2F4"/>
-                                    <constraint firstAttribute="height" constant="21" id="ybo-1q-zGV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSU-mX-Hr5">
-                                <rect key="frame" x="153" y="264" width="68" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="CBx-Bn-wPd"/>
-                                    <constraint firstAttribute="height" constant="21" id="khk-uh-8J1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIM-5E-Lev">
-                                <rect key="frame" x="166" y="418" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Ghh-61-Qw8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="YIM-5E-Lev" firstAttribute="trailing" secondItem="j5f-KT-Ent" secondAttribute="trailing" id="0ol-X3-IhJ"/>
-                            <constraint firstItem="HSU-mX-Hr5" firstAttribute="centerX" secondItem="E1e-Rx-sEa" secondAttribute="centerX" id="9HB-HL-vbg"/>
-                            <constraint firstItem="YIM-5E-Lev" firstAttribute="top" secondItem="E1e-Rx-sEa" secondAttribute="bottom" constant="33" id="Ba1-X5-HAj"/>
-                            <constraint firstItem="HSU-mX-Hr5" firstAttribute="top" secondItem="RN3-so-p3O" secondAttribute="bottom" constant="8" symbolic="YES" id="HvA-3I-IRL"/>
-                            <constraint firstItem="m7p-FF-w26" firstAttribute="centerX" secondItem="YIM-5E-Lev" secondAttribute="centerX" id="KND-dS-pAJ"/>
-                            <constraint firstItem="E1e-Rx-sEa" firstAttribute="top" secondItem="HSU-mX-Hr5" secondAttribute="bottom" constant="8" symbolic="YES" id="Lsj-wo-doB"/>
-                            <constraint firstItem="j5f-KT-Ent" firstAttribute="top" secondItem="jHm-Gd-ypP" secondAttribute="bottom" constant="17" id="UC0-ks-9Qg"/>
-                            <constraint firstItem="RN3-so-p3O" firstAttribute="top" secondItem="j5f-KT-Ent" secondAttribute="bottom" constant="8" symbolic="YES" id="UI5-Rw-BNR"/>
-                            <constraint firstItem="E1e-Rx-sEa" firstAttribute="leading" secondItem="RN3-so-p3O" secondAttribute="leading" id="Z7g-x8-YGF"/>
-                            <constraint firstAttribute="trailing" secondItem="E1e-Rx-sEa" secondAttribute="trailing" id="Zo2-xb-ILD"/>
-                            <constraint firstItem="YIM-5E-Lev" firstAttribute="leading" secondItem="j5f-KT-Ent" secondAttribute="leading" id="a14-WX-Z3s"/>
-                            <constraint firstItem="m7p-FF-w26" firstAttribute="leading" secondItem="FcR-tn-Qhu" secondAttribute="leading" id="dfB-NQ-dzT"/>
-                            <constraint firstItem="WIR-Xf-eBg" firstAttribute="top" secondItem="m7p-FF-w26" secondAttribute="bottom" constant="128" id="eTg-63-EZX"/>
-                            <constraint firstItem="m7p-FF-w26" firstAttribute="leading" secondItem="E1e-Rx-sEa" secondAttribute="leading" id="gFX-fc-xxt"/>
-                            <constraint firstItem="m7p-FF-w26" firstAttribute="top" secondItem="YIM-5E-Lev" secondAttribute="bottom" constant="8" symbolic="YES" id="lT3-ZY-D7H"/>
-                            <constraint firstItem="RN3-so-p3O" firstAttribute="trailing" secondItem="E1e-Rx-sEa" secondAttribute="trailing" id="r2r-om-Irm"/>
-                            <constraint firstItem="m7p-FF-w26" firstAttribute="trailing" secondItem="E1e-Rx-sEa" secondAttribute="trailing" id="uKe-xR-UgZ"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="New Shift" id="dlx-fE-1HL">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Py5-uo-hop">
-                            <connections>
-                                <action selector="cancelButton:" destination="6Qv-pd-jl1" id="yK6-tT-GNH"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="BJX-Fd-AN1">
-                            <connections>
-                                <segue destination="rN7-wW-iC7" kind="unwind" unwindAction="addShiftToTable:" id="8dh-Mo-Lqo"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="dayPicker" destination="RN3-so-p3O" id="jzJ-Oq-hBz"/>
-                        <outlet property="endPicker" destination="m7p-FF-w26" id="dCO-EC-gqa"/>
-                        <outlet property="saveButton" destination="BJX-Fd-AN1" id="Di9-e3-ShD"/>
-                        <outlet property="startPicker" destination="E1e-Rx-sEa" id="L4W-r7-wb7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IZ6-UX-hFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="rN7-wW-iC7" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="4056.5" y="305.5"/>
         </scene>
         <!--New Employee-->
         <scene sceneID="oZA-sN-M4T">
@@ -498,18 +389,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="&lt;schedule&gt;" id="B9j-ax-9nn">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="W4w-3X-tug">
-                                <connections>
-                                    <segue destination="KYi-ya-gFn" kind="presentation" id="0dc-hV-gyB"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="add" id="hQH-i5-oxj">
-                                <connections>
-                                    <segue destination="Ucl-Xp-Z4k" kind="presentation" id="FJN-FD-4gD"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hQH-i5-oxj">
+                            <connections>
+                                <segue destination="Ucl-Xp-Z4k" kind="presentation" id="FJN-FD-4gD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="clearButton" destination="R0o-3h-GQR" id="y7v-SX-RVL"/>
@@ -718,24 +602,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fya-S8-pGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3048.5" y="-1378.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4BA-iG-xZJ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KYi-ya-gFn" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FP1-Xj-jkg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="6Qv-pd-jl1" kind="relationship" relationship="rootViewController" id="KCj-2B-4aM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RyA-yt-QBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3637.5" y="305.5"/>
         </scene>
         <!--DateCell-->
         <scene sceneID="SI8-aH-C9c">
