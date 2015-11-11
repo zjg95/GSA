@@ -17,3 +17,13 @@ let days: [String] = [
     "Friday",
     "Saturday"
 ]
+
+let daysShort: [String] = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+]

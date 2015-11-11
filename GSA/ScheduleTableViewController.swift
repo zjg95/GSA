@@ -19,13 +19,51 @@ class ScheduleTableViewController: UITableViewController {
     
     var delegate: ScheduleDetailsViewController!
     
-    var employeeView: Bool = false
+    var employeeView: Bool = true
     
     // -------
     // outlets
     // -------
     
-    @IBAction func organizeButton(sender: AnyObject) {
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var clearButton: UIBarButtonItem!
+    @IBOutlet weak var generateButton: UIBarButtonItem!
+    
+    @IBAction func generatePressed(sender: AnyObject) {
+        dispatch_async(dispatch_get_main_queue()) {
+            let alertController = UIAlertController(title: "Confirm Generate", message: "Are you sure you want to automatically assign employees to shifts?", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let OKAction = UIAlertAction(title: "Generate Schedule", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
+                self.generateSchedule()
+            }
+            alertController.addAction(OKAction)
+            
+            let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
+            }
+            alertController.addAction(cancel)
+            
+            self.presentViewController(alertController, animated: true, completion:nil)
+        }
+    }
+    
+    @IBAction func clearPressed(sender: AnyObject) {
+        dispatch_async(dispatch_get_main_queue()) {
+            let alertController = UIAlertController(title: "Confirm Clear", message: "Are you sure you want to unassign all shifts?", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let OKAction = UIAlertAction(title: "Clear Schedule", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
+                self.clearSchedule()
+            }
+            alertController.addAction(OKAction)
+            
+            let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
+            }
+            alertController.addAction(cancel)
+            
+            self.presentViewController(alertController, animated: true, completion:nil)
+        }
+    }
+    
+    @IBAction func segmentChanged(sender: AnyObject) {
         employeeView = !employeeView
         self.tableView.reloadData()
     }
@@ -37,6 +75,10 @@ class ScheduleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = schedule.name
+        clearButton.enabled = !(schedule.numberOfUnassignedShifts == schedule.numberOfShifts)
+        if employeeView {
+            segmentedControl.selectedSegmentIndex = 1
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,7 +100,7 @@ class ScheduleTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if employeeView {
             if section == schedule.numberOfEmployees {
-                return schedule.unassignedShiftCount
+                return schedule.numberOfUnassignedShifts
             }
             let employee: Employee = schedule.getEmployeeAtIndex(section)
             return employee.shiftCount
@@ -87,7 +129,7 @@ class ScheduleTableViewController: UITableViewController {
     
     func buildCellEmployeeView(cell: UITableViewCell, index: NSIndexPath) {
         let emp: Employee = schedule.getEmployeeAtIndex(index.section)
-        let shift: Shift = emp.getShiftAtIndex(index.row)
+        let shift: Shift! = emp.getShiftAtIndex(index.row)
         cell.textLabel!.text = days[shift.day]
         cell.detailTextLabel!.text = shift.timeAMPM
     }
@@ -98,6 +140,9 @@ class ScheduleTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if employeeView {
+            if section == schedule.nullEmployee.index {
+                return "Unassigned Shifts"
+            }
             return schedule.getEmployeeAtIndex(section).fullName
         }
         else {
@@ -110,33 +155,37 @@ class ScheduleTableViewController: UITableViewController {
     // edit cell
     // ---------
     
-    func editCell(shift: Shift, index: NSIndexPath) {
+    func editShift(oldShift: Shift, newShift: Shift, oldIndex: NSIndexPath) {
         var newIndex: NSIndexPath!
         if employeeView {
-            editCellEmployeeView(shift, oldIndex: index)
+            newIndex = editShiftEmployeeView(oldShift, newShift: newShift, oldIndex: oldIndex)
         }
         else {
-            newIndex = editCellShiftView(shift, oldIndex: index)
+            newIndex = editShiftShiftView(oldShift, newShift: newShift, oldIndex: oldIndex)
         }
-        delegate!.index = newIndex
+        assert(newIndex != nil)
+        assert(delegate != nil)
+        clearButton.enabled = !(schedule.numberOfUnassignedShifts == schedule.numberOfShifts)
+        // update the shift in the details view
+        delegate.index = newIndex
+        delegate.shift = newShift
     }
     
-    func editCellEmployeeView(shift: Shift, oldIndex: NSIndexPath) {
-        // was day modified?
-        // was assignee modified?
-        // was start/end time modified?
-    }
-    
-    func editCellShiftView(shift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
-        let emp: Employee? = shift.assignee
-        // remove the shift
+    func editShiftEmployeeView(oldShift: Shift, newShift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
+        let emp: Employee! = newShift.assignee
+        newShift.assignee = nil
+        // remove the old shift
         removeShift(oldIndex)
-        // reassign the shift
-        shift.assignee = emp
-        // add the shift
-        let newIndex: NSIndexPath = addShift(shift)
-        return newIndex
-        // reassigning a shift should remove it from that employee's week
+        // add the new shift
+        newShift.assignee = emp
+        return addShift(newShift)
+    }
+    
+    func editShiftShiftView(oldShift: Shift, newShift: Shift, oldIndex: NSIndexPath) -> NSIndexPath {
+        // remove the old shift
+        removeShift(oldIndex)
+        // add the new shift
+        return addShift(newShift)
     }
     
     // ---------
@@ -159,9 +208,14 @@ class ScheduleTableViewController: UITableViewController {
     // adds a shift to the schedule
     func addShiftEmployeeView(shift: Shift) -> NSIndexPath {
         schedule.append(shift)
-        let employee: Employee = shift.assignee!
-        let employeeIndex: NSIndexPath = NSIndexPath(forRow: employee.indexOfShift(shift), inSection: employee.index)
-        return employeeIndex
+        let employee: Employee! = shift.assignee
+        assert(employee != nil)
+        let shiftIndex: Int! = employee.indexOfShift(shift)
+        assert(shiftIndex != nil)
+        let employeeIndex: Int! = employee.index
+        assert(employeeIndex != nil)
+        let newIndex: NSIndexPath = NSIndexPath(forRow: shiftIndex, inSection: employeeIndex)
+        return newIndex
     }
     
     // create a cell at given index
@@ -177,9 +231,10 @@ class ScheduleTableViewController: UITableViewController {
     func removeShift(index: NSIndexPath) {
         if employeeView {
             let emp: Employee = schedule.getEmployeeAtIndex(index.section)
-            let shift: Shift = emp.getShiftAtIndex(index.row)
-            let shiftNumber: Int = emp.shiftNumberByWeek(shift)
-            let shiftIndex: NSIndexPath = NSIndexPath(forRow: shiftNumber, inSection: shift.day)
+            let shift: Shift! = emp.getShiftAtIndex(index.row)
+            assert(shift != nil)
+            let shiftIndex: NSIndexPath! = schedule.indexOfShift(shift)
+            assert(shiftIndex != nil)
             schedule.removeShiftAtIndex(shiftIndex)
         }
         else {
@@ -227,9 +282,26 @@ class ScheduleTableViewController: UITableViewController {
         }
     }
     
+    func clearSchedule() {
+        schedule.clearAssignees()
+        clearButton.enabled = false
+        self.tableView.reloadData()
+    }
+    
+    func generateSchedule() {
+        schedule.generate()
+        clearButton.enabled = true
+        self.tableView.reloadData()
+    }
+    
     @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? NewShiftViewController, shift = sourceViewController.shift {
             addShift(shift)
+        }
+        if let sourceViewController = sender.sourceViewController as? DateCellTableViewController, shifts: [Shift]! = sourceViewController.shifts {
+            for s in shifts {
+                addShift(s)
+            }
         }
     }
     

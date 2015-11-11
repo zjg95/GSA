@@ -12,6 +12,8 @@ import Foundation
 // Employee
 // --------
 
+private let wiggleRoom: Int = 3
+
 class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     // ------------
@@ -22,6 +24,10 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     var lastName: String = ""
     var position: [String] = []
     var index: Int!
+    
+    var maxHours: Int = 40
+    var desiredHours: Int = 40
+    var minimumHours: Int = 0
     
     private var _null: Bool = false
     
@@ -85,21 +91,22 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
         firstName = original.firstName
         lastName = original.lastName
         position = original.position
+        index = original.index
     }
     
     // -------
     // methods
     // -------
     
-    func indexOfShift(shift: Shift) -> Int {
+    func indexOfShift(shift: Shift) -> Int? {
         var i = 0
         for s in shifts {
             if shift == s {
-                break
+                return i
             }
             ++i
         }
-        return i
+        return nil
     }
     
     func shiftNumberByDay(shift: Shift) -> Int {
@@ -110,8 +117,8 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
         return shifts.shiftNumberByWeek(shift)
     }
     
-    func getShiftAtIndex(index: Int) -> Shift {
-        return shifts[index]!
+    func getShiftAtIndex(index: Int) -> Shift? {
+        return shifts[index]
     }
     
     func append(shift: Shift) {
@@ -120,6 +127,35 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     func remove(shift: Shift) {
         shifts.remove(shift)
+    }
+    
+    // ------------------
+    // scheduling methods
+    // ------------------
+    
+    // if the shift's position a position that the employee is qualified to work
+    private func canWorkPosition(shift: Shift) -> Bool {
+        return true
+    }
+    
+    // if working the shift would cause the employee to exceed their desired hours by more than the wiggle room
+    private func exceedsDesiredHours(shift: Shift) -> Bool {
+        return false
+    }
+    
+    // if working the shift would cause the employee to exceed their max hours
+    private func exceedsMaxHours(shift: Shift) -> Bool {
+        return false
+    }
+    
+    // if the employee is actually available during that time
+    private func isAvailableForShift(shift: Shift) -> Bool {
+        return true
+    }
+    
+    // if overall the employee is able to work the shift
+    func canWorkShift(shift: Shift) -> Bool {
+        return isAvailableForShift(shift)
     }
     
 }

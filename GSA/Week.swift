@@ -38,15 +38,16 @@ class Week : CopyProtocol, SequenceType {
     
     // returns the nth shift of the week, nil if it doesn't exist
     
-    subscript(index: Int) -> Shift? {
+    subscript(var index: Int) -> Shift? {
         get {
-            var count: Int = index
-            for day in shifts {
-                if count >= day.count {
-                    count -= day.count
-                }
-                else {
-                    return day[count]
+            if index <= count {
+                for day in shifts {
+                    if index >= day.count {
+                        index -= day.count
+                    }
+                    else {
+                        return day[index]
+                    }
                 }
             }
             return nil
@@ -87,6 +88,17 @@ class Week : CopyProtocol, SequenceType {
         }
     }
     
+    func indexOfShift(shift: Shift) -> NSIndexPath? {
+        for var day: Int = 0; day < 7; ++day {
+            for var num: Int = 0; num < shifts[day].count; ++num {
+                if shifts[day][num] == shift {
+                    return NSIndexPath(forRow: num, inSection: day)
+                }
+            }
+        }
+        return nil
+    }
+    
     func numberOfShiftsOnDay(day: Int) -> Int {
         return shifts[day].count
     }
@@ -106,6 +118,7 @@ class Week : CopyProtocol, SequenceType {
     
     func removeAtIndex(index: NSIndexPath) {
         shifts[index.section].removeAtIndex(index.row)
+        --count
     }
     
     func remove(shift: Shift) -> NSIndexPath {
