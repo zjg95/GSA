@@ -81,7 +81,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
             extractContent()
         }
         if segue.identifier == "addAvailableTime" {
-            let newAvailabilityViewController:NewAvailabilityViewController = segue.destinationViewController as! NewAvailabilityViewController
+            let _:NewAvailabilityViewController = segue.destinationViewController as! NewAvailabilityViewController
     
         }
     }

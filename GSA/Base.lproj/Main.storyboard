@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Employees-->
@@ -563,22 +562,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Availability" id="BHG-bh-Fic">
-                        <leftBarButtonItems>
-                            <barButtonItem title="Back" id="869-aY-VsO">
-                                <connections>
-                                    <segue destination="4c9-5M-hz2" kind="unwind" unwindAction="backToEmployeeDetails:" id="Sdn-E7-N6e"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="Zob-DW-CM3">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VBL-Nc-ThH">
-                                    <rect key="frame" x="54" y="7" width="83" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <connections>
-                                        <segue destination="4c9-5M-hz2" kind="unwind" unwindAction="addEmployeeAvailability:" id="lat-lb-SEh"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="869-aY-VsO">
+                            <connections>
+                                <segue destination="4c9-5M-hz2" kind="unwind" unwindAction="backToEmployeeDetails:" id="Sdn-E7-N6e"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pc4-AF-obX">
                             <connections>
                                 <segue destination="gSE-tp-ToX" kind="show" id="6h9-CW-Gnm"/>
@@ -655,7 +643,7 @@
                                 <action selector="cancelButton:" destination="V8X-WF-JyO" id="aeR-OD-TCG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="xOb-1f-d3x">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xOb-1f-d3x">
                             <connections>
                                 <segue destination="Hi7-L4-ZoR" kind="unwind" unwindAction="editEmployeeAvailability:" id="1dn-Fc-Npa"/>
                             </connections>
