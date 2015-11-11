@@ -1,5 +1,4 @@
-what's new?
-
+// Zach's Contributions
 - removed the "shift" view of the app. It felt too redundant and complicated
 - implemented app navigation with a tab bar view controller
 - users can create and manage multiple schedules
