@@ -106,5 +106,4 @@ class Staff : CopyProtocol, SequenceType {
         }
         return i
     }
-    
 }

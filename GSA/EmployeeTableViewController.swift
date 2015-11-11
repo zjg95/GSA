@@ -184,7 +184,6 @@ class EmployeeTableViewController: UITableViewController {
                                 cell.hidden = true
                             
                             }
-                        
                     })
                 
                 }
@@ -229,7 +228,4 @@ class EmployeeTableViewController: UITableViewController {
         cellSnapshot.layer.shadowOpacity = 0.4
         return cellSnapshot
     }
-    
-        
-
 }

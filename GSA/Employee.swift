@@ -22,7 +22,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     var firstName: String = ""
     var lastName: String = ""
-    var position: [String] = []
+    var position: String = ""
     var index: Int!
     
     var maxHours: Int = 40
@@ -31,7 +31,12 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     private var _null: Bool = false
     
+    
+    // We be used for position array
+//    var positions: [Position] = []
+    
     var shifts: Week = Week()
+    var availability: Week = Week()
     
     var description: String {
         get {
@@ -83,7 +88,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     convenience init(firstName: String, lastName: String, position: String) {
         self.init(firstName: firstName, lastName: lastName)
-        self.position.append(position)
+        self.position = position
     }
     
     // required initializer for the Copying protocol
@@ -158,6 +163,27 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
         return isAvailableForShift(shift)
     }
     
+    func appendAvail(shift: Shift){
+        availability.append(shift)
+    }
+    
+    //Doesn't work for over night shifts
+    func isAvailable(shift: Shift) -> Bool {
+        let day = shift.day
+        let start = shift.timeStart.hour
+        let end = shift.timeEnd.hour
+        
+        let available: [Shift] = availability[day]
+        
+        for curShift in available {
+            if start >= curShift.timeStart.hour && end <= curShift.timeEnd.hour{
+                if shift.timeStart.minutes >= curShift.timeStart.minutes && shift.timeEnd.minutes <= curShift.timeEnd.minutes {
+                    return true
+                }
+            }
+        }
+        return false
+    }
 }
 
 func ==(lhs: Employee, rhs: Employee) -> Bool {

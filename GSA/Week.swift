@@ -155,4 +155,16 @@ class Week : CopyProtocol, SequenceType {
         return i
     }
     
+    func weekToArray() -> [Shift] {
+        var i:Int = 0
+        var j:Int = 0
+        var newShifts = [Shift]();
+        for i = 0; i < shifts.count; i++ {
+            for j = 0; j < shifts[i].count; j++ {
+                newShifts.append(shifts[i][j])
+            }
+        }
+        return newShifts
+    }
+    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
+class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     
     // ------------
     // data members
@@ -17,6 +17,8 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
     var employee: Employee!
     var index: NSIndexPath!
     var alertController:UIAlertController? = nil
+    var availableShifts: [Shift]!
+    var edited:Bool = false
     
     // -----------------
     // reference outlets
@@ -49,6 +51,10 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
         presentViewController(self.alertController!, animated: true, completion: nil)
     }
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var editButton: UIButton!
+    
     // -------
     // methods
     // -------
@@ -57,6 +63,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
         firstNameField.text = employee.firstName
         lastNameField.text = employee.lastName
         positionField.text = employee.position
+        availableShifts = employee.availability.weekToArray()
     }
     
     func extractContent() {
@@ -72,6 +79,12 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
         firstNameField.delegate = self
         lastNameField.delegate = self
         
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        self.tableView.separatorStyle = .SingleLine
+        self.tableView.separatorColor = UIColor.blackColor()
+        
         // Do any additional setup after loading the view.
         checkNameEdit()
         populateData()
@@ -82,7 +95,6 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -91,6 +103,12 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
         if doneButton == sender as? UIBarButtonItem {
             extractContent()
+        }
+        if segue.identifier == "editAvailability" {
+            edited = true;
+            if let destination = segue.destinationViewController as? EditAvailabilityTableViewController {
+                destination.employee = self.employee
+            }
         }
     }
     
@@ -106,11 +124,45 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
         // Disable the Save button if the text field is empty.
         let text = firstNameField.text ?? ""
         let text2 = lastNameField.text ?? ""
-        doneButton.enabled = (!text.isEmpty) || (!text2.isEmpty)
+        doneButton.enabled = (!text.isEmpty) || (!text2.isEmpty) || (edited)
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         checkNameEdit()
+    }
+    
+    // MARK: - Table view data source
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.availableShifts == nil {
+            return 0
+        } else {
+            return self.availableShifts.count + 1
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
+        
+        // Configure the cell...
+        let index:Int = indexPath.row
+        
+        if (index == 0) {
+            cell.dayLabel!.text = "Day"
+            cell.timeLabel!.text = "Time"
+        } else {
+            let currentShift:Shift = availableShifts[index - 1]
+            
+            cell.dayLabel!.text = currentShift.dayToString()
+            cell.timeLabel!.text = currentShift.timeAMPM
+        }
+        
+        return cell
     }
     
     // This method is called when the user touches the Return key on the
@@ -125,5 +177,14 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         self.view.endEditing(true)
         return true
+    }
+    
+    // Goes back to the Details Page and updates the array to reflect additions
+    @IBAction func backToEmployeeDetails(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditAvailabilityTableViewController, employee = sourceViewController.employee {
+            self.employee = employee
+            self.availableShifts = employee.availability.weekToArray()
+            tableView.reloadData()
+        }
     }
 }
