@@ -13,3 +13,8 @@ what's new?
 - shifts are now inserted in-order (9am-10am appears before 11am-12pm)
 - the schedule view controller can be sorted by employees or shifts by touching a switch. this means the user can choose to view the schedule based off the day of the week, or the employees that the shifts are assigned to
 - basic auto scheduling has been implemented. For now, all shifts are assigned to a single employee, because we haven't implemented any particular scheduling algorithm. this is significant though because we can just drop in a single method with the algorithm and auto scheduling will be fully functional
+//David's contributions
+- employees can now be assigned available times
+- can create an employee with a set of available times
+- employees availbility is now present in employee's details page
+- can edit, add, and delete an employee's available times
