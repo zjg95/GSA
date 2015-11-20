@@ -81,6 +81,12 @@ class Shift : CopyProtocol, Equatable {
             else if end == 12 {
                 endAMPM = "pm"
             }
+            if start == 0 {
+                start = 12
+            }
+            if start == 0 {
+                end = 12
+            }
             return " \(start):\(_timeStart.minuteString)\(startAMPM) - \(end):\(_timeEnd.minuteString)\(endAMPM)"
         }
     }
