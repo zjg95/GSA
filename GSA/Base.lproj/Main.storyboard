@@ -1210,7 +1210,7 @@
         <scene sceneID="7UO-1j-6BY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Kj-G8-gBO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Employees" image="user42.png" id="XGc-xx-Gro"/>
+                    <tabBarItem key="tabBarItem" title="Employees" image="user42" id="XGc-xx-Gro"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xXK-dM-7Et">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1229,7 +1229,7 @@
         <scene sceneID="boc-UT-0qA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H7z-yq-wTj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar.png" id="HKF-98-7VB"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar" id="HKF-98-7VB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jsy-qc-oVY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1410,7 +1410,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar.png" width="32" height="32"/>
-        <image name="user42.png" width="32" height="32"/>
+        <image name="calendar" width="32" height="32"/>
+        <image name="user42" width="32" height="32"/>
     </resources>
 </document>
