@@ -17,6 +17,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     var employee: Employee!
     var availableShifts: [Shift]!
     
+    
     // -----------------
     // reference outlets
     // -----------------
@@ -28,7 +29,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     
     @IBOutlet weak var lastNameField: UITextField!
     
-    @IBOutlet weak var positionField: UITextField!
+    
     
     @IBAction func cancelButton(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -42,7 +43,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         let firstName: String = firstNameField.text!
         let lastName: String = lastNameField.text!
         employee = Employee(firstName: firstName, lastName: lastName)
-        employee.position = positionField.text!
+//        employee.position = positionField.text!
         for shift in availableShifts {
             employee.availability.append(shift)
         }

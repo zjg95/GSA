@@ -22,7 +22,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     var firstName: String = ""
     var lastName: String = ""
-    var position: String = ""
+    var position: [Position] = []
     var index: Int!
     
     var maxHours: Int = 40
@@ -88,7 +88,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     convenience init(firstName: String, lastName: String, position: String) {
         self.init(firstName: firstName, lastName: lastName)
-        self.position = position
+        self.position = []
     }
     
     // required initializer for the Copying protocol
