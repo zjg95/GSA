@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		495814081BCC4316001E1862 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814071BCC4316001E1862 /* Shift.swift */; settings = {ASSET_TAGS = (); }; };
 		497609A01BE9C98B00652FC0 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976099F1BE9C98B00652FC0 /* Position.swift */; settings = {ASSET_TAGS = (); }; };
-		49D0341B1BFFA0FA00DDE0A4 /* user42.png in Resources */ = {isa = PBXBuildFile; fileRef = 49D0341A1BFFA0FA00DDE0A4 /* user42.png */; settings = {ASSET_TAGS = (); }; };
-		49D0341D1BFFA50100DDE0A4 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 49D0341C1BFFA50100DDE0A4 /* calendar.png */; settings = {ASSET_TAGS = (); }; };
+		49D034231C00221D00DDE0A4 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49D034221C00221D00DDE0A4 /* Icons.xcassets */; settings = {ASSET_TAGS = (); }; };
 		49DF912B1BCEFCA30014946E /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF912A1BCEFCA30014946E /* Time.swift */; settings = {ASSET_TAGS = (); }; };
 		6370D6891BCEE5DC004E78AB /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		6370D68B1BCEEA2D004E78AB /* ShiftDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -64,8 +63,7 @@
 /* Begin PBXFileReference section */
 		495814071BCC4316001E1862 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shift.swift; path = ../Shift.swift; sourceTree = "<group>"; };
 		4976099F1BE9C98B00652FC0 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
-		49D0341A1BFFA0FA00DDE0A4 /* user42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user42.png; path = ../../../Downloads/user42.png; sourceTree = "<group>"; };
-		49D0341C1BFFA50100DDE0A4 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = ../../../Downloads/calendar.png; sourceTree = "<group>"; };
+		49D034221C00221D00DDE0A4 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		49DF912A1BCEFCA30014946E /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDetailsViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +199,7 @@
 				8E9902051BCEEE6100280BA2 /* Day.swift */,
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
 				8ECC92CD1BD9AD9800A920AE /* GSAMainViewController.swift */,
+				49D034221C00221D00DDE0A4 /* Icons.xcassets */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
 				49D0341C1BFFA50100DDE0A4 /* calendar.png */,
 				49D0341A1BFFA0FA00DDE0A4 /* user42.png */,
@@ -341,7 +340,7 @@
 			files = (
 				8E9338FD1BC78BD400BDA5A7 /* LaunchScreen.storyboard in Resources */,
 				8E9338FA1BC78BD400BDA5A7 /* Assets.xcassets in Resources */,
-				49D0341B1BFFA0FA00DDE0A4 /* user42.png in Resources */,
+				49D034231C00221D00DDE0A4 /* Icons.xcassets in Resources */,
 				8E9338F51BC78BD400BDA5A7 /* Main.storyboard in Resources */,
 				49D0341D1BFFA50100DDE0A4 /* calendar.png in Resources */,
 			);
