@@ -86,9 +86,6 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         }
         if segue.identifier == "addNewPosition" {
             let detailVC:NewPosition = segue.destinationViewController as! NewPosition
-            if positions != nil {
-              detailVC.positions = self.positions
-            }
         }
     }
     
@@ -118,30 +115,45 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.availableShifts == nil {
-            return 0
-        } else {
-            return self.availableShifts.count + 1
+        if tableView.restorationIdentifier == "Position" {
+            return positions.count
+        }
+        else {
+            if self.availableShifts == nil {
+                return 0
+            } else {
+                return self.availableShifts.count + 1
+            }
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
-        
-        // Configure the cell...
-        let index:Int = indexPath.row
-        
-        if (index == 0) {
-            cell.dayLabel!.text = "Day"
-            cell.timeLabel!.text = "Time"
-        } else {
-            let currentShift:Shift = availableShifts[index - 1]
-            
-            cell.dayLabel!.text = currentShift.dayToString()
-            cell.timeLabel!.text = currentShift.timeAMPM
+        print(tableView.restorationIdentifier)
+        if tableView.restorationIdentifier == "Position" {
+            print("HELLO")
+            let cell = tableView.dequeueReusableCellWithIdentifier("positionCell", forIndexPath: indexPath)
+            let index:Int = indexPath.row
+            cell.textLabel!.text = positions[index].title
+            return cell
         }
-        return cell
+        else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
+            
+            // Configure the cell...
+            let index:Int = indexPath.row
+            
+            if (index == 0) {
+                cell.dayLabel!.text = "Day"
+                cell.timeLabel!.text = "Time"
+            } else {
+                let currentShift:Shift = availableShifts[index - 1]
+                
+                cell.dayLabel!.text = currentShift.dayToString()
+                cell.timeLabel!.text = currentShift.timeAMPM
+            }
+            return cell
+        }
+
     }
         
     // This method is called when the user touches the Return key on the
@@ -167,6 +179,19 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
             }
         }
         self.tableView.reloadData()
+    }
+    
+    @IBAction func savePositions(segue:UIStoryboardSegue) {
+        if let sourceViewController = segue.sourceViewController as? NewPosition, position = sourceViewController.position {
+            if positions == nil {
+                positions = [position]
+                print(position.title)
+            }
+            else {
+                positions.append(position)
+                print(position)
+            }
+        }
     }
 
 }

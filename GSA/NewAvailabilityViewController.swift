@@ -59,6 +59,7 @@ class NewAvailabilityViewController: UIViewController, UIPickerViewDataSource, U
         // Gets Day for Availability
         let day = dayPicker.selectedRowInComponent(0)
         
+        
         // Get Starting time in hrs and mins
         var calendar = NSCalendar.currentCalendar()
         var date = startPicker.date

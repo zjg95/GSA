@@ -9,27 +9,30 @@
 
 import UIKit
 
-class NewPosition: UIViewController, UITextFieldDelegate {
+class NewPosition: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // ------------
     // Data Members
     // ------------
     
-    var positions:[Position] = []
-    
-    @IBOutlet weak var newPosition: UITextField!
+    var position:Position!
+    var selection:[String] = ["Manager", "Shift Leader", "Employee"]
     
     @IBOutlet weak var level: UISlider!
     
+    @IBOutlet weak var newTitle: UIPickerView!
+    
     @IBAction func addPosition(sender: AnyObject) {
-        let position = Position(title: newPosition.text!, level: level.value)
-        positions.append(position)
+        let x = newTitle.selectedRowInComponent(0)
+        let newPosition = Position(title: selection[x], level: level.value)
+        position! = newPosition
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        newPosition.delegate = self
+        newTitle.dataSource = self
+        newTitle.delegate = self
         
     }
     
@@ -38,18 +41,35 @@ class NewPosition: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // This method is called when the user touches the Return key on the
-    // keyboard. The 'textField' passed in is a pointer to the textField
-    // widget the cursor was in at the time they touched the Return key on
-    // the keyboard.
-    //
-    // From the Apple documentation: Asks the delegate if the text field
-    // should process the pressing of the return button.
-    //
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        self.view.endEditing(true)
-        return true
+    //MARK: Data Sources
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
     }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return selection.count
+    }
+    
+    //MARK: Delegates
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return selection[row]
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        let x = newTitle.selectedRowInComponent(0)
+        let newPosition = Position(title: selection[x], level: level.value)
+        if position != nil {
+            position! = newPosition
+            print("I am being called")
+        }
+        else {
+            position = newPosition
+        }
+    }
+    
     
 }
