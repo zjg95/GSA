@@ -36,7 +36,7 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
     
     func populateContent() {
         nameLabel.text = employee.fullName
-        positionLabel.text = employee.position
+//        positionLabel.text = employee.position
         availableShifts = employee.availability.weekToArray()
     }
     

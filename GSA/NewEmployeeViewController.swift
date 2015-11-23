@@ -16,7 +16,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     
     var employee: Employee!
     var availableShifts: [Shift]!
-    
+    var positions: [Position]!
     
     // -----------------
     // reference outlets
@@ -44,6 +44,9 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         let lastName: String = lastNameField.text!
         employee = Employee(firstName: firstName, lastName: lastName)
 //        employee.position = positionField.text!
+        for position in positions {
+            employee.position.append(position)
+        }
         for shift in availableShifts {
             employee.availability.append(shift)
         }
@@ -83,7 +86,11 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         }
         if segue.identifier == "addAvailableTime" {
             let _:NewAvailabilityViewController = segue.destinationViewController as! NewAvailabilityViewController
-    
+        }
+        if segue.identifier == "addNewPosition" {
+            let detailVC:NewPosition = segue.destinationViewController as! NewPosition
+//            detailVC.delegate = segue.destinationViewController as! NewPosition
+            detailVC.positions = self.positions
         }
     }
     

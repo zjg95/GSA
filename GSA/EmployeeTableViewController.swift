@@ -57,7 +57,7 @@ class EmployeeTableViewController: UITableViewController {
         // Configure the cell...
         let e = staff[indexPath.item]
         cell.textLabel?.text = e.fullName
-        cell.detailTextLabel?.text = e.position
+//        cell.detailTextLabel?.text = e.position
 
         return cell
     }
@@ -65,7 +65,7 @@ class EmployeeTableViewController: UITableViewController {
     func editCell(employee: Employee, index: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(index)
         cell?.textLabel?.text = employee.fullName
-        cell!.detailTextLabel?.text = employee.position
+//        cell!.detailTextLabel?.text = employee.position
     }
 
     /*

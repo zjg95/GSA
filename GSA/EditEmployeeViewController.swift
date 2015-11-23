@@ -62,14 +62,14 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
     func populateData() {
         firstNameField.text = employee.firstName
         lastNameField.text = employee.lastName
-        positionField.text = employee.position
+//        positionField.text = employee.position
         availableShifts = employee.availability.weekToArray()
     }
     
     func extractContent() {
         employee.firstName = firstNameField.text!
         employee.lastName = lastNameField.text!
-        employee.position = positionField.text!
+//        employee.position = positionField.text!
     }
     
     override func viewDidLoad() {
