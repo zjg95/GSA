@@ -48,17 +48,13 @@ class GSAMainViewController: UITabBarController {
             if let schedule = nav.viewControllers.first as? ScheduleListTableViewController {
                 schedule.scheduleList = self.scheduleList
                 schedule.staff = self.staff
-                nav.navigationBar.barTintColor = UIColor.greenColor()
-                nav.n
             }
         }
         if let nav = self.viewControllers![1] as? UINavigationController {
             if let employee = nav.viewControllers.first as? EmployeeTableViewController {
                 employee.staff = self.staff
             }
-            nav.navigationBar.barTintColor = UIColor.greenColor()
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
