@@ -97,6 +97,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
         lastName = original.lastName
         position = original.position
         index = original.index
+        availability = original.availability
     }
     
     // -------
