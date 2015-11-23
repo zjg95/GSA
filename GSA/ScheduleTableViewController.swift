@@ -129,6 +129,12 @@ class ScheduleTableViewController: UITableViewController {
         let emp: Employee = schedule.getEmployeeAtIndex(index.section)
         let shift: Shift! = emp.getShiftAtIndex(index.row)
         cell.textLabel!.text = days[shift.day]
+        if emp.isNullEmployee {
+            cell.textLabel!.textColor = UIColor.redColor()
+        }
+        else {
+            cell.textLabel!.textColor = UIColor.blackColor()
+        }
         cell.detailTextLabel!.text = shift.timeAMPM
     }
     

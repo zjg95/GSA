@@ -7,19 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		495814081BCC4316001E1862 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814071BCC4316001E1862 /* Shift.swift */; };
-		497609A01BE9C98B00652FC0 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976099F1BE9C98B00652FC0 /* Position.swift */; };
-		49DF912B1BCEFCA30014946E /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF912A1BCEFCA30014946E /* Time.swift */; };
-		6370D6891BCEE5DC004E78AB /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */; };
-		6370D68B1BCEEA2D004E78AB /* ShiftDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */; };
-		637DF0E51BEA7DE6007CD344 /* AvailabilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DF0E41BEA7DE6007CD344 /* AvailabilityTableViewCell.swift */; };
-		63AED4C71BCEF97D00F4A82F /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AED4C61BCEF97D00F4A82F /* EditShiftViewController.swift */; };
-		63DD2C7D1BEA94320010E760 /* NewAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD2C7C1BEA94320010E760 /* NewAvailabilityViewController.swift */; };
-		63DD2C7F1BF108E00010E760 /* EditAvailabilityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD2C7E1BF108E00010E760 /* EditAvailabilityTableViewController.swift */; };
-		63DD2C811BF120FA0010E760 /* AvailabilityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD2C801BF120FA0010E760 /* AvailabilityDetailsViewController.swift */; };
-		8E469AD41BDBE494004ECEDD /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E469AD31BDBE494004ECEDD /* Schedule.swift */; };
-		8E469AD61BDBE5F4004ECEDD /* ScheduleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E469AD51BDBE5F4004ECEDD /* ScheduleListTableViewController.swift */; };
-		8E7539141BCC8BD600EFE714 /* NewShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */; };
+		495814081BCC4316001E1862 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814071BCC4316001E1862 /* Shift.swift */; settings = {ASSET_TAGS = (); }; };
+		497609A01BE9C98B00652FC0 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976099F1BE9C98B00652FC0 /* Position.swift */; settings = {ASSET_TAGS = (); }; };
+		49D034231C00221D00DDE0A4 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49D034221C00221D00DDE0A4 /* Icons.xcassets */; settings = {ASSET_TAGS = (); }; };
+		49DF912B1BCEFCA30014946E /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF912A1BCEFCA30014946E /* Time.swift */; settings = {ASSET_TAGS = (); }; };
+		6370D6891BCEE5DC004E78AB /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		6370D68B1BCEEA2D004E78AB /* ShiftDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		637DF0E51BEA7DE6007CD344 /* AvailabilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DF0E41BEA7DE6007CD344 /* AvailabilityTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		63AED4C71BCEF97D00F4A82F /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AED4C61BCEF97D00F4A82F /* EditShiftViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		63DD2C7D1BEA94320010E760 /* NewAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD2C7C1BEA94320010E760 /* NewAvailabilityViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		63DD2C7F1BF108E00010E760 /* EditAvailabilityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD2C7E1BF108E00010E760 /* EditAvailabilityTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		63DD2C811BF120FA0010E760 /* AvailabilityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD2C801BF120FA0010E760 /* AvailabilityDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8E469AD41BDBE494004ECEDD /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E469AD31BDBE494004ECEDD /* Schedule.swift */; settings = {ASSET_TAGS = (); }; };
+		8E469AD61BDBE5F4004ECEDD /* ScheduleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E469AD51BDBE5F4004ECEDD /* ScheduleListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8E7539141BCC8BD600EFE714 /* NewShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7539131BCC8BD600EFE714 /* NewShiftViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8E9338F01BC78BD400BDA5A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */; };
 		8E9338F51BC78BD400BDA5A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E9338F31BC78BD400BDA5A7 /* Main.storyboard */; };
 		8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E9338F61BC78BD400BDA5A7 /* GSA.xcdatamodeld */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		495814071BCC4316001E1862 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shift.swift; path = ../Shift.swift; sourceTree = "<group>"; };
 		4976099F1BE9C98B00652FC0 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		49D034221C00221D00DDE0A4 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		49DF912A1BCEFCA30014946E /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDetailsViewController.swift; sourceTree = "<group>"; };
@@ -200,7 +202,10 @@
 				8E9902051BCEEE6100280BA2 /* Day.swift */,
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
 				8ECC92CD1BD9AD9800A920AE /* GSAMainViewController.swift */,
+				49D034221C00221D00DDE0A4 /* Icons.xcassets */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
+				49D0341C1BFFA50100DDE0A4 /* calendar.png */,
+				49D0341A1BFFA0FA00DDE0A4 /* user42.png */,
 				8E38A1881BCCCF2F00B4DE14 /* Shift */,
 				8E38A1891BCCCF3C00B4DE14 /* Employee */,
 				6370D6871BCEE48A004E78AB /* Schedule */,
@@ -338,7 +343,9 @@
 			files = (
 				8E9338FD1BC78BD400BDA5A7 /* LaunchScreen.storyboard in Resources */,
 				8E9338FA1BC78BD400BDA5A7 /* Assets.xcassets in Resources */,
+				49D034231C00221D00DDE0A4 /* Icons.xcassets in Resources */,
 				8E9338F51BC78BD400BDA5A7 /* Main.storyboard in Resources */,
+				49D0341D1BFFA50100DDE0A4 /* calendar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
