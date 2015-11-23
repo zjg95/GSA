@@ -132,6 +132,29 @@ class Shift : CopyProtocol, Equatable {
         }
     }
     
+    var durationInt: Int {
+        get {
+            var hour = 0
+            var minutes = 0
+            if (_timeStart.minutes > _timeEnd.minutes){
+                var tempStartMin = _timeStart.minutes
+                while (tempStartMin != _timeEnd.minutes) {
+                    minutes++
+                    tempStartMin++
+                    if (tempStartMin == 60) {
+                        tempStartMin = 0;
+                    }
+                }
+                hour = _timeEnd.hour - _timeStart.hour - 1
+            }
+            else {
+                hour = _timeEnd.hour - _timeStart.hour
+                minutes = _timeEnd.minutes - _timeStart.minutes
+            }
+            return hour * 60 + minutes
+        }
+    }
+    
     
     // -----------
     // constructor
