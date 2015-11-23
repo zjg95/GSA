@@ -86,7 +86,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         self.tableView.separatorColor = UIColor.blackColor()
         
         // Do any additional setup after loading the view.
-        checkNameEdit()
+        //checkNameEdit()
         populateData()
     }
 
@@ -116,19 +116,19 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
     
     // Disable the Done button while editing.
     func textFieldDidBeginEditing(textField: UITextField) {
-        doneButton.enabled = false
+        //doneButton.enabled = false
     }
     
     //Disable the Done button until name has been changed
-    func checkNameEdit() {
-        // Disable the Save button if the text field is empty.
-        let text = firstNameField.text ?? ""
-        let text2 = lastNameField.text ?? ""
-        doneButton.enabled = (!text.isEmpty) || (!text2.isEmpty) || (edited)
-    }
+//    func checkNameEdit() {
+//        // Disable the Save button if the text field is empty.
+//        let text = firstNameField.text ?? ""
+//        let text2 = lastNameField.text ?? ""
+//        doneButton.enabled = (!text.isEmpty) || (!text2.isEmpty) || (edited)
+//    }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        checkNameEdit()
+        //checkNameEdit()
     }
     
     // MARK: - Table view data source
