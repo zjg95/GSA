@@ -29,8 +29,6 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     
     @IBOutlet weak var lastNameField: UITextField!
     
-    
-    
     @IBAction func cancelButton(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -43,7 +41,6 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         let firstName: String = firstNameField.text!
         let lastName: String = lastNameField.text!
         employee = Employee(firstName: firstName, lastName: lastName)
-//        employee.position = positionField.text!
         for position in positions {
             employee.position.append(position)
         }
@@ -89,8 +86,9 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         }
         if segue.identifier == "addNewPosition" {
             let detailVC:NewPosition = segue.destinationViewController as! NewPosition
-//            detailVC.delegate = segue.destinationViewController as! NewPosition
-            detailVC.positions = self.positions
+            if positions != nil {
+              detailVC.positions = self.positions
+            }
         }
     }
     
