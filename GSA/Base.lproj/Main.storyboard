@@ -641,6 +641,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ya8-Xr-tko">
                             <connections>
                                 <action selector="cancelButton:" destination="V8X-WF-JyO" id="aeR-OD-TCG"/>
+                                <segue destination="Hi7-L4-ZoR" kind="unwind" unwindAction="cancelEmployeeAvailabilityEdit:" id="rPO-mt-cX1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="xOb-1f-d3x">
@@ -713,6 +714,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b0Z-2m-8DT">
                             <connections>
                                 <action selector="cancelButton:" destination="gSE-tp-ToX" id="ufZ-rQ-0bF"/>
+                                <segue destination="rWg-OG-s7Y" kind="unwind" unwindAction="cancelEmployeeAvailabilityEdit:" id="mOe-BT-tKU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1Mn-nj-smw">
