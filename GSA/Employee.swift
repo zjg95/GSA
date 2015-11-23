@@ -155,7 +155,19 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     // if the employee is actually available during that time
     private func isAvailableForShift(shift: Shift) -> Bool {
-        return true
+        let unavailable: [Shift] = availability[shift.day]
+        if unavailable.isEmpty{
+            return true
+        }
+        for uaTime in unavailable {
+            if uaTime.timeStart.compareTo(shift.timeStart) == 1 && uaTime.timeStart.compareTo(shift.timeEnd) == 1 {
+                return true
+            }
+            if uaTime.timeEnd.compareTo(shift.timeStart) == -1 && uaTime.timeStart.compareTo(shift.timeEnd) == -1 {
+                return true
+            }
+        }
+        return false
     }
     
     // if overall the employee is able to work the shift

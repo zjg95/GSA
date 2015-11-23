@@ -28,19 +28,20 @@
 		8E9338FD1BC78BD400BDA5A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E9338FB1BC78BD400BDA5A7 /* LaunchScreen.storyboard */; };
 		8E9339081BC78BD400BDA5A7 /* GSATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339071BC78BD400BDA5A7 /* GSATests.swift */; };
 		8E9339131BC78BD400BDA5A7 /* GSAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339121BC78BD400BDA5A7 /* GSAUITests.swift */; };
-		8E9339211BC78EAB00BDA5A7 /* EmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339261BC7A45D00BDA5A7 /* Employee.swift */; settings = {ASSET_TAGS = (); }; };
-		8E9563251BEDF3B3004E0A2C /* DateCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9563241BEDF3B3004E0A2C /* DateCellTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8E98C9461BDF1D39006B1B08 /* CopyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C9451BDF1D39006B1B08 /* CopyProtocol.swift */; settings = {ASSET_TAGS = (); }; };
-		8E9902061BCEEE6100280BA2 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9902051BCEEE6100280BA2 /* Day.swift */; settings = {ASSET_TAGS = (); }; };
-		8E9902081BCEF99C00280BA2 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9902071BCEF99C00280BA2 /* Staff.swift */; settings = {ASSET_TAGS = (); }; };
-		8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8E9CB9921BF02CEA003D0A04 /* DayPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB9911BF02CEA003D0A04 /* DayPickerTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8EA08C241BCF636B005774CC /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA08C231BCF636B005774CC /* Week.swift */; settings = {ASSET_TAGS = (); }; };
-		8EB92C811BDD4C0A00674FCA /* NewScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92C801BDD4C0A00674FCA /* NewScheduleViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8ECC92CE1BD9AD9800A920AE /* GSAMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECC92CD1BD9AD9800A920AE /* GSAMainViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8E9339211BC78EAB00BDA5A7 /* EmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */; };
+		8E9339231BC79AF300BDA5A7 /* NewEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */; };
+		8E9339251BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */; };
+		8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9339261BC7A45D00BDA5A7 /* Employee.swift */; };
+		8E9563251BEDF3B3004E0A2C /* DateCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9563241BEDF3B3004E0A2C /* DateCellTableViewController.swift */; };
+		8E98C9461BDF1D39006B1B08 /* CopyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C9451BDF1D39006B1B08 /* CopyProtocol.swift */; };
+		8E9902061BCEEE6100280BA2 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9902051BCEEE6100280BA2 /* Day.swift */; };
+		8E9902081BCEF99C00280BA2 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9902071BCEF99C00280BA2 /* Staff.swift */; };
+		8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */; };
+		8E9CB9921BF02CEA003D0A04 /* DayPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB9911BF02CEA003D0A04 /* DayPickerTableViewController.swift */; };
+		8EA08C241BCF636B005774CC /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA08C231BCF636B005774CC /* Week.swift */; };
+		8EB92C811BDD4C0A00674FCA /* NewScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92C801BDD4C0A00674FCA /* NewScheduleViewController.swift */; };
+		8ECC92CE1BD9AD9800A920AE /* GSAMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECC92CD1BD9AD9800A920AE /* GSAMainViewController.swift */; };
+		8EEE7E421BFEEC5000297443 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEE7E411BFEEC5000297443 /* Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		8EA08C231BCF636B005774CC /* Week.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
 		8EB92C801BDD4C0A00674FCA /* NewScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewScheduleViewController.swift; sourceTree = "<group>"; };
 		8ECC92CD1BD9AD9800A920AE /* GSAMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSAMainViewController.swift; sourceTree = "<group>"; };
+		8EEE7E411BFEEC5000297443 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 		8E9338EE1BC78BD400BDA5A7 /* GSA */ = {
 			isa = PBXGroup;
 			children = (
+				8EEE7E411BFEEC5000297443 /* Persistence.swift */,
 				8E98C9451BDF1D39006B1B08 /* CopyProtocol.swift */,
 				8E9902051BCEEE6100280BA2 /* Day.swift */,
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
@@ -395,6 +398,7 @@
 				63DD2C811BF120FA0010E760 /* AvailabilityDetailsViewController.swift in Sources */,
 				8E98C9461BDF1D39006B1B08 /* CopyProtocol.swift in Sources */,
 				8E9563251BEDF3B3004E0A2C /* DateCellTableViewController.swift in Sources */,
+				8EEE7E421BFEEC5000297443 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
