@@ -123,6 +123,12 @@ class ScheduleTableViewController: UITableViewController {
         let shift: Shift = schedule.getShiftAtIndex(index)
         cell.textLabel!.text = shift.assignee!.fullName
         cell.detailTextLabel!.text = shift.timeAMPM
+        if shift.assignee!.isNullEmployee {
+            cell.textLabel!.textColor = UIColor.redColor()
+        }
+        else {
+            cell.textLabel!.textColor = UIColor.blackColor()
+        }
     }
     
     func buildCellEmployeeView(cell: UITableViewCell, index: NSIndexPath) {
