@@ -594,13 +594,13 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zT-N3-Zve">
                                 <rect key="frame" x="0.0" y="97" width="375" height="124"/>
                             </pickerView>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lQp-Lz-PlX">
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="lQp-Lz-PlX">
                                 <rect key="frame" x="0.0" y="259" width="375" height="136"/>
                                 <date key="date" timeIntervalSinceReferenceDate="468787784.79396701">
                                     <!--2015-11-09 18:49:44 +0000-->
                                 </date>
                             </datePicker>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="P0e-ET-AsQ">
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="P0e-ET-AsQ">
                                 <rect key="frame" x="0.0" y="434" width="375" height="151"/>
                                 <date key="date" timeIntervalSinceReferenceDate="468787800.04902798">
                                     <!--2015-11-09 18:50:00 +0000-->
@@ -641,6 +641,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ya8-Xr-tko">
                             <connections>
                                 <action selector="cancelButton:" destination="V8X-WF-JyO" id="aeR-OD-TCG"/>
+                                <segue destination="Hi7-L4-ZoR" kind="unwind" unwindAction="cancelEmployeeAvailabilityEdit:" id="ZXc-6A-fIh"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="xOb-1f-d3x">
@@ -694,13 +695,13 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WRK-03-eHL">
                                 <rect key="frame" x="0.0" y="92" width="375" height="138"/>
                             </pickerView>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dBC-VZ-gGO">
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="dBC-VZ-gGO">
                                 <rect key="frame" x="0.0" y="281" width="375" height="118"/>
                                 <date key="date" timeIntervalSinceReferenceDate="468784190.06685799">
                                     <!--2015-11-09 17:49:50 +0000-->
                                 </date>
                             </datePicker>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jok-ry-ZQo">
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="jok-ry-ZQo">
                                 <rect key="frame" x="0.0" y="448" width="375" height="126"/>
                                 <date key="date" timeIntervalSinceReferenceDate="468784261.015279">
                                     <!--2015-11-09 17:51:01 +0000-->
@@ -713,6 +714,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b0Z-2m-8DT">
                             <connections>
                                 <action selector="cancelButton:" destination="gSE-tp-ToX" id="ufZ-rQ-0bF"/>
+                                <segue destination="rWg-OG-s7Y" kind="unwind" unwindAction="cancelEmployeeAvailabilityEdit:" id="JzA-4D-6cT"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1Mn-nj-smw">
