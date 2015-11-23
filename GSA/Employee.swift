@@ -28,6 +28,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     var maxHours: Int = 40
     var desiredHours: Int = 40
     var minimumHours: Int = 0
+    var currentHoursAsMinutes: Int = 0
     
     private var _null: Bool = false
     
@@ -151,7 +152,13 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     // if working the shift would cause the employee to exceed their max hours
     private func exceedsMaxHours(shift: Shift) -> Bool {
-        return false
+        self.currentHoursAsMinutes += shift.durationInt
+        if(self.currentHoursAsMinutes > self.maxHours * 60){
+            self.currentHoursAsMinutes -= shift.durationInt
+            return true
+        } else {
+            return false
+        }
     }
     
     // if the employee is actually available during that time
@@ -189,7 +196,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     // if overall the employee is able to work the shift
     func canWorkShift(shift: Shift) -> Bool {
-        return isAvailableForShift(shift) && isntWorkingAlready(shift)
+        return isAvailableForShift(shift) && isntWorkingAlready(shift) && !exceedsMaxHours(shift)
     }
     
     func appendAvail(shift: Shift){
