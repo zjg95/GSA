@@ -36,7 +36,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
     @IBOutlet weak var positionField: UITextField!
     
     @IBAction func deleteButton(sender: AnyObject) {
-        self.alertController = UIAlertController(title: "Confirm Delete", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        self.alertController = UIAlertController(title: "Employee will not be removed from current schedules. Confirm Delete", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
         })
