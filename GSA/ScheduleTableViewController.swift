@@ -19,8 +19,6 @@ class ScheduleTableViewController: UITableViewController {
     
     var delegate: ScheduleDetailsViewController!
     
-    var employeeView: Bool = true
-    
     // -------
     // outlets
     // -------
