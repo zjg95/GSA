@@ -33,7 +33,6 @@ class NewPosition: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         // Do any additional setup after loading the view.
         newTitle.dataSource = self
         newTitle.delegate = self
-        
     }
     
     override func didReceiveMemoryWarning() {

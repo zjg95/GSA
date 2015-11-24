@@ -63,7 +63,6 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         firstNameField.text = employee.firstName
         lastNameField.text = employee.lastName
         availableShifts = employee.availability.weekToArray()
-        
     }
     
     func extractContent() {
@@ -110,6 +109,13 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
                 destination.employee = self.employee
             }
         }
+        if segue.identifier == "editPosition" {
+            print("HELLO")
+            if let destination = segue.destinationViewController as? EditPositionTableViewController {
+                destination.positions = self.employee.position
+                print("Edit Employee \(employee.position[0].title)")
+            }
+        }
     }
     
     // MARK: - UITextFieldDelegate
@@ -138,6 +144,9 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView.restorationIdentifier == positionTable {
+            return self.employee.position.count
+        }
         if self.availableShifts == nil {
             return 0
         } else {

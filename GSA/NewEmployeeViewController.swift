@@ -43,11 +43,15 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         let firstName: String = firstNameField.text!
         let lastName: String = lastNameField.text!
         employee = Employee(firstName: firstName, lastName: lastName)
-        for position in positions {
-            employee.position.append(position)
+        if positions != nil {
+            for position in positions {
+                employee.position.append(position)
+            }
         }
-        for shift in availableShifts {
-            employee.availability.append(shift)
+        if availableShifts != nil {
+            for shift in availableShifts {
+                employee.availability.append(shift)
+            }
         }
     }
     
@@ -120,7 +124,6 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print(tableView.restorationIdentifier)
         if tableView.restorationIdentifier == "Position" {
             if self.positions == nil {
                 return 0
@@ -206,5 +209,4 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         }
         self.positionTable.reloadData()
     }
-
 }

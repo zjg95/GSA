@@ -113,6 +113,7 @@ class EmployeeTableViewController: UITableViewController {
             if let destination = segue.destinationViewController as? EmployeeDetailsViewController {
                 let index = self.tableView!.indexPathForSelectedRow
                 destination.employee = staff[index!.row]
+//                print(staff[index!.row].position[0].title)
                 destination.index = index
                 destination.delegate = self
             }

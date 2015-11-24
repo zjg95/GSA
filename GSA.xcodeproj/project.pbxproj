@@ -145,6 +145,7 @@
 		499218CF1C04B9AA00C3663D /* Position */ = {
 			isa = PBXGroup;
 			children = (
+				499218D21C04BCA300C3663D /* EditPositionTableViewController.swift */,
 				4968820D1C03E51800304F14 /* selections.swift */,
 				4900CA671C02886E001447E3 /* NewPosition.swift */,
 				499218D01C04B9F600C3663D /* AddPositionController.swift */,
@@ -226,7 +227,6 @@
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
 				8ECC92CD1BD9AD9800A920AE /* GSAMainViewController.swift */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
-				499218D21C04BCA300C3663D /* EditPositionTableViewController.swift */,
 				499928781BFE28F000D5C457 /* user42.png */,
 				499928761BFE288600D5C457 /* calendar146.png */,
 				499218CF1C04B9AA00C3663D /* Position */,
