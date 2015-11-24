@@ -16,7 +16,7 @@ class NewPosition: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
     // ------------
     
     var position:Position!
-    var selection:[String] = ["Manager", "Shift Leader", "Employee"]
+    var selection:[String] = selections.selections
     
     @IBOutlet weak var level: UISlider!
     
@@ -64,12 +64,9 @@ class NewPosition: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         let newPosition = Position(title: selection[x], level: level.value)
         if position != nil {
             position! = newPosition
-            print("I am being called")
         }
         else {
             position = newPosition
         }
     }
-    
-    
 }

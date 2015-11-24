@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		4900CA681C02886E001447E3 /* NewPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4900CA671C02886E001447E3 /* NewPosition.swift */; settings = {ASSET_TAGS = (); }; };
 		495814081BCC4316001E1862 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814071BCC4316001E1862 /* Shift.swift */; settings = {ASSET_TAGS = (); }; };
+		4968820E1C03E51800304F14 /* selections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968820D1C03E51800304F14 /* selections.swift */; settings = {ASSET_TAGS = (); }; };
 		497609A01BE9C98B00652FC0 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976099F1BE9C98B00652FC0 /* Position.swift */; settings = {ASSET_TAGS = (); }; };
+		49818F531C042FE2002FD987 /* addSelectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49818F521C042FE2002FD987 /* addSelectionsController.swift */; settings = {ASSET_TAGS = (); }; };
+		499218CE1C04B4C500C3663D /* EditPositionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499218CD1C04B4C500C3663D /* EditPositionController.swift */; settings = {ASSET_TAGS = (); }; };
+		499218D11C04B9F600C3663D /* AddPositionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499218D01C04B9F600C3663D /* AddPositionController.swift */; settings = {ASSET_TAGS = (); }; };
+		499218D31C04BCA300C3663D /* EditPositionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499218D21C04BCA300C3663D /* EditPositionTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		499928771BFE288600D5C457 /* calendar146.png in Resources */ = {isa = PBXBuildFile; fileRef = 499928761BFE288600D5C457 /* calendar146.png */; settings = {ASSET_TAGS = (); }; };
 		499928791BFE28F000D5C457 /* user42.png in Resources */ = {isa = PBXBuildFile; fileRef = 499928781BFE28F000D5C457 /* user42.png */; settings = {ASSET_TAGS = (); }; };
 		49DF912B1BCEFCA30014946E /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF912A1BCEFCA30014946E /* Time.swift */; settings = {ASSET_TAGS = (); }; };
@@ -65,7 +70,12 @@
 /* Begin PBXFileReference section */
 		4900CA671C02886E001447E3 /* NewPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPosition.swift; sourceTree = "<group>"; };
 		495814071BCC4316001E1862 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shift.swift; path = ../Shift.swift; sourceTree = "<group>"; };
+		4968820D1C03E51800304F14 /* selections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = selections.swift; path = ../selections.swift; sourceTree = "<group>"; };
 		4976099F1BE9C98B00652FC0 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		49818F521C042FE2002FD987 /* addSelectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addSelectionsController.swift; sourceTree = "<group>"; };
+		499218CD1C04B4C500C3663D /* EditPositionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPositionController.swift; sourceTree = "<group>"; };
+		499218D01C04B9F600C3663D /* AddPositionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPositionController.swift; sourceTree = "<group>"; };
+		499218D21C04BCA300C3663D /* EditPositionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPositionTableViewController.swift; sourceTree = "<group>"; };
 		499928761BFE288600D5C457 /* calendar146.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar146.png; sourceTree = "<group>"; };
 		499928781BFE28F000D5C457 /* user42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user42.png; path = ../../../Downloads/user42.png; sourceTree = "<group>"; };
 		49DF912A1BCEFCA30014946E /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -132,6 +142,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		499218CF1C04B9AA00C3663D /* Position */ = {
+			isa = PBXGroup;
+			children = (
+				4968820D1C03E51800304F14 /* selections.swift */,
+				4900CA671C02886E001447E3 /* NewPosition.swift */,
+				499218D01C04B9F600C3663D /* AddPositionController.swift */,
+				4976099F1BE9C98B00652FC0 /* Position.swift */,
+				499218CD1C04B4C500C3663D /* EditPositionController.swift */,
+				49818F521C042FE2002FD987 /* addSelectionsController.swift */,
+			);
+			name = Position;
+			sourceTree = "<group>";
+		};
 		6370D6871BCEE48A004E78AB /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,11 +186,9 @@
 			children = (
 				8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */,
 				8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */,
-				4900CA671C02886E001447E3 /* NewPosition.swift */,
 				8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */,
 				8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */,
 				8E9902071BCEF99C00280BA2 /* Staff.swift */,
-				4976099F1BE9C98B00652FC0 /* Position.swift */,
 				8E9339261BC7A45D00BDA5A7 /* Employee.swift */,
 				637DF0E41BEA7DE6007CD344 /* AvailabilityTableViewCell.swift */,
 				63DD2C7C1BEA94320010E760 /* NewAvailabilityViewController.swift */,
@@ -205,8 +226,10 @@
 				8E9338EF1BC78BD400BDA5A7 /* AppDelegate.swift */,
 				8ECC92CD1BD9AD9800A920AE /* GSAMainViewController.swift */,
 				8E9338F31BC78BD400BDA5A7 /* Main.storyboard */,
+				499218D21C04BCA300C3663D /* EditPositionTableViewController.swift */,
 				499928781BFE28F000D5C457 /* user42.png */,
 				499928761BFE288600D5C457 /* calendar146.png */,
+				499218CF1C04B9AA00C3663D /* Position */,
 				8E38A1881BCCCF2F00B4DE14 /* Shift */,
 				8E38A1891BCCCF3C00B4DE14 /* Employee */,
 				6370D6871BCEE48A004E78AB /* Schedule */,
@@ -373,14 +396,17 @@
 			files = (
 				637DF0E51BEA7DE6007CD344 /* AvailabilityTableViewCell.swift in Sources */,
 				497609A01BE9C98B00652FC0 /* Position.swift in Sources */,
+				4968820E1C03E51800304F14 /* selections.swift in Sources */,
 				8E9902061BCEEE6100280BA2 /* Day.swift in Sources */,
 				8E469AD41BDBE494004ECEDD /* Schedule.swift in Sources */,
 				8EA08C241BCF636B005774CC /* Week.swift in Sources */,
 				8E7539141BCC8BD600EFE714 /* NewShiftViewController.swift in Sources */,
 				8E9C67F11BC84D7D00FE5984 /* EditEmployeeViewController.swift in Sources */,
 				8EB92C811BDD4C0A00674FCA /* NewScheduleViewController.swift in Sources */,
+				499218D11C04B9F600C3663D /* AddPositionController.swift in Sources */,
 				8E9902081BCEF99C00280BA2 /* Staff.swift in Sources */,
 				8ECC92CE1BD9AD9800A920AE /* GSAMainViewController.swift in Sources */,
+				499218D31C04BCA300C3663D /* EditPositionTableViewController.swift in Sources */,
 				8E9CB9921BF02CEA003D0A04 /* DayPickerTableViewController.swift in Sources */,
 				6370D6891BCEE5DC004E78AB /* ScheduleTableViewController.swift in Sources */,
 				8E9338F81BC78BD400BDA5A7 /* GSA.xcdatamodeld in Sources */,
@@ -392,6 +418,7 @@
 				8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */,
 				8E469AD61BDBE5F4004ECEDD /* ScheduleListTableViewController.swift in Sources */,
 				63AED4C71BCEF97D00F4A82F /* EditShiftViewController.swift in Sources */,
+				499218CE1C04B4C500C3663D /* EditPositionController.swift in Sources */,
 				63DD2C7D1BEA94320010E760 /* NewAvailabilityViewController.swift in Sources */,
 				4900CA681C02886E001447E3 /* NewPosition.swift in Sources */,
 				6370D68B1BCEEA2D004E78AB /* ShiftDetailsViewController.swift in Sources */,
@@ -400,6 +427,7 @@
 				63DD2C811BF120FA0010E760 /* AvailabilityDetailsViewController.swift in Sources */,
 				8E98C9461BDF1D39006B1B08 /* CopyProtocol.swift in Sources */,
 				8E9563251BEDF3B3004E0A2C /* DateCellTableViewController.swift in Sources */,
+				49818F531C042FE2002FD987 /* addSelectionsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

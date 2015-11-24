@@ -28,6 +28,8 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     @IBOutlet weak var firstNameField: UITextField!
     
     @IBOutlet weak var lastNameField: UITextField!
+
+    @IBOutlet weak var positionTable: UITableView!
     
     @IBAction func cancelButton(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -54,6 +56,9 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        self.positionTable.dataSource = self
+        self.positionTable.delegate = self
         
         self.tableView.separatorStyle = .SingleLine
         self.tableView.separatorColor = UIColor.blackColor()
@@ -85,7 +90,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
             let _:NewAvailabilityViewController = segue.destinationViewController as! NewAvailabilityViewController
         }
         if segue.identifier == "addNewPosition" {
-            let detailVC:NewPosition = segue.destinationViewController as! NewPosition
+            let _:NewPosition = segue.destinationViewController as! NewPosition
         }
     }
     
@@ -115,10 +120,15 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        print(tableView.restorationIdentifier)
         if tableView.restorationIdentifier == "Position" {
-            return positions.count
-        }
-        else {
+            if self.positions == nil {
+                return 0
+            }
+            else {
+               return self.positions.count + 1
+            }
+        } else {
             if self.availableShifts == nil {
                 return 0
             } else {
@@ -128,12 +138,16 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print(tableView.restorationIdentifier)
         if tableView.restorationIdentifier == "Position" {
-            print("HELLO")
             let cell = tableView.dequeueReusableCellWithIdentifier("positionCell", forIndexPath: indexPath)
             let index:Int = indexPath.row
-            cell.textLabel!.text = positions[index].title
+            if (index == 0) {
+                cell.textLabel!.text = "Title"
+                cell.detailTextLabel!.text = "Level"
+            } else {
+                cell.textLabel!.text = positions[index - 1].title
+                cell.detailTextLabel!.text = "\(positions[index - 1].level)"
+            }
             return cell
         }
         else {
@@ -184,14 +198,13 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     @IBAction func savePositions(segue:UIStoryboardSegue) {
         if let sourceViewController = segue.sourceViewController as? NewPosition, position = sourceViewController.position {
             if positions == nil {
-                positions = [position]
-                print(position.title)
+                self.positions = [position]
             }
             else {
-                positions.append(position)
-                print(position)
+                self.positions.append(position)
             }
         }
+        self.positionTable.reloadData()
     }
 
 }
