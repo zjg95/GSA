@@ -55,6 +55,7 @@ class Schedule {
     
     func clearAssignees() {
         for shift in week {
+            shift.assignee?.currentHoursAsMinutes = 0
             shift.assignee = nullEmployee
         }
     }

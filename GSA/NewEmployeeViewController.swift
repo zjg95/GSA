@@ -43,9 +43,12 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         let lastName: String = lastNameField.text!
         employee = Employee(firstName: firstName, lastName: lastName)
         employee.position = positionField.text!
-        for shift in availableShifts {
-            employee.availability.append(shift)
+        if availableShifts != nil {
+            for shift in availableShifts {
+                employee.availability.append(shift)
+            }
         }
+
     }
     
     override func viewDidLoad() {
