@@ -133,4 +133,7 @@ class EditAvailabilityTableViewController: UITableViewController {
         
         self.employee.availability = holdEmployee.availability
     }
+    
+    @IBAction func cancelEmployeeAvailabilityEdit(sender: UIStoryboardSegue) {
+    }
 }

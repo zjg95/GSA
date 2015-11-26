@@ -17,9 +17,7 @@ class ScheduleTableViewController: UITableViewController {
     
     var schedule: Schedule!
     
-    var delegate: ScheduleDetailsViewController!
-    
-    var employeeView: Bool = true
+    var delegate: ShiftDetailsTableViewController!
     
     // -------
     // outlets
@@ -125,12 +123,24 @@ class ScheduleTableViewController: UITableViewController {
         let shift: Shift = schedule.getShiftAtIndex(index)
         cell.textLabel!.text = shift.assignee!.fullName
         cell.detailTextLabel!.text = shift.timeAMPM
+        if shift.assignee!.isNullEmployee {
+            cell.textLabel!.textColor = UIColor.redColor()
+        }
+        else {
+            cell.textLabel!.textColor = UIColor.blackColor()
+        }
     }
     
     func buildCellEmployeeView(cell: UITableViewCell, index: NSIndexPath) {
         let emp: Employee = schedule.getEmployeeAtIndex(index.section)
         let shift: Shift! = emp.getShiftAtIndex(index.row)
         cell.textLabel!.text = days[shift.day]
+        if emp.isNullEmployee {
+            cell.textLabel!.textColor = UIColor.redColor()
+        }
+        else {
+            cell.textLabel!.textColor = UIColor.blackColor()
+        }
         cell.detailTextLabel!.text = shift.timeAMPM
     }
     
@@ -255,7 +265,7 @@ class ScheduleTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "scheduleDetailsSegue") {
-            if let destination = segue.destinationViewController as? ScheduleDetailsViewController {
+            if let destination = segue.destinationViewController as? ShiftDetailsTableViewController {
                 
                 let index: NSIndexPath! = self.tableView!.indexPathForSelectedRow
                 var shift: Shift!

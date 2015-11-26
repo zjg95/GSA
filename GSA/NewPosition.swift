@@ -22,12 +22,6 @@ class NewPosition: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
     
     @IBOutlet weak var newTitle: UIPickerView!
     
-    @IBAction func addPosition(sender: AnyObject) {
-        let x = newTitle.selectedRowInComponent(0)
-        let newPosition = Position(title: selection[x], level: level.selectedSegmentIndex)
-        position! = newPosition
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

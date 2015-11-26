@@ -53,6 +53,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
                 employee.availability.append(shift)
             }
         }
+
     }
     
     override func viewDidLoad() {
@@ -207,6 +208,10 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
                 self.positions.append(position)
             }
         }
+        self.positionTable.reloadData()
+    }
+    
+    @IBAction func cancel(segue:UIStoryboardSegue) {
         self.positionTable.reloadData()
     }
 }

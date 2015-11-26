@@ -132,9 +132,12 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
     }
     
     @IBAction func updateEmployeeDetails(sender: UIStoryboardSegue) {
-        populateContent()
-        delegate.editCell(employee, index: index)
-        tableView.reloadData()
+        if let sourceViewController = sender.sourceViewController as? EditEmployeeViewController, employee = sourceViewController.employee {
+            self.employee = employee
+            populateContent()
+            delegate.editCell(employee, index: index)
+            tableView.reloadData()
+        }
     }
 
 }
