@@ -27,6 +27,7 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     var alertController: UIAlertController?
     
+    @IBOutlet weak var position: UILabel!
     // -----------------
     // reference outlets
     // -----------------
@@ -102,6 +103,12 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
             let index = staff.employeeIndex(employee)
             employeePicker.selectRow(index + 1, inComponent: 0, animated: false)
         }
+        if shift.position != nil {
+           position.text! = "Title: \(shift.position.title)     Level: \(shift.position.level)"
+        } else {
+            position.text! = "None"
+        }
+        
     }
 
     func extractContent() {
@@ -190,6 +197,13 @@ class EditScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
         // Pass the selected object to the new view controller.
         if saveButton == sender as? UIBarButtonItem {
             extractContent()
+        }
+    }
+    
+    @IBAction func saveNewPosition(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditPositionForShift, position = sourceViewController.position {
+            shift.position = position
+            populateContent()
         }
     }
 }

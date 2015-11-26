@@ -419,7 +419,7 @@
                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pdj-uI-s0r" id="eYT-BU-jNv">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWp-cD-lj2">
@@ -1443,8 +1443,30 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9br-Be-Z1d">
+                                <rect key="frame" x="99" y="558" width="176" height="30"/>
+                                <state key="normal" title="Edit Position Requirement"/>
+                                <connections>
+                                    <segue destination="h1H-ao-pLl" kind="show" identifier="editPosition" id="3SX-8V-7z2"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQf-gg-iCf">
+                                <rect key="frame" x="0.0" y="420" width="375" height="77"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKE-Dl-hIw">
+                                <rect key="frame" x="157" y="510" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHW-uJ-H1h">
+                                <rect key="frame" x="20" y="539" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwc-an-J5l">
-                                <rect key="frame" x="128" y="583" width="118" height="30"/>
+                                <rect key="frame" x="128" y="611" width="118" height="30"/>
                                 <state key="normal" title="Delete Shift">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1452,9 +1474,6 @@
                                     <action selector="deleteButton:" destination="OXO-T9-toO" eventType="touchUpInside" id="Bkr-WZ-q4O"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQf-gg-iCf">
-                                <rect key="frame" x="0.0" y="420" width="375" height="77"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1474,6 +1493,7 @@
                         <outlet property="dayPicker" destination="wzC-ev-LQ3" id="f69-zf-jia"/>
                         <outlet property="employeePicker" destination="gQf-gg-iCf" id="ugb-JH-2Sn"/>
                         <outlet property="endPicker" destination="XFx-bf-lLz" id="X67-V5-6gp"/>
+                        <outlet property="position" destination="HHW-uJ-H1h" id="xEA-Ub-Pph"/>
                         <outlet property="saveButton" destination="Usj-X5-VPN" id="dKM-0m-7OD"/>
                         <outlet property="startPicker" destination="5N1-D2-Dyx" id="zvz-Lv-jbz"/>
                         <segue destination="JFF-M2-Jzk" kind="unwind" identifier="deleteShiftFromTableSegue" unwindAction="deleteShiftFromTable:" id="Mzp-Qe-6eW"/>
@@ -1483,6 +1503,70 @@
                 <exit id="JFF-M2-Jzk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4106.5" y="1043.5"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="YRY-NG-Bvy">
+            <objects>
+                <viewController id="h1H-ao-pLl" customClass="EditPositionForShift" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O02-W4-i6P"/>
+                        <viewControllerLayoutGuide type="bottom" id="hFv-zD-6aR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mU8-Hp-dtK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTz-99-QFa">
+                                <rect key="frame" x="0.0" y="134" width="375" height="216"/>
+                            </pickerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XlO-9X-tLg">
+                                <rect key="frame" x="114" y="387" width="147" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                    <segment title="5"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmE-gl-WXd">
+                                <rect key="frame" x="135" y="336" width="104" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMT-bd-1RK">
+                                <rect key="frame" x="139" y="127" width="97" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqo-eo-Wap">
+                                <rect key="frame" x="165" y="468" width="45" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.01021486936" blue="0.079462083269999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="I1D-ES-oUc">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="bqJ-5x-1Ze"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="UPF-q9-sxH">
+                            <connections>
+                                <segue destination="lfZ-yT-jd3" kind="unwind" unwindAction="saveNewPosition:" id="aDT-DP-fI4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="level" destination="XlO-9X-tLg" id="hZ4-8n-KLc"/>
+                        <outlet property="titles" destination="CTz-99-QFa" id="D03-07-JQE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F1E-M6-Ybu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lfZ-yT-jd3" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4106.5" y="1826.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZGL-lM-doJ">
@@ -1587,6 +1671,20 @@
                                     <segue destination="MCF-ls-fXq" kind="show" id="rD6-IP-RS6"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7eq-MX-475">
+                                <rect key="frame" x="0.0" y="417.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7eq-MX-475" id="UAw-Jw-VDg">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjE-H2-K2f">
+                                            <rect key="frame" x="98" y="5" width="178" height="30"/>
+                                            <state key="normal" title="Add Position Requirement"/>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Shift" id="IqN-aA-m92">
@@ -1648,7 +1746,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="No8-Il-XPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3257.5" y="279.5"/>
+            <point key="canvasLocation" x="3467.5" y="279.5"/>
         </scene>
         <!--Add New Title-->
         <scene sceneID="x8N-Sa-pre">
