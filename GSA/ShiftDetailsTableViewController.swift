@@ -29,6 +29,7 @@ class ShiftDetailsTableViewController: UITableViewController {
     @IBOutlet weak var durationCell: UITableViewCell!
     @IBOutlet weak var assigneeCell: UITableViewCell!
     
+    @IBOutlet weak var positionCell: UITableViewCell!
     // -------
     // methods
     // -------
@@ -39,6 +40,12 @@ class ShiftDetailsTableViewController: UITableViewController {
         durationCell.detailTextLabel?.text = String(shift.duration)
         assert(shift.assignee != nil)
         assigneeCell.detailTextLabel?.text = shift.assignee!.fullName
+        if(shift.position != nil) {
+            positionCell.detailTextLabel?.text = "Title:\(shift.position.title) Level:\(shift.position.level)"
+        } else {
+            positionCell.detailTextLabel?.text = "None"
+        }
+        
     }
 
     override func viewDidLoad() {

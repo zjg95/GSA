@@ -16,6 +16,7 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     
     var employee: Employee!
     var availableShifts: [Shift]!
+    var positions: [Position]!
     
     // -----------------
     // reference outlets
@@ -27,8 +28,8 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     @IBOutlet weak var firstNameField: UITextField!
     
     @IBOutlet weak var lastNameField: UITextField!
-    
-    @IBOutlet weak var positionField: UITextField!
+
+    @IBOutlet weak var positionTable: UITableView!
     
     @IBAction func cancelButton(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -42,7 +43,11 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         let firstName: String = firstNameField.text!
         let lastName: String = lastNameField.text!
         employee = Employee(firstName: firstName, lastName: lastName)
-        employee.position = positionField.text!
+        if positions != nil {
+            for position in positions {
+                employee.position.append(position)
+            }
+        }
         if availableShifts != nil {
             for shift in availableShifts {
                 employee.availability.append(shift)
@@ -56,6 +61,9 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        self.positionTable.dataSource = self
+        self.positionTable.delegate = self
         
         self.tableView.separatorStyle = .SingleLine
         self.tableView.separatorColor = UIColor.blackColor()
@@ -85,7 +93,9 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         }
         if segue.identifier == "addAvailableTime" {
             let _:NewAvailabilityViewController = segue.destinationViewController as! NewAvailabilityViewController
-    
+        }
+        if segue.identifier == "addNewPosition" {
+            let _:NewPosition = segue.destinationViewController as! NewPosition
         }
     }
     
@@ -115,30 +125,53 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.availableShifts == nil {
-            return 0
+        if tableView.restorationIdentifier == "Position" {
+            if self.positions == nil {
+                return 0
+            }
+            else {
+               return self.positions.count + 1
+            }
         } else {
-            return self.availableShifts.count + 1
+            if self.availableShifts == nil {
+                return 0
+            } else {
+                return self.availableShifts.count + 1
+            }
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
-        
-        // Configure the cell...
-        let index:Int = indexPath.row
-        
-        if (index == 0) {
-            cell.dayLabel!.text = "Day"
-            cell.timeLabel!.text = "Time"
-        } else {
-            let currentShift:Shift = availableShifts[index - 1]
-            
-            cell.dayLabel!.text = currentShift.dayToString()
-            cell.timeLabel!.text = currentShift.timeAMPM
+        if tableView.restorationIdentifier == "Position" {
+            let cell = tableView.dequeueReusableCellWithIdentifier("positionCell", forIndexPath: indexPath)
+            let index:Int = indexPath.row
+            if (index == 0) {
+                cell.textLabel!.text = "Title"
+                cell.detailTextLabel!.text = "Level"
+            } else {
+                cell.textLabel!.text = positions[index - 1].title
+                cell.detailTextLabel!.text = "\(positions[index - 1].level)"
+            }
+            return cell
         }
-        return cell
+        else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
+            
+            // Configure the cell...
+            let index:Int = indexPath.row
+            
+            if (index == 0) {
+                cell.dayLabel!.text = "Day"
+                cell.timeLabel!.text = "Time"
+            } else {
+                let currentShift:Shift = availableShifts[index - 1]
+                
+                cell.dayLabel!.text = currentShift.dayToString()
+                cell.timeLabel!.text = currentShift.timeAMPM
+            }
+            return cell
+        }
+
     }
         
     // This method is called when the user touches the Return key on the
@@ -165,5 +198,20 @@ class NewEmployeeViewController: UIViewController, UITextFieldDelegate, UITableV
         }
         self.tableView.reloadData()
     }
-
+    
+    @IBAction func savePositions(segue:UIStoryboardSegue) {
+        if let sourceViewController = segue.sourceViewController as? NewPosition, position = sourceViewController.position {
+            if positions == nil {
+                self.positions = [position]
+            }
+            else {
+                self.positions.append(position)
+            }
+        }
+        self.positionTable.reloadData()
+    }
+    
+    @IBAction func cancel(segue:UIStoryboardSegue) {
+        self.positionTable.reloadData()
+    }
 }

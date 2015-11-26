@@ -22,7 +22,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     var firstName: String = ""
     var lastName: String = ""
-    var position: String = ""
+    var position: [Position] = []
     var index: Int!
     
     var maxHours: Int = 40
@@ -89,7 +89,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     convenience init(firstName: String, lastName: String, position: String) {
         self.init(firstName: firstName, lastName: lastName)
-        self.position = position
+        self.position = []
     }
     
     // required initializer for the Copying protocol
@@ -142,7 +142,15 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     // if the shift's position a position that the employee is qualified to work
     private func canWorkPosition(shift: Shift) -> Bool {
-        return true
+        if (shift.position == nil) {
+            return true
+        }
+        for p in self.position {
+            if (p.title == shift.position.title && p.level >= shift.position.level) {
+                return true
+            }
+        }
+        return false
     }
     
     // if working the shift would cause the employee to exceed their desired hours by more than the wiggle room
@@ -196,7 +204,7 @@ class Employee : CopyProtocol, Equatable, CustomStringConvertible {
     
     // if overall the employee is able to work the shift
     func canWorkShift(shift: Shift) -> Bool {
-        return isAvailableForShift(shift) && isntWorkingAlready(shift) && !exceedsMaxHours(shift)
+        return isAvailableForShift(shift) && isntWorkingAlready(shift) && !exceedsMaxHours(shift) && canWorkPosition(shift)
     }
     
     func appendAvail(shift: Shift){

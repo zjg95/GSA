@@ -100,7 +100,8 @@ class DateCellTableViewController: UITableViewController {
         let itemThree = [kTitleKey : "End Time", kDateKey : NSDate()]
         let itemFour = [kTitleKey : "Day"]
         let itemFive = [kTitleKey : "Duration"]
-        dataArray = [itemTwo, itemThree, itemFour, itemFive]
+        let itemSix = [kTitleKey: "Position"]
+        dataArray = [itemTwo, itemThree, itemFour, itemFive, itemSix]
         
         dateFormatter.timeStyle = .ShortStyle
     }

@@ -25,7 +25,7 @@ class Shift : CopyProtocol, Equatable {
     var endDay: Int!
     var day: Int = 0
     
-    private var _position: String = ""
+    var position: Position!
     private var _dayString: String = ""
     
     private var _assignee: Employee?
@@ -154,7 +154,6 @@ class Shift : CopyProtocol, Equatable {
             return hour * 60 + minutes
         }
     }
-    
     
     // -----------
     // constructor

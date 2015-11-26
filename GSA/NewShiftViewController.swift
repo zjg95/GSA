@@ -15,6 +15,7 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
     // ------------
     
     var shift: Shift!
+    var position:Position!
     
     // -----------------
     // reference outlets
@@ -70,6 +71,7 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
         let endMinutes = components.minute
         
         shift = Shift(timeStart: Time(hour:startHour, minutes:startMinutes), timeEnd: Time(hour:endHour, minutes: endMinutes), day: day)
+        shift.position = self.position
     }
     
     override func viewDidLoad() {
@@ -116,6 +118,12 @@ class NewShiftViewController: UIViewController, UIPickerViewDataSource, UIPicker
         // Pass the selected object to the new view controller.
         if saveButton == sender as? UIBarButtonItem {
             extractContent()
+        }
+    }
+    
+    @IBAction func savePosition (segue: UIStoryboardSegue) {
+        if let sourceViewController = segue.sourceViewController as? EditPositionForShift, position = sourceViewController.position {
+            self.position = position
         }
     }
 }
