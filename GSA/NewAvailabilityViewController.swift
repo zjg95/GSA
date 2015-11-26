@@ -30,7 +30,8 @@ class NewAvailabilityViewController: UIViewController, UIPickerViewDataSource, U
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBAction func cancelButton(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        navigationController?.popToRootViewControllerAnimated(true)
+        //dismissViewControllerAnimated(true, completion: nil)
     }
     
     // -------
@@ -58,6 +59,7 @@ class NewAvailabilityViewController: UIViewController, UIPickerViewDataSource, U
     func extractContent() {
         // Gets Day for Availability
         let day = dayPicker.selectedRowInComponent(0)
+        
         
         // Get Starting time in hrs and mins
         var calendar = NSCalendar.currentCalendar()

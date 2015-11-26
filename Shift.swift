@@ -25,9 +25,9 @@ class Shift : CopyProtocol, Equatable {
     var endDay: Int!
     var day: Int = 0
     
-    private var _position: String = ""
-    private var _dayString: String = ""
+    var position: Position!
     
+    private var _dayString: String = ""
     private var _assignee: Employee?
     
     var assignee: Employee? {
@@ -84,7 +84,7 @@ class Shift : CopyProtocol, Equatable {
             if start == 0 {
                 start = 12
             }
-            if start == 0 {
+            if end == 0 {
                 end = 12
             }
             return " \(start):\(_timeStart.minuteString)\(startAMPM) - \(end):\(_timeEnd.minuteString)\(endAMPM)"
@@ -132,6 +132,28 @@ class Shift : CopyProtocol, Equatable {
         }
     }
     
+    var durationInt: Int {
+        get {
+            var hour = 0
+            var minutes = 0
+            if (_timeStart.minutes > _timeEnd.minutes){
+                var tempStartMin = _timeStart.minutes
+                while (tempStartMin != _timeEnd.minutes) {
+                    minutes++
+                    tempStartMin++
+                    if (tempStartMin == 60) {
+                        tempStartMin = 0;
+                    }
+                }
+                hour = _timeEnd.hour - _timeStart.hour - 1
+            }
+            else {
+                hour = _timeEnd.hour - _timeStart.hour
+                minutes = _timeEnd.minutes - _timeStart.minutes
+            }
+            return hour * 60 + minutes
+        }
+    }
     
     // -----------
     // constructor

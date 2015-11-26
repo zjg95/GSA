@@ -29,6 +29,7 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
     
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var positionTable: UITableView!
     
     // -------
     // methods
@@ -36,7 +37,6 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
     
     func populateContent() {
         nameLabel.text = employee.fullName
-        positionLabel.text = employee.position
         availableShifts = employee.availability.weekToArray()
     }
     
@@ -45,6 +45,9 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        self.positionTable.dataSource = self
+        self.positionTable.delegate = self
         
         self.tableView.separatorStyle = .SingleLine
         self.tableView.separatorColor = UIColor.blackColor()
@@ -81,36 +84,60 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.availableShifts == nil {
-            return 0
+        if (tableView.restorationIdentifier == "positionTable") {
+            if (employee.position.count == 0) {
+                return 0
+            } else {
+               return employee.position.count + 1
+            }
         } else {
-            return self.availableShifts.count + 1
+            if self.availableShifts == nil {
+                return 0
+            } else {
+                return self.availableShifts.count + 1
+            }
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
-        
-        // Configure the cell...
-        let index:Int = indexPath.row
-        
-        if (index == 0) {
-            cell.dayLabel!.text = "Day"
-            cell.timeLabel!.text = "Time"
-        } else {
-            let currentShift:Shift = availableShifts[index - 1]
+        if (tableView.restorationIdentifier == "positionTable") {
+            let cell = tableView.dequeueReusableCellWithIdentifier("positionCell", forIndexPath: indexPath)
+            let index:Int = indexPath.row
             
-            cell.dayLabel!.text = currentShift.dayToString()
-            cell.timeLabel!.text = currentShift.timeAMPM
+            if (index == 0) {
+                cell.textLabel!.text = "Title"
+                cell.detailTextLabel!.text = "Level"
+            } else {
+                cell.textLabel!.text = employee.position[index - 1].title
+                cell.detailTextLabel!.text = "\(employee.position[index - 1].level)"
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
+        
+            // Configure the cell...
+            let index:Int = indexPath.row
+        
+            if (index == 0) {
+                cell.dayLabel!.text = "Day"
+                cell.timeLabel!.text = "Time"
+            } else {
+                let currentShift:Shift = availableShifts[index - 1]
+            
+                cell.dayLabel!.text = currentShift.dayToString()
+                cell.timeLabel!.text = currentShift.timeAMPM
+            }
+            return cell
         }
-        return cell
     }
     
     @IBAction func updateEmployeeDetails(sender: UIStoryboardSegue) {
-        populateContent()
-        delegate.editCell(employee, index: index)
-        tableView.reloadData()
+        if let sourceViewController = sender.sourceViewController as? EditEmployeeViewController, employee = sourceViewController.employee {
+            self.employee = employee
+            populateContent()
+            delegate.editCell(employee, index: index)
+            tableView.reloadData()
+        }
     }
 
 }
