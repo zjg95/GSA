@@ -15,18 +15,18 @@ class Position {
     // ------------
     
     private var _title:String
-    private var _level:Float
+    private var _level:Int
     
     var title: String {
         get {
             return _title
         }
         set (newTitle){
-            _title = title
+            _title = newTitle
         }
     }
     
-    var level: Float {
+    var level: Int {
         get {
             return _level
         }
@@ -40,7 +40,7 @@ class Position {
     // -----------
     
     // Constructor for Position Object
-    init(title: String, level: Float) {
+    init(title: String, level: Int) {
         _title = title
         _level = level
     }

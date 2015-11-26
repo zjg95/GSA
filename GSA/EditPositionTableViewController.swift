@@ -11,6 +11,7 @@ import UIKit
 class EditPositionTableViewController: UITableViewController {
     
     var positions:[Position]!
+    var position:Position!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +43,46 @@ class EditPositionTableViewController: UITableViewController {
         let index:Int = indexPath.row
         if positions != nil {
             cell.textLabel!.text = positions[index].title
-            cell.detailTextLabel!.text = "\(positions[index].level)"
+            cell.detailTextLabel!.text = "\(positions[index].level + 1)"
         }
         return cell
     }
     
-    func saveChanges() {
-        
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "edit" {
+            if let destination = segue.destinationViewController as? EditPositionController {
+                let index = self.tableView!.indexPathForSelectedRow
+                destination.position = positions[index!.row]
+                destination.index = index
+            }
+        }
+    }
+    
+    @IBAction func saveEditChanges(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditPositionController, position = sourceViewController.position, index = sourceViewController.index {
+            positions[index.row] = position
+        }
+        tableView.reloadData()
+    }
+    
+    @IBAction func saveNewPosition(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? AddPositionController, position = sourceViewController.newPosition {
+            positions.append(position)
+        }
+        tableView.reloadData()
+    }
+    
+    @IBAction func deletePositionFromTable(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditPositionController, index = sourceViewController.index {
+            positions.removeAtIndex(index.row)
+            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: .Bottom)
+        }
+        tableView.reloadData()
+    }
+    
+    @IBAction func cancel(sender: UIStoryboardSegue) {
+        tableView.reloadData()
     }
 }

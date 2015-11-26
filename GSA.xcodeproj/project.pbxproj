@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4900CA681C02886E001447E3 /* NewPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4900CA671C02886E001447E3 /* NewPosition.swift */; settings = {ASSET_TAGS = (); }; };
+		491310721C068C5300C78E52 /* clipboard105.png in Resources */ = {isa = PBXBuildFile; fileRef = 491310711C068C5300C78E52 /* clipboard105.png */; settings = {ASSET_TAGS = (); }; };
 		495814081BCC4316001E1862 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495814071BCC4316001E1862 /* Shift.swift */; settings = {ASSET_TAGS = (); }; };
 		4968820E1C03E51800304F14 /* selections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968820D1C03E51800304F14 /* selections.swift */; settings = {ASSET_TAGS = (); }; };
 		497609A01BE9C98B00652FC0 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976099F1BE9C98B00652FC0 /* Position.swift */; settings = {ASSET_TAGS = (); }; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		4900CA671C02886E001447E3 /* NewPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPosition.swift; sourceTree = "<group>"; };
+		491310711C068C5300C78E52 /* clipboard105.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clipboard105.png; path = ../../../Downloads/clipboard105.png; sourceTree = "<group>"; };
 		495814071BCC4316001E1862 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shift.swift; path = ../Shift.swift; sourceTree = "<group>"; };
 		4968820D1C03E51800304F14 /* selections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = selections.swift; path = ../selections.swift; sourceTree = "<group>"; };
 		4976099F1BE9C98B00652FC0 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				8E9339201BC78EAB00BDA5A7 /* EmployeeTableViewController.swift */,
 				8E9C67F01BC84D7D00FE5984 /* EditEmployeeViewController.swift */,
+				491310711C068C5300C78E52 /* clipboard105.png */,
 				8E9339241BC7A20000BDA5A7 /* EmployeeDetailsViewController.swift */,
 				8E9339221BC79AF300BDA5A7 /* NewEmployeeViewController.swift */,
 				8E9902071BCEF99C00280BA2 /* Staff.swift */,
@@ -370,6 +373,7 @@
 				8E9338FA1BC78BD400BDA5A7 /* Assets.xcassets in Resources */,
 				8E9338F51BC78BD400BDA5A7 /* Main.storyboard in Resources */,
 				499928771BFE288600D5C457 /* calendar146.png in Resources */,
+				491310721C068C5300C78E52 /* clipboard105.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

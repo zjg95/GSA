@@ -18,13 +18,13 @@ class NewPosition: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
     var position:Position!
     var selection:[String] = selections.selections
     
-    @IBOutlet weak var level: UISlider!
+    @IBOutlet weak var level: UISegmentedControl!
     
     @IBOutlet weak var newTitle: UIPickerView!
     
     @IBAction func addPosition(sender: AnyObject) {
         let x = newTitle.selectedRowInComponent(0)
-        let newPosition = Position(title: selection[x], level: level.value)
+        let newPosition = Position(title: selection[x], level: level.selectedSegmentIndex)
         position! = newPosition
     }
     
@@ -60,7 +60,7 @@ class NewPosition: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let x = newTitle.selectedRowInComponent(0)
-        let newPosition = Position(title: selection[x], level: level.value)
+        let newPosition = Position(title: selection[x], level: level.selectedSegmentIndex)
         if position != nil {
             position! = newPosition
         }

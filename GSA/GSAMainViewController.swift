@@ -48,6 +48,7 @@ class GSAMainViewController: UITabBarController {
             if let schedule = nav.viewControllers.first as? ScheduleListTableViewController {
                 schedule.scheduleList = self.scheduleList
                 schedule.staff = self.staff
+                nav.navigationBar.barTintColor = UIColor.blueColor()
             }
         }
         if let nav = self.viewControllers![1] as? UINavigationController {

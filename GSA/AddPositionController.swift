@@ -15,18 +15,17 @@ class AddPositionController: UIViewController, UIPickerViewDataSource, UIPickerV
     // ------------
     
     var positions:[Position]!
+    var newPosition:Position!
     
     @IBOutlet weak var titles: UIPickerView!
     
-    @IBOutlet weak var level: UISlider!
-    
-    @IBAction func addPosition(sender: AnyObject) {
-    
-    }
+    @IBOutlet weak var level: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.titles.dataSource = self
+        self.titles.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,4 +46,12 @@ class AddPositionController: UIViewController, UIPickerViewDataSource, UIPickerV
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return selections.selections[row]
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        newPosition = Position(title:selections.selections[titles.selectedRowInComponent(0)], level:level.selectedSegmentIndex)
+    }
+    
+    
 }

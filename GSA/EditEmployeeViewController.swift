@@ -19,6 +19,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
     var alertController:UIAlertController? = nil
     var availableShifts: [Shift]!
     var edited:Bool = false
+    var newPositions:[Position]!
     
     // -----------------
     // reference outlets
@@ -27,13 +28,14 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         dismissViewControllerAnimated(false, completion: nil)
     }
     
+    @IBOutlet weak var positionTable: UITableView!
+    
+    
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     @IBOutlet weak var firstNameField: UITextField!
     
     @IBOutlet weak var lastNameField: UITextField!
-    
-    @IBOutlet weak var positionTable: UITableView!
     
     @IBAction func deleteButton(sender: AnyObject) {
         self.alertController = UIAlertController(title: "Confirm Delete", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
@@ -81,8 +83,12 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        self.positionTable.dataSource = self
+        self.positionTable.delegate = self
+        
         self.tableView.separatorStyle = .SingleLine
         self.tableView.separatorColor = UIColor.blackColor()
+
         
         // Do any additional setup after loading the view.
         checkNameEdit()
@@ -110,10 +116,9 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
             }
         }
         if segue.identifier == "editPosition" {
-            print("HELLO")
             if let destination = segue.destinationViewController as? EditPositionTableViewController {
                 destination.positions = self.employee.position
-                print("Edit Employee \(employee.position[0].title)")
+//                print("Edit Employee \(employee.position[0].title)")
             }
         }
     }
@@ -144,8 +149,8 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView.restorationIdentifier == positionTable {
-            return self.employee.position.count
+        if tableView.restorationIdentifier == "positionTable" {
+            return self.employee.position.count + 1
         }
         if self.availableShifts == nil {
             return 0
@@ -155,23 +160,34 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
-        
-        // Configure the cell...
-        let index:Int = indexPath.row
-        
-        if (index == 0) {
-            cell.dayLabel!.text = "Day"
-            cell.timeLabel!.text = "Time"
+        if (tableView.restorationIdentifier == "positionTable") {
+            let cell = tableView.dequeueReusableCellWithIdentifier("positionCell", forIndexPath: indexPath)
+            let index:Int = indexPath.row
+            if(index == 0) {
+                cell.textLabel!.text = "Title"
+                cell.detailTextLabel!.text = "Level"
+            } else {
+                cell.textLabel!.text = employee.position[index - 1].title
+                cell.detailTextLabel!.text = "\(employee.position[index - 1].level + 1)"
+            }
+            return cell
         } else {
-            let currentShift:Shift = availableShifts[index - 1]
-            
-            cell.dayLabel!.text = currentShift.dayToString()
-            cell.timeLabel!.text = currentShift.timeAMPM
-        }
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as! AvailabilityTableViewCell
         
-        return cell
+            // Configure the cell...
+            let index:Int = indexPath.row
+        
+            if (index == 0) {
+                cell.dayLabel!.text = "Day"
+                cell.timeLabel!.text = "Time"
+            } else {
+                let currentShift:Shift = availableShifts[index - 1]
+            
+                cell.dayLabel!.text = currentShift.dayToString()
+                cell.timeLabel!.text = currentShift.timeAMPM
+            }
+            return cell
+        }
     }
     
     // This method is called when the user touches the Return key on the
@@ -194,6 +210,14 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
             self.employee = employee
             self.availableShifts = employee.availability.weekToArray()
             tableView.reloadData()
+        }
+    }
+    
+    @IBAction func positionUpdate(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditPositionTableViewController,
+            newPositions = sourceViewController.positions {
+                self.employee.position = newPositions
+                positionTable.reloadData()
         }
     }
 }

@@ -15,23 +15,21 @@ class EditPositionController: UIViewController, UIPickerViewDataSource, UIPicker
     // ------------
     
     var position:Position!
+    var index:NSIndexPath!
     
     @IBOutlet weak var titles: UIPickerView!
     
-    @IBOutlet weak var level: UISlider!
+    @IBOutlet weak var level: UISegmentedControl!
     
-    @IBAction func saveChanges(sender: AnyObject) {
-        if position != nil {
-            position!.title = selections.selections[titles.selectedRowInComponent(0)]
-            position!.level = level.value
-        }
-    }
+    @IBOutlet weak var saveChanges: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         titles.dataSource = self
         titles.delegate = self
+        
+        level.selectedSegmentIndex = position!.level        
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,5 +51,11 @@ class EditPositionController: UIViewController, UIPickerViewDataSource, UIPicker
         return selections.selections[row]
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+            position.title = selections.selections[titles.selectedRowInComponent(0)]
+            position.level = level.selectedSegmentIndex
+    }
     
 }
