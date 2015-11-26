@@ -32,7 +32,7 @@ class GSAMainViewController: UITabBarController {
         staff.append(Employee(firstName: "Troy", lastName: "Rowden", position: "Shift Leader"))
         staff.append(Employee(firstName: "John", lastName: "Larkin", position: "Employee"))
         
-        let schedule: Schedule = Schedule(name: "Demo Schedule", staff: staff, week: week)
+        let schedule: Schedule = Schedule(name: "Demo Schedule", staff: staff.copy(), week: week.copy())
         
         schedule.append(Shift(timeStart: Time(hour: 9, minutes: 0), timeEnd: Time(hour: 10, minutes: 0), day: 0))
         schedule.append(Shift(timeStart: Time(hour: 12, minutes: 0), timeEnd: Time(hour: 13, minutes: 0), day: 1))
