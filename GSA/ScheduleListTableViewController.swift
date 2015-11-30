@@ -28,11 +28,9 @@ class ScheduleListTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem()
         let backItem = UIBarButtonItem()
         backItem.title = "All"
-        navigationItem.titleView?.tintColor
+        backItem.tintColor = UIColor.whiteColor()
         navigationItem.backBarButtonItem = backItem
         navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
-        navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
-//        navigationController?.navigationBar.barTintColor = UIColor.init(red: 71/255.0, green: 197/255.0, blue: 255.0/255.0, alpha: 1)
     }
     
     override func didReceiveMemoryWarning() {

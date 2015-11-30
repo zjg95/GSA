@@ -56,6 +56,7 @@ class GSAMainViewController: UITabBarController {
             }
         }
         UITabBar.appearance().barTintColor = UIColor.init(red: 71/255.0, green: 197/255.0, blue: 255.0/255.0, alpha: 1)
+        tabBarItem.selectedImage = UIImage(named: "user42White")!.imageWithRenderingMode(.AlwaysOriginal)
     }
 
     override func didReceiveMemoryWarning() {

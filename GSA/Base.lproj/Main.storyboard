@@ -160,7 +160,7 @@
                                         <rect key="frame" x="0.0" y="28" width="326" height="32"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kcl-fv-CkN" id="23u-8R-eyE">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="32"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="31.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4M-Jp-1hg">
@@ -946,7 +946,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91j-cE-0uz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="a4U-Pq-d7s" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4771.5" y="1051.5"/>
+            <point key="canvasLocation" x="5358.5" y="1051.5"/>
         </scene>
         <!--Edit Positions-->
         <scene sceneID="PEN-2i-lXi">
@@ -1023,7 +1023,7 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-i4-r5r">
                                 <rect key="frame" x="0.0" y="110" width="375" height="216"/>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8G-Lo-jYF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8G-Lo-jYF">
                                 <rect key="frame" x="141" y="323" width="93" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="93" id="reG-4O-7cB"/>
@@ -1483,7 +1483,7 @@
                     <navigationItem key="navigationItem" title="Shift Details" id="pSx-Df-C8f">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="sCr-6x-f6A">
                             <connections>
-                                <segue destination="OXO-T9-toO" kind="show" id="oCZ-i5-BY8"/>
+                                <segue destination="aCi-vd-jDD" kind="presentation" identifier="editScheduleSegue" id="e80-fC-1e3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1615,7 +1615,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VlS-aj-Zlj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JFF-M2-Jzk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4354.5" y="1051.5"/>
+            <point key="canvasLocation" x="4941.5" y="1051.5"/>
         </scene>
         <!--Title-->
         <scene sceneID="YRY-NG-Bvy">
@@ -1809,11 +1809,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="New Shift" id="IqN-aA-m92">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fVk-YP-dcs">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelPressed:" destination="wWM-ik-L5G" id="rWa-7n-SyQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="2lO-oU-WrM">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Kw5-cT-2k3" kind="unwind" unwindAction="addShiftToTable:" id="Rb5-OK-d7n"/>
                             </connections>
@@ -1972,7 +1974,6 @@
         <!--Navigation Controller-->
         <scene sceneID="ehj-I0-bCU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UTh-Tm-uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fog-If-vWR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vJA-1a-RMm">
@@ -1988,6 +1989,7 @@
                         <segue destination="gm3-SV-2no" kind="relationship" relationship="rootViewController" id="Svh-Sq-NSX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTh-Tm-uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3597.5" y="-479.5"/>
         </scene>
@@ -1995,13 +1997,7 @@
         <scene sceneID="7UO-1j-6BY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Kj-G8-gBO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Employees" image="user42" id="XGc-xx-Gro">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Employees" image="user42White" id="XGc-xx-Gro"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xXK-dM-7Et">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2247,6 +2243,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iEj-kW-133">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.2784313725" green="0.7725490196" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -2279,10 +2279,32 @@
             </objects>
             <point key="canvasLocation" x="2004.5" y="1851.5"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MWS-Hh-b7X">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aCi-vd-jDD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VMZ-j4-bdJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.2784313725" green="0.7725490196" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OXO-T9-toO" kind="relationship" relationship="rootViewController" id="P8H-dn-T1q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yXJ-pU-3bE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4354.5" y="1051.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar" width="32" height="32"/>
         <image name="clipboard105" width="32" height="32"/>
-        <image name="user42" width="32" height="32"/>
+        <image name="user42White" width="32" height="32"/>
     </resources>
 </document>

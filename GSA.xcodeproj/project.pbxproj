@@ -22,7 +22,7 @@
 		6370D6891BCEE5DC004E78AB /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		6370D68B1BCEEA2D004E78AB /* ShiftDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		637DF0E51BEA7DE6007CD344 /* AvailabilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DF0E41BEA7DE6007CD344 /* AvailabilityTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		63AED4C71BCEF97D00F4A82F /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AED4C61BCEF97D00F4A82F /* EditShiftViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		63AED4C71BCEF97D00F4A82F /* EditScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AED4C61BCEF97D00F4A82F /* EditScheduleViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		63DD2C7D1BEA94320010E760 /* NewAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD2C7C1BEA94320010E760 /* NewAvailabilityViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		63DD2C7F1BF108E00010E760 /* EditAvailabilityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD2C7E1BF108E00010E760 /* EditAvailabilityTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		63DD2C811BF120FA0010E760 /* AvailabilityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD2C801BF120FA0010E760 /* AvailabilityDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -85,7 +85,7 @@
 		6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		6370D68A1BCEEA2D004E78AB /* ShiftDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDetailsViewController.swift; sourceTree = "<group>"; };
 		637DF0E41BEA7DE6007CD344 /* AvailabilityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailabilityTableViewCell.swift; sourceTree = "<group>"; };
-		63AED4C61BCEF97D00F4A82F /* EditShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditShiftViewController.swift; sourceTree = "<group>"; };
+		63AED4C61BCEF97D00F4A82F /* EditScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScheduleViewController.swift; sourceTree = "<group>"; };
 		63DD2C7C1BEA94320010E760 /* NewAvailabilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAvailabilityViewController.swift; sourceTree = "<group>"; };
 		63DD2C7E1BF108E00010E760 /* EditAvailabilityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAvailabilityTableViewController.swift; sourceTree = "<group>"; };
 		63DD2C801BF120FA0010E760 /* AvailabilityDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailabilityDetailsViewController.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 				8E9CB9911BF02CEA003D0A04 /* DayPickerTableViewController.swift */,
 				8EB92C801BDD4C0A00674FCA /* NewScheduleViewController.swift */,
 				8E469AD51BDBE5F4004ECEDD /* ScheduleListTableViewController.swift */,
-				63AED4C61BCEF97D00F4A82F /* EditShiftViewController.swift */,
+				63AED4C61BCEF97D00F4A82F /* EditScheduleViewController.swift */,
 				6370D6881BCEE5DC004E78AB /* ScheduleTableViewController.swift */,
 				8E469AD31BDBE494004ECEDD /* Schedule.swift */,
 			);
@@ -423,7 +423,7 @@
 				8E9339211BC78EAB00BDA5A7 /* EmployeeTableViewController.swift in Sources */,
 				8E9339271BC7A45D00BDA5A7 /* Employee.swift in Sources */,
 				8E469AD61BDBE5F4004ECEDD /* ScheduleListTableViewController.swift in Sources */,
-				63AED4C71BCEF97D00F4A82F /* EditShiftViewController.swift in Sources */,
+				63AED4C71BCEF97D00F4A82F /* EditScheduleViewController.swift in Sources */,
 				499218CE1C04B4C500C3663D /* EditPositionController.swift in Sources */,
 				63DD2C7D1BEA94320010E760 /* NewAvailabilityViewController.swift in Sources */,
 				4900CA681C02886E001447E3 /* NewPosition.swift in Sources */,

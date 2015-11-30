@@ -77,6 +77,8 @@ class ScheduleTableViewController: UITableViewController {
         if employeeView {
             segmentedControl.selectedSegmentIndex = 1
         }
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        navigationItem.titleView?.tintColor = UIColor.whiteColor()
     }
     
     override func didReceiveMemoryWarning() {
