@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -16,13 +16,40 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GSA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dw-Dn-a9E">
+                                <rect key="frame" x="239" y="202" width="122" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="Lff-xB-1Qc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="61"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Scheduling Assistant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjS-CP-rWI">
+                                <rect key="frame" x="194" y="289" width="212" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.26403139411682164" green="0.72355552581519067" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="VjS-CP-rWI" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="KC5-GW-UY2"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="VjS-CP-rWI" secondAttribute="bottom" constant="290" id="M5a-zF-3o4"/>
+                            <constraint firstItem="VjS-CP-rWI" firstAttribute="top" secondItem="5dw-Dn-a9E" secondAttribute="bottom" constant="13" id="gX5-F3-S43"/>
+                            <constraint firstItem="5dw-Dn-a9E" firstAttribute="centerX" secondItem="VjS-CP-rWI" secondAttribute="centerX" id="gwX-7A-bD9"/>
+                            <constraint firstItem="5dw-Dn-a9E" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nVb-Nu-t34"/>
+                            <constraint firstItem="5dw-Dn-a9E" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="182" id="plo-bw-WAV"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="345" y="363"/>
         </scene>
     </scenes>
 </document>

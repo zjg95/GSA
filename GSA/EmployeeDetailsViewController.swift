@@ -137,6 +137,7 @@ class EmployeeDetailsViewController: UIViewController, UITableViewDataSource, UI
             populateContent()
             delegate.editCell(employee, index: index)
             tableView.reloadData()
+            positionTable.reloadData()
         }
     }
 

@@ -16,6 +16,8 @@ class EditPositionForShift: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     var position:Position!
     
+    var index:Int = 0
+    
     @IBOutlet weak var titles: UIPickerView!
     
     @IBOutlet weak var level: UISegmentedControl!

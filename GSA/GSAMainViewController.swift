@@ -55,11 +55,13 @@ class GSAMainViewController: UITabBarController {
                 employee.staff = self.staff
             }
         }
+        UITabBar.appearance().barTintColor = UIColor.init(red: 71/255.0, green: 197/255.0, blue: 255.0/255.0, alpha: 1)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
 
