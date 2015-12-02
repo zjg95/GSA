@@ -33,6 +33,7 @@ class addSelectionsController: UIViewController, UITextFieldDelegate, UITableVie
         selections.selections.append(newTitle.text!)
         titles.append(newTitle.text!)
         titlesTable.reloadData()
+        newTitle.text = ""
     }
     
     @IBOutlet weak var titlesTable: UITableView!
