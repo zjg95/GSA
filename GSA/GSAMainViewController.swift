@@ -55,8 +55,14 @@ class GSAMainViewController: UITabBarController {
                 employee.staff = self.staff
             }
         }
-        UITabBar.appearance().barTintColor = UIColor.init(red: 71/255.0, green: 197/255.0, blue: 255.0/255.0, alpha: 1)
-        tabBarItem.selectedImage = UIImage(named: "user42White")!.imageWithRenderingMode(.AlwaysOriginal)
+        if let nav = self.viewControllers![2] as? UINavigationController {
+            if let position = nav.viewControllers.first as? addSelectionsController{
+            }
+        }
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
+        
+        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +70,7 @@ class GSAMainViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
         
     }
+    
     
 
     /*
@@ -77,3 +84,4 @@ class GSAMainViewController: UITabBarController {
     */
 
 }
+

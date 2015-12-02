@@ -26,6 +26,7 @@ class EmployeeTableViewController: UITableViewController {
         let longpress = UILongPressGestureRecognizer(target: self, action: "longPressGestureRecognized:")
         
         tableView.addGestureRecognizer(longpress)
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

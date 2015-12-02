@@ -44,7 +44,7 @@ class addSelectionsController: UIViewController, UITextFieldDelegate, UITableVie
         newTitle.delegate = self
         self.titlesTable.dataSource = self
         self.titlesTable.delegate = self
-        
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         // Do any additional setup after loading the view.
     }
     

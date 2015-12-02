@@ -60,7 +60,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHQ-Cv-UQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2443.5" y="-479.5"/>
+            <point key="canvasLocation" x="1889.5" y="-479.5"/>
         </scene>
         <!--New Employee-->
         <scene sceneID="oZA-sN-M4T">
@@ -575,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgA-ty-NZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3058.5" y="-479.5"/>
+            <point key="canvasLocation" x="2519.5" y="-479.5"/>
         </scene>
         <!--Edit Employee-->
         <scene sceneID="N7c-ee-Lgm">
@@ -770,11 +770,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit Employee" id="DQD-l3-zku">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FC3-dI-ydU">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelButton:" destination="gm3-SV-2no" id="efL-DO-M0f"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="2AF-qr-y76">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Esv-lp-BgP" kind="unwind" unwindAction="updateEmployeeDetails:" id="7eS-Jh-ovI"/>
                             </connections>
@@ -839,11 +841,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Unavailable Times" id="BHG-bh-Fic">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="869-aY-VsO">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="4c9-5M-hz2" kind="unwind" unwindAction="backToEmployeeDetails:" id="Sdn-E7-N6e"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pc4-AF-obX">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="gSE-tp-ToX" kind="show" id="6h9-CW-Gnm"/>
                             </connections>
@@ -927,11 +931,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit Position" id="I4s-80-dzC">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Jes-0n-IPq">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="a4U-Pq-d7s" kind="unwind" unwindAction="cancel:" id="Q7a-dx-E0Y"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="PDn-wL-e18">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="a4U-Pq-d7s" kind="unwind" unwindAction="saveEditChanges:" id="PiE-7V-bMd"/>
                             </connections>
@@ -992,11 +998,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit Positions" id="9z6-Wo-dF8">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="z26-WX-XDV">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="W4S-Dd-JcI" kind="unwind" unwindAction="positionUpdate:" id="0kJ-dh-EB1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eRY-5B-Q2k">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="0kK-uY-7gC" kind="show" id="HUy-ME-zb4"/>
                             </connections>
@@ -1070,11 +1078,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add New Position" id="9CA-g7-EHj">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="T2C-0e-7MY">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="lkl-ZD-Tt5" kind="unwind" unwindAction="cancel:" id="R4F-ak-jhK"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="bna-NW-V5L">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addPosition:" destination="0kK-uY-7gC" id="f1g-41-rPg"/>
                                 <segue destination="lkl-ZD-Tt5" kind="unwind" unwindAction="saveNewPosition:" id="k80-IA-7eh"/>
@@ -1151,12 +1161,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit Unavailable Time" id="wCC-hi-4gI">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ya8-Xr-tko">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelButton:" destination="V8X-WF-JyO" id="aeR-OD-TCG"/>
                                 <segue destination="Hi7-L4-ZoR" kind="unwind" unwindAction="cancelEmployeeAvailabilityEdit:" id="rPO-mt-cX1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="xOb-1f-d3x">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Hi7-L4-ZoR" kind="unwind" unwindAction="editEmployeeAvailability:" id="1dn-Fc-Npa"/>
                             </connections>
@@ -1224,12 +1236,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Unavailable Time" id="Z2t-Rx-7oP">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b0Z-2m-8DT">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelButton:" destination="gSE-tp-ToX" id="ufZ-rQ-0bF"/>
                                 <segue destination="rWg-OG-s7Y" kind="unwind" unwindAction="cancelEmployeeAvailabilityEdit:" id="mOe-BT-tKU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1Mn-nj-smw">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="rWg-OG-s7Y" kind="unwind" unwindAction="addEmployeeAvailability:" id="Kfa-YB-8gG"/>
                             </connections>
@@ -1250,7 +1264,7 @@
         <!--Schedule View-->
         <scene sceneID="S2l-Pk-3wo">
             <objects>
-                <tableViewController title="Schedule View" id="8Q2-ou-FKP" customClass="ScheduleTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Schedule View" hidesBottomBarWhenPushed="YES" id="8Q2-ou-FKP" customClass="ScheduleTableViewController" customModule="GSA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="scheduleCell" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="vo2-fn-azo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1322,6 +1336,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="&lt;schedule&gt;" id="B9j-ax-9nn">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hQH-i5-oxj">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="DRf-UR-XMN" kind="presentation" id="TVu-gm-pH8"/>
                             </connections>
@@ -1482,6 +1497,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Shift Details" id="pSx-Df-C8f">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="sCr-6x-f6A">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="aCi-vd-jDD" kind="presentation" identifier="editScheduleSegue" id="e80-fC-1e3"/>
                             </connections>
@@ -1497,7 +1513,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SzZ-tb-SgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3856.5" y="1051.5"/>
+            <point key="canvasLocation" x="3058.5" y="1043.5"/>
         </scene>
         <!--Edit Shift-->
         <scene sceneID="CET-TU-0uT">
@@ -1592,11 +1608,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit Shift" id="1a0-kv-uO8">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cWS-fj-NzG">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelButton:" destination="OXO-T9-toO" id="2CK-ue-8Wg"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="Usj-X5-VPN">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="JFF-M2-Jzk" kind="unwind" unwindAction="updateShiftDetails:" id="B9e-aN-0Ma"/>
                             </connections>
@@ -1615,7 +1633,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VlS-aj-Zlj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JFF-M2-Jzk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4941.5" y="1051.5"/>
+            <point key="canvasLocation" x="4073.5" y="1043.5"/>
         </scene>
         <!--Title-->
         <scene sceneID="YRY-NG-Bvy">
@@ -1664,8 +1682,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="I1D-ES-oUc">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="bqJ-5x-1Ze"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="bqJ-5x-1Ze">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="UPF-q9-sxH">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="lfZ-yT-jd3" kind="unwind" unwindAction="saveNewPosition:" id="aDT-DP-fI4"/>
                             </connections>
@@ -1679,7 +1700,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F1E-M6-Ybu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lfZ-yT-jd3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4354.5" y="1836.5"/>
+            <point key="canvasLocation" x="4073.5" y="1892.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZGL-lM-doJ">
@@ -1689,6 +1710,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A79-pF-Wrk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.2784313725" green="0.7725490196" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1697,7 +1722,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fya-S8-pGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3635.5" y="-1378.5"/>
+            <point key="canvasLocation" x="2519.5" y="-1450.5"/>
         </scene>
         <!--DateCell-->
         <scene sceneID="SI8-aH-C9c">
@@ -1947,7 +1972,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qbg-3c-SaZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1897.5" y="-1226.5"/>
+            <point key="canvasLocation" x="1889.5" y="-1458.5"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="540-iK-Sz1">
@@ -1957,7 +1982,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="H1w-EA-CdH">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.2784313725" green="0.7725490196" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
@@ -2014,13 +2040,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FoA-gm-6mT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1856.5" y="-479.5"/>
+            <point key="canvasLocation" x="1310.5" y="-479.5"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="boc-UT-0qA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H7z-yq-wTj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar" id="HKF-98-7VB"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="calendarWhite" id="HKF-98-7VB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jsy-qc-oVY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2129,11 +2155,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Schedule" id="S7q-LV-t6S">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hoI-iD-NXs">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelButton:" destination="9ek-Q1-Qcy" id="L5R-bE-Qr6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="vjh-mW-KRI">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="h2j-jd-Exv" kind="unwind" unwindAction="addScheduleToTable:" id="NY6-rr-MdQ"/>
                             </connections>
@@ -2148,7 +2176,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AfF-oD-Z6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="h2j-jd-Exv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2671.5" y="1851.5"/>
+            <point key="canvasLocation" x="2519.5" y="1851.5"/>
         </scene>
         <!--Add Position-->
         <scene sceneID="RFF-w7-KfS">
@@ -2216,7 +2244,7 @@
         <scene sceneID="M0G-LZ-yvd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CCL-mv-eT9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Position" image="clipboard105" id="aru-Cu-Bfs"/>
+                    <tabBarItem key="tabBarItem" title="Position" image="calendarWhite" id="aru-Cu-Bfs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R3y-bg-dnn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2233,7 +2261,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgX-53-l54" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1310.5" y="-1226.5"/>
+            <point key="canvasLocation" x="1310.5" y="-1458.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vx0-ng-dVc">
@@ -2299,12 +2327,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXJ-pU-3bE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4354.5" y="1051.5"/>
+            <point key="canvasLocation" x="3552.5" y="1043.5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" width="32" height="32"/>
-        <image name="clipboard105" width="32" height="32"/>
+        <image name="calendarWhite" width="32" height="32"/>
         <image name="user42White" width="32" height="32"/>
     </resources>
 </document>
