@@ -4,8 +4,7 @@
 //
 
 //  Icons are from 
-
-//<div>Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+//  Icons made by Freepik from www.flaticon.com
 
 //  Created by Zach Goodman on 10/9/15.
 //  Copyright © 2015 Zach Goodman. All rights reserved.
@@ -21,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // Override point for customization after application launch
+        
         return true
     }
 

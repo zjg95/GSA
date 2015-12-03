@@ -48,7 +48,6 @@ class GSAMainViewController: UITabBarController {
             if let schedule = nav.viewControllers.first as? ScheduleListTableViewController {
                 schedule.scheduleList = self.scheduleList
                 schedule.staff = self.staff
-                nav.navigationBar.barTintColor = UIColor.blueColor()
             }
         }
         if let nav = self.viewControllers![1] as? UINavigationController {
@@ -56,15 +55,22 @@ class GSAMainViewController: UITabBarController {
                 employee.staff = self.staff
             }
         }
-//        if let nav = self.viewControllers![2] as? UINavigationController {
-//        
-//        }
+        if let nav = self.viewControllers![2] as? UINavigationController {
+            if let position = nav.viewControllers.first as? addSelectionsController{
+            }
+        }
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
+        
+        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
+    
     
 
     /*
@@ -78,3 +84,4 @@ class GSAMainViewController: UITabBarController {
     */
 
 }
+

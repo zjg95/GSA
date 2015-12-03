@@ -44,6 +44,8 @@ class DateCellTableViewController: UITableViewController {
     
     var shifts: [Shift] = []
     
+    var position:Position!
+    
     // -------
     // outlets
     // -------
@@ -78,6 +80,10 @@ class DateCellTableViewController: UITableViewController {
         for var i = 0; i < 7; ++i {
             if dayBools[i] {
                 shifts.append(Shift(timeStart: Time(hour: startHour, minutes: startMinutes), timeEnd: Time(hour: endHour, minutes: endMinutes), day: i))
+                if position != nil {
+                    shifts[shifts.count - 1].position = self.position
+                }
+                
             }
         }
     }
@@ -202,6 +208,15 @@ class DateCellTableViewController: UITableViewController {
         else if indexPath.row == 2 {
             cell?.detailTextLabel?.text = "Sunday"
         }
+        else if indexPath.row == 4 {
+            if position == nil {
+                cell?.detailTextLabel?.text = "Add Optional Position"
+            }
+            else {
+                cell?.detailTextLabel?.text = "Title: \(position.title)    Level: \(position.level)"
+            }
+        }
+        
         
         // if we have a date picker open whose cell is above the cell we want to update,
         // then we have one more cell than the model allows
@@ -293,10 +308,18 @@ class DateCellTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        if cell?.reuseIdentifier == kDateCellID {
-            displayInlineDatePickerForRowAtIndexPath(indexPath)
-        } else {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if indexPath.row == 4 {
+            performSegueWithIdentifier("position", sender: nil)
+        } else if (indexPath.row == 2) {
+            performSegueWithIdentifier("shiftDetail", sender: nil)
+        }
+        
+        else {
+            if cell?.reuseIdentifier == kDateCellID {
+                displayInlineDatePickerForRowAtIndexPath(indexPath)
+            } else {
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
         }
     }
     
@@ -363,6 +386,13 @@ class DateCellTableViewController: UITableViewController {
         }
         else if let destination = segue.destinationViewController as? DayPickerTableViewController {
             destination.delegate = self
+        }
+    }
+    
+    @IBAction func savePositionDataCell(sender: UIStoryboardSegue) {
+        if let source = sender.sourceViewController as? EditPositionForShift, position = source.position{
+            self.position = position
+            tableView.reloadData()
         }
     }
 
