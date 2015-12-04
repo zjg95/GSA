@@ -1,35 +1,14 @@
 Contributions
-// Zach's Contributions  55%
-- removed the "shift" view of the app. It felt too redundant and complicated
-- implemented app navigation with a tab bar view controller
-- users can create and manage multiple schedules
-- multiple schedules are shown in a table view
-- schedules can be deleted
-- schedules can be given a name
-- new schedules can inherit shifts from existing schedules
-- multiple shifts can be created at the same time (shifts can repeat across multiple days)
-- removed the old "new shift" view
-- built a brand new "new shift" view that uses a table view. Not only does it look pretty, but it scales across all devices and it functions well
-- shifts are now inserted in-order (9am-10am appears before 11am-12pm)
-- the schedule view controller can be sorted by employees or shifts by touching a switch. this means the user can choose to view the schedule based off the day of the week, or the employees that the shifts are assigned to
-- basic auto scheduling has been implemented. For now, all shifts are assigned to a single employee, because we haven't implemented any particular scheduling algorithm. this is significant though because we can just drop in a single method with the algorithm and auto scheduling will be fully functional
+// Zach's Contributions
+- completely rebuilt the Shift Details Veiw. It was once an ugly view with data plopped on the screen in a bad order. Now it's using a table view and looks WAY cleaner.
+- added view constraints to ensure that views scale well across all devices. Some views had too much content to scale. This is a fundamental design problem that needs to be rethought.
+- used NSUserDefaults to save the last view that the user accessed in the schedule view
+- implemented back-end changes to the construction of new schedules (copying employee data into a new structure)
+- fixed various compile warnings and numerous bugs/erros
 
-// David's contributions 30%
-- most view controllers involving employee’s such as add/edit/details/etc.
-- view controllers about an employee’s unavailability
-- employees can now be assigned available times
-- can create an employee with a set of available times
-- employees availbility is now present in employee's details page
-- can edit, add, and delete an employee's available times
-- worked on auto-schedule algorithm making it take into account employee’s availability, current shifts, other restrictions
-- bug fixes
+// David's contributions
 
-
-// Andrew's Contributions 15%
-- Helped clean up code for available times
-- fixed some bugs with available times
-- started work on adding position data structure
-- cleaned up a bit of the UI
+// Andrew's Contributions
 
 Differences
 None
