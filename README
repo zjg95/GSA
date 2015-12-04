@@ -8,6 +8,12 @@ Contributions
 - fixed various compile warnings and numerous bugs/errors
 
 // David's contributions
+- Worked on the autoschedule algorithm to take into account employee's availability, max hours, shifts already working. 
+- Made sure position and level were being displayed apropriately throughout the app
+- Made unavailability display in the employee details page
+- Fixed it so when cancelling adding or editing an unavailable time it doesn't jump back too many views
+- Added a warning message when deleting an employee
+- Fixed various bugs
 
 // Andrew's Contributions
 
