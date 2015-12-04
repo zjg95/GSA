@@ -105,9 +105,8 @@ class DateCellTableViewController: UITableViewController {
         let itemTwo = [kTitleKey : "Start Time", kDateKey : NSDate()]
         let itemThree = [kTitleKey : "End Time", kDateKey : NSDate()]
         let itemFour = [kTitleKey : "Day"]
-        let itemFive = [kTitleKey : "Duration"]
         let itemSix = [kTitleKey: "Position"]
-        dataArray = [itemTwo, itemThree, itemFour, itemFive, itemSix]
+        dataArray = [itemTwo, itemThree, itemFour, itemSix]
         
         dateFormatter.timeStyle = .ShortStyle
     }
@@ -199,16 +198,16 @@ class DateCellTableViewController: UITableViewController {
         
         cell = tableView.dequeueReusableCellWithIdentifier(cellID)
     
-        if indexPath.row == 3 {
-            // we decide here that first cell in the table is not selectable (it's just an indicator)
-            cell?.selectionStyle = .None
-            cell?.userInteractionEnabled = false
-            cell?.detailTextLabel?.text = "Coming in final release"
-        }
-        else if indexPath.row == 2 {
+//        if indexPath.row == 3 {
+//            // we decide here that first cell in the table is not selectable (it's just an indicator)
+//            cell?.selectionStyle = .None
+//            cell?.userInteractionEnabled = false
+//            cell?.detailTextLabel?.text = ""
+//        }
+        if indexPath.row == 2 {
             cell?.detailTextLabel?.text = "Sunday"
         }
-        else if indexPath.row == 4 {
+        else if indexPath.row == 3 {
             if position == nil {
                 cell?.detailTextLabel?.text = "Add Optional Position"
             }
@@ -308,7 +307,7 @@ class DateCellTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        if indexPath.row == 4 {
+        if indexPath.row == 3 {
             performSegueWithIdentifier("position", sender: nil)
         } else if (indexPath.row == 2) {
             performSegueWithIdentifier("shiftDetail", sender: nil)
