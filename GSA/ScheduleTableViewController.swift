@@ -301,9 +301,20 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func generateSchedule() {
-        schedule.generate()
+        let failures: Int = schedule.generate()
         clearButton.enabled = true
         self.tableView.reloadData()
+        if failures > 0 {
+            dispatch_async(dispatch_get_main_queue()) {
+                let alertController = UIAlertController(title: "Scheduling Error", message: "The auto-scheduler was unable to assign an employee to \(failures) shift(s) due to time or max hours conflicts.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                let cancel = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
+                }
+                alertController.addAction(cancel)
+                
+                self.presentViewController(alertController, animated: true, completion:nil)
+            }
+        }
     }
     
     @IBAction func addShiftToTable(sender: UIStoryboardSegue) {
