@@ -59,6 +59,7 @@ class EmployeeTableViewController: UITableViewController {
         let e = staff[indexPath.item]
         cell.textLabel?.text = e.fullName
 //        cell.detailTextLabel?.text = e.position
+        cell.detailTextLabel?.text = ""
 
         return cell
     }
