@@ -15,10 +15,15 @@ Contributions
 - basic auto scheduling has been implemented. For now, all shifts are assigned to a single employee, because we haven't implemented any particular scheduling algorithm. this is significant though because we can just drop in a single method with the algorithm and auto scheduling will be fully functional
 
 // David's contributions 30%
+- most view controllers involving employee’s such as add/edit/details/etc.
+- view controllers about an employee’s unavailability
 - employees can now be assigned available times
 - can create an employee with a set of available times
 - employees availbility is now present in employee's details page
 - can edit, add, and delete an employee's available times
+- worked on auto-schedule algorithm making it take into account employee’s availability, current shifts, other restrictions
+- bug fixes
+
 
 // Andrew's Contributions 15%
 - Helped clean up code for available times
