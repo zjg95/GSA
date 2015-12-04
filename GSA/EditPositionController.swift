@@ -29,7 +29,7 @@ class EditPositionController: UIViewController, UIPickerViewDataSource, UIPicker
         titles.dataSource = self
         titles.delegate = self
         
-        level.selectedSegmentIndex = position!.level        
+        level.selectedSegmentIndex = position!.level - 1
     }
     
     override func didReceiveMemoryWarning() {

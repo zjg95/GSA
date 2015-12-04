@@ -50,7 +50,7 @@ class AddPositionController: UIViewController, UIPickerViewDataSource, UIPickerV
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        newPosition = Position(title:selections.selections[titles.selectedRowInComponent(0)], level:level.selectedSegmentIndex)
+        newPosition = Position(title:selections.selections[titles.selectedRowInComponent(0)], level:level.selectedSegmentIndex + 1)
     }
     
     

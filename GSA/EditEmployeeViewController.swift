@@ -168,7 +168,7 @@ class EditEmployeeViewController: UIViewController, UITextFieldDelegate, UITable
                 cell.detailTextLabel!.text = "Level"
             } else {
                 cell.textLabel!.text = employee.position[index - 1].title
-                cell.detailTextLabel!.text = "\(employee.position[index - 1].level + 1)"
+                cell.detailTextLabel!.text = "\(employee.position[index - 1].level)"
             }
             return cell
         } else {

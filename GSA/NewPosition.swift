@@ -54,7 +54,7 @@ class NewPosition: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let x = newTitle.selectedRowInComponent(0)
-        let newPosition = Position(title: selection[x], level: level.selectedSegmentIndex)
+        let newPosition = Position(title: selection[x], level: level.selectedSegmentIndex + 1)
         if position != nil {
             position! = newPosition
         }

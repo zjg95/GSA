@@ -43,7 +43,7 @@ class EditPositionTableViewController: UITableViewController {
         let index:Int = indexPath.row
         if positions != nil {
             cell.textLabel!.text = positions[index].title
-            cell.detailTextLabel!.text = "\(positions[index].level + 1)"
+            cell.detailTextLabel!.text = "\(positions[index].level)"
         }
         return cell
     }

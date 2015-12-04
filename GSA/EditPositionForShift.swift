@@ -53,9 +53,9 @@ class EditPositionForShift: UIViewController, UIPickerViewDataSource, UIPickerVi
         // Pass the selected object to the new view controller.
         if (position != nil) {
             position.title = selections.selections[titles.selectedRowInComponent(0)]
-            position.level = level.selectedSegmentIndex
+            position.level = level.selectedSegmentIndex + 1
         } else {
-            position = Position(title:selections.selections[titles.selectedRowInComponent(0)], level:level.selectedSegmentIndex)
+            position = Position(title:selections.selections[titles.selectedRowInComponent(0)], level:level.selectedSegmentIndex + 1)
         }
 
     }
