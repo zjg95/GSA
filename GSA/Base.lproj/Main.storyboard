@@ -1647,6 +1647,9 @@
                     <navigationItem key="navigationItem" title="Title" id="I1D-ES-oUc">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="bqJ-5x-1Ze">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelPressed:" destination="h1H-ao-pLl" id="6Gx-A7-N5j"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="UPF-q9-sxH">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2203,8 +2206,7 @@
                     <navigationItem key="navigationItem" title="Add Position" id="uXz-CF-ukh">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="cRk-cv-APM">
                             <connections>
-                                <action selector="cancelPressed:" destination="joK-Xj-eY3" id="YHk-8z-yfP"/>
-                                <segue destination="dNd-El-hAO" kind="unwind" unwindAction="cancel:" id="qvo-ma-l2w"/>
+                                <action selector="cancelPressed:" destination="joK-Xj-eY3" id="7rv-9E-zVw"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="qkT-Gs-a4B">
