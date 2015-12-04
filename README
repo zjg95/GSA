@@ -4,6 +4,7 @@ Contributions
 - added view constraints to ensure that views scale well across all devices. Some views had too much content to scale. This is a fundamental design problem that needs to be rethought.
 - used NSUserDefaults to save the last view that the user accessed in the schedule view
 - implemented back-end changes to the construction of new schedules (copying employee data into a new structure)
+- built a cool error message that appears if the auto scheduler fails to assign employees to any shifts
 - fixed various compile warnings and numerous bugs/errors
 
 // David's contributions
