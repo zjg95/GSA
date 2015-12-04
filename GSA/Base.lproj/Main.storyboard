@@ -2160,10 +2160,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p33-QC-nDq">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p33-QC-nDq">
                                 <rect key="frame" x="0.0" y="135" width="375" height="216"/>
                             </pickerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fej-yT-msy">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fej-yT-msy">
                                 <rect key="frame" x="114" y="389" width="147" height="29"/>
                                 <segments>
                                     <segment title="1"/>
@@ -2173,13 +2173,13 @@
                                     <segment title="5"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipU-ef-yty">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipU-ef-yty">
                                 <rect key="frame" x="135" y="337" width="104" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1D-eK-zX7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1D-eK-zX7">
                                 <rect key="frame" x="139" y="128" width="97" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2187,6 +2187,18 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="p33-QC-nDq" firstAttribute="centerX" secondItem="ipU-ef-yty" secondAttribute="centerX" id="0jS-4L-Omf"/>
+                            <constraint firstItem="Fej-yT-msy" firstAttribute="top" secondItem="ipU-ef-yty" secondAttribute="bottom" constant="31" id="7VN-r9-IXh"/>
+                            <constraint firstItem="Fej-yT-msy" firstAttribute="centerX" secondItem="ipU-ef-yty" secondAttribute="centerX" id="AUe-U6-P40"/>
+                            <constraint firstItem="P1D-eK-zX7" firstAttribute="top" secondItem="LdH-U0-jHy" secondAttribute="bottom" constant="64" id="EoC-LV-Adi"/>
+                            <constraint firstItem="Fej-yT-msy" firstAttribute="top" secondItem="p33-QC-nDq" secondAttribute="bottom" constant="38" id="NIz-pC-mf9"/>
+                            <constraint firstItem="p33-QC-nDq" firstAttribute="leading" secondItem="Ezm-7q-H0e" secondAttribute="leading" id="VNG-tS-dRi"/>
+                            <constraint firstItem="p33-QC-nDq" firstAttribute="top" secondItem="LdH-U0-jHy" secondAttribute="bottom" constant="71" id="hlT-vB-uz0"/>
+                            <constraint firstItem="Fej-yT-msy" firstAttribute="leading" secondItem="Ezm-7q-H0e" secondAttribute="leadingMargin" constant="98" id="jgm-dg-Z1x"/>
+                            <constraint firstItem="P1D-eK-zX7" firstAttribute="centerX" secondItem="p33-QC-nDq" secondAttribute="centerX" id="l4C-sO-XNJ"/>
+                            <constraint firstAttribute="trailing" secondItem="p33-QC-nDq" secondAttribute="trailing" id="roj-12-Ngy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Position" id="uXz-CF-ukh">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="cRk-cv-APM">
