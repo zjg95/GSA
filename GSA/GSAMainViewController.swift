@@ -56,7 +56,7 @@ class GSAMainViewController: UITabBarController {
             }
         }
         if let nav = self.viewControllers![2] as? UINavigationController {
-            if let position = nav.viewControllers.first as? addSelectionsController{
+            if let _ = nav.viewControllers.first as? addSelectionsController{
             }
         }
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)

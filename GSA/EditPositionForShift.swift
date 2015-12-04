@@ -22,6 +22,10 @@ class EditPositionForShift: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     @IBOutlet weak var level: UISegmentedControl!
     
+    @IBAction func cancelPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
