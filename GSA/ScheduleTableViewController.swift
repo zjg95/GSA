@@ -79,6 +79,9 @@ class ScheduleTableViewController: UITableViewController {
         }
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         navigationItem.titleView?.tintColor = UIColor.whiteColor()
+        generateButton.tintColor = UIColor.init(red: 71/255.0, green: 197/255.0, blue: 255.0/255.0, alpha:1)
+        clearButton.tintColor = UIColor.init(red: 71/255.0, green: 197/255.0, blue: 255.0/255.0, alpha: 1)
+        
     }
     
     override func didReceiveMemoryWarning() {
