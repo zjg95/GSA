@@ -16,6 +16,13 @@ Contributions
 - Fixed various bugs
 
 // Andrew's Contributions
-
+- Worked on autoscheduling algorithm to take into account employee's positions and if the shift requires a certain position
+- added position to shifts 
+- added position to employee and ability to add and edit position
+- added ability to add custom titles to positions
+- fixed some bugs
+- works on UI of whole app, changed the color of the overall app
+- add UI for position addition and edit for both shift and employee
+- worked on some bugs
 Differences
 None
