@@ -1,5 +1,5 @@
 Contributions
-// Zach's Contributions
+// Zach's Contributions 33%
 - completely rebuilt the Shift Details Veiw. It was once an ugly view with data plopped on the screen in a bad order. Now it's using a table view and looks WAY cleaner.
 - added view constraints to ensure that views scale well across all devices. Some views had too much content to scale. This is a fundamental design problem that needs to be rethought.
 - used NSUserDefaults to save the last view that the user accessed in the schedule view
@@ -7,7 +7,7 @@ Contributions
 - built a cool error message that appears if the auto scheduler fails to assign employees to any shifts
 - fixed various compile warnings and numerous bugs/errors
 
-// David's contributions
+// David's contributions 33%
 - Worked on the autoschedule algorithm to take into account employee's availability, max hours, shifts already working. 
 - Made sure position and level were being displayed apropriately throughout the app
 - Made unavailability display in the employee details page
@@ -15,7 +15,7 @@ Contributions
 - Added a warning message when deleting an employee
 - Fixed various bugs
 
-// Andrew's Contributions
+// Andrew's Contributions 33%
 - Worked on autoscheduling algorithm to take into account employee's positions and if the shift requires a certain position
 - added position to shifts 
 - added position to employee and ability to add and edit position
